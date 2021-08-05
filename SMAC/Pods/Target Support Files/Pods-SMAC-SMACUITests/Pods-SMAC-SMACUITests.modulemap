@@ -1,0 +1,6 @@
+framework module Pods_SMAC_SMACUITests {
+  umbrella header "Pods-SMAC-SMACUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

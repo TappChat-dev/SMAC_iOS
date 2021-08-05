@@ -9,4 +9,7 @@ import UIKit
 
 class LoginViewModel: NSObject {
 
+    
+    var employees = Logins()
+
 }
