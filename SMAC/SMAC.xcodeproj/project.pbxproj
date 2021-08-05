@@ -38,6 +38,23 @@
 		045D432A26BBAA8B0082BCD1 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D432926BBAA8B0082BCD1 /* DashboardViewModel.swift */; };
 		045D432F26BBAA9F0082BCD1 /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D432E26BBAA9F0082BCD1 /* DashboardModel.swift */; };
 		09F068364F230A84A4159667 /* Pods_SMAC_SMACUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A8D82D803FE490CD2DD9FA /* Pods_SMAC_SMACUITests.framework */; };
+		471CF8BC26BBB804008E1C9C /* SideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8BB26BBB804008E1C9C /* SideMenuNavigationController.swift */; };
+		471CF8C226BBB926008E1C9C /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8BD26BBB924008E1C9C /* PreferencesViewController.swift */; };
+		471CF8C326BBB926008E1C9C /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8BE26BBB924008E1C9C /* UINavigationController+Extension.swift */; };
+		471CF8C426BBB926008E1C9C /* WorkWithOtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8BF26BBB925008E1C9C /* WorkWithOtherViewController.swift */; };
+		471CF8C526BBB926008E1C9C /* OtherExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8C026BBB925008E1C9C /* OtherExampleViewController.swift */; };
+		471CF8C626BBB926008E1C9C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8C126BBB926008E1C9C /* MenuViewController.swift */; };
+		471CF8C826BBB956008E1C9C /* SideMenuMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 471CF8C726BBB956008E1C9C /* SideMenuMain.storyboard */; };
+		471CF8D626BBBC63008E1C9C /* UIViewController+SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8CB26BBBC63008E1C9C /* UIViewController+SideMenu.swift */; };
+		471CF8D726BBBC63008E1C9C /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8CC26BBBC63008E1C9C /* StatusBar.swift */; };
+		471CF8D826BBBC63008E1C9C /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8CD26BBBC63008E1C9C /* Preferences.swift */; };
+		471CF8D926BBBC63008E1C9C /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8CE26BBBC63008E1C9C /* Delegate.swift */; };
+		471CF8DA26BBBC63008E1C9C /* TransitionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8CF26BBBC63008E1C9C /* TransitionContext.swift */; };
+		471CF8DB26BBBC63008E1C9C /* UIViewController+Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8D026BBBC63008E1C9C /* UIViewController+Container.swift */; };
+		471CF8DC26BBBC63008E1C9C /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8D126BBBC63008E1C9C /* Segue.swift */; };
+		471CF8DD26BBBC63008E1C9C /* UIView+Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8D226BBBC63008E1C9C /* UIView+Container.swift */; };
+		471CF8DE26BBBC63008E1C9C /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8D326BBBC63008E1C9C /* SideMenuController.swift */; };
+		471CF8DF26BBBC63008E1C9C /* BasicTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8D426BBBC63008E1C9C /* BasicTransitionAnimator.swift */; };
 		78C156CFF801853A0CE9D756 /* Pods_SMAC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6C0D348225983DC447117B /* Pods_SMAC.framework */; };
 		A8BB806DFF5E950CE23C4704 /* Pods_SMACTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FDE01A691804D830AE6679B /* Pods_SMACTests.framework */; };
 /* End PBXBuildFile section */
@@ -98,6 +115,24 @@
 		045D432E26BBAA9F0082BCD1 /* DashboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
 		1864D2E0E5A830C2C3AAB50B /* Pods-SMAC-SMACUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMAC-SMACUITests.debug.xcconfig"; path = "Target Support Files/Pods-SMAC-SMACUITests/Pods-SMAC-SMACUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		32800C720F30C60C5BD93448 /* Pods-SMAC-SMACUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMAC-SMACUITests.release.xcconfig"; path = "Target Support Files/Pods-SMAC-SMACUITests/Pods-SMAC-SMACUITests.release.xcconfig"; sourceTree = "<group>"; };
+		471CF8BB26BBB804008E1C9C /* SideMenuNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuNavigationController.swift; sourceTree = "<group>"; };
+		471CF8BD26BBB924008E1C9C /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		471CF8BE26BBB924008E1C9C /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		471CF8BF26BBB925008E1C9C /* WorkWithOtherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkWithOtherViewController.swift; sourceTree = "<group>"; };
+		471CF8C026BBB925008E1C9C /* OtherExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherExampleViewController.swift; sourceTree = "<group>"; };
+		471CF8C126BBB926008E1C9C /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		471CF8C726BBB956008E1C9C /* SideMenuMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SideMenuMain.storyboard; sourceTree = "<group>"; };
+		471CF8CA26BBBC63008E1C9C /* SideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenu.h; sourceTree = "<group>"; };
+		471CF8CB26BBBC63008E1C9C /* UIViewController+SideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+SideMenu.swift"; sourceTree = "<group>"; };
+		471CF8CC26BBBC63008E1C9C /* StatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
+		471CF8CD26BBBC63008E1C9C /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		471CF8CE26BBBC63008E1C9C /* Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
+		471CF8CF26BBBC63008E1C9C /* TransitionContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionContext.swift; sourceTree = "<group>"; };
+		471CF8D026BBBC63008E1C9C /* UIViewController+Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Container.swift"; sourceTree = "<group>"; };
+		471CF8D126BBBC63008E1C9C /* Segue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segue.swift; sourceTree = "<group>"; };
+		471CF8D226BBBC63008E1C9C /* UIView+Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Container.swift"; sourceTree = "<group>"; };
+		471CF8D326BBBC63008E1C9C /* SideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
+		471CF8D426BBBC63008E1C9C /* BasicTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicTransitionAnimator.swift; sourceTree = "<group>"; };
 		6FDE01A691804D830AE6679B /* Pods_SMACTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMACTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		798204F65C994BADBEF48024 /* Pods-SMACTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMACTests.debug.xcconfig"; path = "Target Support Files/Pods-SMACTests/Pods-SMACTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8203EFA064D44C82B8E26171 /* Pods-SMAC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMAC.debug.xcconfig"; path = "Target Support Files/Pods-SMAC/Pods-SMAC.debug.xcconfig"; sourceTree = "<group>"; };
@@ -160,6 +195,7 @@
 		045D427726B27B060082BCD1 /* SMAC */ = {
 			isa = PBXGroup;
 			children = (
+				471CF8B826BBB726008E1C9C /* SideMenu */,
 				045D431926B93DE00082BCD1 /* Dashboard */,
 				045D42DB26B93A770082BCD1 /* Extension */,
 				045D42DA26B93A700082BCD1 /* Utility */,
@@ -325,6 +361,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		471CF8B826BBB726008E1C9C /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				471CF8C926BBBC63008E1C9C /* SideMenu */,
+				471CF8C726BBB956008E1C9C /* SideMenuMain.storyboard */,
+				471CF8C126BBB926008E1C9C /* MenuViewController.swift */,
+				471CF8C026BBB925008E1C9C /* OtherExampleViewController.swift */,
+				471CF8BD26BBB924008E1C9C /* PreferencesViewController.swift */,
+				471CF8BE26BBB924008E1C9C /* UINavigationController+Extension.swift */,
+				471CF8BF26BBB925008E1C9C /* WorkWithOtherViewController.swift */,
+				471CF8BB26BBB804008E1C9C /* SideMenuNavigationController.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		471CF8C926BBBC63008E1C9C /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				471CF8CA26BBBC63008E1C9C /* SideMenu.h */,
+				471CF8CB26BBBC63008E1C9C /* UIViewController+SideMenu.swift */,
+				471CF8CC26BBBC63008E1C9C /* StatusBar.swift */,
+				471CF8CD26BBBC63008E1C9C /* Preferences.swift */,
+				471CF8CE26BBBC63008E1C9C /* Delegate.swift */,
+				471CF8CF26BBBC63008E1C9C /* TransitionContext.swift */,
+				471CF8D026BBBC63008E1C9C /* UIViewController+Container.swift */,
+				471CF8D126BBBC63008E1C9C /* Segue.swift */,
+				471CF8D226BBBC63008E1C9C /* UIView+Container.swift */,
+				471CF8D326BBBC63008E1C9C /* SideMenuController.swift */,
+				471CF8D426BBBC63008E1C9C /* BasicTransitionAnimator.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
 		8EE15BD81B8B91BBD4BCF640 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,6 +518,7 @@
 				045D428826B27B080082BCD1 /* LaunchScreen.storyboard in Resources */,
 				045D428526B27B080082BCD1 /* Assets.xcassets in Resources */,
 				045D428026B27B060082BCD1 /* Main.storyboard in Resources */,
+				471CF8C826BBB956008E1C9C /* SideMenuMain.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,27 +647,43 @@
 			buildActionMask = 2147483647;
 			files = (
 				045D427D26B27B060082BCD1 /* ViewController.swift in Sources */,
+				471CF8DB26BBBC63008E1C9C /* UIViewController+Container.swift in Sources */,
 				045D432126BBA7360082BCD1 /* DashboardViewController.swift in Sources */,
+				471CF8C526BBB926008E1C9C /* OtherExampleViewController.swift in Sources */,
+				471CF8DF26BBBC63008E1C9C /* BasicTransitionAnimator.swift in Sources */,
 				045D428326B27B060082BCD1 /* SMAC.xcdatamodeld in Sources */,
 				045D42DD26B93A940082BCD1 /* Utility.swift in Sources */,
 				045D42C626B9283F0082BCD1 /* LoginViewCredentialModel.swift in Sources */,
+				471CF8D826BBBC63008E1C9C /* Preferences.swift in Sources */,
 				045D430326B93AC40082BCD1 /* UINib+Loader.swift in Sources */,
+				471CF8C626BBB926008E1C9C /* MenuViewController.swift in Sources */,
 				045D430126B93AC40082BCD1 /* ViewControllerUtils.swift in Sources */,
+				471CF8DA26BBBC63008E1C9C /* TransitionContext.swift in Sources */,
 				045D42E226B93A990082BCD1 /* Loader.swift in Sources */,
 				045D427926B27B060082BCD1 /* AppDelegate.swift in Sources */,
 				045D430226B93AC40082BCD1 /* UIViewController+Subview.swift in Sources */,
 				045D42F426B93ABB0082BCD1 /* Json.swift in Sources */,
+				471CF8DD26BBBC63008E1C9C /* UIView+Container.swift in Sources */,
+				471CF8C326BBB926008E1C9C /* UINavigationController+Extension.swift in Sources */,
+				471CF8DC26BBBC63008E1C9C /* Segue.swift in Sources */,
 				045D42F626B93ABB0082BCD1 /* ImageWithText.swift in Sources */,
 				045D42F526B93ABB0082BCD1 /* Logger.swift in Sources */,
 				045D42B826B4024C0082BCD1 /* LoginViewController.swift in Sources */,
 				045D427B26B27B060082BCD1 /* SceneDelegate.swift in Sources */,
 				045D432A26BBAA8B0082BCD1 /* DashboardViewModel.swift in Sources */,
+				471CF8C426BBB926008E1C9C /* WorkWithOtherViewController.swift in Sources */,
+				471CF8DE26BBBC63008E1C9C /* SideMenuController.swift in Sources */,
 				045D430026B93AC40082BCD1 /* UIColor+Theme.swift in Sources */,
+				471CF8D726BBBC63008E1C9C /* StatusBar.swift in Sources */,
 				045D42D126B929060082BCD1 /* LoginViewModel.swift in Sources */,
 				045D42FF26B93AC40082BCD1 /* RoundedCorner.swift in Sources */,
+				471CF8BC26BBB804008E1C9C /* SideMenuNavigationController.swift in Sources */,
+				471CF8C226BBB926008E1C9C /* PreferencesViewController.swift in Sources */,
 				045D42F226B93ABB0082BCD1 /* FileUtils.swift in Sources */,
 				045D432F26BBAA9F0082BCD1 /* DashboardModel.swift in Sources */,
 				045D42F126B93ABB0082BCD1 /* Design.swift in Sources */,
+				471CF8D626BBBC63008E1C9C /* UIViewController+SideMenu.swift in Sources */,
+				471CF8D926BBBC63008E1C9C /* Delegate.swift in Sources */,
 				045D42D626B929590082BCD1 /* Login.swift in Sources */,
 				045D42F326B93ABB0082BCD1 /* Dimensions.swift in Sources */,
 				045D42E726B93AB10082BCD1 /* DateTime.swift in Sources */,
