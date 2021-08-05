@@ -31,6 +31,9 @@
                                             <segment title="NON-ICG"/>
                                         </segments>
                                         <color key="selectedSegmentTintColor" red="0.2459146082" green="0.26825037600000001" blue="0.38021266460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="indexChanged:" destination="NvE-1v-j16" eventType="valueChanged" id="Iax-qu-nSv"/>
+                                        </connections>
                                     </segmentedControl>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fCM-O8-sBB" customClass="DesignableUITextField" customModule="SMAC" customModuleProvider="target">
                                         <rect key="frame" x="25" y="145" width="265" height="50"/>
@@ -38,7 +41,7 @@
                                             <constraint firstAttribute="height" constant="50" id="zYm-a8-Wec"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="gapPadding">
                                                 <real key="value" value="10"/>
@@ -74,7 +77,7 @@
                                             <constraint firstAttribute="height" constant="50" id="ot8-9x-7Ha"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="gapPadding">
                                                 <real key="value" value="10"/>
@@ -168,9 +171,10 @@
                     </view>
                     <connections>
                         <outlet property="btnLogin" destination="Qvp-R6-qKc" id="o0r-r0-UUQ"/>
+                        <outlet property="btnSegment" destination="PkF-uz-LG8" id="oEu-RH-MNn"/>
                         <outlet property="loginView" destination="9Jw-mb-XMB" id="fcd-q2-8ta"/>
-                        <outlet property="password" destination="Aku-eG-6Ts" id="Vfy-4z-C6n"/>
-                        <outlet property="username" destination="fCM-O8-sBB" id="cHg-xS-6Ig"/>
+                        <outlet property="passwordTxt" destination="Aku-eG-6Ts" id="HDP-U6-gx7"/>
+                        <outlet property="usernameTxt" destination="fCM-O8-sBB" id="tMb-7X-qB9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qUt-OO-fYk" sceneMemberID="firstResponder"/>
@@ -337,7 +341,7 @@
     </scenes>
     <designables>
         <designable name="Aku-eG-6Ts">
-            <size key="intrinsicContentSize" width="80" height="23"/>
+            <size key="intrinsicContentSize" width="80" height="22"/>
         </designable>
         <designable name="fCM-O8-sBB">
             <size key="intrinsicContentSize" width="85" height="23"/>
