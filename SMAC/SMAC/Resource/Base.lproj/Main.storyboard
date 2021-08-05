@@ -301,10 +301,10 @@
     </scenes>
     <designables>
         <designable name="Aku-eG-6Ts">
-            <size key="intrinsicContentSize" width="129" height="23"/>
+            <size key="intrinsicContentSize" width="80" height="23"/>
         </designable>
         <designable name="fCM-O8-sBB">
-            <size key="intrinsicContentSize" width="134" height="23"/>
+            <size key="intrinsicContentSize" width="85" height="23"/>
         </designable>
     </designables>
     <resources>
