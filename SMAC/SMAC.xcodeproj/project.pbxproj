@@ -35,6 +35,8 @@
 		045D430226B93AC40082BCD1 /* UIViewController+Subview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D42FD26B93AC30082BCD1 /* UIViewController+Subview.swift */; };
 		045D430326B93AC40082BCD1 /* UINib+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D42FE26B93AC40082BCD1 /* UINib+Loader.swift */; };
 		045D432126BBA7360082BCD1 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D432026BBA7360082BCD1 /* DashboardViewController.swift */; };
+		045D432A26BBAA8B0082BCD1 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D432926BBAA8B0082BCD1 /* DashboardViewModel.swift */; };
+		045D432F26BBAA9F0082BCD1 /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D432E26BBAA9F0082BCD1 /* DashboardModel.swift */; };
 		09F068364F230A84A4159667 /* Pods_SMAC_SMACUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A8D82D803FE490CD2DD9FA /* Pods_SMAC_SMACUITests.framework */; };
 		78C156CFF801853A0CE9D756 /* Pods_SMAC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6C0D348225983DC447117B /* Pods_SMAC.framework */; };
 		A8BB806DFF5E950CE23C4704 /* Pods_SMACTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FDE01A691804D830AE6679B /* Pods_SMACTests.framework */; };
@@ -92,6 +94,8 @@
 		045D42FD26B93AC30082BCD1 /* UIViewController+Subview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Subview.swift"; sourceTree = "<group>"; };
 		045D42FE26B93AC40082BCD1 /* UINib+Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINib+Loader.swift"; sourceTree = "<group>"; };
 		045D432026BBA7360082BCD1 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		045D432926BBAA8B0082BCD1 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		045D432E26BBAA9F0082BCD1 /* DashboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
 		1864D2E0E5A830C2C3AAB50B /* Pods-SMAC-SMACUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMAC-SMACUITests.debug.xcconfig"; path = "Target Support Files/Pods-SMAC-SMACUITests/Pods-SMAC-SMACUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		32800C720F30C60C5BD93448 /* Pods-SMAC-SMACUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMAC-SMACUITests.release.xcconfig"; path = "Target Support Files/Pods-SMAC-SMACUITests/Pods-SMAC-SMACUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6FDE01A691804D830AE6679B /* Pods_SMACTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMACTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +165,7 @@
 				045D42DA26B93A700082BCD1 /* Utility */,
 				045D42B326B402120082BCD1 /* Login */,
 				045D42AF26B2834D0082BCD1 /* AppDelegate */,
+				045D432526BBA8980082BCD1 /* Network */,
 				045D42AE26B283330082BCD1 /* Resource */,
 				045D427C26B27B060082BCD1 /* ViewController.swift */,
 				045D428926B27B080082BCD1 /* Info.plist */,
@@ -282,6 +287,7 @@
 		045D431D26BBA6BA0082BCD1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				045D432926BBAA8B0082BCD1 /* DashboardViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -297,8 +303,16 @@
 		045D431F26BBA6CD0082BCD1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				045D432E26BBAA9F0082BCD1 /* DashboardModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		045D432526BBA8980082BCD1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		21A4A3A0C3F1C9CA49580AD8 /* Frameworks */ = {
@@ -577,10 +591,12 @@
 				045D42F526B93ABB0082BCD1 /* Logger.swift in Sources */,
 				045D42B826B4024C0082BCD1 /* LoginViewController.swift in Sources */,
 				045D427B26B27B060082BCD1 /* SceneDelegate.swift in Sources */,
+				045D432A26BBAA8B0082BCD1 /* DashboardViewModel.swift in Sources */,
 				045D430026B93AC40082BCD1 /* UIColor+Theme.swift in Sources */,
 				045D42D126B929060082BCD1 /* LoginViewModel.swift in Sources */,
 				045D42FF26B93AC40082BCD1 /* RoundedCorner.swift in Sources */,
 				045D42F226B93ABB0082BCD1 /* FileUtils.swift in Sources */,
+				045D432F26BBAA9F0082BCD1 /* DashboardModel.swift in Sources */,
 				045D42F126B93ABB0082BCD1 /* Design.swift in Sources */,
 				045D42D626B929590082BCD1 /* Login.swift in Sources */,
 				045D42F326B93ABB0082BCD1 /* Dimensions.swift in Sources */,
