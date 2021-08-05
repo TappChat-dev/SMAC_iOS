@@ -48,7 +48,7 @@ class LoginViewController: UIViewController {
         return true
     }
     
-    // MARK: - Button
+    // MARK: - Login Button
     @IBAction func tapToLogin(_ sender:UIButton){
         if validationCheck() {
             usernameTxt.resignFirstResponder()
