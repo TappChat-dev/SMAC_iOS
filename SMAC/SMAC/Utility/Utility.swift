@@ -13,7 +13,7 @@ import MaterialComponents.MaterialSnackbar
 import CoreLocation
 import CoreTelephony
 
-@objc public class Utility : NSObject {
+ public class Utility : NSObject {
     static func setViewCornerRadius(_ view: UIView, _ radius: CGFloat) {
         view.layer.cornerRadius = radius
         view.clipsToBounds = false
@@ -107,5 +107,32 @@ import CoreTelephony
         let isReachable = flags.contains(.reachable)
         let needsConnection = flags.contains(.connectionRequired)
         return (isReachable && !needsConnection)
+    }
+    
+    func addAlertView(_ alertTitle: String, _ alertMessage: String, _ alertAction: String, _ controller: UIViewController) {
+        let alertController = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: alertAction, style: .cancel, handler: nil)
+        alertController.addAction(defaultAction)
+        controller.present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension UIColor{
+    convenience init(red: Int, green: Int, blue: Int, a: CGFloat = 1.0) {
+        self.init(
+            red: CGFloat(red) / 255.0,
+            green: CGFloat(green) / 255.0,
+            blue: CGFloat(blue) / 255.0,
+            alpha: a
+        )
+    }
+
+    convenience init(rgb: Int, a: CGFloat = 1.0) {
+        self.init(
+            red: (rgb >> 16) & 0xFF,
+            green: (rgb >> 8) & 0xFF,
+            blue: rgb & 0xFF,
+            a: a
+        )
     }
 }

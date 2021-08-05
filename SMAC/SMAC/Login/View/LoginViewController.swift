@@ -37,10 +37,30 @@ class LoginViewController: UIViewController {
         super.viewWillDisappear(true)
     }
     
-   
+    fileprivate func validationCheck() -> Bool {
+        if usernameTxt.text!.isEmpty {
+            Utility().addAlertView("Alert!", StringConstant.emptyUsername, "OK", self)
+            return false
+        } else if passwordTxt.text!.isEmpty || passwordTxt.text!.count < 6{
+            Utility().addAlertView("Alert!", StringConstant.emptyPassword, "OK", self)
+            return false
+        }
+        return true
+    }
+    
     // MARK: - Button
     @IBAction func tapToLogin(_ sender:UIButton){
-
+        if validationCheck() {
+            usernameTxt.resignFirstResponder()
+            passwordTxt.resignFirstResponder()
+            let status =  viewModel.getLoginResponse()
+              if status {
+                  //navigate to other controller
+              }else{
+                  
+              }
+        }
+     
     }
     
     @IBAction func indexChanged(_ sender: UISegmentedControl) {

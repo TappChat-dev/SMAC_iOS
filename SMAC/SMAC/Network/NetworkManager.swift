@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 import AVFoundation
+import SVProgressHUD
 
  protocol NetworkManagerDelegate : class {
     func callBackGetDictionary(dicUrlPath:NSDictionary)
@@ -125,10 +126,50 @@ class func apiGet(serviceName:String,parameters: [String:Any]?, completionHandle
                 break
                 
             case .failure(_ ):
+                if response.response?.statusCode == 401 {
+//                    completionHandler(nil,"Request timed out.")
+                    SVProgressHUD.showInfo(withStatus: "Request timed out.")
+                }else{
                 completionHandler(nil,response.error)
+                }
                 break
                 
             }
         }
     }
+    
+    //MARK:- APi POST LOGIN
+ public func apiPostLogin(serviceName:String,  parameters:[String:Any], completionHandler: @escaping (_ result : Dictionary<String, Any>?, _ error : Error?) -> ()){
+           
+           var request = URLRequest(url: URL(string: serviceName)!)
+           request.httpMethod = HTTPMethod.post.rawValue
+           request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+           let jsonData = try! JSONSerialization.data(withJSONObject: parameters, options: [.prettyPrinted])
+           request.httpBody = jsonData
+           
+           AF.request(request).responseData { (response) in
+               print(response)
+               switch(response.result) {
+               case .success(_):
+                   print("Service url of Make call - " + serviceName)
+                   if let data = response.data {
+                       do {
+                           let  dictonary = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:Any]
+                           if let dataDictionary = dictonary {
+                               print(dataDictionary)
+                               completionHandler(dataDictionary, nil)
+                           }
+                       } catch let error as NSError {
+                           print(error)
+                        let  dictonaryDicError : [String:Any]? = ["message":"Server error","status":0]
+                        completionHandler(dictonaryDicError,nil)
+                       }
+                   }
+                   break
+               case .failure(_):
+                   completionHandler(nil,response.error)
+                   break
+               }
+           }
+       }
 }
