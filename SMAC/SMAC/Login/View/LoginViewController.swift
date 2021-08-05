@@ -53,7 +53,8 @@ class LoginViewController: UIViewController {
         if validationCheck() {
             usernameTxt.resignFirstResponder()
             passwordTxt.resignFirstResponder()
-            let status =  viewModel.getLoginResponse()
+            
+            let status =  viewModel.getLoginResponse(user: LoginViewCredentialModel(username: usernameTxt.text!, password: passwordTxt.text!, type: segmentSelectedOption!))
               if status {
                   //navigate to other controller
               }else{

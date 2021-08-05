@@ -19,8 +19,10 @@ class LoginViewModel: NSObject {
         }
     }
     
-    func getLoginResponse() -> Bool{
+    func getLoginResponse(user: LoginViewCredentialModel) -> Bool{
 //        let serviceUrl = BaseUrl.baseURL + kGroupProfileDelete + kSlash + kUserDelete + kSlash + subscriberId
+        let jsonData:Any = LoginViewCredentialModel.encode(object:user )
+        print("Dic=",jsonData)
         apiManager.apiPostLogin(serviceName: "", parameters: [:], completionHandler: {
             [weak self] (response, error) in
                 guard let weakSelf = self else { return }
