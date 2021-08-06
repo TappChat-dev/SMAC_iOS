@@ -377,10 +377,10 @@
             </objects>
             <point key="canvasLocation" x="773.60000000000002" y="393.55322338830587"/>
         </scene>
-        <!--Work With Other View Controller-->
+        <!--Ticket Detail View Controller-->
         <scene sceneID="t8u-Xd-wcn">
             <objects>
-                <viewController id="Xkf-dR-rhE" customClass="WorkWithOtherViewController" customModule="SMAC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Xkf-dR-rhE" customClass="TicketDetailViewController" customModule="SMAC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zns-Wm-N2k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -388,7 +388,11 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oXg-pF-f5h">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PSZ-65-sPN">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="YpD-k8-vuu">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                        <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
+                                    </tableView>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PSZ-65-sPN">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="88"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Working with Pan to Pop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNM-iF-Nrm">
@@ -416,7 +420,7 @@
                                             <constraint firstItem="SDO-dU-Ab4" firstAttribute="top" secondItem="hNM-iF-Nrm" secondAttribute="bottom" constant="10" id="xKo-Y2-jGm"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oHI-2t-QDh">
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oHI-2t-QDh">
                                         <rect key="frame" x="0.0" y="88" width="375" height="88"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Working with Present" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcL-ib-j2u">
@@ -444,7 +448,7 @@
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wcL-ib-j2u" secondAttribute="trailing" constant="20" symbolic="YES" id="usu-CK-LIe"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lVS-Qv-ctF">
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lVS-Qv-ctF">
                                         <rect key="frame" x="0.0" y="176" width="375" height="88"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Slider" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dK4-XM-KLO">
@@ -472,13 +476,17 @@
                                 <constraints>
                                     <constraint firstItem="lVS-Qv-ctF" firstAttribute="leading" secondItem="oXg-pF-f5h" secondAttribute="leading" id="Ffi-31-3m9"/>
                                     <constraint firstItem="PSZ-65-sPN" firstAttribute="top" secondItem="oXg-pF-f5h" secondAttribute="top" id="Fzf-HN-TQO"/>
+                                    <constraint firstAttribute="bottom" secondItem="YpD-k8-vuu" secondAttribute="bottom" id="HKc-WR-EJz"/>
                                     <constraint firstItem="PSZ-65-sPN" firstAttribute="leading" secondItem="oXg-pF-f5h" secondAttribute="leading" id="Ip1-yl-RpJ"/>
                                     <constraint firstItem="lVS-Qv-ctF" firstAttribute="top" secondItem="oHI-2t-QDh" secondAttribute="bottom" id="LKd-BH-cXe"/>
                                     <constraint firstAttribute="bottom" secondItem="lVS-Qv-ctF" secondAttribute="bottom" constant="359" id="XRh-RU-y77"/>
                                     <constraint firstAttribute="trailing" secondItem="PSZ-65-sPN" secondAttribute="trailing" id="aBK-HZ-3ev"/>
                                     <constraint firstAttribute="trailing" secondItem="oHI-2t-QDh" secondAttribute="trailing" id="aqu-tC-B66"/>
                                     <constraint firstItem="oHI-2t-QDh" firstAttribute="leading" secondItem="oXg-pF-f5h" secondAttribute="leading" id="ikt-Bp-uUd"/>
+                                    <constraint firstItem="YpD-k8-vuu" firstAttribute="top" secondItem="oXg-pF-f5h" secondAttribute="top" id="kqA-ZH-Bte"/>
+                                    <constraint firstItem="YpD-k8-vuu" firstAttribute="leading" secondItem="oXg-pF-f5h" secondAttribute="leading" id="m9W-iL-TMg"/>
                                     <constraint firstItem="oHI-2t-QDh" firstAttribute="top" secondItem="PSZ-65-sPN" secondAttribute="bottom" id="wue-HW-4qY"/>
+                                    <constraint firstAttribute="trailing" secondItem="YpD-k8-vuu" secondAttribute="trailing" id="wvg-Ji-Hvw"/>
                                     <constraint firstAttribute="trailing" secondItem="lVS-Qv-ctF" secondAttribute="trailing" id="yOo-lw-4DQ"/>
                                 </constraints>
                             </scrollView>
@@ -508,10 +516,10 @@
             </objects>
             <point key="canvasLocation" x="1640.8" y="1222.9385307346329"/>
         </scene>
-        <!--Other Example View Controller-->
+        <!--Create Ticket View Controller-->
         <scene sceneID="sR0-zW-AQ7">
             <objects>
-                <viewController id="5t6-4r-SSF" customClass="OtherExampleViewController" customModule="SMAC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5t6-4r-SSF" customClass="CreateTicketViewController" customModule="SMAC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hZe-rj-rt4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -640,4 +648,9 @@
             <point key="canvasLocation" x="2312.8000000000002" y="1208.5457271364319"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
