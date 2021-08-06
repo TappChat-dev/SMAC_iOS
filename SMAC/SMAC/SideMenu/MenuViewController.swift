@@ -118,7 +118,7 @@ extension MenuViewController: SideMenuControllerDelegate {
 
 extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
 
     // swiftlint:disable force_cast
@@ -131,6 +131,9 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
         } else if row == 1 {
             cell.titleLabel?.text = "Create Ticket"
         } else if row == 2 {
+            cell.titleLabel?.text = "Filter"
+        }
+        else if row == 3 {
             cell.titleLabel?.text = "Logout"
         }
         cell.titleLabel?.textColor = isDarkModeEnabled ? .white : .black
@@ -141,6 +144,15 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
         let row = indexPath.row
 
         sideMenuController?.setContentViewController(with: "\(row)", animated: Preferences.shared.enableTransitionAnimation)
+        if row == 2 {
+            let vc2 = UIStoryboard.init(name: "SideMenuMain", bundle: Bundle.main).instantiateViewController(withIdentifier: "ContentNavigation") as? NavigationController
+           
+            sideMenuController?.contentViewController = vc2
+        } else if row == 3 {
+            dismiss(animated: true, completion: nil)
+        }
+        
+        
         sideMenuController?.hideMenu()
 
         if let identifier = sideMenuController?.currentCacheIdentifier() {

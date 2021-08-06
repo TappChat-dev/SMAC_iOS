@@ -41,9 +41,8 @@
 		045D433C26BBEB460082BCD1 /* StringConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D433B26BBEB460082BCD1 /* StringConstant.swift */; };
 		09F068364F230A84A4159667 /* Pods_SMAC_SMACUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A8D82D803FE490CD2DD9FA /* Pods_SMAC_SMACUITests.framework */; };
 		471CF8BC26BBB804008E1C9C /* SideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8BB26BBB804008E1C9C /* SideMenuNavigationController.swift */; };
-		471CF8C226BBB926008E1C9C /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8BD26BBB924008E1C9C /* PreferencesViewController.swift */; };
+		471CF8C226BBB926008E1C9C /* TicketFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8BD26BBB924008E1C9C /* TicketFilterViewController.swift */; };
 		471CF8C326BBB926008E1C9C /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8BE26BBB924008E1C9C /* UINavigationController+Extension.swift */; };
-
 		471CF8C426BBB926008E1C9C /* TicketDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8BF26BBB925008E1C9C /* TicketDetailViewController.swift */; };
 		471CF8C526BBB926008E1C9C /* CreateTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8C026BBB925008E1C9C /* CreateTicketViewController.swift */; };
 		471CF8C626BBB926008E1C9C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8C126BBB926008E1C9C /* MenuViewController.swift */; };
@@ -58,6 +57,7 @@
 		471CF8DD26BBBC63008E1C9C /* UIView+Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8D226BBBC63008E1C9C /* UIView+Container.swift */; };
 		471CF8DE26BBBC63008E1C9C /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8D326BBBC63008E1C9C /* SideMenuController.swift */; };
 		471CF8DF26BBBC63008E1C9C /* BasicTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8D426BBBC63008E1C9C /* BasicTransitionAnimator.swift */; };
+		47C1BB7026BD4BAA00E97F9B /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C1BB6F26BD4BAA00E97F9B /* FilterViewController.swift */; };
 		78C156CFF801853A0CE9D756 /* Pods_SMAC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6C0D348225983DC447117B /* Pods_SMAC.framework */; };
 		A8BB806DFF5E950CE23C4704 /* Pods_SMACTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FDE01A691804D830AE6679B /* Pods_SMACTests.framework */; };
 /* End PBXBuildFile section */
@@ -121,9 +121,8 @@
 		1864D2E0E5A830C2C3AAB50B /* Pods-SMAC-SMACUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMAC-SMACUITests.debug.xcconfig"; path = "Target Support Files/Pods-SMAC-SMACUITests/Pods-SMAC-SMACUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		32800C720F30C60C5BD93448 /* Pods-SMAC-SMACUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMAC-SMACUITests.release.xcconfig"; path = "Target Support Files/Pods-SMAC-SMACUITests/Pods-SMAC-SMACUITests.release.xcconfig"; sourceTree = "<group>"; };
 		471CF8BB26BBB804008E1C9C /* SideMenuNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuNavigationController.swift; sourceTree = "<group>"; };
-		471CF8BD26BBB924008E1C9C /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		471CF8BD26BBB924008E1C9C /* TicketFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketFilterViewController.swift; sourceTree = "<group>"; };
 		471CF8BE26BBB924008E1C9C /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
-
 		471CF8BF26BBB925008E1C9C /* TicketDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketDetailViewController.swift; sourceTree = "<group>"; };
 		471CF8C026BBB925008E1C9C /* CreateTicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTicketViewController.swift; sourceTree = "<group>"; };
 		471CF8C126BBB926008E1C9C /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +138,7 @@
 		471CF8D226BBBC63008E1C9C /* UIView+Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Container.swift"; sourceTree = "<group>"; };
 		471CF8D326BBBC63008E1C9C /* SideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
 		471CF8D426BBBC63008E1C9C /* BasicTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicTransitionAnimator.swift; sourceTree = "<group>"; };
+		47C1BB6F26BD4BAA00E97F9B /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		6FDE01A691804D830AE6679B /* Pods_SMACTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMACTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		798204F65C994BADBEF48024 /* Pods-SMACTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMACTests.debug.xcconfig"; path = "Target Support Files/Pods-SMACTests/Pods-SMACTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8203EFA064D44C82B8E26171 /* Pods-SMAC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMAC.debug.xcconfig"; path = "Target Support Files/Pods-SMAC/Pods-SMAC.debug.xcconfig"; sourceTree = "<group>"; };
@@ -375,13 +375,12 @@
 				471CF8C926BBBC63008E1C9C /* SideMenu */,
 				471CF8C726BBB956008E1C9C /* SideMenuMain.storyboard */,
 				471CF8C126BBB926008E1C9C /* MenuViewController.swift */,
-				471CF8BD26BBB924008E1C9C /* PreferencesViewController.swift */,
-				471CF8BE26BBB924008E1C9C /* UINavigationController+Extension.swift */,
 				471CF8C026BBB925008E1C9C /* CreateTicketViewController.swift */,
-				471CF8BD26BBB924008E1C9C /* PreferencesViewController.swift */,
+				471CF8BD26BBB924008E1C9C /* TicketFilterViewController.swift */,
 				471CF8BE26BBB924008E1C9C /* UINavigationController+Extension.swift */,
 				471CF8BF26BBB925008E1C9C /* TicketDetailViewController.swift */,
 				471CF8BB26BBB804008E1C9C /* SideMenuNavigationController.swift */,
+				47C1BB6F26BD4BAA00E97F9B /* FilterViewController.swift */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -660,7 +659,6 @@
 				045D427D26B27B060082BCD1 /* ViewController.swift in Sources */,
 				471CF8DB26BBBC63008E1C9C /* UIViewController+Container.swift in Sources */,
 				045D432126BBA7360082BCD1 /* DashboardViewController.swift in Sources */,
-
 				471CF8C526BBB926008E1C9C /* CreateTicketViewController.swift in Sources */,
 				471CF8DF26BBBC63008E1C9C /* BasicTransitionAnimator.swift in Sources */,
 				045D428326B27B060082BCD1 /* SMAC.xcdatamodeld in Sources */,
@@ -691,10 +689,11 @@
 				045D42D126B929060082BCD1 /* LoginViewModel.swift in Sources */,
 				045D42FF26B93AC40082BCD1 /* RoundedCorner.swift in Sources */,
 				471CF8BC26BBB804008E1C9C /* SideMenuNavigationController.swift in Sources */,
-				471CF8C226BBB926008E1C9C /* PreferencesViewController.swift in Sources */,
+				471CF8C226BBB926008E1C9C /* TicketFilterViewController.swift in Sources */,
 				045D42F226B93ABB0082BCD1 /* FileUtils.swift in Sources */,
 				045D432F26BBAA9F0082BCD1 /* DashboardModel.swift in Sources */,
 				045D42F126B93ABB0082BCD1 /* Design.swift in Sources */,
+				47C1BB7026BD4BAA00E97F9B /* FilterViewController.swift in Sources */,
 				471CF8D626BBBC63008E1C9C /* UIViewController+SideMenu.swift in Sources */,
 				471CF8D926BBBC63008E1C9C /* Delegate.swift in Sources */,
 				045D42D626B929590082BCD1 /* Login.swift in Sources */,

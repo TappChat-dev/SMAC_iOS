@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import SideMenu
+import Eureka
 
 extension UIColor {
     static var mirage: UIColor {
@@ -19,7 +19,7 @@ extension UIColor {
     }
 }
 
-class PreferencesViewController: UIViewController {
+class TicketFilterViewController: FormViewController {
   
     
     @IBOutlet weak var enablePanGesture: UISwitch!
@@ -42,12 +42,77 @@ class PreferencesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Preferences"
+       
 
         isDarkModeEnabled = SideMenuController.preferences.basic.position == .under
         configureUI()
         setNeedsStatusBarAppearanceUpdate()
-    }
+   // }
+    super.viewDidLoad()
+    title = "Filter"
+    form +++
+        Section(header: "Filter Ticket List", footer: "")
+
+        <<< SegmentedRow<String>("segments"){
+            $0.options = ["Open", "Close","Hold", "SRA"]
+            $0.value = "Open"
+        }
+
+        <<< AlertRow<String>() {
+            $0.title = "Priority"
+            $0.cancelTitle = "Dismiss"
+            $0.selectorTitle = "Priority"
+            $0.options = ["Low", "High", "Mediam"]
+            $0.value = "High"
+            }.onChange { row in
+                print(row.value ?? "No Value")
+            }
+            .onPresent{ _, to in
+                to.view.tintColor = .purple
+        }
+       
+      
+        <<< DateRow(){
+            $0.title = "Start date"
+            $0.value = Date()
+            let formatter = DateFormatter()
+            formatter.locale = .current
+            formatter.dateStyle = .long
+            $0.dateFormatter = formatter
+        }
+        <<< DateRow(){
+            $0.title = "End date"
+            $0.value = Date()
+            let formatter = DateFormatter()
+            formatter.locale = .current
+            formatter.dateStyle = .long
+            $0.dateFormatter = formatter
+        }
+        <<< AlertRow<String>() {
+            $0.title = "Assign To"
+            $0.cancelTitle = "Dismiss"
+            $0.selectorTitle = "Assign To"
+            $0.options = ["Kanhiya", "Chandan", "Deepak", "ishaan", "sunny"]
+            $0.value = "Kanhiya"
+            }.onChange { row in
+                print(row.value ?? "No Value")
+            }
+            .onPresent{ _, to in
+                to.view.tintColor = .purple
+        }
+        <<< AlertRow<String>() {
+            $0.title = "Ticket Status"
+            $0.cancelTitle = "Dismiss"
+            $0.selectorTitle = "Ticket Status"
+            $0.options = ["Open", "Close", "Hold"]
+            $0.value = "Open"
+            }.onChange { row in
+                print(row.value ?? "No Value")
+            }
+            .onPresent{ _, to in
+                to.view.tintColor = .purple
+        }
+}
 
     private func configureUI() {
 
