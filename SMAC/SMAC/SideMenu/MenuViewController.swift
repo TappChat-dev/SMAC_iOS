@@ -127,11 +127,11 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
         cell.contentView.backgroundColor = themeColor
         let row = indexPath.row
         if row == 0 {
-            cell.titleLabel?.text = "Preferences"
+            cell.titleLabel?.text = "Profile"
         } else if row == 1 {
-            cell.titleLabel?.text = "Scroll View and Others"
+            cell.titleLabel?.text = "Create Ticket"
         } else if row == 2 {
-            cell.titleLabel?.text = "IB / Code"
+            cell.titleLabel?.text = "Logout"
         }
         cell.titleLabel?.textColor = isDarkModeEnabled ? .white : .black
         return cell
@@ -149,7 +149,8 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        return 60
+        
     }
 }
 
