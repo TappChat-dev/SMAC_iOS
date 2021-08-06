@@ -39,6 +39,12 @@
 		045D432F26BBAA9F0082BCD1 /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D432E26BBAA9F0082BCD1 /* DashboardModel.swift */; };
 		045D433726BBB1E70082BCD1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D433626BBB1E70082BCD1 /* NetworkManager.swift */; };
 		045D433C26BBEB460082BCD1 /* StringConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D433B26BBEB460082BCD1 /* StringConstant.swift */; };
+		045D438A26BD11C40082BCD1 /* DashboardTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D438826BD11C40082BCD1 /* DashboardTVCell.swift */; };
+		045D438B26BD11C40082BCD1 /* DashboardTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045D438926BD11C40082BCD1 /* DashboardTVCell.xib */; };
+		045D439026BD1ABC0082BCD1 /* DashboardCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D438F26BD1ABC0082BCD1 /* DashboardCellViewModel.swift */; };
+		045D439626BD334B0082BCD1 /* DashboardCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D439426BD334B0082BCD1 /* DashboardCVCell.swift */; };
+		045D439726BD334B0082BCD1 /* DashboardCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045D439526BD334B0082BCD1 /* DashboardCVCell.xib */; };
+		045D439C26BD414C0082BCD1 /* CustomFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D439B26BD414B0082BCD1 /* CustomFlowLayout.swift */; };
 		09F068364F230A84A4159667 /* Pods_SMAC_SMACUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A8D82D803FE490CD2DD9FA /* Pods_SMAC_SMACUITests.framework */; };
 		471CF8BC26BBB804008E1C9C /* SideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8BB26BBB804008E1C9C /* SideMenuNavigationController.swift */; };
 		471CF8C226BBB926008E1C9C /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8BD26BBB924008E1C9C /* PreferencesViewController.swift */; };
@@ -118,6 +124,12 @@
 		045D432E26BBAA9F0082BCD1 /* DashboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
 		045D433626BBB1E70082BCD1 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		045D433B26BBEB460082BCD1 /* StringConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringConstant.swift; sourceTree = "<group>"; };
+		045D438826BD11C40082BCD1 /* DashboardTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTVCell.swift; sourceTree = "<group>"; };
+		045D438926BD11C40082BCD1 /* DashboardTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardTVCell.xib; sourceTree = "<group>"; };
+		045D438F26BD1ABC0082BCD1 /* DashboardCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCellViewModel.swift; sourceTree = "<group>"; };
+		045D439426BD334B0082BCD1 /* DashboardCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCVCell.swift; sourceTree = "<group>"; };
+		045D439526BD334B0082BCD1 /* DashboardCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardCVCell.xib; sourceTree = "<group>"; };
+		045D439B26BD414B0082BCD1 /* CustomFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFlowLayout.swift; sourceTree = "<group>"; };
 		1864D2E0E5A830C2C3AAB50B /* Pods-SMAC-SMACUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMAC-SMACUITests.debug.xcconfig"; path = "Target Support Files/Pods-SMAC-SMACUITests/Pods-SMAC-SMACUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		32800C720F30C60C5BD93448 /* Pods-SMAC-SMACUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMAC-SMACUITests.release.xcconfig"; path = "Target Support Files/Pods-SMAC-SMACUITests/Pods-SMAC-SMACUITests.release.xcconfig"; sourceTree = "<group>"; };
 		471CF8BB26BBB804008E1C9C /* SideMenuNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuNavigationController.swift; sourceTree = "<group>"; };
@@ -331,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				045D432926BBAA8B0082BCD1 /* DashboardViewModel.swift */,
+				045D438F26BD1ABC0082BCD1 /* DashboardCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -339,6 +352,11 @@
 			isa = PBXGroup;
 			children = (
 				045D432026BBA7360082BCD1 /* DashboardViewController.swift */,
+				045D439426BD334B0082BCD1 /* DashboardCVCell.swift */,
+				045D439526BD334B0082BCD1 /* DashboardCVCell.xib */,
+				045D438826BD11C40082BCD1 /* DashboardTVCell.swift */,
+				045D438926BD11C40082BCD1 /* DashboardTVCell.xib */,
+				045D439B26BD414B0082BCD1 /* CustomFlowLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -527,6 +545,8 @@
 			files = (
 				045D428826B27B080082BCD1 /* LaunchScreen.storyboard in Resources */,
 				045D428526B27B080082BCD1 /* Assets.xcassets in Resources */,
+				045D439726BD334B0082BCD1 /* DashboardCVCell.xib in Resources */,
+				045D438B26BD11C40082BCD1 /* DashboardTVCell.xib in Resources */,
 				045D428026B27B060082BCD1 /* Main.storyboard in Resources */,
 				471CF8C826BBB956008E1C9C /* SideMenuMain.storyboard in Resources */,
 			);
@@ -657,6 +677,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				045D433C26BBEB460082BCD1 /* StringConstant.swift in Sources */,
+				045D439626BD334B0082BCD1 /* DashboardCVCell.swift in Sources */,
 				045D427D26B27B060082BCD1 /* ViewController.swift in Sources */,
 				471CF8DB26BBBC63008E1C9C /* UIViewController+Container.swift in Sources */,
 				045D432126BBA7360082BCD1 /* DashboardViewController.swift in Sources */,
@@ -667,10 +688,12 @@
 				045D42DD26B93A940082BCD1 /* Utility.swift in Sources */,
 				045D42C626B9283F0082BCD1 /* LoginViewCredentialModel.swift in Sources */,
 				471CF8D826BBBC63008E1C9C /* Preferences.swift in Sources */,
+				045D439C26BD414C0082BCD1 /* CustomFlowLayout.swift in Sources */,
 				045D430326B93AC40082BCD1 /* UINib+Loader.swift in Sources */,
 				471CF8C626BBB926008E1C9C /* MenuViewController.swift in Sources */,
 				045D430126B93AC40082BCD1 /* ViewControllerUtils.swift in Sources */,
 				471CF8DA26BBBC63008E1C9C /* TransitionContext.swift in Sources */,
+				045D439026BD1ABC0082BCD1 /* DashboardCellViewModel.swift in Sources */,
 				045D42E226B93A990082BCD1 /* Loader.swift in Sources */,
 				045D427926B27B060082BCD1 /* AppDelegate.swift in Sources */,
 				045D430226B93AC40082BCD1 /* UIViewController+Subview.swift in Sources */,
@@ -680,6 +703,7 @@
 				471CF8DC26BBBC63008E1C9C /* Segue.swift in Sources */,
 				045D42F626B93ABB0082BCD1 /* ImageWithText.swift in Sources */,
 				045D42F526B93ABB0082BCD1 /* Logger.swift in Sources */,
+				045D438A26BD11C40082BCD1 /* DashboardTVCell.swift in Sources */,
 				045D42B826B4024C0082BCD1 /* LoginViewController.swift in Sources */,
 				045D427B26B27B060082BCD1 /* SceneDelegate.swift in Sources */,
 				045D432A26BBAA8B0082BCD1 /* DashboardViewModel.swift in Sources */,
