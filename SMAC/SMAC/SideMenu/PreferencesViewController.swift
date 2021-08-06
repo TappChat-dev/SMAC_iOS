@@ -20,6 +20,8 @@ extension UIColor {
 }
 
 class PreferencesViewController: UIViewController {
+  
+    
     @IBOutlet weak var enablePanGesture: UISwitch!
     @IBOutlet weak var enableRubberBandEffect: UISwitch!
     @IBOutlet weak var enableTransitionAnimationSwitch: UISwitch!
@@ -75,22 +77,22 @@ class PreferencesViewController: UIViewController {
         guard let behaviorIndex = statusBarBehaviors.firstIndex(of: preferences.statusBarBehavior) else {
             fatalError("Configuration is messed up")
         }
-        statusBarBehaviorSegment.selectedSegmentIndex = behaviorIndex
-
-        guard let menuPositionIndex = menuPosition.firstIndex(of: preferences.position) else {
-            fatalError("Configuration is messed up")
-        }
-        menuPositionSegment.selectedSegmentIndex = menuPositionIndex
-
-        guard let menuDirectionIndex = menuDirections.firstIndex(of: preferences.direction) else {
-            fatalError("Configuration is messed up")
-        }
-        menuDirectionSegment.selectedSegmentIndex = menuDirectionIndex
-
-        guard let menuOrientationIndex = menuOrientation.firstIndex(of: preferences.supportedOrientations)else {
-            fatalError("Configuration is messed up")
-        }
-        orientationSegment.selectedSegmentIndex = menuOrientationIndex
+//        statusBarBehaviorSegment.selectedSegmentIndex = behaviorIndex
+//
+//        guard let menuPositionIndex = menuPosition.firstIndex(of: preferences.position) else {
+//            fatalError("Configuration is messed up")
+//        }
+//        menuPositionSegment.selectedSegmentIndex = menuPositionIndex
+//
+//        guard let menuDirectionIndex = menuDirections.firstIndex(of: preferences.direction) else {
+//            fatalError("Configuration is messed up")
+//        }
+//        menuDirectionSegment.selectedSegmentIndex = menuDirectionIndex
+//
+//        guard let menuOrientationIndex = menuOrientation.firstIndex(of: preferences.supportedOrientations)else {
+//            fatalError("Configuration is messed up")
+//        }
+//        orientationSegment.selectedSegmentIndex = menuOrientationIndex
     }
 
     @IBAction func menuButtonDidClicked(_ sender: Any) {

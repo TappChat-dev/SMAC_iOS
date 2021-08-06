@@ -13,6 +13,7 @@ class TicketDetailViewController: FormViewController {
     @IBOutlet weak var textLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Create Ticket"
         form +++
             Section(header: "CREATE TICKET", footer: "")
 
@@ -126,13 +127,11 @@ class TicketDetailViewController: FormViewController {
         }
 */
     }
-/*
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        title = "Scroll View and Others"
+    @IBAction func menuButtonDidClicked(_ sender: Any) {
+        sideMenuController?.revealMenu()
     }
-
+   
+/*
     @IBAction func pushViewControllerButtonDidClicked(_ sender: Any) {
         guard let viewController = storyboard?.instantiateViewController(withIdentifier: "PushedViewController") else {
             return
@@ -165,9 +164,7 @@ class TicketDetailViewController: FormViewController {
         dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func menuButtonDidClicked(_ sender: Any) {
-        sideMenuController?.revealMenu()
-    }
+   
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default

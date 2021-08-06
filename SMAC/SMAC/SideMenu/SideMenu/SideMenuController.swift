@@ -579,7 +579,7 @@ open class SideMenuController: UIViewController {
             lazyCachedViewControllers[identifier] = viewController
             setContentViewController(to: viewController, animated: animated, completion: completion)
         } else {
-            fatalError("[SideMenu] View controller associated with \(identifier) not found!")
+          //  fatalError("[SideMenu] View controller associated with \(identifier) not found!")
         }
     }
 
@@ -792,5 +792,81 @@ extension SideMenuController: UIGestureRecognizerDelegate {
             return false
         }
         return abs(velocity.y / velocity.x) < preferences.basic.panGestureSensitivity
+    }
+}
+extension UIView {
+
+    @IBInspectable
+    var viewcornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+        }
+    }
+
+    @IBInspectable
+    var viewborderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+
+    @IBInspectable
+    var viewborderColor: UIColor? {
+        get {
+            let color = UIColor.init(cgColor: layer.borderColor!)
+            return color
+        }
+        set {
+            layer.borderColor = newValue?.cgColor
+        }
+    }
+
+    @IBInspectable
+    var viewshadowRadius: CGFloat {
+        get {
+            return layer.shadowRadius
+        }
+        set {
+
+            layer.shadowRadius = viewshadowRadius
+        }
+    }
+    @IBInspectable
+    var viewshadowOffset : CGSize{
+
+        get{
+            return layer.shadowOffset
+        }set{
+
+            layer.shadowOffset = newValue
+        }
+    }
+
+    @IBInspectable
+    var viewshadowColor : UIColor{
+        get{
+            return UIColor.init(cgColor: layer.shadowColor!)
+        }
+        set {
+            layer.shadowColor = newValue.cgColor
+        }
+    }
+    @IBInspectable
+    var viewshadowOpacity : Float {
+
+        get{
+            return layer.shadowOpacity
+        }
+        set {
+
+            layer.shadowOpacity = newValue
+
+        }
     }
 }
