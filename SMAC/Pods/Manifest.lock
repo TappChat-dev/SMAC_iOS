@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.1)
+  - Eureka (5.3.3)
   - MaterialComponents/AnimationTiming (119.4.0)
   - MaterialComponents/Availability (119.4.0)
   - MaterialComponents/Buttons (119.4.0):
@@ -70,15 +71,18 @@ PODS:
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
+  - SideMenuSwift (2.0.7)
   - SVProgressHUD (2.2.5)
   - SwiftLint (0.43.1)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.4.1)
+  - Eureka
   - MaterialComponents/Snackbar
   - MBProgressHUD (~> 1.0)
   - SDWebImage
+  - SideMenuSwift
   - SVProgressHUD
   - SwiftLint
   - SwiftyJSON
@@ -86,26 +90,30 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Eureka
     - MaterialComponents
     - MBProgressHUD
     - MDFInternationalization
     - MDFTextAccessibility
     - SDWebImage
+    - SideMenuSwift
     - SVProgressHUD
     - SwiftLint
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  Eureka: e6d720290c56bb23333ad1a0e020b2a98a0e9a43
   MaterialComponents: f24f65a25481ba1313d66742ba95ab27b84d9b4e
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
   MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SideMenuSwift: ffbbc88d23741932177ad1320df837cedfb3bc5e
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 957086095df2211274cf85ab968944e6fa689de9
+PODFILE CHECKSUM: a3ffc3d7f60bff95bc64d4ec64e4c9d3c03376e9
 
 COCOAPODS: 1.10.1

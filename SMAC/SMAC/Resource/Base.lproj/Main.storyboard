@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NvE-1v-j16">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -17,6 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M2T-fj-PUD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Jw-mb-XMB" customClass="RoundedView" customModule="SMAC" customModuleProvider="target">
                                 <rect key="frame" x="30" y="138" width="315" height="391"/>
                                 <subviews>
@@ -31,6 +36,9 @@
                                             <segment title="NON-ICG"/>
                                         </segments>
                                         <color key="selectedSegmentTintColor" red="0.2459146082" green="0.26825037600000001" blue="0.38021266460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="indexChanged:" destination="NvE-1v-j16" eventType="valueChanged" id="Iax-qu-nSv"/>
+                                        </connections>
                                     </segmentedControl>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fCM-O8-sBB" customClass="DesignableUITextField" customModule="SMAC" customModuleProvider="target">
                                         <rect key="frame" x="25" y="145" width="265" height="50"/>
@@ -38,7 +46,7 @@
                                             <constraint firstAttribute="height" constant="50" id="zYm-a8-Wec"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="gapPadding">
                                                 <real key="value" value="10"/>
@@ -74,7 +82,7 @@
                                             <constraint firstAttribute="height" constant="50" id="ot8-9x-7Ha"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="gapPadding">
                                                 <real key="value" value="10"/>
@@ -148,7 +156,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flagCircle" translatesAutoresizingMaskIntoConstraints="NO" id="tib-rW-PZb">
-                                <rect key="frame" x="162.5" y="585" width="50" height="50"/>
+                                <rect key="frame" x="162.5" y="596" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="D67-AU-tTy"/>
                                     <constraint firstAttribute="width" constant="50" id="HqA-I5-2AW"/>
@@ -159,23 +167,28 @@
                         <color key="backgroundColor" red="0.2459146082" green="0.26825037600000001" blue="0.38021266460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="9Jw-mb-XMB" firstAttribute="centerX" secondItem="Esl-L7-8ce" secondAttribute="centerX" id="5wV-9k-gaz"/>
+                            <constraint firstItem="M2T-fj-PUD" firstAttribute="trailing" secondItem="DI6-sW-dBo" secondAttribute="trailing" id="9Iq-Mj-src"/>
+                            <constraint firstItem="M2T-fj-PUD" firstAttribute="leading" secondItem="DI6-sW-dBo" secondAttribute="leading" id="Gr3-X5-DrC"/>
                             <constraint firstAttribute="trailing" secondItem="9Jw-mb-XMB" secondAttribute="trailing" constant="30" id="IwA-mV-PaS"/>
                             <constraint firstItem="tib-rW-PZb" firstAttribute="centerX" secondItem="Esl-L7-8ce" secondAttribute="centerX" id="KNI-ur-csl"/>
                             <constraint firstItem="9Jw-mb-XMB" firstAttribute="centerY" secondItem="Esl-L7-8ce" secondAttribute="centerY" id="M2K-fA-wLJ"/>
+                            <constraint firstItem="M2T-fj-PUD" firstAttribute="bottom" secondItem="DI6-sW-dBo" secondAttribute="bottom" id="Mrk-2f-wZz"/>
                             <constraint firstItem="9Jw-mb-XMB" firstAttribute="leading" secondItem="Esl-L7-8ce" secondAttribute="leading" constant="30" id="Viw-1c-4Hh"/>
-                            <constraint firstAttribute="bottom" secondItem="tib-rW-PZb" secondAttribute="bottom" constant="32" id="vC4-wx-JJG"/>
+                            <constraint firstItem="M2T-fj-PUD" firstAttribute="top" secondItem="DI6-sW-dBo" secondAttribute="top" id="o4I-FF-hkY"/>
+                            <constraint firstAttribute="bottom" secondItem="tib-rW-PZb" secondAttribute="bottom" constant="21" id="vC4-wx-JJG"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnLogin" destination="Qvp-R6-qKc" id="o0r-r0-UUQ"/>
+                        <outlet property="btnSegment" destination="PkF-uz-LG8" id="oEu-RH-MNn"/>
                         <outlet property="loginView" destination="9Jw-mb-XMB" id="fcd-q2-8ta"/>
-                        <outlet property="password" destination="Aku-eG-6Ts" id="Vfy-4z-C6n"/>
-                        <outlet property="username" destination="fCM-O8-sBB" id="cHg-xS-6Ig"/>
+                        <outlet property="passwordTxt" destination="Aku-eG-6Ts" id="HDP-U6-gx7"/>
+                        <outlet property="usernameTxt" destination="fCM-O8-sBB" id="tMb-7X-qB9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qUt-OO-fYk" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="161" y="54"/>
+            <point key="canvasLocation" x="160.80000000000001" y="53.523238380809602"/>
         </scene>
         <!--Dashboard View Controller-->
         <scene sceneID="DkR-Az-xbd">
@@ -337,7 +350,7 @@
     </scenes>
     <designables>
         <designable name="Aku-eG-6Ts">
-            <size key="intrinsicContentSize" width="80" height="23"/>
+            <size key="intrinsicContentSize" width="80" height="22"/>
         </designable>
         <designable name="fCM-O8-sBB">
             <size key="intrinsicContentSize" width="85" height="23"/>
