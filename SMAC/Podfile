@@ -13,6 +13,8 @@ pod 'SVProgressHUD'
 pod 'MaterialComponents/Snackbar'
 pod 'MBProgressHUD', '~> 1.0'
 pod 'SwiftLint'
+pod 'SideMenuSwift'
+pod 'Eureka'
 
   target 'SMACTests' do
     inherit! :search_paths

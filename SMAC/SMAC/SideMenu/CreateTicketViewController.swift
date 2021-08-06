@@ -9,12 +9,12 @@
 import UIKit
 //import SideMenu
 
-class OtherExampleViewController: UIViewController {
+class CreateTicketViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Example"
+        title = "Create Ticket"
     }
 
     @IBAction func menuButtonDidClicked(_ sender: Any) {
