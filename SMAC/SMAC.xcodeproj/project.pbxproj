@@ -123,11 +123,9 @@
 		471CF8BB26BBB804008E1C9C /* SideMenuNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuNavigationController.swift; sourceTree = "<group>"; };
 		471CF8BD26BBB924008E1C9C /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		471CF8BE26BBB924008E1C9C /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
-<<<<<<< HEAD
-=======
+
 		471CF8BF26BBB925008E1C9C /* TicketDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketDetailViewController.swift; sourceTree = "<group>"; };
 		471CF8C026BBB925008E1C9C /* CreateTicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTicketViewController.swift; sourceTree = "<group>"; };
->>>>>>> 09deee54e5b1a9f6114d4211a22c3992f9d5a314
 		471CF8C126BBB926008E1C9C /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		471CF8C726BBB956008E1C9C /* SideMenuMain.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SideMenuMain.storyboard; sourceTree = "<group>"; };
 		471CF8CA26BBBC63008E1C9C /* SideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenu.h; sourceTree = "<group>"; };
@@ -377,15 +375,12 @@
 				471CF8C926BBBC63008E1C9C /* SideMenu */,
 				471CF8C726BBB956008E1C9C /* SideMenuMain.storyboard */,
 				471CF8C126BBB926008E1C9C /* MenuViewController.swift */,
-<<<<<<< HEAD
 				471CF8BD26BBB924008E1C9C /* PreferencesViewController.swift */,
 				471CF8BE26BBB924008E1C9C /* UINavigationController+Extension.swift */,
-=======
 				471CF8C026BBB925008E1C9C /* CreateTicketViewController.swift */,
 				471CF8BD26BBB924008E1C9C /* PreferencesViewController.swift */,
 				471CF8BE26BBB924008E1C9C /* UINavigationController+Extension.swift */,
 				471CF8BF26BBB925008E1C9C /* TicketDetailViewController.swift */,
->>>>>>> 09deee54e5b1a9f6114d4211a22c3992f9d5a314
 				471CF8BB26BBB804008E1C9C /* SideMenuNavigationController.swift */,
 			);
 			path = SideMenu;
@@ -665,10 +660,8 @@
 				045D427D26B27B060082BCD1 /* ViewController.swift in Sources */,
 				471CF8DB26BBBC63008E1C9C /* UIViewController+Container.swift in Sources */,
 				045D432126BBA7360082BCD1 /* DashboardViewController.swift in Sources */,
-<<<<<<< HEAD
-=======
+
 				471CF8C526BBB926008E1C9C /* CreateTicketViewController.swift in Sources */,
->>>>>>> 09deee54e5b1a9f6114d4211a22c3992f9d5a314
 				471CF8DF26BBBC63008E1C9C /* BasicTransitionAnimator.swift in Sources */,
 				045D428326B27B060082BCD1 /* SMAC.xcdatamodeld in Sources */,
 				045D42DD26B93A940082BCD1 /* Utility.swift in Sources */,
@@ -690,11 +683,8 @@
 				045D42B826B4024C0082BCD1 /* LoginViewController.swift in Sources */,
 				045D427B26B27B060082BCD1 /* SceneDelegate.swift in Sources */,
 				045D432A26BBAA8B0082BCD1 /* DashboardViewModel.swift in Sources */,
-<<<<<<< HEAD
 				045D433726BBB1E70082BCD1 /* NetworkManager.swift in Sources */,
-=======
 				471CF8C426BBB926008E1C9C /* TicketDetailViewController.swift in Sources */,
->>>>>>> 09deee54e5b1a9f6114d4211a22c3992f9d5a314
 				471CF8DE26BBBC63008E1C9C /* SideMenuController.swift in Sources */,
 				045D430026B93AC40082BCD1 /* UIColor+Theme.swift in Sources */,
 				471CF8D726BBBC63008E1C9C /* StatusBar.swift in Sources */,
