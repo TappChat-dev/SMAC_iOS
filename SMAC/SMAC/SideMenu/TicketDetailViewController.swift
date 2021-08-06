@@ -8,7 +8,7 @@
 
 import UIKit
 import Eureka
-
+typealias Emoji = String
 class TicketDetailViewController: FormViewController {
     @IBOutlet weak var textLabel: UILabel!
     override func viewDidLoad() {
@@ -18,27 +18,38 @@ class TicketDetailViewController: FormViewController {
             Section(header: "CREATE TICKET", footer: "")
 
             <<< NameRow() {
-                $0.title = "Equipment identity"
-                $0.placeholder = "Please enter equipment identity "
+                $0.title = "Equipment ID"
+                $0.placeholder = "Equipment ID"
                 }
                 .cellSetup { cell, row in
                     cell.imageView?.image = UIImage(named: "plus_image")
             }
 
-            <<< NameRow() {
+            <<< AlertRow<String>() {
                 $0.title = "Equipment Type"
-                $0.placeholder = "Please enter equipment type "
+                $0.cancelTitle = "Dismiss"
+                $0.selectorTitle = "Equipment Type"
+                $0.options = ["Equipment1", "Equipment2", "Equipment3", "Equipment4", "Equipment5", "Equipment6","Equipment7", "Equipment8", "Equipment9", "Equipment10", "Equipment11", "Equipment12","Equipment13", "Equipment14", "Equipment15", "Equipment16", "Equipment17"]
+                $0.value = "Equipment1"
+                }.onChange { row in
+                    print(row.value ?? "No Value")
                 }
-                .cellSetup { cell, row in
-                    cell.imageView?.image = UIImage(named: "plus_image")
+                .onPresent{ _, to in
+                    to.view.tintColor = .purple
             }
-            <<< NameRow() {
-                $0.title = "Equipment Sub Type"
-                $0.placeholder = "Please enter equipment sub type "
+            <<< AlertRow<String>() {
+                $0.title = "Equipment SubType"
+                $0.cancelTitle = "Dismiss"
+                $0.selectorTitle = "Equipment SubType"
+                $0.options = ["EquipmentSubType1", "EquipmentSubType2", "EquipmentSubType3", "EquipmentSubType4", "EquipmentSubType5"]
+                $0.value = "EquipmentSubType5"
+                }.onChange { row in
+                    print(row.value ?? "No Value")
                 }
-                .cellSetup { cell, row in
-                    cell.imageView?.image = UIImage(named: "plus_image")
+                .onPresent{ _, to in
+                    to.view.tintColor = .purple
             }
+          
             <<< DateRow(){
                 $0.title = "Created date"
                 $0.value = Date()
@@ -54,6 +65,30 @@ class TicketDetailViewController: FormViewController {
                 formatter.locale = .current
                 formatter.dateStyle = .long
                 $0.dateFormatter = formatter
+            }
+            <<< AlertRow<String>() {
+                $0.title = "Assign To"
+                $0.cancelTitle = "Dismiss"
+                $0.selectorTitle = "Assign To"
+                $0.options = ["Kanhiya", "Chandan", "Deepak", "ishaan", "sunny"]
+                $0.value = "Kanhiya"
+                }.onChange { row in
+                    print(row.value ?? "No Value")
+                }
+                .onPresent{ _, to in
+                    to.view.tintColor = .purple
+            }
+            <<< AlertRow<String>() {
+                $0.title = "Ticket Status"
+                $0.cancelTitle = "Dismiss"
+                $0.selectorTitle = "Ticket Status"
+                $0.options = ["Open", "Close", "Hold"]
+                $0.value = "Kanhiya"
+                }.onChange { row in
+                    print(row.value ?? "No Value")
+                }
+                .onPresent{ _, to in
+                    to.view.tintColor = .purple
             }
 //            <<< SwitchRow() {
 //                $0.cellProvider = CellProvider<SwitchCell>(nibName: "SwitchCell", bundle: Bundle.main)
