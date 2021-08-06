@@ -14,24 +14,62 @@ class TicketDetailViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         form +++
-            Section(header: "Default field rows", footer: "Rows with title have a right-aligned text field.\nRows without title have a left-aligned text field.\nBut this can be changed...")
+            Section(header: "CREATE TICKET", footer: "")
 
             <<< NameRow() {
-                $0.title = "Your name:"
-                $0.placeholder = "(right alignment)"
+                $0.title = "Equipment identity"
+                $0.placeholder = "Please enter equipment identity "
                 }
                 .cellSetup { cell, row in
                     cell.imageView?.image = UIImage(named: "plus_image")
             }
 
             <<< NameRow() {
-                $0.placeholder = "Name (left alignment)"
+                $0.title = "Equipment Type"
+                $0.placeholder = "Please enter equipment type "
                 }
                 .cellSetup { cell, row in
                     cell.imageView?.image = UIImage(named: "plus_image")
             }
-
-            +++ Section("Customized Alignment")
+            <<< NameRow() {
+                $0.title = "Equipment Sub Type"
+                $0.placeholder = "Please enter equipment sub type "
+                }
+                .cellSetup { cell, row in
+                    cell.imageView?.image = UIImage(named: "plus_image")
+            }
+            <<< DateRow(){
+                $0.title = "Created date"
+                $0.value = Date()
+                let formatter = DateFormatter()
+                formatter.locale = .current
+                formatter.dateStyle = .long
+                $0.dateFormatter = formatter
+            }
+            <<< DateRow(){
+                $0.title = "Close date"
+                $0.value = Date()
+                let formatter = DateFormatter()
+                formatter.locale = .current
+                formatter.dateStyle = .long
+                $0.dateFormatter = formatter
+            }
+//            <<< SwitchRow() {
+//                $0.cellProvider = CellProvider<SwitchCell>(nibName: "SwitchCell", bundle: Bundle.main)
+//            }.cellSetup { (cell, row) in
+//                cell.height = { 67 }
+//            }
+//
+//            <<< DatePickerRow() {
+//                $0.cellProvider = CellProvider<DatePickerCell>(nibName: "DatePickerCell", bundle: Bundle.main)
+//            }.cellSetup { (cell, row) in
+//                cell.height = { 345 }
+//            }
+//            <<< TextAreaRow() {
+//                $0.placeholder = "TextAreaRow"
+//                $0.textAreaHeight = .dynamic(initialTextViewHeight: 110)
+//        }
+       /*     +++ Section("Customized Alignment")
 
             <<< NameRow() {
                 $0.title = "Your name:"
@@ -86,7 +124,7 @@ class TicketDetailViewController: FormViewController {
                 $0.textAreaMode = .readOnly
                 $0.textAreaHeight = .fixed(cellHeight: 110)
         }
-
+*/
     }
 /*
     override func viewDidLoad() {
