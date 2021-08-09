@@ -15,13 +15,13 @@ class DashboardCVCell: UICollectionViewCell {
     class var CVidentifier: String { return String(describing: self) }
     class var CVnib: UINib { return UINib(nibName: CVidentifier, bundle: nil) }
     
-    var cellViewModel: DashboardCellViewModel? {
-        didSet {
-            moduleCount.text = cellViewModel?.count
-            moduleName.text = cellViewModel?.name
-            
-        }
-    }
+//    var cellViewModel: DashboardCellViewModel? {
+//        didSet {
+//            moduleCount.text = cellViewModel?.count
+//            moduleName.text = cellViewModel?.name
+//
+//        }
+//    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,20 +41,20 @@ class DashboardCVCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 15.0
         contentView.layer.masksToBounds = true
         
-        layer.shadowColor = UIColor.white.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 5.0)
-        layer.shadowRadius = 2.0
-        layer.shadowOpacity = 0.25
-        layer.masksToBounds = false
-        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 10.0).cgPath
-        layer.cornerRadius = 15.0
+//        layer.shadowColor = UIColor.white.cgColor
+//        layer.shadowOffset = CGSize(width: 0, height: 5.0)
+//        layer.shadowRadius = 2.0
+//        layer.shadowOpacity = 0.25
+//        layer.masksToBounds = false
+//        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 10.0).cgPath
+//        layer.cornerRadius = 15.0
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        moduleName.text = nil
-        moduleCount.text = nil
-       
-    }
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//        moduleName.text = nil
+//        moduleCount.text = nil
+//       
+//    }
 
 }

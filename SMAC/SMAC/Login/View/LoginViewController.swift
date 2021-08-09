@@ -54,7 +54,10 @@ class LoginViewController: UIViewController {
         if validationCheck() {
             usernameTxt.resignFirstResponder()
             passwordTxt.resignFirstResponder()
-            moveToDashBord()
+//            moveToDashBord()
+            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController
+            self.navigationController?.pushViewController(vc!, animated: true)
+            
             return
             
             let status =  viewModel.getLoginResponse(user: LoginViewCredentialModel(username: usernameTxt.text!, password: passwordTxt.text!, type: segmentSelectedOption!))
