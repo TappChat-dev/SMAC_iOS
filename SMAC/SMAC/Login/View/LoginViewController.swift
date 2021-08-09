@@ -51,6 +51,8 @@ class LoginViewController: UIViewController {
     
     // MARK: - Login Button
     @IBAction func tapToLogin(_ sender:UIButton){
+        moveToDashBord()
+        return
         if validationCheck() {
             usernameTxt.resignFirstResponder()
             passwordTxt.resignFirstResponder()
@@ -69,7 +71,9 @@ class LoginViewController: UIViewController {
     }
     func moveToDashBord(){
         let vc1 = UIStoryboard.init(name: "SideMenuMain", bundle: Bundle.main).instantiateViewController(withIdentifier: "SideMenu") as? SideMenuController
-        let vc2 = UIStoryboard.init(name: "SideMenuMain", bundle: Bundle.main).instantiateViewController(withIdentifier: "ContentNavigation") as? NavigationController
+        
+       // let vc2 = UIStoryboard.init(name: "SideMenuMain", bundle: Bundle.main).instantiateViewController(withIdentifier: "ContentNavigation") as? NavigationController
+        let vc2 = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashBordNavicationController") as? UINavigationController
         let vc3 = UIStoryboard.init(name: "SideMenuMain", bundle: Bundle.main).instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController
         vc1?.contentViewController = vc2
             vc1?.menuViewController = vc3

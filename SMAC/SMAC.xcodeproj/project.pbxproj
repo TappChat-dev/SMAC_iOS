@@ -63,6 +63,7 @@
 		471CF8DD26BBBC63008E1C9C /* UIView+Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8D226BBBC63008E1C9C /* UIView+Container.swift */; };
 		471CF8DE26BBBC63008E1C9C /* SideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8D326BBBC63008E1C9C /* SideMenuController.swift */; };
 		471CF8DF26BBBC63008E1C9C /* BasicTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8D426BBBC63008E1C9C /* BasicTransitionAnimator.swift */; };
+		472A6C0126C10B1900E9C316 /* ConstDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472A6C0026C10B1900E9C316 /* ConstDefine.swift */; };
 		47C1BB7026BD4BAA00E97F9B /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C1BB6F26BD4BAA00E97F9B /* FilterViewController.swift */; };
 		78C156CFF801853A0CE9D756 /* Pods_SMAC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A6C0D348225983DC447117B /* Pods_SMAC.framework */; };
 		A8BB806DFF5E950CE23C4704 /* Pods_SMACTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FDE01A691804D830AE6679B /* Pods_SMACTests.framework */; };
@@ -150,6 +151,7 @@
 		471CF8D226BBBC63008E1C9C /* UIView+Container.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Container.swift"; sourceTree = "<group>"; };
 		471CF8D326BBBC63008E1C9C /* SideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuController.swift; sourceTree = "<group>"; };
 		471CF8D426BBBC63008E1C9C /* BasicTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicTransitionAnimator.swift; sourceTree = "<group>"; };
+		472A6C0026C10B1900E9C316 /* ConstDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstDefine.swift; sourceTree = "<group>"; };
 		47C1BB6F26BD4BAA00E97F9B /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		6FDE01A691804D830AE6679B /* Pods_SMACTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SMACTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		798204F65C994BADBEF48024 /* Pods-SMACTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMACTests.debug.xcconfig"; path = "Target Support Files/Pods-SMACTests/Pods-SMACTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				045D427C26B27B060082BCD1 /* ViewController.swift */,
 				045D428926B27B080082BCD1 /* Info.plist */,
 				045D428126B27B060082BCD1 /* SMAC.xcdatamodeld */,
+				472A6C0026C10B1900E9C316 /* ConstDefine.swift */,
 			);
 			path = SMAC;
 			sourceTree = "<group>";
@@ -723,6 +726,7 @@
 				045D42D626B929590082BCD1 /* Login.swift in Sources */,
 				045D42F326B93ABB0082BCD1 /* Dimensions.swift in Sources */,
 				045D42E726B93AB10082BCD1 /* DateTime.swift in Sources */,
+				472A6C0126C10B1900E9C316 /* ConstDefine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

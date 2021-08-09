@@ -35,7 +35,7 @@ class MenuViewController: UIViewController {
         configureView()
 
         sideMenuController?.cache(viewControllerGenerator: {
-            self.storyboard?.instantiateViewController(withIdentifier: "SecondViewController")
+            self.storyboard?.instantiateViewController(withIdentifier: "CreateTicket")
         }, with: "1")
 
         sideMenuController?.cache(viewControllerGenerator: {

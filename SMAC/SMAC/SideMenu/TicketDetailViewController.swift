@@ -13,7 +13,7 @@ class TicketDetailViewController: FormViewController {
     @IBOutlet weak var textLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Create Ticket"
+        title = kCREATE_TICKET
         form +++
             Section(header: "CREATE TICKET", footer: "")
 

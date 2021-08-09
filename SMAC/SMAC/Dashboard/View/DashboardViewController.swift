@@ -11,12 +11,15 @@ import Foundation
 class DashboardViewController: UIViewController {
 //    @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var collectionView:UICollectionView!
-    
+    var dashBordType = ""
+    var dashBordItemArray = [String]()
     let customFlowLayout = CustomFlowLayout()
     override func viewDidLoad() {
         super.viewDidLoad()
 //        tableView.register(DashboardTVCell.nib, forCellReuseIdentifier: DashboardTVCell.identifier)
+        dashBordType = kDASHBORDTYPE_EQUIPMENTMANAGER
         
+        dashBordItemArray = [kCREATE_TICKET, kVIEW_TICKET, kCONTRACTORS]
         customFlowLayout.sectionInsetReference = .fromContentInset // .fromContentInset is default
                 customFlowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
                 customFlowLayout.minimumInteritemSpacing = 10
@@ -36,38 +39,37 @@ class DashboardViewController: UIViewController {
 
    
     */
-  
+    @IBAction func menuButtonDidClicked(_ sender: Any) {
+        sideMenuController?.revealMenu()
+    }
 }
 
-// MARK: - TableView
-/*
-extension DashboardViewController:UITableViewDelegate,UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: DashboardTVCell.identifier, for: indexPath) as? DashboardTVCell else { fatalError("xib does not exists") }
-        return cell
-    }
-    
-    
-}
-*/
+
+
 
 // MARK: - Collection View
 extension DashboardViewController:UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return dashBordItemArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DashboardCVCell.CVidentifier, for: indexPath)  as? DashboardCVCell else {
             fatalError("xib does not exists")
         }
-        
+        cell.moduleName.text = "\(dashBordItemArray[indexPath.row])"
+        if  cell.moduleName.text == kCREATE_TICKET  {
+            cell.moduleCount.text == "0"
+        }
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if (dashBordItemArray[indexPath.row] == kCREATE_TICKET){
+            let vc3 = UIStoryboard.init(name: "SideMenuMain", bundle: Bundle.main).instantiateViewController(withIdentifier: "TicketDetailViewController") as? TicketDetailViewController
+            self.navigationController?.pushViewController(vc3!, animated: true)
+           
+        }
+    }
     
 }

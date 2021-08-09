@@ -260,7 +260,7 @@
         <!--Ticket Detail View Controller-->
         <scene sceneID="t8u-Xd-wcn">
             <objects>
-                <viewController id="Xkf-dR-rhE" customClass="TicketDetailViewController" customModule="SMAC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TicketDetailViewController" id="Xkf-dR-rhE" customClass="TicketDetailViewController" customModule="SMAC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zns-Wm-N2k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -386,7 +386,7 @@
         <!--Navigation Controller-->
         <scene sceneID="oOo-rf-hZU">
             <objects>
-                <navigationController storyboardIdentifier="SecondViewController" automaticallyAdjustsScrollViewInsets="NO" id="7BB-mj-t79" customClass="NavigationController" customModule="SMAC" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="CreateTicket" automaticallyAdjustsScrollViewInsets="NO" id="7BB-mj-t79" customClass="NavigationController" customModule="SMAC" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zpz-ah-qXm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
