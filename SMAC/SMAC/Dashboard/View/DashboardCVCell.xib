@@ -21,11 +21,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="314" height="70"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFV-37-7r6">
-                                <rect key="frame" x="133" y="10" width="48" height="50"/>
+                                <rect key="frame" x="132.5" y="10" width="49" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Hz5-sK-ptQ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>

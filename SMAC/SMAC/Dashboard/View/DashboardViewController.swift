@@ -10,7 +10,7 @@ import Foundation
 
 
 
-class DashboardViewController: UIViewController {
+class DashboardViewController: UIViewController, SideMenuControllerDelegate {
 //    @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var collectionView:UICollectionView!
     @IBOutlet weak var btnMenu:UIButton!
@@ -27,9 +27,11 @@ class DashboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        tableView.register(DashboardTVCell.nib, forCellReuseIdentifier: DashboardTVCell.identifier)
-        
-       
+        isDarkModeEnabled = SideMenuController.preferences.basic.position == .under
+        sideMenuController?.delegate = self
+        configureUI()
         collectionView.register(DashboardCVCell.CVnib, forCellWithReuseIdentifier: DashboardCVCell.CVidentifier)
+        
         // Do any additional setup after loading the view.
     }
     
@@ -37,9 +39,6 @@ class DashboardViewController: UIViewController {
 
         if isDarkModeEnabled {
             themeColor = .mirage
-
-            
-            
             navigationController?.navigationBar.isTranslucent = false
             navigationController?.navigationBar.tintColor = .lobolly
             navigationController?.navigationBar.barTintColor = .mirage
@@ -57,6 +56,11 @@ class DashboardViewController: UIViewController {
         guard let behaviorIndex = statusBarBehaviors.firstIndex(of: preferences.statusBarBehavior) else {
             fatalError("Configuration is messed up")
         }
+        
+        let contentViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContentNavigation")
+        let menuViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MenuNavigation")
+        let sideMenuController = SideMenuController(contentViewController: contentViewController, menuViewController: menuViewController)
+        self.view .addSubview(sideMenuController.view)
 //        statusBarBehaviorSegment.selectedSegmentIndex = behaviorIndex
 //
 //        guard let menuPositionIndex = menuPosition.firstIndex(of: preferences.position) else {
@@ -89,6 +93,7 @@ class DashboardViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
         ConfigureCollectionUI()
     }
     
@@ -97,7 +102,9 @@ class DashboardViewController: UIViewController {
     }
     
     @IBAction func tapToMenu(_ sender:UIButton){
+        
         sideMenuController?.revealMenu()
+        
     }
 }
 
