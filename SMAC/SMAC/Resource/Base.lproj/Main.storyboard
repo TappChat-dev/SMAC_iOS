@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -19,12 +20,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M2T-fj-PUD">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Login_Backgrong" translatesAutoresizingMaskIntoConstraints="NO" id="M2T-fj-PUD">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Jw-mb-XMB" customClass="RoundedView" customModule="SMAC" customModuleProvider="target">
-                                <rect key="frame" x="30" y="138" width="315" height="391"/>
+                                <rect key="frame" x="30" y="138" width="315" height="353"/>
                                 <subviews>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PkF-uz-LG8">
                                         <rect key="frame" x="80" y="15" width="155" height="32"/>
@@ -36,13 +37,13 @@
                                             <segment title="ICG"/>
                                             <segment title="NON-ICG"/>
                                         </segments>
-                                        <color key="selectedSegmentTintColor" red="0.2459146082" green="0.26825037600000001" blue="0.38021266460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="selectedSegmentTintColor" name="AccentColor"/>
                                         <connections>
                                             <action selector="indexChanged:" destination="NvE-1v-j16" eventType="valueChanged" id="Iax-qu-nSv"/>
                                         </connections>
                                     </segmentedControl>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fCM-O8-sBB" customClass="DesignableUITextField" customModule="SMAC" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="145" width="265" height="50"/>
+                                        <rect key="frame" x="25" y="91" width="265" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="zYm-a8-Wec"/>
                                         </constraints>
@@ -77,7 +78,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aku-eG-6Ts" customClass="DesignableUITextField" customModule="SMAC" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="211" width="265" height="50"/>
+                                        <rect key="frame" x="25" y="170" width="265" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="265" id="PXW-uj-Ebb"/>
                                             <constraint firstAttribute="height" constant="50" id="ot8-9x-7Ha"/>
@@ -115,8 +116,8 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qvp-R6-qKc">
-                                        <rect key="frame" x="82" y="296" width="151" height="50"/>
-                                        <color key="backgroundColor" red="0.2459146082" green="0.26825037600000001" blue="0.38021266460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="84" y="256" width="151" height="50"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="151" id="1fl-11-73p"/>
                                             <constraint firstAttribute="height" constant="50" id="Q71-no-q15"/>
@@ -137,15 +138,15 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="Qvp-R6-qKc" firstAttribute="top" secondItem="Aku-eG-6Ts" secondAttribute="bottom" constant="35" id="1b4-GX-CL3"/>
-                                    <constraint firstAttribute="bottom" secondItem="Qvp-R6-qKc" secondAttribute="bottom" constant="45" id="7SV-eq-BlR"/>
+                                    <constraint firstItem="Qvp-R6-qKc" firstAttribute="top" secondItem="Aku-eG-6Ts" secondAttribute="bottom" constant="36" id="1b4-GX-CL3"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qvp-R6-qKc" secondAttribute="bottom" constant="47" id="7SV-eq-BlR"/>
                                     <constraint firstAttribute="trailing" secondItem="Aku-eG-6Ts" secondAttribute="trailing" constant="25" id="8SK-3e-B9V"/>
                                     <constraint firstItem="Aku-eG-6Ts" firstAttribute="leading" secondItem="9Jw-mb-XMB" secondAttribute="leading" constant="25" id="APQ-qb-f0O"/>
-                                    <constraint firstItem="Aku-eG-6Ts" firstAttribute="top" secondItem="fCM-O8-sBB" secondAttribute="bottom" constant="16" id="CIQ-XD-ARS"/>
+                                    <constraint firstItem="Aku-eG-6Ts" firstAttribute="top" secondItem="fCM-O8-sBB" secondAttribute="bottom" constant="29" id="CIQ-XD-ARS"/>
                                     <constraint firstItem="PkF-uz-LG8" firstAttribute="top" secondItem="9Jw-mb-XMB" secondAttribute="top" constant="15" id="Ed3-wl-Jc8"/>
-                                    <constraint firstAttribute="height" constant="391" id="IEO-H8-hnR"/>
+                                    <constraint firstAttribute="height" constant="353" id="IEO-H8-hnR"/>
                                     <constraint firstItem="fCM-O8-sBB" firstAttribute="leading" secondItem="9Jw-mb-XMB" secondAttribute="leading" constant="25" id="XD3-ys-C1M"/>
-                                    <constraint firstItem="Qvp-R6-qKc" firstAttribute="centerX" secondItem="9Jw-mb-XMB" secondAttribute="centerX" id="owH-ux-Y3T"/>
+                                    <constraint firstItem="Qvp-R6-qKc" firstAttribute="centerX" secondItem="9Jw-mb-XMB" secondAttribute="centerX" constant="2" id="owH-ux-Y3T"/>
                                     <constraint firstItem="PkF-uz-LG8" firstAttribute="centerX" secondItem="9Jw-mb-XMB" secondAttribute="centerX" id="pcP-dM-Jg0"/>
                                     <constraint firstAttribute="trailing" secondItem="fCM-O8-sBB" secondAttribute="trailing" constant="25" id="q7G-SI-nse"/>
                                 </constraints>
@@ -165,14 +166,14 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DI6-sW-dBo"/>
-                        <color key="backgroundColor" red="0.2459146082" green="0.26825037600000001" blue="0.38021266460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="AccentColor"/>
                         <constraints>
                             <constraint firstItem="9Jw-mb-XMB" firstAttribute="centerX" secondItem="Esl-L7-8ce" secondAttribute="centerX" id="5wV-9k-gaz"/>
                             <constraint firstItem="M2T-fj-PUD" firstAttribute="trailing" secondItem="DI6-sW-dBo" secondAttribute="trailing" id="9Iq-Mj-src"/>
                             <constraint firstItem="M2T-fj-PUD" firstAttribute="leading" secondItem="DI6-sW-dBo" secondAttribute="leading" id="Gr3-X5-DrC"/>
                             <constraint firstAttribute="trailing" secondItem="9Jw-mb-XMB" secondAttribute="trailing" constant="30" id="IwA-mV-PaS"/>
                             <constraint firstItem="tib-rW-PZb" firstAttribute="centerX" secondItem="Esl-L7-8ce" secondAttribute="centerX" id="KNI-ur-csl"/>
-                            <constraint firstItem="9Jw-mb-XMB" firstAttribute="centerY" secondItem="Esl-L7-8ce" secondAttribute="centerY" id="M2K-fA-wLJ"/>
+                            <constraint firstItem="9Jw-mb-XMB" firstAttribute="centerY" secondItem="Esl-L7-8ce" secondAttribute="centerY" constant="-19" id="M2K-fA-wLJ"/>
                             <constraint firstItem="M2T-fj-PUD" firstAttribute="bottom" secondItem="DI6-sW-dBo" secondAttribute="bottom" id="Mrk-2f-wZz"/>
                             <constraint firstItem="9Jw-mb-XMB" firstAttribute="leading" secondItem="Esl-L7-8ce" secondAttribute="leading" constant="30" id="Viw-1c-4Hh"/>
                             <constraint firstItem="M2T-fj-PUD" firstAttribute="top" secondItem="DI6-sW-dBo" secondAttribute="top" id="o4I-FF-hkY"/>
@@ -321,7 +322,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="r3D-na-g1m"/>
-                        <color key="backgroundColor" red="0.2459146082" green="0.26825037600000001" blue="0.38021266460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="AccentColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="ErD-h4-TM6">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="fxr-HB-MdP"/>
@@ -341,13 +342,17 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HCA-FL-e1S">
                                 <rect key="frame" x="0.0" y="57" width="375" height="610"/>
-                                <color key="backgroundColor" red="0.2459146082" green="0.26825037600000001" blue="0.38021266460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="AccentColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5Px-2X-UuW">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <imageView key="backgroundView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Login_Backgrong" id="6BA-2l-rY0">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="610"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="T8s-gy-pnF" customClass="DashboardCVCell" customModule="SMAC" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -398,10 +403,14 @@
         </designable>
     </designables>
     <resources>
+        <image name="Login_Backgrong" width="367.5" height="735"/>
         <image name="flagCircle" width="700" height="700"/>
         <image name="menu" width="32" height="32"/>
         <image name="password" width="24" height="24"/>
         <image name="username" width="24" height="24"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

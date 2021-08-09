@@ -16,6 +16,7 @@ class Preferences {
 
 class MenuViewController: UIViewController {
     var isDarkModeEnabled = false
+    var manuListItemArray = [String]()
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
@@ -30,7 +31,9 @@ class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       
+        
+        manuListItemArray = [kDASHBORD,kCREATE_TICKET,kVIEW_TICKET,kCONTRACTORS,kPROFILE,kLOGOUT]
         isDarkModeEnabled = SideMenuController.preferences.basic.position == .under
         configureView()
 
@@ -118,24 +121,16 @@ extension MenuViewController: SideMenuControllerDelegate {
 
 extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return manuListItemArray.count
     }
-
+   
     // swiftlint:disable force_cast
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SelectionCell
         cell.contentView.backgroundColor = themeColor
         let row = indexPath.row
-        if row == 0 {
-            cell.titleLabel?.text = "Profile"
-        } else if row == 1 {
-            cell.titleLabel?.text = "Create Ticket"
-        } else if row == 2 {
-            cell.titleLabel?.text = "Filter"
-        }
-        else if row == 3 {
-            cell.titleLabel?.text = "Logout"
-        }
+        cell.titleLabel?.text = "\(manuListItemArray[row])"
+       
         cell.titleLabel?.textColor = isDarkModeEnabled ? .white : .black
         return cell
     }
@@ -144,11 +139,17 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
         let row = indexPath.row
 
         sideMenuController?.setContentViewController(with: "\(row)", animated: Preferences.shared.enableTransitionAnimation)
-        if row == 2 {
+        manuListItemArray = [kDASHBORD,kCREATE_TICKET,kVIEW_TICKET,kCONTRACTORS,kPROFILE,kLOGOUT]
+        if manuListItemArray[row] == kDASHBORD {
+            let vc2 = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashBordNavicationController") as? UINavigationController
+            
+           
+            sideMenuController?.contentViewController = vc2
+        }else  if manuListItemArray[row] == kCREATE_TICKET {
             let vc2 = UIStoryboard.init(name: "SideMenuMain", bundle: Bundle.main).instantiateViewController(withIdentifier: "ContentNavigation") as? NavigationController
            
             sideMenuController?.contentViewController = vc2
-        } else if row == 3 {
+        } else if manuListItemArray[row] == kLOGOUT {
             dismiss(animated: true, completion: nil)
         }
         

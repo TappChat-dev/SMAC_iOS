@@ -13,3 +13,8 @@ var kCONTRACTORS = "Contractors"
 
 var kDASHBORDTYPE_EQUIPMENTMANAGER = "EquipmentManager"
 
+//Menu
+var kDASHBORD = "Dashbord"
+var kPROFILE = "Profile"
+var kLOGOUT = "Logout"
+

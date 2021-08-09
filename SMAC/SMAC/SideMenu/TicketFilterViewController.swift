@@ -57,7 +57,9 @@ class TicketFilterViewController: FormViewController {
             $0.options = ["Open", "Close","Hold", "SRA"]
             $0.value = "Open"
         }
-
+        .cellSetup { cell, row in
+            cell.height = {60 }
+    }
         <<< AlertRow<String>() {
             $0.title = "Priority"
             $0.cancelTitle = "Dismiss"
@@ -70,7 +72,9 @@ class TicketFilterViewController: FormViewController {
             .onPresent{ _, to in
                 to.view.tintColor = .purple
         }
-       
+        .cellSetup { cell, row in
+            cell.height = {60 }
+    }
       
         <<< DateRow(){
             $0.title = "Start date"
@@ -80,6 +84,9 @@ class TicketFilterViewController: FormViewController {
             formatter.dateStyle = .long
             $0.dateFormatter = formatter
         }
+        .cellSetup { cell, row in
+            cell.height = {60 }
+    }
         <<< DateRow(){
             $0.title = "End date"
             $0.value = Date()
@@ -88,6 +95,9 @@ class TicketFilterViewController: FormViewController {
             formatter.dateStyle = .long
             $0.dateFormatter = formatter
         }
+        .cellSetup { cell, row in
+            cell.height = {60 }
+    }
         <<< AlertRow<String>() {
             $0.title = "Assign To"
             $0.cancelTitle = "Dismiss"
@@ -100,6 +110,9 @@ class TicketFilterViewController: FormViewController {
             .onPresent{ _, to in
                 to.view.tintColor = .purple
         }
+        .cellSetup { cell, row in
+            cell.height = {60 }
+    }
         <<< AlertRow<String>() {
             $0.title = "Ticket Status"
             $0.cancelTitle = "Dismiss"
@@ -112,6 +125,9 @@ class TicketFilterViewController: FormViewController {
             .onPresent{ _, to in
                 to.view.tintColor = .purple
         }
+        .cellSetup { cell, row in
+            cell.height = {60 }
+    }
 }
 
     private func configureUI() {
