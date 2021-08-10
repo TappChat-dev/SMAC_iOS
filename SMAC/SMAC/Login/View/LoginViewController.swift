@@ -10,7 +10,7 @@ import SideMenuSwift
 
 //class LoginViewController: UIViewController, StoryboardInitializable {
 class LoginViewController: UIViewController {
-
+    private var sideMenuViewController: SideMenuViewController!
     @IBOutlet weak var loginView: UIView!
     @IBOutlet weak var usernameTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
@@ -51,11 +51,13 @@ class LoginViewController: UIViewController {
     
     // MARK: - Login Button
     @IBAction func tapToLogin(_ sender:UIButton){
-        if validationCheck() {
-            usernameTxt.resignFirstResponder()
-            passwordTxt.resignFirstResponder()
+//        if validationCheck() {
+//            usernameTxt.resignFirstResponder()
+//            passwordTxt.resignFirstResponder()
 //            moveToDashBord()
             let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController
+//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//        self.sideMenuViewController = storyboard.instantiateViewController(withIdentifier: "SideMenuID") as? SideMenuViewController
             self.navigationController?.pushViewController(vc!, animated: true)
             
             return
@@ -67,7 +69,7 @@ class LoginViewController: UIViewController {
               }else{
                   
               }
-        }
+//        }
      
     }
     func moveToDashBord(){

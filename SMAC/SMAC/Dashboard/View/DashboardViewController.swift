@@ -57,10 +57,10 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
             fatalError("Configuration is messed up")
         }
         
-        let contentViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContentNavigation")
-        let menuViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MenuNavigation")
-        let sideMenuController = SideMenuController(contentViewController: contentViewController, menuViewController: menuViewController)
-        self.view .addSubview(sideMenuController.view)
+//        let contentViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContentNavigation")
+//        let menuViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MenuNavigation")
+//        let sideMenuController = SideMenuController(contentViewController: contentViewController, menuViewController: menuViewController)
+//        self.view .addSubview(sideMenuController.view)
 //        statusBarBehaviorSegment.selectedSegmentIndex = behaviorIndex
 //
 //        guard let menuPositionIndex = menuPosition.firstIndex(of: preferences.position) else {
@@ -106,6 +106,11 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
         sideMenuController?.revealMenu()
         
     }
+    @IBAction func tapToCreateTicket(_ sender:Any){
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let TC = storyboard.instantiateViewController(withIdentifier: "CreateTicketsViewController") as? CreateTicketsViewController
+            self.navigationController?.pushViewController(TC!, animated: true)
+    }
 }
 
 extension DashboardViewController{
@@ -139,6 +144,20 @@ extension DashboardViewController:UICollectionViewDelegate,UICollectionViewDataS
         }
         cell.moduleName.text = totalArray[indexPath.item]
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+
+            print(" selected")
+        collectionView.cellForItem(at: indexPath)?.backgroundColor = UIColor.gray
+//        if (totalArray[indexPath.item] == indexPath) {
+//
+//        }
+        }
+    
+    
+     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        collectionView.cellForItem(at: indexPath as IndexPath)?.backgroundColor = UIColor.clear
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

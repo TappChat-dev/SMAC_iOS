@@ -45,11 +45,17 @@
 		045D439626BD334B0082BCD1 /* DashboardCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D439426BD334B0082BCD1 /* DashboardCVCell.swift */; };
 		045D439726BD334B0082BCD1 /* DashboardCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045D439526BD334B0082BCD1 /* DashboardCVCell.xib */; };
 		045D439C26BD414C0082BCD1 /* CustomFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D439B26BD414B0082BCD1 /* CustomFlowLayout.swift */; };
+		04BCE67426C1786100801EA5 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE67326C1786100801EA5 /* UIViewController+Extensions.swift */; };
+		04BCE68126C241B000801EA5 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE67C26C241B000801EA5 /* SideMenuViewController.swift */; };
+		04BCE68226C241B000801EA5 /* SideMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE67D26C241B000801EA5 /* SideMenuModel.swift */; };
+		04BCE68326C241B000801EA5 /* SideMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04BCE67F26C241B000801EA5 /* SideMenuCell.xib */; };
+		04BCE68426C241B000801EA5 /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE68026C241B000801EA5 /* SideMenuCell.swift */; };
+		04BCE68926C243DA00801EA5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE68826C243DA00801EA5 /* MainViewController.swift */; };
+		04BCE69226C292EA00801EA5 /* CreateTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE69126C292EA00801EA5 /* CreateTicketsViewController.swift */; };
 		09F068364F230A84A4159667 /* Pods_SMAC_SMACUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A8D82D803FE490CD2DD9FA /* Pods_SMAC_SMACUITests.framework */; };
 		471CF8BC26BBB804008E1C9C /* SideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8BB26BBB804008E1C9C /* SideMenuNavigationController.swift */; };
 		471CF8C226BBB926008E1C9C /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8BD26BBB924008E1C9C /* PreferencesViewController.swift */; };
 		471CF8C326BBB926008E1C9C /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8BE26BBB924008E1C9C /* UINavigationController+Extension.swift */; };
-
 		471CF8C426BBB926008E1C9C /* TicketDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8BF26BBB925008E1C9C /* TicketDetailViewController.swift */; };
 		471CF8C526BBB926008E1C9C /* CreateTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8C026BBB925008E1C9C /* CreateTicketViewController.swift */; };
 		471CF8C626BBB926008E1C9C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8C126BBB926008E1C9C /* MenuViewController.swift */; };
@@ -130,12 +136,18 @@
 		045D439426BD334B0082BCD1 /* DashboardCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCVCell.swift; sourceTree = "<group>"; };
 		045D439526BD334B0082BCD1 /* DashboardCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardCVCell.xib; sourceTree = "<group>"; };
 		045D439B26BD414B0082BCD1 /* CustomFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFlowLayout.swift; sourceTree = "<group>"; };
+		04BCE67326C1786100801EA5 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		04BCE67C26C241B000801EA5 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		04BCE67D26C241B000801EA5 /* SideMenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuModel.swift; sourceTree = "<group>"; };
+		04BCE67F26C241B000801EA5 /* SideMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuCell.xib; sourceTree = "<group>"; };
+		04BCE68026C241B000801EA5 /* SideMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
+		04BCE68826C243DA00801EA5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = SMAC/Dashboard/View/MainViewController.swift; sourceTree = SOURCE_ROOT; };
+		04BCE69126C292EA00801EA5 /* CreateTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateTicketsViewController.swift; path = SMAC/Dashboard/View/CreateTicketsViewController.swift; sourceTree = SOURCE_ROOT; };
 		1864D2E0E5A830C2C3AAB50B /* Pods-SMAC-SMACUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMAC-SMACUITests.debug.xcconfig"; path = "Target Support Files/Pods-SMAC-SMACUITests/Pods-SMAC-SMACUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		32800C720F30C60C5BD93448 /* Pods-SMAC-SMACUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMAC-SMACUITests.release.xcconfig"; path = "Target Support Files/Pods-SMAC-SMACUITests/Pods-SMAC-SMACUITests.release.xcconfig"; sourceTree = "<group>"; };
 		471CF8BB26BBB804008E1C9C /* SideMenuNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuNavigationController.swift; sourceTree = "<group>"; };
 		471CF8BD26BBB924008E1C9C /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		471CF8BE26BBB924008E1C9C /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
-
 		471CF8BF26BBB925008E1C9C /* TicketDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketDetailViewController.swift; sourceTree = "<group>"; };
 		471CF8C026BBB925008E1C9C /* CreateTicketViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTicketViewController.swift; sourceTree = "<group>"; };
 		471CF8C126BBB926008E1C9C /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -213,7 +225,9 @@
 		045D427726B27B060082BCD1 /* SMAC */ = {
 			isa = PBXGroup;
 			children = (
+				04BCE67A26C2404200801EA5 /* SideMenuMenual */,
 				471CF8B826BBB726008E1C9C /* SideMenu */,
+				04BCE68D26C2929000801EA5 /* CreateTicket */,
 				045D431926B93DE00082BCD1 /* Dashboard */,
 				045D42B326B402120082BCD1 /* Login */,
 				045D42DB26B93A770082BCD1 /* Extension */,
@@ -313,6 +327,7 @@
 		045D42DB26B93A770082BCD1 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				04BCE67326C1786100801EA5 /* UIViewController+Extensions.swift */,
 				045D42E626B93AB10082BCD1 /* DateTime.swift */,
 				045D42EB26B93ABA0082BCD1 /* Design.swift */,
 				045D42ED26B93ABA0082BCD1 /* Dimensions.swift */,
@@ -377,6 +392,66 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		04BCE67A26C2404200801EA5 /* SideMenuMenual */ = {
+			isa = PBXGroup;
+			children = (
+				04BCE67B26C241B000801EA5 /* SideMenu */,
+			);
+			path = SideMenuMenual;
+			sourceTree = "<group>";
+		};
+		04BCE67B26C241B000801EA5 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				04BCE67C26C241B000801EA5 /* SideMenuViewController.swift */,
+				04BCE67D26C241B000801EA5 /* SideMenuModel.swift */,
+				04BCE67E26C241B000801EA5 /* Cell */,
+				04BCE68826C243DA00801EA5 /* MainViewController.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		04BCE67E26C241B000801EA5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				04BCE67F26C241B000801EA5 /* SideMenuCell.xib */,
+				04BCE68026C241B000801EA5 /* SideMenuCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		04BCE68D26C2929000801EA5 /* CreateTicket */ = {
+			isa = PBXGroup;
+			children = (
+				04BCE69026C292B100801EA5 /* ViewModel */,
+				04BCE68F26C292AB00801EA5 /* View */,
+				04BCE68E26C292A300801EA5 /* Model */,
+			);
+			path = CreateTicket;
+			sourceTree = "<group>";
+		};
+		04BCE68E26C292A300801EA5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04BCE68F26C292AB00801EA5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04BCE69126C292EA00801EA5 /* CreateTicketsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04BCE69026C292B100801EA5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		21A4A3A0C3F1C9CA49580AD8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,8 +468,6 @@
 				471CF8C926BBBC63008E1C9C /* SideMenu */,
 				471CF8C726BBB956008E1C9C /* SideMenuMain.storyboard */,
 				471CF8C126BBB926008E1C9C /* MenuViewController.swift */,
-				471CF8BD26BBB924008E1C9C /* PreferencesViewController.swift */,
-				471CF8BE26BBB924008E1C9C /* UINavigationController+Extension.swift */,
 				471CF8C026BBB925008E1C9C /* CreateTicketViewController.swift */,
 				471CF8BD26BBB924008E1C9C /* PreferencesViewController.swift */,
 				471CF8BE26BBB924008E1C9C /* UINavigationController+Extension.swift */,
@@ -544,6 +617,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				045D428826B27B080082BCD1 /* LaunchScreen.storyboard in Resources */,
+				04BCE68326C241B000801EA5 /* SideMenuCell.xib in Resources */,
 				045D428526B27B080082BCD1 /* Assets.xcassets in Resources */,
 				045D439726BD334B0082BCD1 /* DashboardCVCell.xib in Resources */,
 				045D438B26BD11C40082BCD1 /* DashboardTVCell.xib in Resources */,
@@ -681,7 +755,6 @@
 				045D427D26B27B060082BCD1 /* ViewController.swift in Sources */,
 				471CF8DB26BBBC63008E1C9C /* UIViewController+Container.swift in Sources */,
 				045D432126BBA7360082BCD1 /* DashboardViewController.swift in Sources */,
-
 				471CF8C526BBB926008E1C9C /* CreateTicketViewController.swift in Sources */,
 				471CF8DF26BBBC63008E1C9C /* BasicTransitionAnimator.swift in Sources */,
 				045D428326B27B060082BCD1 /* SMAC.xcdatamodeld in Sources */,
@@ -704,10 +777,13 @@
 				045D42F626B93ABB0082BCD1 /* ImageWithText.swift in Sources */,
 				045D42F526B93ABB0082BCD1 /* Logger.swift in Sources */,
 				045D438A26BD11C40082BCD1 /* DashboardTVCell.swift in Sources */,
+				04BCE68926C243DA00801EA5 /* MainViewController.swift in Sources */,
 				045D42B826B4024C0082BCD1 /* LoginViewController.swift in Sources */,
+				04BCE67426C1786100801EA5 /* UIViewController+Extensions.swift in Sources */,
 				045D427B26B27B060082BCD1 /* SceneDelegate.swift in Sources */,
 				045D432A26BBAA8B0082BCD1 /* DashboardViewModel.swift in Sources */,
 				045D433726BBB1E70082BCD1 /* NetworkManager.swift in Sources */,
+				04BCE69226C292EA00801EA5 /* CreateTicketsViewController.swift in Sources */,
 				471CF8C426BBB926008E1C9C /* TicketDetailViewController.swift in Sources */,
 				471CF8DE26BBBC63008E1C9C /* SideMenuController.swift in Sources */,
 				045D430026B93AC40082BCD1 /* UIColor+Theme.swift in Sources */,
@@ -715,6 +791,8 @@
 				045D42D126B929060082BCD1 /* LoginViewModel.swift in Sources */,
 				045D42FF26B93AC40082BCD1 /* RoundedCorner.swift in Sources */,
 				471CF8BC26BBB804008E1C9C /* SideMenuNavigationController.swift in Sources */,
+				04BCE68226C241B000801EA5 /* SideMenuModel.swift in Sources */,
+				04BCE68126C241B000801EA5 /* SideMenuViewController.swift in Sources */,
 				471CF8C226BBB926008E1C9C /* PreferencesViewController.swift in Sources */,
 				045D42F226B93ABB0082BCD1 /* FileUtils.swift in Sources */,
 				045D432F26BBAA9F0082BCD1 /* DashboardModel.swift in Sources */,
@@ -724,6 +802,7 @@
 				045D42D626B929590082BCD1 /* Login.swift in Sources */,
 				045D42F326B93ABB0082BCD1 /* Dimensions.swift in Sources */,
 				045D42E726B93AB10082BCD1 /* DateTime.swift in Sources */,
+				04BCE68426C241B000801EA5 /* SideMenuCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

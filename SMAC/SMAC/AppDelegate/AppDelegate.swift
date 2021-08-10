@@ -7,15 +7,29 @@
 
 import UIKit
 import CoreData
+import CSSimpleSideMenu
 
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    let customization = SideMenuCustomizationModel()
 
+    //customize
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+//        let vc = (UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController)!
+//        let controllers = [
+//            SideMenuControllerModel(with: vc, name: "First"),
+//            SideMenuControllerModel(with: vc, name: "Second"),
+//
+//        ]
+//        customization.position = .left
+//        customization.backgroundColor = UIColor(red: 0.209, green: 0.251, blue: 0.311, alpha: 1)
+//        //configure
+//        SideMenu.configure(with: controllers, customization: customization)
         return true
     }
 

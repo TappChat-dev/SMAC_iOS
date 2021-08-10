@@ -15,6 +15,8 @@ pod 'MBProgressHUD', '~> 1.0'
 pod 'SwiftLint'
 pod 'SideMenuSwift'
 pod 'Eureka'
+#pod 'SwiftySideMenuO'
+pod 'CSSimpleSideMenu'
 
   target 'SMACTests' do
     inherit! :search_paths
