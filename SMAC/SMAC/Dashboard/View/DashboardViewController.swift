@@ -69,7 +69,16 @@ extension DashboardViewController:UICollectionViewDelegate,UICollectionViewDataS
             let vc3 = UIStoryboard.init(name: "SideMenuMain", bundle: Bundle.main).instantiateViewController(withIdentifier: "TicketDetailViewController") as? TicketDetailViewController
             self.navigationController?.pushViewController(vc3!, animated: true)
            
+        }else if (dashBordItemArray[indexPath.row] == kVIEW_TICKET){
+            let vc3 = UIStoryboard.init(name: "SideMenuMain", bundle: Bundle.main).instantiateViewController(withIdentifier: "ViewTicketViewController") as? ViewTicketViewController
+            self.navigationController?.pushViewController(vc3!, animated: true)
+           
+        }else if (dashBordItemArray[indexPath.row] == kCONTRACTORS){
+            let vc3 = UIStoryboard.init(name: "SideMenuMain", bundle: Bundle.main).instantiateViewController(withIdentifier: "ContrectorsListViewController") as? ContrectorsListViewController
+            self.navigationController?.pushViewController(vc3!, animated: true)
+           
         }
+        
     }
     
 }

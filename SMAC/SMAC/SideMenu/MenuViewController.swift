@@ -145,10 +145,29 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
             
            
             sideMenuController?.contentViewController = vc2
-        }else  if manuListItemArray[row] == kCREATE_TICKET {
-            let vc2 = UIStoryboard.init(name: "SideMenuMain", bundle: Bundle.main).instantiateViewController(withIdentifier: "ContentNavigation") as? NavigationController
-           
-            sideMenuController?.contentViewController = vc2
+        }else if manuListItemArray[row] == kVIEW_TICKET {
+            let vc3 = UIStoryboard.init(name: "SideMenuMain", bundle: Bundle.main).instantiateViewController(withIdentifier: "ViewTicket") as? NavigationController
+            sideMenuController?.contentViewController = vc3
+            
+        }else if manuListItemArray[row] == kPROFILE {
+            let vc3 = UIStoryboard.init(name: "SideMenuMain", bundle: Bundle.main).instantiateViewController(withIdentifier: "Profile") as? NavigationController
+            sideMenuController?.contentViewController = vc3
+            
+        }else  if manuListItemArray[row] == kCONTRACTORS {
+            let vc3 = UIStoryboard.init(name: "SideMenuMain", bundle: Bundle.main).instantiateViewController(withIdentifier: "ContrectorsList") as? NavigationController
+            sideMenuController?.contentViewController = vc3
+        }
+        
+        
+        
+        else  if manuListItemArray[row] == kCREATE_TICKET {
+            
+            let vc3 = UIStoryboard.init(name: "SideMenuMain", bundle: Bundle.main).instantiateViewController(withIdentifier: "CreateTicket") as? NavigationController
+            sideMenuController?.contentViewController = vc3
+            
+//            let vc2 = UIStoryboard.init(name: "SideMenuMain", bundle: Bundle.main).instantiateViewController(withIdentifier: "ContentNavigation") as? NavigationController
+//
+//            sideMenuController?.contentViewController = vc2
         } else if manuListItemArray[row] == kLOGOUT {
             dismiss(animated: true, completion: nil)
         }
