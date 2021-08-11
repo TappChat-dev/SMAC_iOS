@@ -150,9 +150,13 @@ extension DashboardViewController:UICollectionViewDelegate,UICollectionViewDataS
 
             print(" selected")
         collectionView.cellForItem(at: indexPath)?.backgroundColor = UIColor.gray
-//        if (totalArray[indexPath.item] == indexPath) {
-//
-//        }
+        let name = totalArray[indexPath.item].description
+       
+        if (name == "Create Ticket") {
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let TC = storyboard.instantiateViewController(withIdentifier: "CreateTicketsViewController") as? CreateTicketsViewController
+                self.navigationController?.pushViewController(TC!, animated: true)
+        }
         }
     
     

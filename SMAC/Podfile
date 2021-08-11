@@ -17,6 +17,7 @@ pod 'SideMenuSwift'
 pod 'Eureka'
 #pod 'SwiftySideMenuO'
 pod 'CSSimpleSideMenu'
+pod 'IQKeyboardManagerSwift', '6.5.0'
 
   target 'SMACTests' do
     inherit! :search_paths
