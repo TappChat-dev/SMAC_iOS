@@ -7,6 +7,9 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import MobileCoreServices
+import UniformTypeIdentifiers
+
 
 class CreateTicketsViewController: UIViewController, UINavigationControllerDelegate {
 @IBOutlet weak var titleTxt: UITextField!
@@ -28,11 +31,14 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     var datePicker = UIDatePicker()
     var toolbar = UIToolbar()
     let imagePicker = UIImagePickerController()
-
+    let pickerView = UIPickerView()
+    
     var selectedDate = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let salutations = ["Select", "Mr.", "Ms.", "Mrs."]
+          titleTxt.loadDropdownData(data: salutations)
+        print(titleTxt)
         // Do any additional setup after loading the view.
     }
     
@@ -46,7 +52,6 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
             datePicker.datePickerMode = .date
                     
             datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
-//        datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .allTouchEvents)
             datePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
             self.view.addSubview(datePicker)
                     
@@ -87,7 +92,7 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
         })
         let actionSelectDocument = UIAlertAction(title: "Document", style: .default, handler: {
             UIAlertAction in
-//            self.openGallery(picker: imgPicker)
+            self.clickDocumentFunction()
         })
         let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         actionSheet.addAction(actionCancel)
@@ -114,6 +119,47 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
         imagePicker.delegate = self
         imagePicker.modalPresentationStyle = .overFullScreen
         self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func clickDocumentFunction(){
+//        let supportedTypes = [UTType.image, UTType.text, UTType.plainText, UTType.utf8PlainText,    UTType.utf16ExternalPlainText, UTType.utf16PlainText,    UTType.delimitedText, UTType.commaSeparatedText,    UTType.tabSeparatedText, UTType.utf8TabSeparatedText, UTType.rtf,    UTType.pdf, UTType.webArchive, UTType.image, UTType.jpeg,    UTType.tiff, UTType.gif, UTType.png, UTType.bmp, UTType.ico,    UTType.rawImage, UTType.svg, UTType.livePhoto, UTType.movie,    UTType.video, UTType.audio, UTType.quickTimeMovie, UTType.mpeg,    UTType.mpeg2Video, UTType.mpeg2TransportStream, UTType.mp3,    UTType.mpeg4Movie, UTType.mpeg4Audio, UTType.avi, UTType.aiff,    UTType.wav, UTType.midi, UTType.archive, UTType.gzip, UTType.bz2,    UTType.zip, UTType.appleArchive, UTType.spreadsheet, UTType.epub]
+        let types: [String] = [
+            kUTTypeJPEG as String,
+            kUTTypePNG as String,
+            "com.microsoft.word.doc",
+            "org.openxmlformats.wordprocessingml.document",
+            kUTTypeRTF as String,
+            "com.microsoft.powerpoint.​ppt",
+            "org.openxmlformats.presentationml.presentation",
+            kUTTypePlainText as String,
+            "com.microsoft.excel.xls",
+            "org.openxmlformats.spreadsheetml.sheet",
+            "com.apple.iwork.pages.pages",
+            "com.apple.iwork.numbers.numbers",
+            "com.apple.iwork.keynote.key",
+            "public.image",
+            "public.text",
+            "public.zip-archive",
+            "com.pkware.zip-archive",
+            "public.data",
+            kUTTypePDF as String,
+            kUTTypeMP3 as String,
+            kUTTypeSpreadsheet as String,
+            kUTTypePresentation as String,
+            kUTTypeDatabase as String
+        ]
+//        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [kUTTypeItem,], asCopy: true)
+        let documentPicker = UIDocumentPickerViewController(documentTypes: types, in: .import)
+        
+            documentPicker.allowsMultipleSelection = false
+        if #available(iOS 13.0, *) {
+            documentPicker.shouldShowFileExtensions = true
+        } else {
+            // Fallback on earlier versions
+        }
+        documentPicker.delegate = self
+        documentPicker.modalPresentationStyle = .fullScreen
+            present(documentPicker, animated: true, completion: nil)
     }
 }
 
@@ -198,5 +244,27 @@ print("Camera Url",photoURL)
 }
 
 extension CreateTicketsViewController:UIDocumentPickerDelegate{
+   
+     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        guard let myURL = urls.first else {
+            return
+        }
+        print("import result : \(myURL)")
+        dismiss(animated: true, completion: nil)
+    }
+         
+    
+
+     func documentMenu(_ documentMenu:UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
+        documentPicker.delegate = self
+        present(documentPicker, animated: true, completion: nil)
+    }
+
+
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        print("view was cancelled")
+        dismiss(animated: true, completion: nil)
+    }
     
 }
+

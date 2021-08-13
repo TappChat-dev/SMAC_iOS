@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0458037426C50231007B0796 /* SMACPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458037326C50231007B0796 /* SMACPickerView.swift */; };
+		0458037E26C524D6007B0796 /* ViewTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458037D26C524D6007B0796 /* ViewTicketsViewController.swift */; };
+		0458038426C52503007B0796 /* ViewTicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458038226C52503007B0796 /* ViewTicketCell.swift */; };
+		0458038526C52503007B0796 /* ViewTicketCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0458038326C52503007B0796 /* ViewTicketCell.xib */; };
 		045D427926B27B060082BCD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D427826B27B060082BCD1 /* AppDelegate.swift */; };
 		045D427B26B27B060082BCD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D427A26B27B060082BCD1 /* SceneDelegate.swift */; };
 		045D427D26B27B060082BCD1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D427C26B27B060082BCD1 /* ViewController.swift */; };
@@ -92,6 +96,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0458036F26C4EEA3007B0796 /* SMAC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SMAC.entitlements; sourceTree = "<group>"; };
+		0458037326C50231007B0796 /* SMACPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMACPickerView.swift; sourceTree = "<group>"; };
+		0458037D26C524D6007B0796 /* ViewTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTicketsViewController.swift; sourceTree = "<group>"; };
+		0458038226C52503007B0796 /* ViewTicketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTicketCell.swift; sourceTree = "<group>"; };
+		0458038326C52503007B0796 /* ViewTicketCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewTicketCell.xib; sourceTree = "<group>"; };
 		045D427526B27B060082BCD1 /* SMAC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SMAC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		045D427826B27B060082BCD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		045D427A26B27B060082BCD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -200,6 +209,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0458037926C52482007B0796 /* ViewTickets */ = {
+			isa = PBXGroup;
+			children = (
+				0458037C26C524A4007B0796 /* ViewModel */,
+				0458037B26C5249C007B0796 /* View */,
+				0458037A26C52495007B0796 /* Model */,
+			);
+			path = ViewTickets;
+			sourceTree = "<group>";
+		};
+		0458037A26C52495007B0796 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0458037B26C5249C007B0796 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0458037D26C524D6007B0796 /* ViewTicketsViewController.swift */,
+				0458038226C52503007B0796 /* ViewTicketCell.swift */,
+				0458038326C52503007B0796 /* ViewTicketCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0458037C26C524A4007B0796 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		045D426C26B27B060082BCD1 = {
 			isa = PBXGroup;
 			children = (
@@ -225,8 +268,10 @@
 		045D427726B27B060082BCD1 /* SMAC */ = {
 			isa = PBXGroup;
 			children = (
+				0458036F26C4EEA3007B0796 /* SMAC.entitlements */,
 				04BCE67A26C2404200801EA5 /* SideMenuMenual */,
 				471CF8B826BBB726008E1C9C /* SideMenu */,
+				0458037926C52482007B0796 /* ViewTickets */,
 				04BCE68D26C2929000801EA5 /* CreateTicket */,
 				045D431926B93DE00082BCD1 /* Dashboard */,
 				045D42B326B402120082BCD1 /* Login */,
@@ -340,6 +385,7 @@
 				045D42FC26B93AC30082BCD1 /* ViewControllerUtils.swift */,
 				045D42EE26B93ABA0082BCD1 /* Json.swift */,
 				045D42EF26B93ABA0082BCD1 /* Logger.swift */,
+				0458037326C50231007B0796 /* SMACPickerView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -618,6 +664,7 @@
 			files = (
 				045D428826B27B080082BCD1 /* LaunchScreen.storyboard in Resources */,
 				04BCE68326C241B000801EA5 /* SideMenuCell.xib in Resources */,
+				0458038526C52503007B0796 /* ViewTicketCell.xib in Resources */,
 				045D428526B27B080082BCD1 /* Assets.xcassets in Resources */,
 				045D439726BD334B0082BCD1 /* DashboardCVCell.xib in Resources */,
 				045D438B26BD11C40082BCD1 /* DashboardTVCell.xib in Resources */,
@@ -758,14 +805,17 @@
 				471CF8C526BBB926008E1C9C /* CreateTicketViewController.swift in Sources */,
 				471CF8DF26BBBC63008E1C9C /* BasicTransitionAnimator.swift in Sources */,
 				045D428326B27B060082BCD1 /* SMAC.xcdatamodeld in Sources */,
+				0458037E26C524D6007B0796 /* ViewTicketsViewController.swift in Sources */,
 				045D42DD26B93A940082BCD1 /* Utility.swift in Sources */,
 				045D42C626B9283F0082BCD1 /* LoginViewCredentialModel.swift in Sources */,
 				471CF8D826BBBC63008E1C9C /* Preferences.swift in Sources */,
 				045D439C26BD414C0082BCD1 /* CustomFlowLayout.swift in Sources */,
 				045D430326B93AC40082BCD1 /* UINib+Loader.swift in Sources */,
+				0458038426C52503007B0796 /* ViewTicketCell.swift in Sources */,
 				471CF8C626BBB926008E1C9C /* MenuViewController.swift in Sources */,
 				045D430126B93AC40082BCD1 /* ViewControllerUtils.swift in Sources */,
 				471CF8DA26BBBC63008E1C9C /* TransitionContext.swift in Sources */,
+				0458037426C50231007B0796 /* SMACPickerView.swift in Sources */,
 				045D439026BD1ABC0082BCD1 /* DashboardCellViewModel.swift in Sources */,
 				045D42E226B93A990082BCD1 /* Loader.swift in Sources */,
 				045D427926B27B060082BCD1 /* AppDelegate.swift in Sources */,
@@ -979,6 +1029,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SMAC/SMAC.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SMAC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
@@ -999,6 +1050,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SMAC/SMAC.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SMAC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
