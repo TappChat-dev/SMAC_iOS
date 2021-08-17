@@ -9,7 +9,7 @@ import UIKit
 
 class ViewTicketsViewController: UIViewController {
     @IBOutlet weak var tableView:UITableView!
-    
+    @IBOutlet weak var segmentOption:UISegmentedControl!
     lazy var viewModel = {
         VCViewModel()
     }()

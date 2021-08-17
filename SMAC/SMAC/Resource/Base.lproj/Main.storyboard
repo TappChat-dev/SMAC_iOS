@@ -1409,6 +1409,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="segmentOption" destination="gBZ-95-asb" id="mwR-g7-PbS"/>
                         <outlet property="tableView" destination="YuX-iz-ngs" id="NHG-EX-VPg"/>
                     </connections>
                 </viewController>
