@@ -722,16 +722,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pc2-Tq-tr8">
-                                        <rect key="frame" x="25" y="15" width="47" height="35"/>
+                                        <rect key="frame" x="25" y="15" width="59" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="XI1-90-tAZ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <state key="normal" title="Back">
-                                            <color key="titleColor" red="0.2459146082" green="0.26825037600000001" blue="0.38021266460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="imageEdgeInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Back" image="IQButtonBarArrowLeft.png">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="tapToMenu:" destination="bvR-d8-GyZ" eventType="touchUpInside" id="jQf-lm-WIZ"/>
+                                            <action selector="tapToBackButton:" destination="SIq-fP-zQN" eventType="touchUpInside" id="5PK-dp-Dh7"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Tickets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYk-0L-TwO">
@@ -1316,24 +1317,26 @@
             </objects>
             <point key="canvasLocation" x="3756" y="17.541229385307346"/>
         </scene>
-        <!--View Controller-->
+        <!--View Tickets View Controller-->
         <scene sceneID="uRj-W9-abK">
             <objects>
-                <viewController id="STI-iU-AQ3" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewTicketsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="STI-iU-AQ3" customClass="ViewTicketsViewController" customModule="SMAC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mq5-pc-xcc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cNB-Zy-dq7">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cNB-Zy-dq7">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOG-VI-Ufp">
-                                        <rect key="frame" x="25" y="15" width="47" height="35"/>
+                                        <rect key="frame" x="20" y="10" width="80" height="45"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <inset key="contentEdgeInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Back">
-                                            <color key="titleColor" red="0.2459146082" green="0.26825037600000001" blue="0.38021266460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <imageReference key="image" image="IQButtonBarArrowLeft.png" symbolScale="medium"/>
                                         </state>
                                         <connections>
                                             <action selector="tapToMenu:" destination="bvR-d8-GyZ" eventType="touchUpInside" id="vKK-LE-Nf2"/>
@@ -1348,12 +1351,14 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="5AA-TU-IjS"/>
+                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KCE-MF-Kz0">
-                                <rect key="frame" x="0.0" y="68" width="375" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KCE-MF-Kz0">
+                                <rect key="frame" x="0.0" y="67" width="375" height="65"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NV7-EQ-E2D">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NV7-EQ-E2D">
                                         <rect key="frame" x="25" y="15" width="47" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -1364,17 +1369,52 @@
                                             <action selector="tapToMenu:" destination="bvR-d8-GyZ" eventType="touchUpInside" id="yhV-n5-zUk"/>
                                         </connections>
                                     </button>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gBZ-95-asb">
+                                        <rect key="frame" x="8" y="17" width="359" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="All"/>
+                                            <segment title="Close"/>
+                                            <segment title="Open"/>
+                                        </segments>
+                                    </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="zc4-6R-mNj"/>
+                                </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YuX-iz-ngs">
+                                <rect key="frame" x="0.0" y="134" width="375" height="533"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="STI-iU-AQ3" id="gDB-pK-Hp2"/>
+                                    <outlet property="delegate" destination="STI-iU-AQ3" id="01t-Cm-W9E"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZOH-6T-XhX"/>
                         <color key="backgroundColor" red="0.2459146082" green="0.26825037600000001" blue="0.38021266460000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="KCE-MF-Kz0" firstAttribute="top" secondItem="cNB-Zy-dq7" secondAttribute="bottom" constant="2" id="07H-6N-jxi"/>
+                            <constraint firstItem="cNB-Zy-dq7" firstAttribute="leading" secondItem="ZOH-6T-XhX" secondAttribute="leading" id="0df-Wb-g6D"/>
+                            <constraint firstItem="YuX-iz-ngs" firstAttribute="top" secondItem="KCE-MF-Kz0" secondAttribute="bottom" constant="2" id="91p-nE-9us"/>
+                            <constraint firstItem="cNB-Zy-dq7" firstAttribute="top" secondItem="ZOH-6T-XhX" secondAttribute="top" id="9An-70-f74"/>
+                            <constraint firstItem="KCE-MF-Kz0" firstAttribute="trailing" secondItem="ZOH-6T-XhX" secondAttribute="trailing" id="BhS-n8-8YR"/>
+                            <constraint firstItem="YuX-iz-ngs" firstAttribute="leading" secondItem="ZOH-6T-XhX" secondAttribute="leading" id="HDX-Ik-9NQ"/>
+                            <constraint firstItem="YuX-iz-ngs" firstAttribute="bottom" secondItem="ZOH-6T-XhX" secondAttribute="bottom" id="MbN-II-T6l"/>
+                            <constraint firstItem="cNB-Zy-dq7" firstAttribute="trailing" secondItem="ZOH-6T-XhX" secondAttribute="trailing" id="OQH-jP-HsO"/>
+                            <constraint firstItem="KCE-MF-Kz0" firstAttribute="leading" secondItem="ZOH-6T-XhX" secondAttribute="leading" id="dKg-xS-OK2"/>
+                            <constraint firstItem="YuX-iz-ngs" firstAttribute="trailing" secondItem="ZOH-6T-XhX" secondAttribute="trailing" id="r1n-oN-l6G"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="YuX-iz-ngs" id="NHG-EX-VPg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UFs-SC-LFB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4583" y="3"/>
+            <point key="canvasLocation" x="4581.6000000000004" y="2.2488755622188905"/>
         </scene>
         <!--Side Menu View Controller-->
         <scene sceneID="Ilp-fy-e5n">
@@ -1458,6 +1498,7 @@
         </designable>
     </designables>
     <resources>
+        <image name="IQButtonBarArrowLeft.png" width="12" height="21"/>
         <image name="calender" width="60" height="60"/>
         <image name="flagCircle" width="700" height="700"/>
         <image name="menu" width="32" height="32"/>

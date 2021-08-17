@@ -37,14 +37,14 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         let salutations = ["Select", "Mr.", "Ms.", "Mrs."]
-          titleTxt.loadDropdownData(data: salutations)
+          titleTxt?.loadDropdownData(data: salutations)
         print(titleTxt)
+//        titleTxt = nil
         // Do any additional setup after loading the view.
     }
     
     // MARK: - Date Picker
     @IBAction func tapToDatePickers(_ sender:Any){
-//        showDatePicker()
         datePicker = UIDatePicker.init()
             datePicker.backgroundColor = UIColor.white
                     
@@ -102,9 +102,12 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
         self.present(actionSheet, animated: true, completion: nil)
     }
     
+    // MARK: - UploadDoc
     @IBAction func tapToUploadDoc_Image(_ sender:Any){
         self.actionSheetOption()
     }
+    
+    // MARK: - Camera
     func openCamera(){
         if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera)){
             imagePicker.sourceType = UIImagePickerController.SourceType.camera
@@ -114,6 +117,7 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
             Utility().addAlertView("Warning!", "You don't have camera", "OK", self)
         }
     }
+    // MARK: - Gallary
     func openGallary(){
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         imagePicker.delegate = self
@@ -121,6 +125,7 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
         self.present(imagePicker, animated: true, completion: nil)
     }
     
+    // MARK: - Document
     func clickDocumentFunction(){
 //        let supportedTypes = [UTType.image, UTType.text, UTType.plainText, UTType.utf8PlainText,    UTType.utf16ExternalPlainText, UTType.utf16PlainText,    UTType.delimitedText, UTType.commaSeparatedText,    UTType.tabSeparatedText, UTType.utf8TabSeparatedText, UTType.rtf,    UTType.pdf, UTType.webArchive, UTType.image, UTType.jpeg,    UTType.tiff, UTType.gif, UTType.png, UTType.bmp, UTType.ico,    UTType.rawImage, UTType.svg, UTType.livePhoto, UTType.movie,    UTType.video, UTType.audio, UTType.quickTimeMovie, UTType.mpeg,    UTType.mpeg2Video, UTType.mpeg2TransportStream, UTType.mp3,    UTType.mpeg4Movie, UTType.mpeg4Audio, UTType.avi, UTType.aiff,    UTType.wav, UTType.midi, UTType.archive, UTType.gzip, UTType.bz2,    UTType.zip, UTType.appleArchive, UTType.spreadsheet, UTType.epub]
         let types: [String] = [
@@ -160,6 +165,11 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
         documentPicker.delegate = self
         documentPicker.modalPresentationStyle = .fullScreen
             present(documentPicker, animated: true, completion: nil)
+    }
+    
+    // MARK: - Back Button
+    @IBAction func tapToBackButton(_ sender:Any){
+        self.navigationController?.popViewController( animated: true)
     }
 }
 

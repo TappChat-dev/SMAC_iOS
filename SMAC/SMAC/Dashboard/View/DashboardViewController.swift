@@ -157,6 +157,11 @@ extension DashboardViewController:UICollectionViewDelegate,UICollectionViewDataS
             let TC = storyboard.instantiateViewController(withIdentifier: "CreateTicketsViewController") as? CreateTicketsViewController
                 self.navigationController?.pushViewController(TC!, animated: true)
         }
+        if (name == "View Ticket"){
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let TC = storyboard.instantiateViewController(withIdentifier: "ViewTicketsViewController") as? ViewTicketsViewController
+                self.navigationController?.pushViewController(TC!, animated: true)
+        }
         }
     
     
