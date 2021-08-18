@@ -74,7 +74,11 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     }
 
     @objc func onDoneButtonClick() {
+        if selectedDate == "" {
+            self.dateTxt.text = Date.getCurrentDate()
+        }else{
         self.dateTxt.text = selectedDate
+        }
         toolbar.removeFromSuperview()
         datePicker.removeFromSuperview()
     }

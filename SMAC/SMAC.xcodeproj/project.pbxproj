@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041B854A26C68FC600E50F82 /* TableCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041B854926C68FC600E50F82 /* TableCellModel.swift */; };
+		043FCC5426CB935400120117 /* VCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FCC5326CB935400120117 /* VCViewModel.swift */; };
+		043FCC5926CB93E300120117 /* VCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FCC5826CB93E300120117 /* VCModel.swift */; };
+		043FCC6226CCC7B200120117 /* UpdateTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FCC6126CCC7B200120117 /* UpdateTicketViewController.swift */; };
 		0458037426C50231007B0796 /* SMACPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458037326C50231007B0796 /* SMACPickerView.swift */; };
 		0458037E26C524D6007B0796 /* ViewTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458037D26C524D6007B0796 /* ViewTicketsViewController.swift */; };
 		0458038426C52503007B0796 /* ViewTicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458038226C52503007B0796 /* ViewTicketCell.swift */; };
@@ -96,6 +100,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041B854926C68FC600E50F82 /* TableCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellModel.swift; sourceTree = "<group>"; };
+		043FCC5326CB935400120117 /* VCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCViewModel.swift; sourceTree = "<group>"; };
+		043FCC5826CB93E300120117 /* VCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCModel.swift; sourceTree = "<group>"; };
+		043FCC6126CCC7B200120117 /* UpdateTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTicketViewController.swift; sourceTree = "<group>"; };
 		0458036F26C4EEA3007B0796 /* SMAC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SMAC.entitlements; sourceTree = "<group>"; };
 		0458037326C50231007B0796 /* SMACPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMACPickerView.swift; sourceTree = "<group>"; };
 		0458037D26C524D6007B0796 /* ViewTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTicketsViewController.swift; sourceTree = "<group>"; };
@@ -151,7 +159,7 @@
 		04BCE67F26C241B000801EA5 /* SideMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SideMenuCell.xib; sourceTree = "<group>"; };
 		04BCE68026C241B000801EA5 /* SideMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
 		04BCE68826C243DA00801EA5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = SMAC/Dashboard/View/MainViewController.swift; sourceTree = SOURCE_ROOT; };
-		04BCE69126C292EA00801EA5 /* CreateTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateTicketsViewController.swift; path = SMAC/Dashboard/View/CreateTicketsViewController.swift; sourceTree = SOURCE_ROOT; };
+		04BCE69126C292EA00801EA5 /* CreateTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateTicketsViewController.swift; path = SMAC/CreateTicket/View/CreateTicketsViewController.swift; sourceTree = SOURCE_ROOT; };
 		1864D2E0E5A830C2C3AAB50B /* Pods-SMAC-SMACUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMAC-SMACUITests.debug.xcconfig"; path = "Target Support Files/Pods-SMAC-SMACUITests/Pods-SMAC-SMACUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		32800C720F30C60C5BD93448 /* Pods-SMAC-SMACUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMAC-SMACUITests.release.xcconfig"; path = "Target Support Files/Pods-SMAC-SMACUITests/Pods-SMAC-SMACUITests.release.xcconfig"; sourceTree = "<group>"; };
 		471CF8BB26BBB804008E1C9C /* SideMenuNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuNavigationController.swift; sourceTree = "<group>"; };
@@ -209,6 +217,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		043FCC5D26CCC6D600120117 /* UpdateTickets */ = {
+			isa = PBXGroup;
+			children = (
+				043FCC6026CCC78200120117 /* ViewModel */,
+				043FCC5F26CCC77B00120117 /* View */,
+				043FCC5E26CCC6E700120117 /* Model */,
+			);
+			path = UpdateTickets;
+			sourceTree = "<group>";
+		};
+		043FCC5E26CCC6E700120117 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		043FCC5F26CCC77B00120117 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				043FCC6126CCC7B200120117 /* UpdateTicketViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		043FCC6026CCC78200120117 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		0458037926C52482007B0796 /* ViewTickets */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +262,7 @@
 		0458037A26C52495007B0796 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				043FCC5826CB93E300120117 /* VCModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -239,6 +280,8 @@
 		0458037C26C524A4007B0796 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				041B854926C68FC600E50F82 /* TableCellModel.swift */,
+				043FCC5326CB935400120117 /* VCViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -271,6 +314,7 @@
 				0458036F26C4EEA3007B0796 /* SMAC.entitlements */,
 				04BCE67A26C2404200801EA5 /* SideMenuMenual */,
 				471CF8B826BBB726008E1C9C /* SideMenu */,
+				043FCC5D26CCC6D600120117 /* UpdateTickets */,
 				0458037926C52482007B0796 /* ViewTickets */,
 				04BCE68D26C2929000801EA5 /* CreateTicket */,
 				045D431926B93DE00082BCD1 /* Dashboard */,
@@ -833,6 +877,7 @@
 				045D427B26B27B060082BCD1 /* SceneDelegate.swift in Sources */,
 				045D432A26BBAA8B0082BCD1 /* DashboardViewModel.swift in Sources */,
 				045D433726BBB1E70082BCD1 /* NetworkManager.swift in Sources */,
+				041B854A26C68FC600E50F82 /* TableCellModel.swift in Sources */,
 				04BCE69226C292EA00801EA5 /* CreateTicketsViewController.swift in Sources */,
 				471CF8C426BBB926008E1C9C /* TicketDetailViewController.swift in Sources */,
 				471CF8DE26BBBC63008E1C9C /* SideMenuController.swift in Sources */,
@@ -840,11 +885,13 @@
 				471CF8D726BBBC63008E1C9C /* StatusBar.swift in Sources */,
 				045D42D126B929060082BCD1 /* LoginViewModel.swift in Sources */,
 				045D42FF26B93AC40082BCD1 /* RoundedCorner.swift in Sources */,
+				043FCC5926CB93E300120117 /* VCModel.swift in Sources */,
 				471CF8BC26BBB804008E1C9C /* SideMenuNavigationController.swift in Sources */,
 				04BCE68226C241B000801EA5 /* SideMenuModel.swift in Sources */,
 				04BCE68126C241B000801EA5 /* SideMenuViewController.swift in Sources */,
 				471CF8C226BBB926008E1C9C /* PreferencesViewController.swift in Sources */,
 				045D42F226B93ABB0082BCD1 /* FileUtils.swift in Sources */,
+				043FCC5426CB935400120117 /* VCViewModel.swift in Sources */,
 				045D432F26BBAA9F0082BCD1 /* DashboardModel.swift in Sources */,
 				045D42F126B93ABB0082BCD1 /* Design.swift in Sources */,
 				471CF8D626BBBC63008E1C9C /* UIViewController+SideMenu.swift in Sources */,
@@ -852,6 +899,7 @@
 				045D42D626B929590082BCD1 /* Login.swift in Sources */,
 				045D42F326B93ABB0082BCD1 /* Dimensions.swift in Sources */,
 				045D42E726B93AB10082BCD1 /* DateTime.swift in Sources */,
+				043FCC6226CCC7B200120117 /* UpdateTicketViewController.swift in Sources */,
 				04BCE68426C241B000801EA5 /* SideMenuCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

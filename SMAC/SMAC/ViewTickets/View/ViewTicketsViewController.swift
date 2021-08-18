@@ -16,6 +16,7 @@ class ViewTicketsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
+        tableView.register(ViewTicketCell.nib, forCellReuseIdentifier: ViewTicketCell.identifier)
         // Do any additional setup after loading the view.
     }
     
@@ -32,6 +33,10 @@ class ViewTicketsViewController: UIViewController {
         }
     }
 
+    // MARK: - Back Button
+    @IBAction func tapToBackButton(_ sender:Any){
+        self.navigationController?.popViewController( animated: true)
+    }
 }
 
 extension ViewTicketsViewController:UITableViewDelegate,UITableViewDataSource{
@@ -45,8 +50,8 @@ extension ViewTicketsViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ViewTicketCell.identifier, for: indexPath) as? ViewTicketCell else { fatalError("xib does not exists") }
-        let cellVM = viewModel.getCellViewModel(at: indexPath)
-        cell.cellViewModel = cellVM
+//        let cellVM = viewModel.getCellViewModel(at: indexPath)
+//        cell.cellViewModel = cellVM
         return cell
     }
     
