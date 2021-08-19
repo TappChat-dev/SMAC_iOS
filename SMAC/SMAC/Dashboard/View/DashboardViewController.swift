@@ -23,7 +23,7 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
     let menuDirections: [SideMenuController.Preferences.MenuDirection] = [.left, .right]
     let menuOrientation: [UIInterfaceOrientationMask] = [.portrait, .allButUpsideDown]
     let customFlowLayout = CustomFlowLayout()
-    let totalArray = ["Create Ticket", "View Ticket", "Contractor"]
+    let totalArray = ["Create Ticket", "View Ticket","Close Ticket", "Contractor"]
     override func viewDidLoad() {
         super.viewDidLoad()
 //        tableView.register(DashboardTVCell.nib, forCellReuseIdentifier: DashboardTVCell.identifier)
@@ -159,7 +159,17 @@ extension DashboardViewController:UICollectionViewDelegate,UICollectionViewDataS
         }
         if (name == "View Ticket"){
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-            let TC = storyboard.instantiateViewController(withIdentifier: "UpdateTicketViewController") as? UpdateTicketViewController
+            let TC = storyboard.instantiateViewController(withIdentifier: "ViewTicketsViewController") as? ViewTicketsViewController
+                self.navigationController?.pushViewController(TC!, animated: true)
+        }
+        if (name == "Close Ticket"){
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let TC = storyboard.instantiateViewController(withIdentifier: "CloseTicketViewController") as? CloseTicketViewController
+                self.navigationController?.pushViewController(TC!, animated: true)
+        }
+        if (name == "Contractor"){
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let TC = storyboard.instantiateViewController(withIdentifier: "CreateContractViewController") as? CreateContractViewController
                 self.navigationController?.pushViewController(TC!, animated: true)
         }
         }

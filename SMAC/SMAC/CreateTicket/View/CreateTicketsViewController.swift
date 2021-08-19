@@ -155,7 +155,8 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
             kUTTypeMP3 as String,
             kUTTypeSpreadsheet as String,
             kUTTypePresentation as String,
-            kUTTypeDatabase as String
+            kUTTypeDatabase as String,
+            String(kUTTypeContent)
         ]
 //        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [kUTTypeItem,], asCopy: true)
         let documentPicker = UIDocumentPickerViewController(documentTypes: types, in: .import)

@@ -38,7 +38,7 @@ class UpdateTicketViewController: UIViewController,UINavigationControllerDelegat
         super.viewDidLoad()
         addArrowBtnToTextField()
         // Do any additional setup after loading the view.
-        let salutations = ["Select", "Mr.", "Ms.", "Mrs."]
+        let salutations = ["Requester Name", "Mr.", "Ms.", "Mrs."]
         serviceRequesterTxt?.loadDropdownData(data: salutations)
         print(titleTxt)
     }
@@ -57,6 +57,9 @@ class UpdateTicketViewController: UIViewController,UINavigationControllerDelegat
         self.navigationController?.popViewController( animated: true)
     }
     
+    @IBAction func tapToUploadDoc(_ sender:Any){
+        self.actionSheetOption()
+    }
     // MARK: - Date Picker Button
     @IBAction func tapToDatePicker(_ sender:Any){
         datePicker = UIDatePicker.init()
@@ -163,10 +166,11 @@ class UpdateTicketViewController: UIViewController,UINavigationControllerDelegat
             "com.pkware.zip-archive",
             "public.data",
             kUTTypePDF as String,
-            kUTTypeMP3 as String,
+//            kUTTypeMP3 as String,
             kUTTypeSpreadsheet as String,
             kUTTypePresentation as String,
-            kUTTypeDatabase as String
+            kUTTypeDatabase as String,
+            String(kUTTypeContent)
         ]
         let documentPicker = UIDocumentPickerViewController(documentTypes: types, in: .import)
         
@@ -231,10 +235,40 @@ print("Camera Url",photoURL)
 extension UpdateTicketViewController: UIDocumentPickerDelegate{
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-       guard let myURL = urls.first else {
+       guard let url = urls.first else {
            return
        }
-       print("import result : \(myURL)")
+       print("import result url: \(url)")
+        let isSecuredURL = url.startAccessingSecurityScopedResource() == true
+        print("isSecuredURL",isSecuredURL)
+        let coordinator = NSFileCoordinator()
+        var error: NSError? = nil
+        coordinator.coordinate(readingItemAt: url, options: [], error: &error) { (url) -> Void in
+                   _ = urls.compactMap { (url: URL) -> URL? in
+                       // Create file URL to temporary folder
+                       var tempURL = URL(fileURLWithPath: NSTemporaryDirectory())
+                       // Apend filename (name+extension) to URL
+                       tempURL.appendPathComponent(url.lastPathComponent)
+                       do {
+                           // If file with same name exists remove it (replace file with new one)
+                           if FileManager.default.fileExists(atPath: tempURL.path) {
+                               try FileManager.default.removeItem(atPath: tempURL.path)
+                           }
+                           // Move file from app_id-Inbox to tmp/filename
+                           try FileManager.default.moveItem(atPath: url.path, toPath: tempURL.path)
+
+
+//                           YourFunction(tempURL)
+                           return tempURL
+                       } catch {
+                           print(error.localizedDescription)
+                           return nil
+                       }
+                   }
+               }
+               if (isSecuredURL) {
+                   url.stopAccessingSecurityScopedResource()
+               }
        dismiss(animated: true, completion: nil)
    }
         
