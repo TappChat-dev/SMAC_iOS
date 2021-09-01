@@ -149,13 +149,25 @@
                                             <action selector="tapToLogin:" destination="NvE-1v-j16" eventType="touchUpInside" id="9px-Ns-gbU"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMAC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R85-tT-qxQ">
+                                        <rect key="frame" x="112.5" y="84" width="90" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="RiD-hW-mIP"/>
+                                            <constraint firstAttribute="width" constant="90" id="jdP-D7-aIz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
+                                        <color key="textColor" red="0.023529411760000001" green="0.15686274510000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Qvp-R6-qKc" firstAttribute="top" secondItem="Aku-eG-6Ts" secondAttribute="bottom" constant="35" id="1b4-GX-CL3"/>
                                     <constraint firstAttribute="bottom" secondItem="Qvp-R6-qKc" secondAttribute="bottom" constant="45" id="7SV-eq-BlR"/>
+                                    <constraint firstItem="fCM-O8-sBB" firstAttribute="top" secondItem="R85-tT-qxQ" secondAttribute="bottom" constant="25" id="7gA-mw-cNT"/>
                                     <constraint firstAttribute="trailing" secondItem="Aku-eG-6Ts" secondAttribute="trailing" constant="25" id="8SK-3e-B9V"/>
                                     <constraint firstItem="Aku-eG-6Ts" firstAttribute="leading" secondItem="9Jw-mb-XMB" secondAttribute="leading" constant="25" id="APQ-qb-f0O"/>
+                                    <constraint firstItem="R85-tT-qxQ" firstAttribute="centerX" secondItem="9Jw-mb-XMB" secondAttribute="centerX" id="BEE-dK-6f2"/>
                                     <constraint firstItem="Aku-eG-6Ts" firstAttribute="top" secondItem="fCM-O8-sBB" secondAttribute="bottom" constant="16" id="CIQ-XD-ARS"/>
                                     <constraint firstItem="PkF-uz-LG8" firstAttribute="top" secondItem="9Jw-mb-XMB" secondAttribute="top" constant="15" id="Ed3-wl-Jc8"/>
                                     <constraint firstAttribute="height" constant="391" id="IEO-H8-hnR"/>
