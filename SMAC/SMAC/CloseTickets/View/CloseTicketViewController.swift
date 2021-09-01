@@ -12,7 +12,7 @@ class CloseTicketViewController: UIViewController {
     @IBOutlet weak var btnBack:UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.btnBack.tintColor = UIColor.white
         tableView.register(CloseTicketTableCell.closenib, forCellReuseIdentifier: CloseTicketTableCell.closeidentifier)
         // Do any additional setup after loading the view.
     }
