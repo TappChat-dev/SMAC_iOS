@@ -12,7 +12,7 @@ import UniformTypeIdentifiers
 
 
 class CreateTicketsViewController: UIViewController, UINavigationControllerDelegate {
-@IBOutlet weak var titleTxt: UITextField!
+    @IBOutlet weak var titleTxt: UITextField!
     @IBOutlet weak var contractNameTxt: UITextField!
     @IBOutlet weak var serviceTypeTxt: UITextField!
     @IBOutlet weak var unitTxt: UITextField!
@@ -36,31 +36,64 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     var selectedDate = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        addArrowBtnToTextFields()
         let salutations = ["Select", "Mr.", "Ms.", "Mrs."]
-          titleTxt?.loadDropdownData(data: salutations)
+        titleTxt?.loadDropdownData(data: salutations)
         print(titleTxt)
-//        titleTxt = nil
+        //        titleTxt = nil
         // Do any additional setup after loading the view.
+    }
+    
+    
+    fileprivate func addArrowBtnToTextFields() {
+        
+        let dropDownBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+        dropDownBtn.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal) //  downArrow_black arrowtriangle.down.fill, IQButtonBarArrowDown
+        serviceTypeTxt.rightViewMode = UITextField.ViewMode.always
+        serviceTypeTxt.rightView = dropDownBtn
+        let dropDownBtn1 = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+        dropDownBtn1.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal)
+        contractNameTxt.rightViewMode = UITextField.ViewMode.always
+        contractNameTxt.rightView = dropDownBtn1
+        let dropDownBtn2 = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+        dropDownBtn2.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal)
+        unitTxt.rightViewMode = UITextField.ViewMode.always
+        unitTxt.rightView = dropDownBtn2
+        let dropDownBtn3 = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+        dropDownBtn3.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal)
+        titleTxt.rightViewMode = UITextField.ViewMode.always
+        titleTxt.rightView = dropDownBtn3
+        let dropDownBtn4 = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+        dropDownBtn4.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal)
+        equipmentNameTxt.rightViewMode = UITextField.ViewMode.always
+        equipmentNameTxt.rightView = dropDownBtn4
+        let dropDownBtn5 = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+        dropDownBtn5.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal)
+        equipmentTypeTxt.rightViewMode = UITextField.ViewMode.always
+        equipmentTypeTxt.rightView = dropDownBtn5
+        
     }
     
     // MARK: - Date Picker
     @IBAction func tapToDatePickers(_ sender:Any){
         datePicker = UIDatePicker.init()
-            datePicker.backgroundColor = UIColor.white
-                    
-            datePicker.autoresizingMask = .flexibleWidth
-            datePicker.datePickerMode = .date
-                    
-            datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
-            datePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
-            self.view.addSubview(datePicker)
-                    
+        datePicker.backgroundColor = UIColor.white
+        
+        datePicker.autoresizingMask = .flexibleWidth
+        datePicker.datePickerMode = .date
+        
+        datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
+        datePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
+        self.view.addSubview(datePicker)
+        
         toolbar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
         toolbar.barStyle = .blackTranslucent
         toolbar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(self.onDoneButtonClick))]
         toolbar.sizeToFit()
-            self.view.addSubview(toolbar)
+        self.view.addSubview(toolbar)
     }
+    
+    
     @objc func dateChanged(_ sender: UIDatePicker?) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
@@ -72,12 +105,12 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
             selectedDate = dateFormatter.string(from: date)
         }
     }
-
+    
     @objc func onDoneButtonClick() {
         if selectedDate == "" {
             self.dateTxt.text = Date.getCurrentDate()
         }else{
-        self.dateTxt.text = selectedDate
+            self.dateTxt.text = selectedDate
         }
         toolbar.removeFromSuperview()
         datePicker.removeFromSuperview()
@@ -121,6 +154,7 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
             Utility().addAlertView("Warning!", "You don't have camera", "OK", self)
         }
     }
+    
     // MARK: - Gallary
     func openGallary(){
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
@@ -131,7 +165,7 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     
     // MARK: - Document
     func clickDocumentFunction(){
-//        let supportedTypes = [UTType.image, UTType.text, UTType.plainText, UTType.utf8PlainText,    UTType.utf16ExternalPlainText, UTType.utf16PlainText,    UTType.delimitedText, UTType.commaSeparatedText,    UTType.tabSeparatedText, UTType.utf8TabSeparatedText, UTType.rtf,    UTType.pdf, UTType.webArchive, UTType.image, UTType.jpeg,    UTType.tiff, UTType.gif, UTType.png, UTType.bmp, UTType.ico,    UTType.rawImage, UTType.svg, UTType.livePhoto, UTType.movie,    UTType.video, UTType.audio, UTType.quickTimeMovie, UTType.mpeg,    UTType.mpeg2Video, UTType.mpeg2TransportStream, UTType.mp3,    UTType.mpeg4Movie, UTType.mpeg4Audio, UTType.avi, UTType.aiff,    UTType.wav, UTType.midi, UTType.archive, UTType.gzip, UTType.bz2,    UTType.zip, UTType.appleArchive, UTType.spreadsheet, UTType.epub]
+        //        let supportedTypes = [UTType.image, UTType.text, UTType.plainText, UTType.utf8PlainText,    UTType.utf16ExternalPlainText, UTType.utf16PlainText,    UTType.delimitedText, UTType.commaSeparatedText,    UTType.tabSeparatedText, UTType.utf8TabSeparatedText, UTType.rtf,    UTType.pdf, UTType.webArchive, UTType.image, UTType.jpeg,    UTType.tiff, UTType.gif, UTType.png, UTType.bmp, UTType.ico,    UTType.rawImage, UTType.svg, UTType.livePhoto, UTType.movie,    UTType.video, UTType.audio, UTType.quickTimeMovie, UTType.mpeg,    UTType.mpeg2Video, UTType.mpeg2TransportStream, UTType.mp3,    UTType.mpeg4Movie, UTType.mpeg4Audio, UTType.avi, UTType.aiff,    UTType.wav, UTType.midi, UTType.archive, UTType.gzip, UTType.bz2,    UTType.zip, UTType.appleArchive, UTType.spreadsheet, UTType.epub]
         let types: [String] = [
             kUTTypeJPEG as String,
             kUTTypePNG as String,
@@ -158,10 +192,10 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
             kUTTypeDatabase as String,
             String(kUTTypeContent)
         ]
-//        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [kUTTypeItem,], asCopy: true)
+        //        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [kUTTypeItem,], asCopy: true)
         let documentPicker = UIDocumentPickerViewController(documentTypes: types, in: .import)
         
-            documentPicker.allowsMultipleSelection = false
+        documentPicker.allowsMultipleSelection = false
         if #available(iOS 13.0, *) {
             documentPicker.shouldShowFileExtensions = true
         } else {
@@ -169,13 +203,14 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
         }
         documentPicker.delegate = self
         documentPicker.modalPresentationStyle = .fullScreen
-            present(documentPicker, animated: true, completion: nil)
+        present(documentPicker, animated: true, completion: nil)
     }
     
     // MARK: - Back Button
     @IBAction func tapToBackButton(_ sender:Any){
         self.navigationController?.popViewController( animated: true)
     }
+    
 }
 
 extension CreateTicketsViewController:UITextFieldDelegate{
@@ -215,67 +250,67 @@ extension CreateTicketsViewController:UITextViewDelegate{
 extension CreateTicketsViewController:UIImagePickerControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if (info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage) != nil {
-//            imageRetrieved.contentMode = .ScaleAspectFill
-//            imageRetrieved.image = pickedImage
+            //            imageRetrieved.contentMode = .ScaleAspectFill
+            //            imageRetrieved.image = pickedImage
         }
         var selectedImage: UIImage!
         if let image = info[UIImagePickerController.InfoKey.editedImage.rawValue] as? UIImage {
-               selectedImage = image
+            selectedImage = image
         } else if let image = info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage {
-               selectedImage = image
-           }
-//           self.profileImageView.image = selectedImage
-
+            selectedImage = image
+        }
+        //           self.profileImageView.image = selectedImage
+        
         if (picker.sourceType == UIImagePickerController.SourceType.camera) {
-
-               let imgName = UUID().uuidString
-               let documentDirectory = NSTemporaryDirectory()
-               let localPath = documentDirectory.appending(imgName)
-
+            
+            let imgName = UUID().uuidString
+            let documentDirectory = NSTemporaryDirectory()
+            let localPath = documentDirectory.appending(imgName)
+            
             let data = selectedImage.jpegData(compressionQuality: 0.3)! as NSData
-               data.write(toFile: localPath, atomically: true)
-               let photoURL = URL.init(fileURLWithPath: localPath)
-print("Camera Url",photoURL)
-
-           }
+            data.write(toFile: localPath, atomically: true)
+            let photoURL = URL.init(fileURLWithPath: localPath)
+            print("Camera Url",photoURL)
+            
+        }
         if let imgUrl = info[UIImagePickerController.InfoKey.imageURL.rawValue] as? URL{
-                let imgName = imgUrl.lastPathComponent
-                let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
-                let localPath = documentDirectory?.appending(imgName)
-
+            let imgName = imgUrl.lastPathComponent
+            let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+            let localPath = documentDirectory?.appending(imgName)
+            
             let image = info[UIImagePickerController.InfoKey.originalImage.rawValue] as! UIImage
-                let data = image.pngData()! as NSData
-                data.write(toFile: localPath!, atomically: true)
-                //let imageData = NSData(contentsOfFile: localPath!)!
-                let photoURL = URL.init(fileURLWithPath: localPath!)//NSURL(fileURLWithPath: localPath!)
-                print("Gallery Url",photoURL)
-            }
+            let data = image.pngData()! as NSData
+            data.write(toFile: localPath!, atomically: true)
+            //let imageData = NSData(contentsOfFile: localPath!)!
+            let photoURL = URL.init(fileURLWithPath: localPath!)//NSURL(fileURLWithPath: localPath!)
+            print("Gallery Url",photoURL)
+        }
         self.dismiss(animated: true, completion: nil)
     }
-
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
     }
 }
 
 extension CreateTicketsViewController:UIDocumentPickerDelegate{
-   
-     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         guard let myURL = urls.first else {
             return
         }
         print("import result : \(myURL)")
         dismiss(animated: true, completion: nil)
     }
-         
     
-
-     func documentMenu(_ documentMenu:UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
+    
+    
+    func documentMenu(_ documentMenu:UIDocumentMenuViewController, didPickDocumentPicker documentPicker: UIDocumentPickerViewController) {
         documentPicker.delegate = self
         present(documentPicker, animated: true, completion: nil)
     }
-
-
+    
+    
     func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
         print("view was cancelled")
         dismiss(animated: true, completion: nil)

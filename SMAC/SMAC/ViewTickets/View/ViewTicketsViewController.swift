@@ -16,6 +16,8 @@ class ViewTicketsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
+        self.segmentOption.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
+        self.segmentOption.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x06284D)], for: .selected)
         tableView.register(ViewTicketCell.nib, forCellReuseIdentifier: ViewTicketCell.identifier)
         // Do any additional setup after loading the view.
     }

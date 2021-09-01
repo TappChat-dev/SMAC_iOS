@@ -385,10 +385,10 @@
 		045D427726B27B060082BCD1 /* SMAC */ = {
 			isa = PBXGroup;
 			children = (
-				045A2D4726CE663B00B2AAF8 /* CloseTickets */,
 				0458036F26C4EEA3007B0796 /* SMAC.entitlements */,
 				04BCE67A26C2404200801EA5 /* SideMenuMenual */,
 				471CF8B826BBB726008E1C9C /* SideMenu */,
+				045A2D4726CE663B00B2AAF8 /* CloseTickets */,
 				045A2D3E26CE63E800B2AAF8 /* CreateContract */,
 				043FCC5D26CCC6D600120117 /* UpdateTickets */,
 				0458037926C52482007B0796 /* ViewTickets */,

@@ -44,13 +44,33 @@ class UpdateTicketViewController: UIViewController,UINavigationControllerDelegat
     }
     
     fileprivate func addArrowBtnToTextField() {
+        
+        let dropDownBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+          dropDownBtn.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal) //  downArrow_black arrowtriangle.down.fill, IQButtonBarArrowDown
+          serviceTypeTxt.rightViewMode = UITextField.ViewMode.always
+          serviceTypeTxt.rightView = dropDownBtn
+          let dropDownBtn1 = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+          dropDownBtn1.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal)
+          contractNameTxt.rightViewMode = UITextField.ViewMode.always
+          contractNameTxt.rightView = dropDownBtn1
+          let dropDownBtn2 = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+          dropDownBtn2.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal)
+          unitTxt.rightViewMode = UITextField.ViewMode.always
+          unitTxt.rightView = dropDownBtn2
+          let dropDownBtn3 = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+          dropDownBtn3.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal)
+          titleTxt.rightViewMode = UITextField.ViewMode.always
+          titleTxt.rightView = dropDownBtn3
+          let dropDownBtn4 = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+          dropDownBtn4.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal)
+          equipmentNameTxt.rightViewMode = UITextField.ViewMode.always
+          equipmentNameTxt.rightView = dropDownBtn4
+          let dropDownBtn5 = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+          dropDownBtn5.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal)
+          equipmentTypeTxt.rightViewMode = UITextField.ViewMode.always
+          equipmentTypeTxt.rightView = dropDownBtn5
 
-      let dropDownBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
-        dropDownBtn.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal) //  downArrow_black arrowtriangle.down.fill, IQButtonBarArrowDown
-        serviceRequesterTxt.rightViewMode = UITextField.ViewMode.always
-        serviceRequesterTxt.rightView = dropDownBtn
-
-  }
+    }
 
     // MARK: - Back Button
     @IBAction func tapToBackButton(_ sender:Any){
