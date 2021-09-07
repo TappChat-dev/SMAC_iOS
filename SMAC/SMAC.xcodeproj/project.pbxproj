@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0401EE4B26E0B16600185A09 /* AddEquipmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0401EE4A26E0B16600185A09 /* AddEquipmentViewController.swift */; };
 		041B854A26C68FC600E50F82 /* TableCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041B854926C68FC600E50F82 /* TableCellModel.swift */; };
 		043FCC5426CB935400120117 /* VCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FCC5326CB935400120117 /* VCViewModel.swift */; };
 		043FCC5926CB93E300120117 /* VCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FCC5826CB93E300120117 /* VCModel.swift */; };
@@ -104,6 +105,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0401EE4A26E0B16600185A09 /* AddEquipmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEquipmentViewController.swift; sourceTree = "<group>"; };
 		041B854926C68FC600E50F82 /* TableCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellModel.swift; sourceTree = "<group>"; };
 		043FCC5326CB935400120117 /* VCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCViewModel.swift; sourceTree = "<group>"; };
 		043FCC5826CB93E300120117 /* VCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCModel.swift; sourceTree = "<group>"; };
@@ -225,6 +227,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0401EE4626E0B0E200185A09 /* AddEuipment */ = {
+			isa = PBXGroup;
+			children = (
+				0401EE4926E0B11900185A09 /* ViewModel */,
+				0401EE4826E0B10200185A09 /* Model */,
+				0401EE4726E0B0F600185A09 /* View */,
+			);
+			path = AddEuipment;
+			sourceTree = "<group>";
+		};
+		0401EE4726E0B0F600185A09 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0401EE4A26E0B16600185A09 /* AddEquipmentViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0401EE4826E0B10200185A09 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0401EE4926E0B11900185A09 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		043FCC5D26CCC6D600120117 /* UpdateTickets */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +419,7 @@
 		045D427726B27B060082BCD1 /* SMAC */ = {
 			isa = PBXGroup;
 			children = (
+				0401EE4626E0B0E200185A09 /* AddEuipment */,
 				0458036F26C4EEA3007B0796 /* SMAC.entitlements */,
 				04BCE67A26C2404200801EA5 /* SideMenuMenual */,
 				471CF8B826BBB726008E1C9C /* SideMenu */,
@@ -972,6 +1007,7 @@
 				471CF8C226BBB926008E1C9C /* PreferencesViewController.swift in Sources */,
 				045D42F226B93ABB0082BCD1 /* FileUtils.swift in Sources */,
 				043FCC5426CB935400120117 /* VCViewModel.swift in Sources */,
+				0401EE4B26E0B16600185A09 /* AddEquipmentViewController.swift in Sources */,
 				045D432F26BBAA9F0082BCD1 /* DashboardModel.swift in Sources */,
 				045D42F126B93ABB0082BCD1 /* Design.swift in Sources */,
 				471CF8D626BBBC63008E1C9C /* UIViewController+SideMenu.swift in Sources */,
