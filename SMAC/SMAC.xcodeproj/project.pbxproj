@@ -14,6 +14,7 @@
 		043FCC6226CCC7B200120117 /* UpdateTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FCC6126CCC7B200120117 /* UpdateTicketViewController.swift */; };
 		044EC38F26E7666A00BCE49A /* ViewEquipmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044EC38D26E7666A00BCE49A /* ViewEquipmentCell.swift */; };
 		044EC39026E7666A00BCE49A /* ViewEquipmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044EC38E26E7666A00BCE49A /* ViewEquipmentCell.xib */; };
+		044EC39526E778F700BCE49A /* ViewEquipmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044EC39426E778F700BCE49A /* ViewEquipmentVC.swift */; };
 		0458037426C50231007B0796 /* SMACPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458037326C50231007B0796 /* SMACPickerView.swift */; };
 		0458037E26C524D6007B0796 /* ViewTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458037D26C524D6007B0796 /* ViewTicketsViewController.swift */; };
 		0458038426C52503007B0796 /* ViewTicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458038226C52503007B0796 /* ViewTicketCell.swift */; };
@@ -114,6 +115,7 @@
 		043FCC6126CCC7B200120117 /* UpdateTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTicketViewController.swift; sourceTree = "<group>"; };
 		044EC38D26E7666A00BCE49A /* ViewEquipmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEquipmentCell.swift; sourceTree = "<group>"; };
 		044EC38E26E7666A00BCE49A /* ViewEquipmentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewEquipmentCell.xib; sourceTree = "<group>"; };
+		044EC39426E778F700BCE49A /* ViewEquipmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEquipmentVC.swift; sourceTree = "<group>"; };
 		0458036F26C4EEA3007B0796 /* SMAC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SMAC.entitlements; sourceTree = "<group>"; };
 		0458037326C50231007B0796 /* SMACPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMACPickerView.swift; sourceTree = "<group>"; };
 		0458037D26C524D6007B0796 /* ViewTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTicketsViewController.swift; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 			children = (
 				044EC38D26E7666A00BCE49A /* ViewEquipmentCell.swift */,
 				044EC38E26E7666A00BCE49A /* ViewEquipmentCell.xib */,
+				044EC39426E778F700BCE49A /* ViewEquipmentVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1024,6 +1027,7 @@
 				471CF8DC26BBBC63008E1C9C /* Segue.swift in Sources */,
 				045D42F626B93ABB0082BCD1 /* ImageWithText.swift in Sources */,
 				045D42F526B93ABB0082BCD1 /* Logger.swift in Sources */,
+				044EC39526E778F700BCE49A /* ViewEquipmentVC.swift in Sources */,
 				045D438A26BD11C40082BCD1 /* DashboardTVCell.swift in Sources */,
 				04BCE68926C243DA00801EA5 /* MainViewController.swift in Sources */,
 				045D42B826B4024C0082BCD1 /* LoginViewController.swift in Sources */,
