@@ -16,6 +16,9 @@ class ViewTicketsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
+        UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(rgb: 0x06284D)
+        self.setNeedsStatusBarAppearanceUpdate()
+
         self.segmentOption.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
         self.segmentOption.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x06284D)], for: .selected)
         tableView.register(ViewTicketCell.nib, forCellReuseIdentifier: ViewTicketCell.identifier)
@@ -35,6 +38,10 @@ class ViewTicketsViewController: UIViewController {
         }
     }
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // MARK: - Back Button
     @IBAction func tapToBackButton(_ sender:Any){
         self.navigationController?.popViewController( animated: true)

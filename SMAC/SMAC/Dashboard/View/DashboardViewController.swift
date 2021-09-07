@@ -26,6 +26,8 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
     let totalArray = ["Create Ticket", "View Ticket","Close Ticket", "Contractor"]
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(white: 1.0, alpha: 1.0)
+
 //        tableView.register(DashboardTVCell.nib, forCellReuseIdentifier: DashboardTVCell.identifier)
         isDarkModeEnabled = SideMenuController.preferences.basic.position == .under
         sideMenuController?.delegate = self
@@ -93,7 +95,7 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+        UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(white: 1.0, alpha: 1.0)
         ConfigureCollectionUI()
     }
     

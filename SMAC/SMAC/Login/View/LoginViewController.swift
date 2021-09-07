@@ -27,6 +27,12 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         usernameTxt.delegate = self
         passwordTxt.delegate = self
+        UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(rgb: 0x06284D)
+
+//        self.btnSegment.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
+        self.btnSegment.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x06284D)], for: .normal)
+//        self.btnSegment.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x06284D)], for: .selected)
+        self.btnSegment.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         // Do any additional setup after loading the view.
     }
     
