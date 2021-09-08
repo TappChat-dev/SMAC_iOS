@@ -24,21 +24,15 @@ class CreateContractViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addArrowBtnToTextField()
+        UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(white: 1.0, alpha: 1.0)
         // Do any additional setup after loading the view.
     }
     
     @IBAction func tapToBackButton(_ sender:Any){
         self.navigationController?.popViewController( animated: true)
     }
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     fileprivate func addArrowBtnToTextField() {
         
         let dropDownBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))

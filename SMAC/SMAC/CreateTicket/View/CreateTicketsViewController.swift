@@ -37,6 +37,7 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         addArrowBtnToTextFields()
+        UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(white: 1.0, alpha: 1.0)
         let salutations = ["Select", "Mr.", "Ms.", "Mrs."]
         titleTxt?.loadDropdownData(data: salutations)
         print(titleTxt)
