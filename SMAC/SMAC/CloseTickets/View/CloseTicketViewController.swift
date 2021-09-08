@@ -13,10 +13,14 @@ class CloseTicketViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.btnBack.tintColor = UIColor.white
+        UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(rgb: 0x06284D)
+        self.setNeedsStatusBarAppearanceUpdate()
         tableView.register(CloseTicketTableCell.closenib, forCellReuseIdentifier: CloseTicketTableCell.closeidentifier)
         // Do any additional setup after loading the view.
     }
-    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     @IBAction func tapToBackButton(_ sender:Any){
         self.navigationController?.popViewController( animated: true)
     }
