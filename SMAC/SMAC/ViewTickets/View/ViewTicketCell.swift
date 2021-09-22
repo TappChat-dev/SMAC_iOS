@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ViewTicketCellDelegate : class {
+    func didPressButton(_ tag: Int)
+}
+
 class ViewTicketCell: UITableViewCell {
     @IBOutlet weak var namelbl:UILabel!
     @IBOutlet weak var IDlbl:UILabel!
@@ -14,10 +18,18 @@ class ViewTicketCell: UITableViewCell {
     @IBOutlet weak var unitNamelbl:UILabel!
     @IBOutlet weak var statusLBL:UILabel!
     @IBOutlet weak var dateLBL:UILabel!
-    
+    @IBOutlet weak var btnEdit:UIButton!
+    @IBOutlet weak var backView:UIView!
+    var cellDelegate: ViewTicketCellDelegate?
     class var identifier: String { return String(describing: self) }
     class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
     
+    var buttonPressed : (() -> ()) = {}
+
+         @IBAction func buttonAction(_ sender: UIButton) {
+//             buttonPressed()
+            cellDelegate?.didPressButton(sender.tag)
+         }
     
     var cellViewModel: cellModel? {
         didSet {
@@ -48,18 +60,27 @@ class ViewTicketCell: UITableViewCell {
         backgroundColor = .clear
 
         // Line separator full width
-        preservesSuperviewLayoutMargins = false
-        separatorInset = UIEdgeInsets.zero
-        layoutMargins = UIEdgeInsets.zero
+//        preservesSuperviewLayoutMargins = false
+//        separatorInset = UIEdgeInsets.zero
+//        layoutMargins = UIEdgeInsets.zero
     }
 
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        namelbl.text = nil
-        IDlbl.text = nil
-        EqipmentNamelbl.text = nil
-        unitNamelbl.text = nil
-        statusLBL.text = nil
-        dateLBL.text = nil
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//        namelbl.text = nil
+//        IDlbl.text = nil
+//        EqipmentNamelbl.text = nil
+//        unitNamelbl.text = nil
+//        statusLBL.text = nil
+//        dateLBL.text = nil
+//    }
+    
+    override func layoutSubviews() {
+//        self.addShadow()
+        super.layoutSubviews()
+             //set the values for top,left,bottom,right margins
+//             let margins = UIEdgeInsets(top: 5, left: 8, bottom: 5, right: 8)
+//             contentView.frame = contentView.frame.inset(by: margins)
+//             contentView.layer.cornerRadius = 8
     }
 }

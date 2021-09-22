@@ -11,3 +11,4 @@ struct SideMenuModel {
     var icon: UIImage? = nil
     var title: String? = nil
 }
+

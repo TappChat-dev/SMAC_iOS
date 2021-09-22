@@ -15,6 +15,7 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
     @IBOutlet weak var collectionView:UICollectionView!
     @IBOutlet weak var btnMenu:UIButton!
     @IBOutlet weak var containerView: UIView!
+    var menuDelegate: MenuDelegate?
     
     var isDarkModeEnabled = false
     var themeColor = UIColor.white
@@ -23,18 +24,22 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
     let menuDirections: [SideMenuController.Preferences.MenuDirection] = [.left, .right]
     let menuOrientation: [UIInterfaceOrientationMask] = [.portrait, .allButUpsideDown]
     let customFlowLayout = CustomFlowLayout()
-    let totalArray = ["Create Ticket", "View Ticket","Close Ticket", "Contractor"]
+//    let totalArray = ["Create Ticket", "View Ticket","Close Ticket", "Contractor"]
+    let totalArray = ["Create Ticket", "View Ticket","Close Ticket", "Contractor", "List SLA", "Add Equipment","List Vender"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(white: 1.0, alpha: 1.0)
-
+//        UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(white: 1.0, alpha: 1.0)
+        UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(rgb: 0x06284D) //06284D
 //        tableView.register(DashboardTVCell.nib, forCellReuseIdentifier: DashboardTVCell.identifier)
         isDarkModeEnabled = SideMenuController.preferences.basic.position == .under
         sideMenuController?.delegate = self
         configureUI()
-        collectionView.register(DashboardCVCell.CVnib, forCellWithReuseIdentifier: DashboardCVCell.CVidentifier)
+        collectionView?.register(DashboardCVCell.CVnib, forCellWithReuseIdentifier: DashboardCVCell.CVidentifier)
         
         // Do any additional setup after loading the view.
+    }
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     private func configureUI() {
@@ -52,7 +57,7 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
         }
 
         view.backgroundColor = themeColor
-        containerView.backgroundColor = themeColor
+        containerView?.backgroundColor = themeColor
 
         let preferences = SideMenuController.preferences.basic
         guard let behaviorIndex = statusBarBehaviors.firstIndex(of: preferences.statusBarBehavior) else {
@@ -89,13 +94,15 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
                 customFlowLayout.sectionInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
 //                customFlowLayout.headerReferenceSize = CGSize(width: 0, height: 40)
 
-                collectionView.collectionViewLayout = customFlowLayout
-                collectionView.contentInsetAdjustmentBehavior = .always
+                collectionView?.collectionViewLayout = customFlowLayout
+                collectionView?.contentInsetAdjustmentBehavior = .always
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(white: 1.0, alpha: 1.0)
+//        UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(white: 1.0, alpha: 1.0)
+        UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(rgb: 0x06284D) 
+
         ConfigureCollectionUI()
     }
     
@@ -105,7 +112,8 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
     
     @IBAction func tapToMenu(_ sender:UIButton){
         
-        sideMenuController?.revealMenu()
+//        sideMenuController?.revealMenu()
+        menuDelegate?.menuHandler(index: -1)
         
     }
     @IBAction func tapToCreateTicket(_ sender:Any){
@@ -151,7 +159,7 @@ extension DashboardViewController:UICollectionViewDelegate,UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
 
             print(" selected")
-        collectionView.cellForItem(at: indexPath)?.backgroundColor = UIColor.gray
+//        collectionView.cellForItem(at: indexPath)?.backgroundColor = UIColor.gray
         let name = totalArray[indexPath.item].description
        
         if (name == "Create Ticket") {
@@ -174,11 +182,28 @@ extension DashboardViewController:UICollectionViewDelegate,UICollectionViewDataS
             let TC = storyboard.instantiateViewController(withIdentifier: "CreateContractViewController") as? CreateContractViewController
                 self.navigationController?.pushViewController(TC!, animated: true)
         }
+        if (name == "Add Equipment"){
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let TC = storyboard.instantiateViewController(withIdentifier: "AddEquipmentViewController") as? AddEquipmentViewController
+                self.navigationController?.pushViewController(TC!, animated: true)
+        }
+        if (name == "List SLA"){
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let TC = storyboard.instantiateViewController(withIdentifier: "SLAListViewController") as? SLAListViewController
+                self.navigationController?.pushViewController(TC!, animated: true)
+        }
+        if (name == "List Vender"){
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let TC = storyboard.instantiateViewController(withIdentifier: "VenderListViewController") as? VenderListViewController
+                self.navigationController?.pushViewController(TC!, animated: true)
+        }
         }
     
     
      func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
         collectionView.cellForItem(at: indexPath as IndexPath)?.backgroundColor = UIColor.clear
+        
+
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

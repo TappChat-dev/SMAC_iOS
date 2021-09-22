@@ -25,14 +25,14 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        usernameTxt.delegate = self
-        passwordTxt.delegate = self
+        usernameTxt?.delegate = self
+        passwordTxt?.delegate = self
         UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(rgb: 0x06284D)
 
 //        self.btnSegment.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
-        self.btnSegment.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x06284D)], for: .normal)
+        self.btnSegment?.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x06284D)], for: .normal)
 //        self.btnSegment.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x06284D)], for: .selected)
-        self.btnSegment.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+        self.btnSegment?.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
         // Do any additional setup after loading the view.
     }
     
@@ -61,7 +61,10 @@ class LoginViewController: UIViewController {
 //            usernameTxt.resignFirstResponder()
 //            passwordTxt.resignFirstResponder()
 //            moveToDashBord()
+       let vc1 = ContainerViewController()
+        
             let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController
+        vc?.menuDelegate = vc1
 //        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
 //        self.sideMenuViewController = storyboard.instantiateViewController(withIdentifier: "SideMenuID") as? SideMenuViewController
             self.navigationController?.pushViewController(vc!, animated: true)
@@ -94,6 +97,12 @@ class LoginViewController: UIViewController {
         self.present(vc1!, animated: true, completion: nil)
         
     }
+    
+    func setRootToLogin() {
+        UIApplication.shared.windows.first?.rootViewController = ContainerViewController()
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
+    }
+    
     @IBAction func indexChanged(_ sender: UISegmentedControl) {
         switch btnSegment.selectedSegmentIndex {
         case 0:

@@ -7,7 +7,9 @@
 
 import UIKit
 
-class ViewTicketsViewController: UIViewController {
+class ViewTicketsViewController: UIViewController,ViewTicketCellDelegate {
+    
+    
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var segmentOption:UISegmentedControl!
     lazy var viewModel = {
@@ -25,7 +27,14 @@ class ViewTicketsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+//    override func viewWillAppear(_ animated: Bool) {
+//        super .viewWillAppear(true)
+//        tableView.reloadData()
+//        tableView.setNeedsLayout()
+//        tableView.layoutIfNeeded()
+//        tableView.reloadData()
+//    }
+    
     func initViewModel() {
         // Get employees data
         viewModel.getEmployees()
@@ -46,6 +55,12 @@ class ViewTicketsViewController: UIViewController {
     @IBAction func tapToBackButton(_ sender:Any){
         self.navigationController?.popViewController( animated: true)
     }
+    
+    func didPressButton(_ tag: Int) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "UpdateTicketViewController") as! UpdateTicketViewController
+            navigationController?.pushViewController(nextViewController, animated: true)
+    }
 }
 
 extension ViewTicketsViewController:UITableViewDelegate,UITableViewDataSource{
@@ -59,10 +74,17 @@ extension ViewTicketsViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ViewTicketCell.identifier, for: indexPath) as? ViewTicketCell else { fatalError("xib does not exists") }
+        cell.addShadow(backgroundColor: .white, cornerRadius: 13, shadowRadius: 5, shadowOpacity: 0.1, shadowPathInset: (dx: 8, dy: 6), shadowPathOffset: (dx: 0, dy: 2))
+//        cell.backView.addShadowView()
+        cell.cellDelegate = self
+        cell.btnEdit.tag = indexPath.row
 //        let cellVM = viewModel.getCellViewModel(at: indexPath)
 //        cell.cellViewModel = cellVM
         return cell
     }
     
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//    }
     
 }

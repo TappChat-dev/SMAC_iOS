@@ -12,9 +12,9 @@ class ViewEquipmentCell: UITableViewCell {
     @IBOutlet weak var eqipmentTypelbl:UILabel!
     @IBOutlet weak var eqipmentNoLBL:UILabel!
     @IBOutlet weak var modelNoLBL:UILabel!
-    @IBOutlet weak var btnEdit:UILabel!
+    @IBOutlet weak var btnEdit:UIButton!
     @IBOutlet weak var btnMapContract:UILabel!
-    
+    @IBOutlet weak var backView:UIView!
     
     class var identifier: String { return String(describing: self) }
     class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
@@ -23,7 +23,9 @@ class ViewEquipmentCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

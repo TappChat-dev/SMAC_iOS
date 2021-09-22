@@ -20,6 +20,8 @@ class CreateContractViewController: UIViewController {
     @IBOutlet weak var contractNameTxt:UITextField!
     @IBOutlet weak var contractorNameTxt:UITextField!
     @IBOutlet weak var serviceTypeTxt:UITextField!
+    @IBOutlet weak var uploadSLATxt:UITextField!
+    @IBOutlet weak var uploadDocumentTxt:UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()

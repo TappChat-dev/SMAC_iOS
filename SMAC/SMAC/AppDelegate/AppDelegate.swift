@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     //customize
     
-
+    var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         IQKeyboardManager.shared.enable = true
         // Override point for customization after application launch.
@@ -31,6 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        customization.backgroundColor = UIColor(red: 0.209, green: 0.251, blue: 0.311, alpha: 1)
 //        //configure
 //        SideMenu.configure(with: controllers, customization: customization)
+        
+       
+//        self.window = UIWindow(frame: UIScreen.main.bounds)
+//        window?.rootViewController = ContainerViewController()
+//        window?.makeKeyAndVisible()
         return true
     }
 

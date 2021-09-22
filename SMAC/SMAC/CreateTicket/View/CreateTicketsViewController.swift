@@ -37,7 +37,9 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         addArrowBtnToTextFields()
-        UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(white: 1.0, alpha: 1.0)
+//        UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(white: 1.0, alpha: 1.0)
+        UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(rgb: 0x06284D)
+
         let salutations = ["Select", "Mr.", "Ms.", "Mrs."]
         titleTxt?.loadDropdownData(data: salutations)
         print(titleTxt)
@@ -45,6 +47,9 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
         // Do any additional setup after loading the view.
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     fileprivate func addArrowBtnToTextFields() {
         
