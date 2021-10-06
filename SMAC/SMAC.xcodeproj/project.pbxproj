@@ -21,6 +21,9 @@
 		04149A6E26F9E2CE00B9E7AD /* MenuCustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04149A6D26F9E2CE00B9E7AD /* MenuCustomViewController.swift */; };
 		04149A7E26FA024900B9E7AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04149A7D26FA024900B9E7AD /* SceneDelegate.swift */; };
 		041B854A26C68FC600E50F82 /* TableCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041B854926C68FC600E50F82 /* TableCellModel.swift */; };
+		042A63A82704359200182358 /* TicketStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A63A62704359200182358 /* TicketStatusCell.swift */; };
+		042A63A92704359200182358 /* TicketStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042A63A72704359200182358 /* TicketStatusCell.xib */; };
+		042A63AE27043D6A00182358 /* TicketStatusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A63AD27043D6A00182358 /* TicketStatusVC.swift */; };
 		043FCC5426CB935400120117 /* VCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FCC5326CB935400120117 /* VCViewModel.swift */; };
 		043FCC5926CB93E300120117 /* VCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FCC5826CB93E300120117 /* VCModel.swift */; };
 		043FCC6226CCC7B200120117 /* UpdateTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FCC6126CCC7B200120117 /* UpdateTicketViewController.swift */; };
@@ -143,6 +146,9 @@
 		04149A6D26F9E2CE00B9E7AD /* MenuCustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCustomViewController.swift; sourceTree = "<group>"; };
 		04149A7D26FA024900B9E7AD /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		041B854926C68FC600E50F82 /* TableCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellModel.swift; sourceTree = "<group>"; };
+		042A63A62704359200182358 /* TicketStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketStatusCell.swift; sourceTree = "<group>"; };
+		042A63A72704359200182358 /* TicketStatusCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TicketStatusCell.xib; sourceTree = "<group>"; };
+		042A63AD27043D6A00182358 /* TicketStatusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketStatusVC.swift; sourceTree = "<group>"; };
 		043FCC5326CB935400120117 /* VCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCViewModel.swift; sourceTree = "<group>"; };
 		043FCC5826CB93E300120117 /* VCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCModel.swift; sourceTree = "<group>"; };
 		043FCC6126CCC7B200120117 /* UpdateTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTicketViewController.swift; sourceTree = "<group>"; };
@@ -378,6 +384,48 @@
 				04149A6226F9E17F00B9E7AD /* menuCell.xib */,
 			);
 			path = MenuCell;
+			sourceTree = "<group>";
+		};
+		042A63A12704353500182358 /* TicketStatus */ = {
+			isa = PBXGroup;
+			children = (
+				042A63A42704354B00182358 /* ViewModel */,
+				042A63A32704354500182358 /* View */,
+				042A63A22704353F00182358 /* Model */,
+			);
+			path = TicketStatus;
+			sourceTree = "<group>";
+		};
+		042A63A22704353F00182358 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		042A63A32704354500182358 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				042A63A52704355800182358 /* cell */,
+				042A63AD27043D6A00182358 /* TicketStatusVC.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		042A63A42704354B00182358 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		042A63A52704355800182358 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				042A63A62704359200182358 /* TicketStatusCell.swift */,
+				042A63A72704359200182358 /* TicketStatusCell.xib */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		043FCC5D26CCC6D600120117 /* UpdateTickets */ = {
@@ -690,6 +738,7 @@
 		045D427726B27B060082BCD1 /* SMAC */ = {
 			isa = PBXGroup;
 			children = (
+				042A63A12704353500182358 /* TicketStatus */,
 				04149A4226F9DF8A00B9E7AD /* Menu */,
 				04149A2B26F9B60900B9E7AD /* ContractorSLA */,
 				04E90ED726F45D72005E857C /* Penalty */,
@@ -1214,6 +1263,7 @@
 				045D428026B27B060082BCD1 /* Main.storyboard in Resources */,
 				0453513926F0755E00429987 /* SLAViewCell.xib in Resources */,
 				471CF8C826BBB956008E1C9C /* SideMenuMain.storyboard in Resources */,
+				042A63A92704359200182358 /* TicketStatusCell.xib in Resources */,
 				04149A6426F9E17F00B9E7AD /* menuCell.xib in Resources */,
 				0453515626F1F9A400429987 /* VenderListCell.xib in Resources */,
 			);
@@ -1409,6 +1459,7 @@
 				471CF8BC26BBB804008E1C9C /* SideMenuNavigationController.swift in Sources */,
 				04BCE68226C241B000801EA5 /* SideMenuModel.swift in Sources */,
 				04BCE68126C241B000801EA5 /* SideMenuViewController.swift in Sources */,
+				042A63A82704359200182358 /* TicketStatusCell.swift in Sources */,
 				471CF8C226BBB926008E1C9C /* PreferencesViewController.swift in Sources */,
 				045D42F226B93ABB0082BCD1 /* FileUtils.swift in Sources */,
 				043FCC5426CB935400120117 /* VCViewModel.swift in Sources */,
@@ -1418,6 +1469,7 @@
 				471CF8D626BBBC63008E1C9C /* UIViewController+SideMenu.swift in Sources */,
 				471CF8D926BBBC63008E1C9C /* Delegate.swift in Sources */,
 				045D42D626B929590082BCD1 /* Login.swift in Sources */,
+				042A63AE27043D6A00182358 /* TicketStatusVC.swift in Sources */,
 				045D42F326B93ABB0082BCD1 /* Dimensions.swift in Sources */,
 				047A4A3926F85B37004D514F /* PenaltyDetailsVC.swift in Sources */,
 				04149A7E26FA024900B9E7AD /* SceneDelegate.swift in Sources */,

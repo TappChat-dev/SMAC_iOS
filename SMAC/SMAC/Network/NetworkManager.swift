@@ -21,15 +21,14 @@ import SVProgressHUD
 struct BaseUrl {
     private struct Domains {
         
-        static let Base_Url = "https://icg.net.in/" //for Product
-        static let Base_UrlIP = "http://112.133.213.8:8080/"
-        
+        static let Base_UrlIP = "http://13.108.164.38:8080/"
+        static let Base_Url =  "http://3.108.164.38:8080/" //smac/login
     }
     
     private  struct Routes {
-        static let Api = "icgRestful/api/"            // Production url
-        static let ApiZero = "icgRestful/api/"            // Production url
-        static let ApiDevelopment = "icgRestful_development/api/"            // development url
+        static let Api = "smac/"            // Production url
+//        static let ApiZero = "icgRestful/api/"            // Production url
+        static let ApiDevelopment = "smac/"            // development url
         static let ApiWithIP = "icgRestful_pro/api/"            //  url With IP
     }
     
@@ -39,8 +38,8 @@ struct BaseUrl {
     private  static let Route = Routes.Api
     private  static let BaseURL = Domain + Route
     
-    private  static let RouteZero = Routes.ApiZero
-    private  static let BaseURLZero = Domain + RouteZero
+//    private  static let RouteZero = Routes.ApiZero
+//    private  static let BaseURLZero = Domain + RouteZero
     private  static let RouteDev = Routes.ApiDevelopment
     private  static let BaseURLDev = Domain + RouteDev
     // For IP
@@ -50,9 +49,9 @@ struct BaseUrl {
     static var baseURL: String {
         return BaseURL
     }
-    static var baseURLZero: String {
-        return BaseURLZero
-    }
+//    static var baseURLZero: String {
+//        return BaseURLZero
+//    }
     static var baseURLDev: String {
         return BaseURLDev
     }
@@ -139,12 +138,15 @@ class func apiGet(serviceName:String,parameters: [String:Any]?, completionHandle
     }
     
     //MARK:- APi POST LOGIN
- public func apiPostLogin(serviceName:String,  parameters:[String:Any], completionHandler: @escaping (_ result : Dictionary<String, Any>?, _ error : Error?) -> ()){
-           
+// public func apiPostLogin(serviceName:String,  parameters:[String:Any], completionHandler: @escaping (_ result : [Dictionary<String, Any>]?, _ error : Error?) -> ()){
+    public func apiPostLogin(serviceName:String,  parameters:[String:Any], completionHandler: @escaping (_ result : Data?, _ error : Error?) -> ()){
            var request = URLRequest(url: URL(string: serviceName)!)
-           request.httpMethod = HTTPMethod.post.rawValue
-           request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-           let jsonData = try! JSONSerialization.data(withJSONObject: parameters, options: [.prettyPrinted])
+//           request.httpMethod = HTTPMethod.post.rawValue
+    
+//           request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.httpMethod = "POST"
+    let jsonData = try! JSONSerialization.data(withJSONObject: parameters, options: [.fragmentsAllowed])
            request.httpBody = jsonData
            
            AF.request(request).responseData { (response) in
@@ -153,17 +155,26 @@ class func apiGet(serviceName:String,parameters: [String:Any]?, completionHandle
                case .success(_):
                    print("Service url of Make call - " + serviceName)
                    if let data = response.data {
-                       do {
-                           let  dictonary = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:Any]
-                           if let dataDictionary = dictonary {
-                               print(dataDictionary)
-                               completionHandler(dataDictionary, nil)
-                           }
-                       } catch let error as NSError {
-                           print(error)
-                        let  dictonaryDicError : [String:Any]? = ["message":"Server error","status":0]
-                        completionHandler(dictonaryDicError,nil)
-                       }
+//                       do {
+//                           let  dictonary = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:Any]
+//                           if let dataDictionary = dictonary {
+//                               print(dataDictionary)
+//                               completionHandler(dataDictionary, nil)
+//                           }
+//                       } catch let error as NSError {
+//                           print(error)
+//                        let  dictonaryDicError : [String:Any]? = ["message":"Server error","status":0]
+//                        completionHandler(dictonaryDicError,nil)
+//                       }
+//                    print(String(data: data, encoding: .utf8)!)
+                    var responseDictionary: [[String : Any]]? = nil
+                    do {
+//                        responseDictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [[String : Any]]
+                        completionHandler(data, nil)
+                    } catch let parseError {
+                        print("error",parseError)
+                    }
+                    print("\(responseDictionary ?? [[:]])")
                    }
                    break
                case .failure(_):

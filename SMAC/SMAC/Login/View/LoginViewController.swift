@@ -27,6 +27,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         usernameTxt?.delegate = self
         passwordTxt?.delegate = self
+        usernameTxt.text = "pushkar.singh"
         UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(rgb: 0x06284D)
 
 //        self.btnSegment.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
@@ -48,7 +49,7 @@ class LoginViewController: UIViewController {
         if usernameTxt.text!.isEmpty {
             Utility().addAlertView("Alert!", StringConstant.emptyUsername, "OK", self)
             return false
-        } else if passwordTxt.text!.isEmpty || passwordTxt.text!.count < 6{
+        } else if passwordTxt.text!.isEmpty || passwordTxt.text!.count < 3{
             Utility().addAlertView("Alert!", StringConstant.emptyPassword, "OK", self)
             return false
         }
@@ -57,28 +58,48 @@ class LoginViewController: UIViewController {
     
     // MARK: - Login Button
     @IBAction func tapToLogin(_ sender:UIButton){
-//        if validationCheck() {
-//            usernameTxt.resignFirstResponder()
-//            passwordTxt.resignFirstResponder()
+        if validationCheck() {
+            usernameTxt.resignFirstResponder()
+            passwordTxt.resignFirstResponder()
 //            moveToDashBord()
+            if segmentSelectedOption == "" || segmentSelectedOption == nil{
+                segmentSelectedOption = "ICG"
+            }
+            var employeeLogin = Logins()
        let vc1 = ContainerViewController()
-        
-            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController
-        vc?.menuDelegate = vc1
+            var menuController : MenuCustomViewController!
+            viewModel.getLoginResponse(user: LoginViewCredentialModel(username: usernameTxt.text!, password: passwordTxt.text!, type: segmentSelectedOption!), data: {
+                response, status  in
+                print(response)
+                if status == true {
+                    //navigate to other controller
+  //                moveToDashBord()
+                    print(response[0].adhaarNO)
+                  let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController
+//              vc?.didMove(toParent: vc1)
+//                    vc1.menuController = vc?.menuDelegate as? MenuCustomViewController
+                  self.navigationController?.pushViewController(vc!, animated: true)
+                }
+            })
+//              if status == true {
+//                  //navigate to other controller
+////                moveToDashBord()
+//                let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController
+////            vc?.menuDelegate = vc1
+//                self.navigationController?.pushViewController(vc!, animated: true)
+//              }else{
+//
+//              }
+//            let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController
+//        vc?.menuDelegate = vc1
 //        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
 //        self.sideMenuViewController = storyboard.instantiateViewController(withIdentifier: "SideMenuID") as? SideMenuViewController
-            self.navigationController?.pushViewController(vc!, animated: true)
+//            self.navigationController?.pushViewController(vc!, animated: true)
             
             return
             
-            let status =  viewModel.getLoginResponse(user: LoginViewCredentialModel(username: usernameTxt.text!, password: passwordTxt.text!, type: segmentSelectedOption!))
-              if status {
-                  //navigate to other controller
-                moveToDashBord()
-              }else{
-                  
-              }
-//        }
+          
+        }
      
     }
     func moveToDashBord(){
@@ -106,11 +127,11 @@ class LoginViewController: UIViewController {
     @IBAction func indexChanged(_ sender: UISegmentedControl) {
         switch btnSegment.selectedSegmentIndex {
         case 0:
-            segmentSelectedOption = "icg"
+            segmentSelectedOption = "ICG"
             break
             
         case 1:
-            segmentSelectedOption = "non-icg"
+            segmentSelectedOption = "NCG"
             break
            
         default:

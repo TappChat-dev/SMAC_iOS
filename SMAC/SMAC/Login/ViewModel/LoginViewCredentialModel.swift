@@ -30,9 +30,9 @@ struct LoginViewCredentialModel {
     static func encode(object: LoginViewCredentialModel) -> Any {
         var user = [String: Any]()
         
-        user["username"] = object.username
+        user["userid"] = object.username
         user["password"] = object.password
-        user["type"] = object.userType
+        user["usertype"] = object.userType
         return user
     }
 }
