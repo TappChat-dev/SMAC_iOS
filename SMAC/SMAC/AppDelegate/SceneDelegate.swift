@@ -22,6 +22,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        window = UIWindow(windowScene:wScene)
 //        window?.rootViewController = ContainerViewController()
 //        window?.makeKeyAndVisible()
+      let loginStatus =  UserDefaults.standard.string(forKey: "isLoginSuccess")
+        if loginStatus == "Yes"{
+            print(" Login ststus yes")
+            window = UIWindow(windowScene:wScene)
+            let vc = (UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController)!
+            vc.didMove(toParent: ContainerViewController())
+            vc.addChild(ContainerViewController())
+            let navigationController = UINavigationController(rootViewController: vc)
+            navigationController.isNavigationBarHidden = false
+
+            window?.rootViewController = navigationController
+            window?.makeKeyAndVisible()
+        }else{
+            print("Not Login")
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

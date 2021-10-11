@@ -91,6 +91,7 @@
 		04BCE68426C241B000801EA5 /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE68026C241B000801EA5 /* SideMenuCell.swift */; };
 		04BCE68926C243DA00801EA5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE68826C243DA00801EA5 /* MainViewController.swift */; };
 		04BCE69226C292EA00801EA5 /* CreateTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE69126C292EA00801EA5 /* CreateTicketsViewController.swift */; };
+		04E2140D270ED1FD00EEE0A5 /* TicketCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2140C270ED1FD00EEE0A5 /* TicketCreateViewController.swift */; };
 		04E90EE026F46E64005E857C /* InitiatePenaltyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E90EDF26F46E64005E857C /* InitiatePenaltyVC.swift */; };
 		09F068364F230A84A4159667 /* Pods_SMAC_SMACUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A8D82D803FE490CD2DD9FA /* Pods_SMAC_SMACUITests.framework */; };
 		471CF8BC26BBB804008E1C9C /* SideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471CF8BB26BBB804008E1C9C /* SideMenuNavigationController.swift */; };
@@ -223,6 +224,7 @@
 		04BCE68026C241B000801EA5 /* SideMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
 		04BCE68826C243DA00801EA5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = SMAC/Dashboard/View/MainViewController.swift; sourceTree = SOURCE_ROOT; };
 		04BCE69126C292EA00801EA5 /* CreateTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateTicketsViewController.swift; path = SMAC/CreateTicket/View/CreateTicketsViewController.swift; sourceTree = SOURCE_ROOT; };
+		04E2140C270ED1FD00EEE0A5 /* TicketCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCreateViewController.swift; sourceTree = "<group>"; };
 		04E90EDF26F46E64005E857C /* InitiatePenaltyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitiatePenaltyVC.swift; sourceTree = "<group>"; };
 		1864D2E0E5A830C2C3AAB50B /* Pods-SMAC-SMACUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMAC-SMACUITests.debug.xcconfig"; path = "Target Support Files/Pods-SMAC-SMACUITests/Pods-SMAC-SMACUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		32800C720F30C60C5BD93448 /* Pods-SMAC-SMACUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMAC-SMACUITests.release.xcconfig"; path = "Target Support Files/Pods-SMAC-SMACUITests/Pods-SMAC-SMACUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1034,6 +1036,7 @@
 			isa = PBXGroup;
 			children = (
 				04BCE69126C292EA00801EA5 /* CreateTicketsViewController.swift */,
+				04E2140C270ED1FD00EEE0A5 /* TicketCreateViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1424,6 +1427,7 @@
 				471CF8DA26BBBC63008E1C9C /* TransitionContext.swift in Sources */,
 				045A2D4F26CE688C00B2AAF8 /* CloseTicketViewController.swift in Sources */,
 				0458037426C50231007B0796 /* SMACPickerView.swift in Sources */,
+				04E2140D270ED1FD00EEE0A5 /* TicketCreateViewController.swift in Sources */,
 				045D439026BD1ABC0082BCD1 /* DashboardCellViewModel.swift in Sources */,
 				045D42E226B93A990082BCD1 /* Loader.swift in Sources */,
 				045D427926B27B060082BCD1 /* AppDelegate.swift in Sources */,
