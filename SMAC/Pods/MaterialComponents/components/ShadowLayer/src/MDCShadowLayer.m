@@ -180,8 +180,6 @@ static const float kAmbientShadowOpacity = (float)0.08;
 
 - (void)layoutSublayers {
   [super layoutSublayers];
-
-  [self prepareShadowPath];
   [self commonLayoutSublayers];
 }
 
@@ -192,10 +190,6 @@ static const float kAmbientShadowOpacity = (float)0.08;
     _shadowPathIsInvalid = YES;
     [self setNeedsLayout];
   }
-}
-
-- (void)prepareShadowPath {
-  // This method is meant to be overriden by its subclasses.
 }
 
 #pragma mark - CALayer change monitoring.

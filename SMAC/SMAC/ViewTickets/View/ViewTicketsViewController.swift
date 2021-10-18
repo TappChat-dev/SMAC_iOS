@@ -21,6 +21,17 @@ class ViewTicketsViewController: UIViewController,ViewTicketCellDelegate {
         UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(rgb: 0x06284D)
         self.setNeedsStatusBarAppearanceUpdate()
 
+//        let attr = NSDictionary(object: UIFont(name: "HelveticaNeue", size: 20.0)!, forKey: NSAttributedString.Key.font as NSCopying)
+//        self.segmentOption.setTitleTextAttributes(attr as? [NSAttributedString.Key : Any], for: .normal)
+        
+        let font = UIFont.systemFont(ofSize: 17)
+
+        let normalAttribute: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: UIColor.gray]
+        self.segmentOption.setTitleTextAttributes(normalAttribute, for: .normal)
+
+//           let selectedAttribute: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: UIColor.red]
+//        self.segmentOption.setTitleTextAttributes(selectedAttribute, for: .selected)
+        
         self.segmentOption.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
         self.segmentOption.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x06284D)], for: .selected)
         tableView.register(ViewTicketCell.nib, forCellReuseIdentifier: ViewTicketCell.identifier)
@@ -58,7 +69,7 @@ class ViewTicketsViewController: UIViewController,ViewTicketCellDelegate {
     
     func didPressButton(_ tag: Int) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "UpdateTicketViewController") as! UpdateTicketViewController
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TicketUpdateViewController") as! TicketUpdateViewController
             navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

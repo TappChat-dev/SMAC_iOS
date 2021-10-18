@@ -28,6 +28,8 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
     let totalArray = ["Create Ticket", "View Ticket","Close Ticket", "Contractor", "List SLA", "Add Equipment","List Vender"]
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
+
 //        UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(white: 1.0, alpha: 1.0)
         UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(rgb: 0x06284D) //06284D
 //        tableView.register(DashboardTVCell.nib, forCellReuseIdentifier: DashboardTVCell.identifier)
@@ -111,9 +113,10 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
     }
     
     @IBAction func tapToMenu(_ sender:UIButton){
-        
+        self.sideMenuController?.revealMenu()
+
 //        sideMenuController?.revealMenu()
-        menuDelegate?.menuHandler(index: -1)
+//        menuDelegate?.menuHandler(index: -1)
         
     }
     @IBAction func tapToCreateTicket(_ sender:Any){

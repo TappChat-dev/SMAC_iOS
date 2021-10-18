@@ -24,28 +24,18 @@ class LoginViewModel: NSObject {
         let serviceUrl = BaseUrl.baseURL + "login"
         let jsonData:Any = LoginViewCredentialModel.encode(object:user )
         print("Dic=",jsonData)
-        var boolResponse :Bool = false
         apiManager.apiPostLogin(serviceName: serviceUrl, parameters: jsonData as! [String : Any], completionHandler: {
             [weak self] (response, error) in
                 guard let weakSelf = self else { return }
                 if let response = response {
-//                    print(response)
-                    boolResponse = true
+                    print(response)
                        let loginDetails = try? newJSONDecoder().decode(Logins.self, from: response)
 //                    print(loginDetails!)
                     data(loginDetails ?? [], true)
-//                    return
                 }else{
-                    boolResponse = false
                     data([], false)
-//                    return
                 }
         })
-//        if boolResponse {
-//            return true
-//        }else{
-//        return false
-//        }
     }
 }
 

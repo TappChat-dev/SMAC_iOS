@@ -27,6 +27,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         usernameTxt?.delegate = self
         passwordTxt?.delegate = self
+        self.navigationController?.isNavigationBarHidden = true
         usernameTxt.text = "pushkar.singh"
         UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(rgb: 0x06284D)
 
@@ -65,20 +66,27 @@ class LoginViewController: UIViewController {
             if segmentSelectedOption == "" || segmentSelectedOption == nil{
                 segmentSelectedOption = "ICG"
             }
-            var employeeLogin = Logins()
+            Loader.showLoader("Login...", target: self)
        let vc1 = ContainerViewController()
             var menuController : MenuCustomViewController!
             viewModel.getLoginResponse(user: LoginViewCredentialModel(username: usernameTxt.text!, password: passwordTxt.text!, type: segmentSelectedOption!), data: {
                 response, status  in
                 print(response)
-                if status == true {
+                if status == true  && response.count > 0{
                     //navigate to other controller
   //                moveToDashBord()
                     print(response[0].adhaarNO)
+                    UserDefaults.standard.set("Yes", forKey: "isLoginSuccess") //setObject
+
                   let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController
 //              vc?.didMove(toParent: vc1)
 //                    vc1.menuController = vc?.menuDelegate as? MenuCustomViewController
+                    Loader.hideLoader(self)
                   self.navigationController?.pushViewController(vc!, animated: true)
+//                    self.moveToDashBord()
+                }else{
+                    Loader.hideLoader(self)
+                    Utility().addAlertView("Alert!", "Please Check Your Selected Option!", "OK", self)
                 }
             })
 //              if status == true {
@@ -106,6 +114,7 @@ class LoginViewController: UIViewController {
         let vc1 = UIStoryboard.init(name: "SideMenuMain", bundle: Bundle.main).instantiateViewController(withIdentifier: "SideMenu") as? SideMenuController
         let vc2 = UIStoryboard.init(name: "SideMenuMain", bundle: Bundle.main).instantiateViewController(withIdentifier: "ContentNavigation") as? NavigationController
         let vc3 = UIStoryboard.init(name: "SideMenuMain", bundle: Bundle.main).instantiateViewController(withIdentifier: "MenuViewController") as? MenuViewController
+//        let vc3 = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController
         vc1?.contentViewController = vc2
             vc1?.menuViewController = vc3
         vc1!.modalPresentationStyle = .overFullScreen
@@ -115,7 +124,8 @@ class LoginViewController: UIViewController {
 //                menuViewController: menuViewController)
        // let vc =  SideMenuController(contentViewController: contentViewController,
          //       menuViewController: menuViewController)
-        self.present(vc1!, animated: true, completion: nil)
+//        self.present(vc1!, animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc1!, animated: true)
         
     }
     

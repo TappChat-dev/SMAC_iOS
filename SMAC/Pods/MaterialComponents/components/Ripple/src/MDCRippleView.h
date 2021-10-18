@@ -14,10 +14,6 @@
 
 #import <UIKit/UIKit.h>
 
-// TODO(b/151929968): Delete import of delegate headers when client code has been migrated to no
-// longer import delegates as transitive dependencies.
-#import "MDCRippleViewDelegate.h"
-
 @protocol MDCRippleViewDelegate;
 
 /**
@@ -152,19 +148,42 @@ typedef NS_ENUM(NSInteger, MDCRippleStyle) {
 - (void)beginRippleTouchUpAnimated:(BOOL)animated
                         completion:(nullable MDCRippleCompletionBlock)completion;
 
+@end
+
 /**
- Enumerates the given view's subviews for an instance of MDCRippleView and returns it if found, or
- creates and adds a new instance of MDCRippleView if not.
-
- This method is a convenience method for adding ripple to an arbitrary view without needing to
- subclass the target view. Use this method in situations where you expect there to be many distinct
- ripple views in existence for a single ripple touch controller. Example scenarios include:
-
- - Adding ripple to individual collection view/table view cells
-
- This method can be used in your MDCRippleTouchController delegate's
- -rippleTouchController:rippleViewAtTouchLocation: implementation.
+ The ripple view delegate protocol. Clients may implement this protocol to receive updates on
+ the ripple's animation lifecycle.
  */
-+ (nonnull MDCRippleView *)injectedRippleViewForView:(nonnull UIView *)view;
+@protocol MDCRippleViewDelegate <NSObject>
+
+@optional
+
+/**
+ Called when the ripple view began its touch down animation.
+
+ @param rippleView The MDCRippleView.
+ */
+- (void)rippleTouchDownAnimationDidBegin:(nonnull MDCRippleView *)rippleView;
+
+/**
+ Called when the ripple view ended its touch down animation.
+
+ @param rippleView The MDCRippleView.
+ */
+- (void)rippleTouchDownAnimationDidEnd:(nonnull MDCRippleView *)rippleView;
+
+/**
+ Called when the ripple view began its touch up animation.
+
+ @param rippleView The MDCRippleView.
+ */
+- (void)rippleTouchUpAnimationDidBegin:(nonnull MDCRippleView *)rippleView;
+
+/**
+ Called when the ripple view ended its touch up animation.
+
+ @param rippleView The MDCRippleView.
+ */
+- (void)rippleTouchUpAnimationDidEnd:(nonnull MDCRippleView *)rippleView;
 
 @end

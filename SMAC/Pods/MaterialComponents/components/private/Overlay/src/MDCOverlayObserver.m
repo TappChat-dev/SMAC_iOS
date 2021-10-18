@@ -89,6 +89,10 @@ static MDCOverlayObserver *_sOverlayObserver;
   return self;
 }
 
+- (void)dealloc {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark - Overlays
 
 - (MDCOverlayObserverOverlay *)overlayWithIdentifier:(NSString *)identifier {

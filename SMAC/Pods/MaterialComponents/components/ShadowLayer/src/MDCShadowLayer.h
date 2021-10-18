@@ -96,11 +96,4 @@
  order to implicitly animate 'path' or 'shadowPath' on sublayers.
  */
 @interface MDCShadowLayer (Subclassing) <CALayerDelegate>
-
-/**
- Override point.
- Called by the shadow layer before the instance lays out its sublayers.
- */
-- (void)prepareShadowPath;
-
 @end

@@ -1,56 +1,58 @@
 PODS:
   - Alamofire (5.4.1)
+  - CSSimpleSideMenu (1.1.3)
   - Eureka (5.3.3)
-  - MaterialComponents/AnimationTiming (119.4.0)
-  - MaterialComponents/Availability (119.4.0)
-  - MaterialComponents/Buttons (119.4.0):
+  - IQKeyboardManagerSwift (6.5.0)
+  - MaterialComponents/AnimationTiming (104.0.1)
+  - MaterialComponents/Availability (104.0.1)
+  - MaterialComponents/Buttons (104.0.1):
     - MaterialComponents/Elevation
     - MaterialComponents/Ink
     - MaterialComponents/private/Math
     - MaterialComponents/Ripple
     - MaterialComponents/ShadowElevations
     - MaterialComponents/ShadowLayer
-    - MaterialComponents/ShapeLibrary
     - MaterialComponents/Shapes
     - MaterialComponents/Typography
     - MDFInternationalization
     - MDFTextAccessibility
-  - MaterialComponents/Elevation (119.4.0):
+  - MaterialComponents/Elevation (104.0.1):
     - MaterialComponents/Availability
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
-  - MaterialComponents/Ink (119.4.0):
-    - MaterialComponents/Availability
+  - MaterialComponents/Ink (104.0.1):
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
-  - MaterialComponents/OverlayWindow (119.4.0):
-    - MaterialComponents/Availability
+  - MaterialComponents/OverlayWindow (104.0.1):
     - MaterialComponents/private/Application
-  - MaterialComponents/private/Application (119.4.0)
-  - MaterialComponents/private/Color (119.4.0):
-    - MaterialComponents/Availability
-  - MaterialComponents/private/KeyboardWatcher (119.4.0):
+  - MaterialComponents/Palettes (104.0.1)
+  - MaterialComponents/private/Application (104.0.1)
+  - MaterialComponents/private/Color (104.0.1)
+  - MaterialComponents/private/KeyboardWatcher (104.0.1):
     - MaterialComponents/private/Application
-  - MaterialComponents/private/Math (119.4.0)
-  - MaterialComponents/private/Overlay (119.4.0)
-  - MaterialComponents/Ripple (119.4.0):
+  - MaterialComponents/private/Math (104.0.1)
+  - MaterialComponents/private/Overlay (104.0.1)
+  - MaterialComponents/Ripple (104.0.1):
     - MaterialComponents/AnimationTiming
-    - MaterialComponents/Availability
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
-  - MaterialComponents/ShadowElevations (119.4.0)
-  - MaterialComponents/ShadowLayer (119.4.0):
+  - MaterialComponents/schemes/Color (104.0.1):
+    - MaterialComponents/private/Color
+  - MaterialComponents/schemes/Typography (104.0.1):
+    - "MaterialComponents/schemes/Typography+BasicFontScheme"
+    - "MaterialComponents/schemes/Typography+Scheming"
+    - MaterialComponents/Typography
+  - "MaterialComponents/schemes/Typography+BasicFontScheme (104.0.1)"
+  - "MaterialComponents/schemes/Typography+Scheming (104.0.1)"
+  - MaterialComponents/ShadowElevations (104.0.1)
+  - MaterialComponents/ShadowLayer (104.0.1):
     - MaterialComponents/ShadowElevations
-  - MaterialComponents/ShapeLibrary (119.4.0):
-    - MaterialComponents/private/Math
-    - MaterialComponents/Shapes
-  - MaterialComponents/Shapes (119.4.0):
+  - MaterialComponents/Shapes (104.0.1):
     - MaterialComponents/private/Color
     - MaterialComponents/private/Math
     - MaterialComponents/ShadowLayer
-  - MaterialComponents/Snackbar (119.4.0):
+  - MaterialComponents/Snackbar (104.0.1):
     - MaterialComponents/AnimationTiming
-    - MaterialComponents/Availability
     - MaterialComponents/Buttons
     - MaterialComponents/Elevation
     - MaterialComponents/OverlayWindow
@@ -61,13 +63,29 @@ PODS:
     - MaterialComponents/ShadowElevations
     - MaterialComponents/ShadowLayer
     - MaterialComponents/Typography
-  - MaterialComponents/Typography (119.4.0):
+  - MaterialComponents/TextFields (104.0.1):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Buttons
+    - MaterialComponents/Elevation
+    - MaterialComponents/Palettes
+    - MaterialComponents/private/Math
+    - MaterialComponents/Typography
+    - MDFInternationalization
+  - "MaterialComponents/TextFields+ColorThemer (104.0.1)":
+    - MaterialComponents/TextFields
+    - MaterialComponents/Themes
+  - "MaterialComponents/TextFields+TypographyThemer (104.0.1)":
+    - MaterialComponents/schemes/Typography
+    - MaterialComponents/TextFields
+  - MaterialComponents/Themes (104.0.1):
+    - MaterialComponents/schemes/Color
+    - MaterialComponents/schemes/Typography
+  - MaterialComponents/Typography (104.0.1):
     - MaterialComponents/private/Application
     - MaterialComponents/private/Math
-    - MDFTextAccessibility
   - MBProgressHUD (1.2.0)
-  - MDFInternationalization (2.0.0)
-  - MDFTextAccessibility (2.0.0)
+  - MDFInternationalization (3.0.0)
+  - MDFTextAccessibility (2.0.1)
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
@@ -78,8 +96,13 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.4.1)
+  - CSSimpleSideMenu
   - Eureka
+  - IQKeyboardManagerSwift (= 6.5.0)
   - MaterialComponents/Snackbar
+  - MaterialComponents/TextFields
+  - "MaterialComponents/TextFields+ColorThemer"
+  - "MaterialComponents/TextFields+TypographyThemer"
   - MBProgressHUD (~> 1.0)
   - SDWebImage
   - SideMenuSwift
@@ -90,7 +113,9 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - CSSimpleSideMenu
     - Eureka
+    - IQKeyboardManagerSwift
     - MaterialComponents
     - MBProgressHUD
     - MDFInternationalization
@@ -103,17 +128,19 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  CSSimpleSideMenu: c98d575017fafd4bd14294978b7d6429e472827d
   Eureka: e6d720290c56bb23333ad1a0e020b2a98a0e9a43
-  MaterialComponents: f24f65a25481ba1313d66742ba95ab27b84d9b4e
+  IQKeyboardManagerSwift: 6cd19976c6e871907c4ed9127c2d3affdd4defc2
+  MaterialComponents: 5f68750c41b8c191c605a9296586717b2f92da93
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
-  MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
+  MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
+  MDFTextAccessibility: f4bb4cc2194286651b59a215fdeaa0e05dc90ba5
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SideMenuSwift: ffbbc88d23741932177ad1320df837cedfb3bc5e
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: a3ffc3d7f60bff95bc64d4ec64e4c9d3c03376e9
+PODFILE CHECKSUM: 13d5225caabb633433c5acff0d38037c0f6fbe96
 
 COCOAPODS: 1.10.1

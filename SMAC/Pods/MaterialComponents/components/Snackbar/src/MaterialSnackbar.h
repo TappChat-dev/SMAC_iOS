@@ -14,6 +14,5 @@
 
 #import "MDCSnackbarAlignment.h"
 #import "MDCSnackbarManager.h"
-#import "MDCSnackbarManagerDelegate.h"
 #import "MDCSnackbarMessage.h"
 #import "MDCSnackbarMessageView.h"

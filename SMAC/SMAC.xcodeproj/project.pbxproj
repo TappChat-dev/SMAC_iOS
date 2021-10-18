@@ -21,6 +21,9 @@
 		04149A6E26F9E2CE00B9E7AD /* MenuCustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04149A6D26F9E2CE00B9E7AD /* MenuCustomViewController.swift */; };
 		04149A7E26FA024900B9E7AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04149A7D26FA024900B9E7AD /* SceneDelegate.swift */; };
 		041B854A26C68FC600E50F82 /* TableCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041B854926C68FC600E50F82 /* TableCellModel.swift */; };
+		0421D2E4271590B800AD2998 /* TicketUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421D2E3271590B800AD2998 /* TicketUpdateViewController.swift */; };
+		0421D2FD2718004900AD2998 /* CreateTicketJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421D2FC2718004900AD2998 /* CreateTicketJsonModel.swift */; };
+		0421D3022718034400AD2998 /* CreateTicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421D3012718034400AD2998 /* CreateTicketViewModel.swift */; };
 		042A63A82704359200182358 /* TicketStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A63A62704359200182358 /* TicketStatusCell.swift */; };
 		042A63A92704359200182358 /* TicketStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042A63A72704359200182358 /* TicketStatusCell.xib */; };
 		042A63AE27043D6A00182358 /* TicketStatusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A63AD27043D6A00182358 /* TicketStatusVC.swift */; };
@@ -147,6 +150,9 @@
 		04149A6D26F9E2CE00B9E7AD /* MenuCustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCustomViewController.swift; sourceTree = "<group>"; };
 		04149A7D26FA024900B9E7AD /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		041B854926C68FC600E50F82 /* TableCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellModel.swift; sourceTree = "<group>"; };
+		0421D2E3271590B800AD2998 /* TicketUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketUpdateViewController.swift; sourceTree = "<group>"; };
+		0421D2FC2718004900AD2998 /* CreateTicketJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTicketJsonModel.swift; sourceTree = "<group>"; };
+		0421D3012718034400AD2998 /* CreateTicketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTicketViewModel.swift; sourceTree = "<group>"; };
 		042A63A62704359200182358 /* TicketStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketStatusCell.swift; sourceTree = "<group>"; };
 		042A63A72704359200182358 /* TicketStatusCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TicketStatusCell.xib; sourceTree = "<group>"; };
 		042A63AD27043D6A00182358 /* TicketStatusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketStatusVC.swift; sourceTree = "<group>"; };
@@ -451,6 +457,7 @@
 			isa = PBXGroup;
 			children = (
 				043FCC6126CCC7B200120117 /* UpdateTicketViewController.swift */,
+				0421D2E3271590B800AD2998 /* TicketUpdateViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1044,6 +1051,8 @@
 		04BCE69026C292B100801EA5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				0421D2FC2718004900AD2998 /* CreateTicketJsonModel.swift */,
+				0421D3012718034400AD2998 /* CreateTicketViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1430,6 +1439,7 @@
 				04E2140D270ED1FD00EEE0A5 /* TicketCreateViewController.swift in Sources */,
 				045D439026BD1ABC0082BCD1 /* DashboardCellViewModel.swift in Sources */,
 				045D42E226B93A990082BCD1 /* Loader.swift in Sources */,
+				0421D3022718034400AD2998 /* CreateTicketViewModel.swift in Sources */,
 				045D427926B27B060082BCD1 /* AppDelegate.swift in Sources */,
 				04149A6926F9E28200B9E7AD /* ContainerViewController.swift in Sources */,
 				045D430226B93AC40082BCD1 /* UIViewController+Subview.swift in Sources */,
@@ -1473,6 +1483,7 @@
 				471CF8D626BBBC63008E1C9C /* UIViewController+SideMenu.swift in Sources */,
 				471CF8D926BBBC63008E1C9C /* Delegate.swift in Sources */,
 				045D42D626B929590082BCD1 /* Login.swift in Sources */,
+				0421D2FD2718004900AD2998 /* CreateTicketJsonModel.swift in Sources */,
 				042A63AE27043D6A00182358 /* TicketStatusVC.swift in Sources */,
 				045D42F326B93ABB0082BCD1 /* Dimensions.swift in Sources */,
 				047A4A3926F85B37004D514F /* PenaltyDetailsVC.swift in Sources */,
@@ -1480,6 +1491,7 @@
 				045D42E726B93AB10082BCD1 /* DateTime.swift in Sources */,
 				043FCC6226CCC7B200120117 /* UpdateTicketViewController.swift in Sources */,
 				044EC38F26E7666A00BCE49A /* ViewEquipmentCell.swift in Sources */,
+				0421D2E4271590B800AD2998 /* TicketUpdateViewController.swift in Sources */,
 				04BCE68426C241B000801EA5 /* SideMenuCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

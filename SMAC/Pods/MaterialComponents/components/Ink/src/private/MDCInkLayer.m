@@ -13,8 +13,7 @@
 // limitations under the License.
 
 #import "MDCInkLayer.h"
-
-#import "MDCInkLayerDelegate.h"
+#import "MaterialMath.h"
 
 static const CGFloat MDCInkLayerCommonDuration = (CGFloat)0.083;
 static const CGFloat MDCInkLayerEndFadeOutDuration = (CGFloat)0.15;
@@ -78,8 +77,8 @@ static NSString *const MDCInkLayerScaleString = @"transform.scale";
 
 - (void)setRadiiWithRect:(CGRect)rect {
   self.initialRadius =
-      (CGFloat)(hypot(CGRectGetHeight(rect), CGRectGetWidth(rect)) / 2 * (CGFloat)0.6);
-  self.finalRadius = (CGFloat)(hypot(CGRectGetHeight(rect), CGRectGetWidth(rect)) / 2 + 10);
+      (CGFloat)(MDCHypot(CGRectGetHeight(rect), CGRectGetWidth(rect)) / 2 * (CGFloat)0.6);
+  self.finalRadius = (CGFloat)(MDCHypot(CGRectGetHeight(rect), CGRectGetWidth(rect)) / 2 + 10);
 }
 
 - (void)startAnimationAtPoint:(CGPoint)point {

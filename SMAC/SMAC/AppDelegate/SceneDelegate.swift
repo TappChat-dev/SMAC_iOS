@@ -27,8 +27,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             print(" Login ststus yes")
             window = UIWindow(windowScene:wScene)
             let vc = (UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController)!
-            vc.didMove(toParent: ContainerViewController())
-            vc.addChild(ContainerViewController())
+//            vc.didMove(toParent: ContainerViewController())
+//            vc.addChild(ContainerViewController())
             let navigationController = UINavigationController(rootViewController: vc)
             navigationController.isNavigationBarHidden = false
 

@@ -26,9 +26,9 @@ struct BaseUrl {
     }
     
     private  struct Routes {
-        static let Api = "smac/"            // Production url
+        static let Api = "SMACAPI/"           //smac // Production url
 //        static let ApiZero = "icgRestful/api/"            // Production url
-        static let ApiDevelopment = "smac/"            // development url
+        static let ApiDevelopment = "SMACAPI/"            // development url
         static let ApiWithIP = "icgRestful_pro/api/"            //  url With IP
     }
     
