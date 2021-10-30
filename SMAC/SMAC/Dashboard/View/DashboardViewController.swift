@@ -25,7 +25,13 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
     let menuOrientation: [UIInterfaceOrientationMask] = [.portrait, .allButUpsideDown]
     let customFlowLayout = CustomFlowLayout()
 //    let totalArray = ["Create Ticket", "View Ticket","Close Ticket", "Contractor"]
-    let totalArray = ["Create Ticket", "View Ticket","Close Ticket", "Contractor", "List SLA", "Add Equipment","List Vender"]
+//    let totalArray = ["Create Ticket", "View Ticket","Close Ticket", "Contractor", "List SLA", "Add Equipment","List Vender"]
+    let totalArray = ["Create Ticket", "View Ticket","Close Ticket","View Contract","View Vender","View Equipment"]
+    
+    let arrSDMVender = ["Create Ticket","Assign Ticket","View Ticket","Close Ticket","View Contract","View Equipment"]
+    let arrEquipmentUser = ["Create Ticket","View Ticket","Close Ticket","View Contract","View Equipment","View Vender"]
+    let arrServiceEng = ["View Ticket","Close Ticket","View Contract","View Equipment"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
@@ -190,16 +196,23 @@ extension DashboardViewController:UICollectionViewDelegate,UICollectionViewDataS
             let TC = storyboard.instantiateViewController(withIdentifier: "AddEquipmentViewController") as? AddEquipmentViewController
                 self.navigationController?.pushViewController(TC!, animated: true)
         }
-        if (name == "List SLA"){
+        if (name == "View Contract"){
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-            let TC = storyboard.instantiateViewController(withIdentifier: "SLAListViewController") as? SLAListViewController
+//            let TC = storyboard.instantiateViewController(withIdentifier: "SLAListViewController") as? SLAListViewController
+            let TC = storyboard.instantiateViewController(withIdentifier: "ContractorSLA_VC") as? ContractorSLA_VC
                 self.navigationController?.pushViewController(TC!, animated: true)
         }
-        if (name == "List Vender"){
+        if (name == "View Vender"){
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
             let TC = storyboard.instantiateViewController(withIdentifier: "VenderListViewController") as? VenderListViewController
                 self.navigationController?.pushViewController(TC!, animated: true)
         }
+        if (name == "View Equipment"){
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let TC = storyboard.instantiateViewController(withIdentifier: "ViewEquipmentVC") as? ViewEquipmentVC
+                self.navigationController?.pushViewController(TC!, animated: true)
+        }
+        
         }
     
     

@@ -28,18 +28,23 @@ typealias Logins = [LoginElement]
 
 // MARK: - LoginElement
 struct LoginElement: Codable {
-    let firstname, lastname, gender: String
-    let officialEMAIL: JSONNull?
-    let personalEMAIL, panNO, desig, adhaarNO: String
-    let org: String
-    let techID: JSONNull?
-    let mobileNO: Int
-    let panno, city, state: JSONNull?
-    let isACTIVE: Int
+    let profile: JSONNull?
     let message: String
+    let station, role, pID, pNO: JSONNull?
+    let rank: JSONNull?
+    let username: String
+    let unit: JSONNull?
+    let firstname, lastname: String
+    let gender: JSONNull?
+    let mobileNO: Int
+    let officialEMAIL, personalEMAIL, panNO, desig: String
+    let adhaarNO, org, techID: String
+    let city, state: JSONNull?
+    let isACTIVE: Int
 
     enum CodingKeys: String, CodingKey {
-        case firstname, lastname, gender
+        case profile, message, station, role, pID, pNO, rank, username, unit, firstname, lastname, gender
+        case mobileNO = "mobile_NO"
         case officialEMAIL = "official_EMAIL"
         case personalEMAIL = "personal_EMAIL"
         case panNO = "pan_NO"
@@ -47,10 +52,8 @@ struct LoginElement: Codable {
         case adhaarNO = "adhaar_NO"
         case org
         case techID = "tech_ID"
-        case mobileNO = "mobile_NO"
-        case panno, city, state
+        case city, state
         case isACTIVE = "is_ACTIVE"
-        case message
     }
 }
 // MARK: - Encode/decode helpers

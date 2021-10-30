@@ -46,3 +46,43 @@ struct CreateTicketJsonModel {
         return user
     }
 }
+
+
+struct jsonDictionary{
+    var p_ID: String
+    var p_TYPE: String
+    
+    init() {
+        p_ID = ""
+        p_TYPE = ""
+        
+    }
+    init(id:String,type:String) {
+        self.p_ID = id
+        self.p_TYPE = type
+    }
+    static func encode(object: jsonDictionary) -> Any {
+        var user = [String: Any]()
+        
+        user["p_ID"] = object.p_ID
+        user["p_TYPE"] = object.p_TYPE
+        return user
+    }
+}
+
+struct jsonDictionaryForGetContract{
+    var contracts_ID: String
+    
+    init() {
+        contracts_ID = ""
+        
+    }
+    init(id:String) {
+        self.contracts_ID = id
+    }
+    static func encode(object: jsonDictionaryForGetContract) -> Any {
+        var user = [String: Any]()
+        user["contracts_ID"] = object.contracts_ID
+        return user
+    }
+}

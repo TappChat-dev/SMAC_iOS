@@ -23,6 +23,7 @@ class ViewEquipmentCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
     }

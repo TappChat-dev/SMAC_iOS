@@ -22,7 +22,7 @@ struct BaseUrl {
     private struct Domains {
         
         static let Base_UrlIP = "http://13.108.164.38:8080/"
-        static let Base_Url =  "http://3.108.164.38:8080/" //smac/login
+        static let Base_Url =  "http://https://icg.net.in/" //smac/login
     }
     
     private  struct Routes {
@@ -175,6 +175,109 @@ class func apiGet(serviceName:String,parameters: [String:Any]?, completionHandle
                         print("error",parseError)
                     }
                     print("\(responseDictionary ?? [[:]])")
+                   }
+                   break
+               case .failure(_):
+                   completionHandler(nil,response.error)
+                   break
+               }
+           }
+       }
+    
+    public func apiPostCreateType(serviceName:String,  parameters:[String:Any], completionHandler: @escaping (_ result : Data?, _ error : Error?) -> ()){
+           var request = URLRequest(url: URL(string: serviceName)!)
+
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    let jsonData = try! JSONSerialization.data(withJSONObject: parameters, options: [.fragmentsAllowed])
+        request.httpMethod = "POST"
+           request.httpBody = jsonData
+           
+           AF.request(request).responseData { (response) in
+               print(response)
+               switch(response.result) {
+               case .success(_):
+                   print("Service url of Make call - " + serviceName)
+                   if let data = response.data {
+                    var responseDictionary: [[String : Any]]? = nil
+                    do {
+                        completionHandler(data, nil)
+                    } catch let parseError {
+                        print("error",parseError)
+                    }
+                    print("\(responseDictionary ?? [[:]])")
+                   }
+                   break
+               case .failure(_):
+                   completionHandler(nil,response.error)
+                   break
+               }
+           }
+       }
+    
+    public func apiPostCreateTicket(serviceName:String,  parameters:[String:Any], completionHandler: @escaping (_ result : Dictionary<String, Any>?, _ error : Error?) -> ()){
+           var request = URLRequest(url: URL(string: serviceName)!)
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.httpMethod = "POST"
+    let jsonData = try! JSONSerialization.data(withJSONObject: parameters, options: [.fragmentsAllowed])
+           request.httpBody = jsonData
+           
+           AF.request(request).responseData { (response) in
+               print(response)
+               switch(response.result) {
+               case .success(_):
+                   print("Service url of Create Ticket call - " + serviceName)
+                   if let data = response.data {
+                       do {
+                           let  dictonary = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:Any]
+                           if let dataDictionary = dictonary {
+                               print(dataDictionary)
+                               completionHandler(dataDictionary, nil)
+                           }
+                       } catch let error as NSError {
+                           print(error)
+                        let  dictonaryDicError : [String:Any]? = ["message":"Server error","status":0]
+                        completionHandler(dictonaryDicError,nil)
+                       }
+//                    print(String(data: data, encoding: .utf8)!)
+//                    var responseDictionary: [[String : Any]]? = nil
+//                    do {
+////                        responseDictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [[String : Any]]
+////                        completionHandler(data, nil)
+//                    } catch let parseError {
+//                        print("error",parseError)
+//                    }
+//                    print("\(responseDictionary ?? [[:]])")
+                   }
+                   break
+               case .failure(_):
+                   completionHandler(nil,response.error)
+                   break
+               }
+           }
+       }
+    
+    public func apiPostViewTickets(serviceName:String,  parameters:[String:Any], completionHandler: @escaping (_ result : Data?, _ error : Error?) -> ()){
+           var request = URLRequest(url: URL(string: serviceName)!)
+
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    let jsonData = try! JSONSerialization.data(withJSONObject: parameters, options: [.fragmentsAllowed])
+        request.httpMethod = "POST"
+           request.httpBody = jsonData
+           
+           AF.request(request).responseData { (response) in
+               print(response)
+               switch(response.result) {
+               case .success(_):
+                   print("Service url of Tickets call - " + serviceName)
+                   if let data = response.data {
+//                    var responseDictionary: [[String : Any]]? = nil
+                    do {
+                        completionHandler(data, nil)
+                    } catch let parseError {
+                        print("error",parseError)
+                    }
                    }
                    break
                case .failure(_):

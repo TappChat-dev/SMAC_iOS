@@ -22,6 +22,8 @@ class UpdateTicketViewController: UIViewController,UINavigationControllerDelegat
         @IBOutlet weak var dateTxt: UITextField!
         @IBOutlet weak var uploadSLATxt: UITextField!
         @IBOutlet weak var descriptionTxtView: UITextView!
+    @IBOutlet weak var statusTxt: UITextField!
+    @IBOutlet weak var shortNotesTxtView: UITextView!
         
         @IBOutlet weak var btnUploadDoc:UIButton!
         @IBOutlet weak var btnDatePicker:UIButton!
@@ -67,8 +69,8 @@ class UpdateTicketViewController: UIViewController,UINavigationControllerDelegat
           equipmentNameTxt.rightView = dropDownBtn4
           let dropDownBtn5 = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
           dropDownBtn5.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal)
-          equipmentTypeTxt.rightViewMode = UITextField.ViewMode.always
-          equipmentTypeTxt.rightView = dropDownBtn5
+        statusTxt.rightViewMode = UITextField.ViewMode.always
+        statusTxt.rightView = dropDownBtn5
 
     }
 

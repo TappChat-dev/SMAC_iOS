@@ -77,7 +77,8 @@ class LoginViewController: UIViewController {
   //                moveToDashBord()
                     print(response[0].adhaarNO)
                     UserDefaults.standard.set("Yes", forKey: "isLoginSuccess") //setObject
-
+                    UserDefaults.standard.set(response[0].unit, forKey: "unit")
+                    UserDefaults.standard.set("", forKey: "status")
                   let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController
 //              vc?.didMove(toParent: vc1)
 //                    vc1.menuController = vc?.menuDelegate as? MenuCustomViewController

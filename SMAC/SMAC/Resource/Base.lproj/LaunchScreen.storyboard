@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,11 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="0yy-Mq-ebt">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="0yy-Mq-ebt">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_withe" translatesAutoresizingMaskIntoConstraints="NO" id="1m8-tu-Mkv">
-                                <rect key="frame" x="107" y="348" width="200" height="200"/>
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_withoutBackground" translatesAutoresizingMaskIntoConstraints="NO" id="1m8-tu-Mkv">
+                                <rect key="frame" x="107" y="581" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="XeQ-95-zj3"/>
                                     <constraint firstAttribute="height" constant="200" id="wo5-37-1tI"/>
@@ -36,7 +36,7 @@
                             <constraint firstItem="1m8-tu-Mkv" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="SLf-9d-lxD"/>
                             <constraint firstAttribute="bottom" secondItem="0yy-Mq-ebt" secondAttribute="bottom" id="XP2-rq-qrz"/>
                             <constraint firstItem="0yy-Mq-ebt" firstAttribute="leading" secondItem="cKw-z4-WHn" secondAttribute="leading" id="fvj-HN-J3n"/>
-                            <constraint firstItem="1m8-tu-Mkv" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="qh6-5h-tlZ"/>
+                            <constraint firstItem="1m8-tu-Mkv" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="233" id="qh6-5h-tlZ"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -46,8 +46,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background2" width="600" height="800"/>
-        <image name="logo_withe" width="400" height="400"/>
+        <image name="background" width="721" height="1280"/>
+        <image name="logo_withoutBackground" width="400" height="400"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

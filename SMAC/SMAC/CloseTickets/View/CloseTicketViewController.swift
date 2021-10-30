@@ -43,6 +43,8 @@ extension CloseTicketViewController:UITableViewDelegate,UITableViewDataSource{
 //        cell.cellViewModel = cellVM
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.addShadow(backgroundColor: .white, cornerRadius: 13, shadowRadius: 5, shadowOpacity: 0.1, shadowPathInset: (dx: 8, dy: 6), shadowPathOffset: (dx: 0, dy: 2))
+    }
     
 }

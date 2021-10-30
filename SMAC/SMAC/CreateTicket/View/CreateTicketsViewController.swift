@@ -34,15 +34,46 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     let pickerView = UIPickerView()
     
     var selectedDate = ""
+    
+    lazy var viewModelType = {
+        CreateTicketViewModel()
+    }()
+    var arrEquipType = [String]()
+    var arrEquip_SubType = [String]()
+    var arrEquip_ProjectName = [String]()
+    var arrEquip_ProjectID = [String]()
+    var arrEquip_RoleID = [String]()
+    var arrEquip_PriorityID = [String]()
+    var arrEquip_PriorityDecr = [String]()
+    var arrEquip_ContractorID = [String]()
+    var arrEquip_ContractorName = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
         addArrowBtnToTextFields()
-//        UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(white: 1.0, alpha: 1.0)
+        getContract()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+               //call any function
+            self.apiCalling()
+        }
         UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(rgb: 0x06284D)
 
-        let salutations = ["Select", "Mr.", "Ms.", "Mrs."]
-        titleTxt?.loadDropdownData(data: salutations)
+//        let salutations = ["Select", "Mr.", "Ms.", "Mrs."]
+        let service = ["Select", "Remote", "Telephone", "Onsite"]
+//        titleTxt?.loadDropdownData(data: salutations)
+        serviceTypeTxt.loadDropdownData(data: service)
+        equipmentTypeTxt.loadDropdownData(data: arrEquipType)
+        equipmentNameTxt.loadDropdownData(data: arrEquip_SubType)
+        self.contractNameTxt.loadDropdownData(data: self.arrEquip_ContractorName)
+
         print(titleTxt)
+        let unit = UserDefaults.standard.string(forKey: "unit")
+//        if unit!.count > 0 {
+//            self.unitTxt.text = unit
+//        }else{
+//            self.unitTxt.text = ""
+//        }
+        
         //        titleTxt = nil
         // Do any additional setup after loading the view.
     }
@@ -63,12 +94,12 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
         contractNameTxt.rightView = dropDownBtn1
         let dropDownBtn2 = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
         dropDownBtn2.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal)
-        unitTxt.rightViewMode = UITextField.ViewMode.always
-        unitTxt.rightView = dropDownBtn2
+//        unitTxt.rightViewMode = UITextField.ViewMode.always
+//        unitTxt.rightView = dropDownBtn2
         let dropDownBtn3 = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
         dropDownBtn3.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal)
-        titleTxt.rightViewMode = UITextField.ViewMode.always
-        titleTxt.rightView = dropDownBtn3
+//        titleTxt.rightViewMode = UITextField.ViewMode.always
+//        titleTxt.rightView = dropDownBtn3
         let dropDownBtn4 = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
         dropDownBtn4.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal)
         equipmentNameTxt.rightViewMode = UITextField.ViewMode.always
@@ -217,6 +248,200 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
         self.navigationController?.popViewController( animated: true)
     }
     
+    @IBAction func tapToSubmit(_ sender:Any){
+        Loader.showLoader("Creating Ticket...", target: self)
+        viewModelType.API_createTicket(json: CreateTicketJsonModel.init(description: descriptionTxtView.text, subject: "Ticket APi Demo", equip_ID: "001", equip_Type: self.equipmentTypeTxt.text!, equip_SubType: "0005", username: "vipin.gangwar"), data: {
+            response  in
+            Loader.hideLoader(self)
+                print("Response APi")
+            print(response)
+            
+        })
+    }
+    @IBAction func tapToReset(_ sender:Any){
+        
+    }
+    
+    //MARK:- API Call
+    func getContract(){
+        viewModelType.getContract_API(json: jsonDictionaryForGetContract.init(id: ""), data: {
+            response in
+            print("6th APi")
+            DispatchQueue.main.async {
+                var firstitem: Bool = false
+                if  response.count > 0{
+                    //                Loader.hideLoader(self)
+                    for id in response {
+                        if firstitem == false {
+                            firstitem = true
+                            self.arrEquip_ContractorID.append("Select")
+                            self.arrEquip_ContractorName.append("Select")
+                            self.arrEquip_ContractorID.append(id.contractID )
+                            self.arrEquip_ContractorName.append(id.contractName)
+                        }else{
+                            self.arrEquip_ContractorID.append(id.contractID )
+                            self.arrEquip_ContractorName.append(id.contractName)
+                        }
+                    }
+                    self.contractNameTxt.loadDropdownData(data: self.arrEquip_ContractorName)
+                }else{
+                    //                Loader.hideLoader(self)
+                    Utility().addAlertView("Alert!", "Something is wrong", "OK", self)
+                }
+            }
+        })
+    }
+    
+    func apiCalling(){
+        let dispatchGroup = DispatchGroup()
+        Loader.showLoader("Downloading Details...", target: self)
+        dispatchGroup.enter()
+        viewModelType.getEqpt_Type(json: jsonDictionary.init(id: "", type: "EQPT_TYPE"), data: {
+            response  in
+//            print(response)
+            print("1st APi")
+            DispatchQueue.main.async { [self] in
+            if  response.count > 0{
+                var firstitem: Bool = false
+                for id in response {
+                    if firstitem == false {
+                        firstitem = true
+                        arrEquipType.append("Select")
+                        arrEquipType.append(id.eqptType)
+                    }else{
+                    arrEquipType.append(id.eqptType)
+                    }
+                }
+                equipmentTypeTxt.loadDropdownData(data: arrEquipType)
+//                Loader.hideLoader(self)
+                
+            }else{
+//                Loader.hideLoader(self)
+//                Utility().addAlertView("Alert!", "Please Check Your Selected Option!", "OK", self)
+            }
+                dispatchGroup.leave()
+            }
+        })
+        //2nd APi
+        dispatchGroup.enter()
+        viewModelType.getEqpt_SubType(json: jsonDictionary.init(id: "", type: "EQPT_SUBTYPE"), data: {
+            response  in
+//            print(response)
+            print("2nd APi")
+            DispatchQueue.main.async { [self] in
+            if  response.count > 0{
+                var firstitem: Bool = false
+                for id in response {
+                    if firstitem == false {
+                        firstitem = true
+                        arrEquip_SubType.append("Select")
+                        arrEquip_SubType.append(id.name)
+                    }else{
+                    arrEquip_SubType.append(id.name)
+                    }
+                }
+                equipmentNameTxt.loadDropdownData(data: arrEquip_SubType)
+
+//                Loader.hideLoader(self)
+                
+            }else{
+//                Loader.hideLoader(self)
+//                Utility().addAlertView("Alert!", "Something is wrong", "OK", self)
+            }
+                dispatchGroup.leave()
+            }
+        })
+        //3rd APi
+        dispatchGroup.enter()
+        viewModelType.getEqpt_Projects(json: jsonDictionary.init(id: "", type: "PROJECTS"), data: {
+            response  in
+//            print(response)
+            print("3rd APi")
+            DispatchQueue.main.async {
+            if  response.count > 0{
+                var firstitem: Bool = false
+
+                for id in response {
+                    if firstitem == false {
+                        firstitem = true
+                        self.arrEquip_ProjectName.append("Select")
+                        self.arrEquip_ProjectID.append("Select")
+                        self.arrEquip_ProjectName.append(id.name)
+                        self.arrEquip_ProjectID.append(id.project)
+                    }else{
+                    self.arrEquip_ProjectID.append(id.project)
+                    self.arrEquip_ProjectName.append(id.name)
+                    }
+                }
+//                Loader.hideLoader(self)
+                
+            }else{
+//                Loader.hideLoader(self)
+                Utility().addAlertView("Alert!", "Something is wrong", "OK", self)
+            }
+                dispatchGroup.leave()
+            }
+        })
+        //4th APi
+        dispatchGroup.enter()
+        viewModelType.getEqpt_Smac_Role(json: jsonDictionary.init(id: "", type: "SMAC_ROLE"), data: {
+            response  in
+//            print(response)
+            print("4th APi")
+            DispatchQueue.main.async {
+                var firstitem: Bool = false
+            if  response.count > 0{
+                for id in response {
+                    if firstitem == false {
+                        firstitem = true
+                        self.arrEquip_RoleID.append("Select")
+                        self.arrEquip_RoleID.append(id.short)
+                    }else{
+                    self.arrEquip_RoleID.append(id.short)
+                    }
+                }
+//                Loader.hideLoader(self)
+                
+            }else{
+//                Loader.hideLoader(self)
+                
+                Utility().addAlertView("Alert!", "Something is wrong", "OK", self)
+            }
+                dispatchGroup.leave()
+            }
+        })
+        
+        //5th APi
+        dispatchGroup.enter()
+        viewModelType.getEqpt_Priority(json: jsonDictionary.init(id: "", type: "PRIORITY"), data: {
+            response  in
+//            print(response)
+            print("5th APi")
+            DispatchQueue.main.async {
+            if  response.count > 0{
+//                Loader.hideLoader(self)
+                for id in response {
+                    self.arrEquip_PriorityID.append(id.tpID)
+                    self.arrEquip_PriorityDecr.append(id.descr)
+                }
+                
+            }else{
+//                Loader.hideLoader(self)
+                Utility().addAlertView("Alert!", "Something is wrong", "OK", self)
+            }
+                dispatchGroup.leave()
+            }
+        })
+        
+        dispatchGroup.notify(queue: .main) {
+               // whatever you want to do when both are done
+            Loader.hideLoader(self)
+            print("All services completed")
+           }
+    }
+    
+    func apiSubmit_CreateTask(){
+    }
 }
 
 extension CreateTicketsViewController:UITextFieldDelegate{
@@ -323,4 +548,5 @@ extension CreateTicketsViewController:UIDocumentPickerDelegate{
     }
     
 }
+
 
