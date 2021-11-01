@@ -54,5 +54,27 @@ extension LoginViewCredentialModel {
         return type
     }
 
+}
+
+
+struct RoleJsonDictionary {
+    var pid: String
+    var userType: String
     
+    init() {
+        userType = ""
+        pid = ""
+        
+    }
+    init(id:String,type:String) {
+        self.pid = id
+        self.userType = type
+    }
+    static func encode(object: RoleJsonDictionary) -> Any {
+        var user = [String: Any]()
+        
+        user["pid"] = object.pid
+        user["userType"] = object.userType
+        return user
+    }
 }

@@ -28,5 +28,12 @@ class VenderListCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+    var cellViewModel: User? {
+        didSet {
+            venderNamelbl.text = cellViewModel?.name
+            venderIDlbl.text = cellViewModel?.vendorID
+            venderAddresslbl.text = cellViewModel?.address1
+            venderNumberbl.text = cellViewModel?.gstNo
+        }
+    }
 }

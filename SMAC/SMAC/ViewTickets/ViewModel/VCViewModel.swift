@@ -11,7 +11,7 @@ class VCViewModel: NSObject {
     var reloadTableView: (() -> Void)?
     private let apiManager = NetworkManager()
 
-    let serviceUrl = BaseUrl.baseURL + "Ticket/View-Ticket"
+    let serviceUrl = BaseUrl.baseURLWithIP + "Ticket/View-Ticket"
 
 //    var ticketslist = tickets()
     var ticketslist = viewAllTickets()

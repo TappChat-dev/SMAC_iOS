@@ -82,3 +82,28 @@ class JSONNull: Codable, Hashable {
         try container.encodeNil()
     }
 }
+
+
+struct RoleResponsiblity: Codable {
+    let error: Bool
+    let message: String
+    let users: [UserRole]
+
+    enum CodingKeys: String, CodingKey {
+        case error = "Error"
+        case message = "Message"
+        case users = "Users"
+    }
+}
+
+// MARK: - User
+struct UserRole: Codable {
+    let rID, descr: String
+
+    enum CodingKeys: String, CodingKey {
+        case rID = "R_ID"
+        case descr = "DESCR"
+    }
+}
+
+typealias responsiblity = RoleResponsiblity

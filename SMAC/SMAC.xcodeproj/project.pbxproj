@@ -94,6 +94,9 @@
 		045D439C26BD414C0082BCD1 /* CustomFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D439B26BD414B0082BCD1 /* CustomFlowLayout.swift */; };
 		047A4A3926F85B37004D514F /* PenaltyDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A4A3826F85B37004D514F /* PenaltyDetailsVC.swift */; };
 		047A4A4526F86609004D514F /* ApproveContractVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A4A4426F86609004D514F /* ApproveContractVC.swift */; };
+		04A80567272D3CCC005CDFBE /* AssignTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A80566272D3CCC005CDFBE /* AssignTicketViewController.swift */; };
+		04A8056A272FAF5F005CDFBE /* VendorListJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A80569272FAF5E005CDFBE /* VendorListJsonModel.swift */; };
+		04A8056C272FAFCC005CDFBE /* VendorListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8056B272FAFCC005CDFBE /* VendorListModel.swift */; };
 		04BCE67426C1786100801EA5 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE67326C1786100801EA5 /* UIViewController+Extensions.swift */; };
 		04BCE68126C241B000801EA5 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE67C26C241B000801EA5 /* SideMenuViewController.swift */; };
 		04BCE68226C241B000801EA5 /* SideMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE67D26C241B000801EA5 /* SideMenuModel.swift */; };
@@ -237,6 +240,9 @@
 		045D439B26BD414B0082BCD1 /* CustomFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFlowLayout.swift; sourceTree = "<group>"; };
 		047A4A3826F85B37004D514F /* PenaltyDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenaltyDetailsVC.swift; sourceTree = "<group>"; };
 		047A4A4426F86609004D514F /* ApproveContractVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveContractVC.swift; sourceTree = "<group>"; };
+		04A80566272D3CCC005CDFBE /* AssignTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignTicketViewController.swift; sourceTree = "<group>"; };
+		04A80569272FAF5E005CDFBE /* VendorListJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorListJsonModel.swift; sourceTree = "<group>"; };
+		04A8056B272FAFCC005CDFBE /* VendorListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorListModel.swift; sourceTree = "<group>"; };
 		04BCE67326C1786100801EA5 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		04BCE67C26C241B000801EA5 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		04BCE67D26C241B000801EA5 /* SideMenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuModel.swift; sourceTree = "<group>"; };
@@ -620,6 +626,8 @@
 		0453515126F1F95B00429987 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				04A80569272FAF5E005CDFBE /* VendorListJsonModel.swift */,
+				04A8056B272FAFCC005CDFBE /* VendorListModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -762,6 +770,8 @@
 		045D427726B27B060082BCD1 /* SMAC */ = {
 			isa = PBXGroup;
 			children = (
+				04A80568272D6260005CDFBE /* View Document */,
+				04A80562272D3C6E005CDFBE /* AssignTicket */,
 				042A63A12704353500182358 /* TicketStatus */,
 				04149A4226F9DF8A00B9E7AD /* Menu */,
 				04149A2B26F9B60900B9E7AD /* ContractorSLA */,
@@ -1007,6 +1017,45 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		04A80562272D3C6E005CDFBE /* AssignTicket */ = {
+			isa = PBXGroup;
+			children = (
+				04A80565272D3C8D005CDFBE /* ViewModel */,
+				04A80564272D3C86005CDFBE /* View */,
+				04A80563272D3C79005CDFBE /* Model */,
+			);
+			path = AssignTicket;
+			sourceTree = "<group>";
+		};
+		04A80563272D3C79005CDFBE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04A80564272D3C86005CDFBE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				04A80566272D3CCC005CDFBE /* AssignTicketViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04A80565272D3C8D005CDFBE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		04A80568272D6260005CDFBE /* View Document */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Document";
 			sourceTree = "<group>";
 		};
 		04BCE67A26C2404200801EA5 /* SideMenuMenual */ = {
@@ -1464,6 +1513,7 @@
 				045D439026BD1ABC0082BCD1 /* DashboardCellViewModel.swift in Sources */,
 				045D42E226B93A990082BCD1 /* Loader.swift in Sources */,
 				0421D3022718034400AD2998 /* CreateTicketViewModel.swift in Sources */,
+				04A80567272D3CCC005CDFBE /* AssignTicketViewController.swift in Sources */,
 				045D427926B27B060082BCD1 /* AppDelegate.swift in Sources */,
 				04149A6926F9E28200B9E7AD /* ContainerViewController.swift in Sources */,
 				045D430226B93AC40082BCD1 /* UIViewController+Subview.swift in Sources */,
@@ -1480,6 +1530,7 @@
 				045D438A26BD11C40082BCD1 /* DashboardTVCell.swift in Sources */,
 				04BCE68926C243DA00801EA5 /* MainViewController.swift in Sources */,
 				04E90EE026F46E64005E857C /* InitiatePenaltyVC.swift in Sources */,
+				04A8056C272FAFCC005CDFBE /* VendorListModel.swift in Sources */,
 				04149A6326F9E17F00B9E7AD /* menuCell.swift in Sources */,
 				0426A0C02726889100158244 /* GetContractJsonModel.swift in Sources */,
 				0453514726F1B6D000429987 /* SLAViewController.swift in Sources */,
@@ -1487,6 +1538,7 @@
 				04BCE67426C1786100801EA5 /* UIViewController+Extensions.swift in Sources */,
 				045D432A26BBAA8B0082BCD1 /* DashboardViewModel.swift in Sources */,
 				045D433726BBB1E70082BCD1 /* NetworkManager.swift in Sources */,
+				04A8056A272FAF5F005CDFBE /* VendorListJsonModel.swift in Sources */,
 				041B854A26C68FC600E50F82 /* TableCellModel.swift in Sources */,
 				04BCE69226C292EA00801EA5 /* CreateTicketsViewController.swift in Sources */,
 				471CF8C426BBB926008E1C9C /* TicketDetailViewController.swift in Sources */,

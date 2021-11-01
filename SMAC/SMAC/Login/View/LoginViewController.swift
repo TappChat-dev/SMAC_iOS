@@ -75,15 +75,22 @@ class LoginViewController: UIViewController {
                 if status == true  && response.count > 0{
                     //navigate to other controller
   //                moveToDashBord()
+                    self.API_checkRole(TechID: response[0].techID, type: self.segmentSelectedOption!, roles: {
+                        dict in
+                        print(dict)
+                        UserDefaults.standard.set(dict["roleID"], forKey: "isLoginRoleID")
+                        UserDefaults.standard.set(dict["descr"], forKey: "isLoginRoleDesc")
+                        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController
+                          Loader.hideLoader(self)
+                        vc?.roleID = dict["roleID"] as! String
+                        vc?.roleDescp = dict["descr"] as! String
+                        self.navigationController?.pushViewController(vc!, animated: true)
+                    })
                     print(response[0].adhaarNO)
                     UserDefaults.standard.set("Yes", forKey: "isLoginSuccess") //setObject
                     UserDefaults.standard.set(response[0].unit, forKey: "unit")
                     UserDefaults.standard.set("", forKey: "status")
-                  let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController
-//              vc?.didMove(toParent: vc1)
-//                    vc1.menuController = vc?.menuDelegate as? MenuCustomViewController
-                    Loader.hideLoader(self)
-                  self.navigationController?.pushViewController(vc!, animated: true)
+                 
 //                    self.moveToDashBord()
                 }else{
                     Loader.hideLoader(self)
@@ -149,6 +156,21 @@ class LoginViewController: UIViewController {
             break;
         }
 
+    }
+    
+    
+    func API_checkRole(TechID:String,type:String, roles:@escaping(_ result: Dictionary<String, Any>) ->()){
+        Loader.showLoader("Wait... Geting Your Role.", target: self)
+        viewModel.getRoles(user: RoleJsonDictionary(id: TechID, type: type), data: {
+            response  in
+            print(response)
+            var dic = [String:Any]()
+            for id in response.users{
+                print(id.rID)
+                dic = ["roleID":id.rID,"descr":id.descr]
+            }
+            roles(dic)
+        })
     }
 }
 

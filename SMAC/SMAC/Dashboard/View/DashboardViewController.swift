@@ -15,6 +15,8 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
     @IBOutlet weak var collectionView:UICollectionView!
     @IBOutlet weak var btnMenu:UIButton!
     @IBOutlet weak var containerView: UIView!
+    var roleID:String = ""
+    var roleDescp:String = ""
     var menuDelegate: MenuDelegate?
     
     var isDarkModeEnabled = false
@@ -26,12 +28,13 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
     let customFlowLayout = CustomFlowLayout()
 //    let totalArray = ["Create Ticket", "View Ticket","Close Ticket", "Contractor"]
 //    let totalArray = ["Create Ticket", "View Ticket","Close Ticket", "Contractor", "List SLA", "Add Equipment","List Vender"]
-    let totalArray = ["Create Ticket", "View Ticket","Close Ticket","View Contract","View Vender","View Equipment"]
+    let totalSDMICG = ["Create Ticket", "View Ticket","Close Ticket","View Contract","View Vender","View Equipment"]
     
     let arrSDMVender = ["Create Ticket","Assign Ticket","View Ticket","Close Ticket","View Contract","View Equipment"]
     let arrEquipmentUser = ["Create Ticket","View Ticket","Close Ticket","View Contract","View Equipment","View Vender"]
     let arrServiceEng = ["View Ticket","Close Ticket","View Contract","View Equipment"]
-    
+
+    var totalArrayRole = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
@@ -43,6 +46,17 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
         sideMenuController?.delegate = self
         configureUI()
         collectionView?.register(DashboardCVCell.CVnib, forCellWithReuseIdentifier: DashboardCVCell.CVidentifier)
+        roleID =  UserDefaults.standard.string(forKey: "isLoginRoleID")!
+        //Assign User Role
+        if roleID == "R09" {// non-icg service desk manager
+            totalArrayRole = arrSDMVender
+        }else if (roleID == "R04"){ // icg service desk manager
+            totalArrayRole = totalSDMICG
+        }else if (roleID == "R05"){ // non-icg service engineer
+            totalArrayRole = arrServiceEng
+        }else if (roleID == "R08"){ // icg Eqipment user
+            totalArrayRole = arrEquipmentUser
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -154,14 +168,15 @@ extension DashboardViewController:UITableViewDelegate,UITableViewDataSource{
 // MARK: - Collection View
 extension DashboardViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return totalArray.count
+       // return arrSDMVender.count //totalSDMICG
+        return totalArrayRole.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DashboardCVCell.CVidentifier, for: indexPath)  as? DashboardCVCell else {
             fatalError("xib does not exists")
         }
-        cell.moduleName.text = totalArray[indexPath.item]
+        cell.moduleName.text = totalArrayRole[indexPath.item]
         return cell
     }
     
@@ -169,7 +184,7 @@ extension DashboardViewController:UICollectionViewDelegate,UICollectionViewDataS
 
             print(" selected")
 //        collectionView.cellForItem(at: indexPath)?.backgroundColor = UIColor.gray
-        let name = totalArray[indexPath.item].description
+        let name = totalArrayRole[indexPath.item].description
        
         if (name == "Create Ticket") {
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
@@ -210,6 +225,11 @@ extension DashboardViewController:UICollectionViewDelegate,UICollectionViewDataS
         if (name == "View Equipment"){
             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
             let TC = storyboard.instantiateViewController(withIdentifier: "ViewEquipmentVC") as? ViewEquipmentVC
+                self.navigationController?.pushViewController(TC!, animated: true)
+        }
+        if (name == "Assign Ticket"){
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let TC = storyboard.instantiateViewController(withIdentifier: "AssignTicketViewController") as? AssignTicketViewController
                 self.navigationController?.pushViewController(TC!, animated: true)
         }
         

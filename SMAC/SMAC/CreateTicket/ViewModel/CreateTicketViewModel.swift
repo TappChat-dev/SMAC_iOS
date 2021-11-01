@@ -10,9 +10,9 @@ import UIKit
 
 class CreateTicketViewModel: NSObject {
     private let apiManager = NetworkManager()
-    let serviceUrl = BaseUrl.baseURL + "Combo/ConfigureData"
-    let urlCreateTicket = BaseUrl.baseURL + "Ticket/Create-ticket"
-    let urlGetContract = BaseUrl.baseURL + "Contract/GetContract"
+    let serviceUrl = BaseUrl.baseURLWithIP + "Combo/ConfigureData"
+    let urlCreateTicket = BaseUrl.baseURLWithIP + "Ticket/Create-ticket"
+    let urlGetContract = BaseUrl.baseURLWithIP + "Contract/GetContract"
 //    var employeeLogin = Logins()
     
 //    func getLoginResponse(user: LoginViewCredentialModel, data: @escaping (_ result : Logins , Bool) -> ()){

@@ -21,12 +21,14 @@ import SVProgressHUD
 struct BaseUrl {
     private struct Domains {
         
-        static let Base_UrlIP = "http://13.108.164.38:8080/"
-        static let Base_Url =  "http://https://icg.net.in/" //smac/login
+        static let Base_UrlIP = "https://icg.net.in/" //"http://13.108.164.38:8080/"
+        static let Base_Url =  "https://icg.net.in/" //smac/login
     }
     
     private  struct Routes {
-        static let Api = "SMACAPI/"           //smac // Production url
+        static let Api = "api/"           //smac // Production url
+        static let ApiIP = "smacapi/"           //smac // Production url
+
 //        static let ApiZero = "icgRestful/api/"            // Production url
         static let ApiDevelopment = "SMACAPI/"            // development url
         static let ApiWithIP = "icgRestful_pro/api/"            //  url With IP
@@ -43,7 +45,7 @@ struct BaseUrl {
     private  static let RouteDev = Routes.ApiDevelopment
     private  static let BaseURLDev = Domain + RouteDev
     // For IP
-    private  static let RouteWithIPRoute = Routes.ApiWithIP
+    private  static let RouteWithIPRoute = Routes.ApiIP
     private  static let BaseURLIPDomain = Domains.Base_UrlIP
     private  static let BaseURLIP = BaseURLIPDomain + RouteWithIPRoute
     static var baseURL: String {
@@ -96,7 +98,7 @@ class NetworkManager: NSObject {
     
     
     // MARK:- Api Get
-class func apiGet(serviceName:String,parameters: [String:Any]?, completionHandler: @escaping (_ result : [Dictionary<String, Any>]?, _ error : Error?) -> ()) -> Void {
+class func apiGet(serviceName:String,parameters: [String:Any]?, completionHandler: @escaping (_ result : Dictionary<String, Any>?, _ resultData : Data?, _ error : Error?) -> ()) -> Void {
 
         
         AF.request(serviceName, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseData { response in
@@ -110,15 +112,16 @@ class func apiGet(serviceName:String,parameters: [String:Any]?, completionHandle
                     do {
                         let  dictonary = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String:Any]]
                         let  dictonaryArray = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String:Any]
-                        if let dataDictionary = dictonary {
+                        if let dataDictionary = dictonaryArray {
                             print(dataDictionary)
                             if dataDictionary.count > 0 {
-                                completionHandler(dataDictionary, nil)
+                                completionHandler(dataDictionary, data, nil)
                             }
                             
                         }
                     } catch let error as NSError {
                         print(error)
+                        completionHandler(nil, nil, error)
                     }
                 
                 }
@@ -129,7 +132,7 @@ class func apiGet(serviceName:String,parameters: [String:Any]?, completionHandle
 //                    completionHandler(nil,"Request timed out.")
                     SVProgressHUD.showInfo(withStatus: "Request timed out.")
                 }else{
-                completionHandler(nil,response.error)
+                    completionHandler(nil,nil, response.error)
                 }
                 break
                 
@@ -273,6 +276,35 @@ class func apiGet(serviceName:String,parameters: [String:Any]?, completionHandle
                    print("Service url of Tickets call - " + serviceName)
                    if let data = response.data {
 //                    var responseDictionary: [[String : Any]]? = nil
+                    do {
+                        completionHandler(data, nil)
+                    } catch let parseError {
+                        print("error",parseError)
+                    }
+                   }
+                   break
+               case .failure(_):
+                   completionHandler(nil,response.error)
+                   break
+               }
+           }
+       }
+    
+    public func apiPost(serviceName:String,  parameters:[String:Any], completionHandler: @escaping (_ result : Data?, _ error : Error?) -> ()){
+           var request = URLRequest(url: URL(string: serviceName)!)
+
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    let jsonData = try! JSONSerialization.data(withJSONObject: parameters, options: [.fragmentsAllowed])
+        request.httpMethod = "POST"
+           request.httpBody = jsonData
+           
+           AF.request(request).responseData { (response) in
+               print(response)
+               switch(response.result) {
+               case .success(_):
+                   print("Service url of Tickets call - " + serviceName)
+                   if let data = response.data {
                     do {
                         completionHandler(data, nil)
                     } catch let parseError {

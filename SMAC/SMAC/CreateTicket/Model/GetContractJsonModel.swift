@@ -9,21 +9,38 @@ import Foundation
 
 
 
-struct GetContractJsonModel: Codable {
-    let contractID, vendorID, isActive, contractRef: String
-    let contractDt, fileNo, contractAuth: String
-    let contractDoc: JSONNull?
-    let contractEXT: Int
-    let contractName: String
-    let contractShort: JSONNull?
-    let smacDt: String
+//struct GetContractJsonModel: Codable {
+//    let contractID, vendorID, isActive, contractRef: String
+//    let contractDt, fileNo, contractAuth: String
+//    let contractDoc: JSONNull?
+//    let contractEXT: Int
+//    let contractName: String
+//    let contractShort: JSONNull?
+//    let smacDt: String
+//
+//    enum CodingKeys: String, CodingKey {
+//        case contractID = "contractId"
+//        case vendorID = "vendorId"
+//        case isActive, contractRef, contractDt, fileNo, contractAuth, contractDoc
+//        case contractEXT = "contractExt"
+//        case contractName, contractShort, smacDt
+//    }
+//}
+
+struct GetContractJsonModel:Codable {
+    let contractID, vendorID: String
+    let isActive: Int
+    let contractDt, contractNo, contractAuth, contractName: String
+    let smacDt, contractDescr: String
+    let contractDoc, slaDocs: String?
+    let station: String
+    let duration: Int
+    let fmDate, endDate, contractType, unit: String
 
     enum CodingKeys: String, CodingKey {
         case contractID = "contractId"
         case vendorID = "vendorId"
-        case isActive, contractRef, contractDt, fileNo, contractAuth, contractDoc
-        case contractEXT = "contractExt"
-        case contractName, contractShort, smacDt
+        case isActive, contractDt, contractNo, contractAuth, contractName, smacDt, contractDescr, contractDoc, slaDocs, station, duration, fmDate, endDate, contractType, unit
     }
 }
 

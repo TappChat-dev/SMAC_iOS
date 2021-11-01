@@ -21,7 +21,7 @@ class LoginViewModel: NSObject {
     }
     
     func getLoginResponse(user: LoginViewCredentialModel, data: @escaping (_ result : Logins , Bool) -> ()){
-        let serviceUrl = BaseUrl.baseURL + "login"
+        let serviceUrl = BaseUrl.baseURLWithIP + "login"
         let jsonData:Any = LoginViewCredentialModel.encode(object:user )
         print("Dic=",jsonData)
         apiManager.apiPostLogin(serviceName: serviceUrl, parameters: jsonData as! [String : Any], completionHandler: {
@@ -35,6 +35,22 @@ class LoginViewModel: NSObject {
                 }else{
                     data([], false)
                 }
+        })
+    }
+    
+    func getRoles(user:RoleJsonDictionary,data:@escaping(_ result: RoleResponsiblity) ->()){
+        let serviceUrl = BaseUrl.baseURL + "getUserRoles"
+        let jsonData:Any = RoleJsonDictionary.encode(object:user )
+        apiManager.apiPost(serviceName: serviceUrl, parameters: jsonData as! [String : Any], completionHandler: {
+            [weak self](response, error) in
+            print(response)
+            if let response = response {
+            let roleDetails = try? newJSONDecoder().decode(RoleResponsiblity.self, from: response)
+                print(roleDetails?.users.count)
+                if roleDetails?.users.count ?? 0  > 0 {
+                    data(roleDetails!)
+                }
+            }
         })
     }
 }

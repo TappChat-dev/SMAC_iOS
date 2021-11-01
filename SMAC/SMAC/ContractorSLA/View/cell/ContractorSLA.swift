@@ -14,7 +14,14 @@ class ContractorSLA: UITableViewCell {
     @IBOutlet weak var ticketIDlbl:UILabel!
     @IBOutlet weak var slaLevellbl:UILabel!
     
-    
+    var cellViewModel: GetContractJsonModel? {
+        didSet {
+            raisedBylbl.text = cellViewModel?.contractName
+            raisedDatelbl.text = cellViewModel?.contractDt
+            descriptionlbl.text = cellViewModel?.contractDescr
+            ticketIDlbl.text = cellViewModel?.contractID
+        }
+    }
     class var identifier: String { return String(describing: self) }
     class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
     override func awakeFromNib() {
