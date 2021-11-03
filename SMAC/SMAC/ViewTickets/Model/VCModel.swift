@@ -23,7 +23,9 @@ struct AllTicket: Codable {
         case date = "date"
     }
 }
-
+/*
+ 
+ 
 struct ViewAllTicket:Codable {
     let eqptid, eqptType, eqptSubtype, createdDT: String
     let closedDT: JSONNull?
@@ -52,3 +54,55 @@ struct ViewAllTicket:Codable {
 }
 
 typealias viewAllTickets = [ViewAllTicket]
+ */
+
+struct ViewAllTicket:Codable {
+//    let result: [ResultTickets]
+//    let pOutMessage, msg: String
+//
+//    enum CodingKeys: String, CodingKey {
+//        case result
+//        case pOutMessage = "P_Out_Message"
+//        case msg
+//    }
+    
+        let result: [[String: String?]]
+        let pOutMessage, msg: String
+
+        enum CodingKeys: String, CodingKey {
+            case result
+            case pOutMessage = "P_Out_Message"
+            case msg
+        }
+}
+
+// MARK: - Result
+struct ResultTickets: Codable {
+    let ticketID: String
+    let contractID, contractName: String?
+    let eqptID, equipmentName, eqptType: String
+
+    enum CodingKeys: String, CodingKey {
+        case ticketID = "TICKET_ID"
+        case contractID = "CONTRACT_ID"
+        case contractName = "CONTRACT_NAME"
+        case eqptID = "EQPT_ID"
+        case equipmentName = "EQUIPMENT_NAME"
+        case eqptType = "EQPT_TYPE"
+    }
+}
+typealias viewAllTickets = ViewAllTicket
+/*
+             "CONTRACT_ID": "CT0007",
+             "SUBJECT": "ASHA Application not working",
+             "DESCR": "ASHA Application not working",
+             "CONTRACT_NAME": "ASHA Healthcare- AMC\r",
+             "EQPT_ID": "E00005",
+             "UNIT": "000227",
+             "UNIT_NAME": "Dte. Information Technology",
+             "SERVICE_TYPE": "remote",
+             "EQUIPMENT_NAME": "ASHA Application maintaince",
+             "EQPT_TYPE": "SD",
+             "TICKET_STATUS": "PD",
+             "TICKET_STATUS_NAME": "PENDING"
+ */

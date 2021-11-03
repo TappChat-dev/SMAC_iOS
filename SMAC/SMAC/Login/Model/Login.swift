@@ -24,9 +24,49 @@ import Foundation
 //}
 
 
-typealias Logins = [LoginElement]
+//typealias Logins = [LoginElement]
+typealias Logins = LoginElement
 
 // MARK: - LoginElement
+struct LoginElement:Codable{
+let result: [ResultLogin]
+let pResult, msg: String
+
+enum CodingKeys: String, CodingKey {
+    case result
+    case pResult = "P_RESULT"
+    case msg
+}
+}
+struct ResultLogin: Codable {
+    let pid, pno, firstname: String
+    let lastname: JSONNull?
+    let unitName, unit, station, rank: String
+    let mobilenumber, officialemail, personalemail, panno: JSONNull?
+    let adhaarno, desig: JSONNull?
+    let isActive, org, userName: String
+
+    enum CodingKeys: String, CodingKey {
+        case pid = "PID"
+        case pno = "PNO"
+        case firstname = "FIRSTNAME"
+        case lastname = "LASTNAME"
+        case unitName = "UNIT_NAME"
+        case unit = "UNIT"
+        case station = "STATION"
+        case rank = "RANK"
+        case mobilenumber = "MOBILENUMBER"
+        case officialemail = "OFFICIALEMAIL"
+        case personalemail = "PERSONALEMAIL"
+        case panno = "PANNO"
+        case adhaarno = "ADHAARNO"
+        case desig = "DESIG"
+        case isActive = "IS_ACTIVE"
+        case org = "ORG"
+        case userName = "USER_NAME"
+    }
+}
+/*
 struct LoginElement: Codable {
     let profile: JSONNull?
     let message: String
@@ -55,7 +95,7 @@ struct LoginElement: Codable {
         case city, state
         case isACTIVE = "is_ACTIVE"
     }
-}
+}*/
 // MARK: - Encode/decode helpers
 
 class JSONNull: Codable, Hashable {

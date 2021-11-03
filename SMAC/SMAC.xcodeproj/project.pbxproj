@@ -32,6 +32,8 @@
 		043FCC5426CB935400120117 /* VCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FCC5326CB935400120117 /* VCViewModel.swift */; };
 		043FCC5926CB93E300120117 /* VCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FCC5826CB93E300120117 /* VCModel.swift */; };
 		043FCC6226CCC7B200120117 /* UpdateTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FCC6126CCC7B200120117 /* UpdateTicketViewController.swift */; };
+		0440D346273269DD005DB963 /* ViewEquipJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440D345273269DD005DB963 /* ViewEquipJsonModel.swift */; };
+		0440D34827326A05005DB963 /* ViewEquipmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440D34727326A05005DB963 /* ViewEquipmentModel.swift */; };
 		044EC38F26E7666A00BCE49A /* ViewEquipmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044EC38D26E7666A00BCE49A /* ViewEquipmentCell.swift */; };
 		044EC39026E7666A00BCE49A /* ViewEquipmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044EC38E26E7666A00BCE49A /* ViewEquipmentCell.xib */; };
 		044EC39526E778F700BCE49A /* ViewEquipmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044EC39426E778F700BCE49A /* ViewEquipmentVC.swift */; };
@@ -171,6 +173,8 @@
 		043FCC5326CB935400120117 /* VCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCViewModel.swift; sourceTree = "<group>"; };
 		043FCC5826CB93E300120117 /* VCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCModel.swift; sourceTree = "<group>"; };
 		043FCC6126CCC7B200120117 /* UpdateTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTicketViewController.swift; sourceTree = "<group>"; };
+		0440D345273269DD005DB963 /* ViewEquipJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEquipJsonModel.swift; sourceTree = "<group>"; };
+		0440D34727326A05005DB963 /* ViewEquipmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEquipmentModel.swift; sourceTree = "<group>"; };
 		044EC38D26E7666A00BCE49A /* ViewEquipmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEquipmentCell.swift; sourceTree = "<group>"; };
 		044EC38E26E7666A00BCE49A /* ViewEquipmentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewEquipmentCell.xib; sourceTree = "<group>"; };
 		044EC39426E778F700BCE49A /* ViewEquipmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEquipmentVC.swift; sourceTree = "<group>"; };
@@ -519,6 +523,8 @@
 		044EC38C26E7661500BCE49A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				0440D345273269DD005DB963 /* ViewEquipJsonModel.swift */,
+				0440D34727326A05005DB963 /* ViewEquipmentModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1547,6 +1553,7 @@
 				471CF8D726BBBC63008E1C9C /* StatusBar.swift in Sources */,
 				04149A6E26F9E2CE00B9E7AD /* MenuCustomViewController.swift in Sources */,
 				045D42D126B929060082BCD1 /* LoginViewModel.swift in Sources */,
+				0440D346273269DD005DB963 /* ViewEquipJsonModel.swift in Sources */,
 				045D42FF26B93AC40082BCD1 /* RoundedCorner.swift in Sources */,
 				043FCC5926CB93E300120117 /* VCModel.swift in Sources */,
 				471CF8BC26BBB804008E1C9C /* SideMenuNavigationController.swift in Sources */,
@@ -1557,6 +1564,7 @@
 				045D42F226B93ABB0082BCD1 /* FileUtils.swift in Sources */,
 				043FCC5426CB935400120117 /* VCViewModel.swift in Sources */,
 				0401EE4B26E0B16600185A09 /* AddEquipmentViewController.swift in Sources */,
+				0440D34827326A05005DB963 /* ViewEquipmentModel.swift in Sources */,
 				045D432F26BBAA9F0082BCD1 /* DashboardModel.swift in Sources */,
 				045D42F126B93ABB0082BCD1 /* Design.swift in Sources */,
 				471CF8D626BBBC63008E1C9C /* UIViewController+SideMenu.swift in Sources */,

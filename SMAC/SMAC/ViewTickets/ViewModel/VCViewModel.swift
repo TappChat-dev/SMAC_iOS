@@ -11,10 +11,12 @@ class VCViewModel: NSObject {
     var reloadTableView: (() -> Void)?
     private let apiManager = NetworkManager()
 
-    let serviceUrl = BaseUrl.baseURLWithIP + "Ticket/View-Ticket"
+//    let serviceUrl = BaseUrl.baseURLWithIP + "Ticket/View-Ticket"
+    let serviceUrl = BaseUrl.baseURL + "getTicketDetails"
 
 //    var ticketslist = tickets()
-    var ticketslist = viewAllTickets()
+//    var ticketslist = viewAllTickets()
+    
     var CellViewModels = [cellModel?]() {
         didSet {
             reloadTableView?()
@@ -38,38 +40,41 @@ class VCViewModel: NSObject {
         
 //    }
     
-    func API_getViewAllTickets(json:ViewTicketJsonModel, data:@escaping (_ resultBool: Bool) -> ()){
+    func API_getViewAllTickets(json:ViewTicketJsonModel, data:@escaping (_ result:viewAllTickets?,_ resultBool: Bool) -> ()){
         let jsons =  ViewTicketJsonModel.encode(object: json)
+        print("View ticket request",jsons)
+        print("View ticket url",serviceUrl)
         apiManager.apiPostViewTickets(serviceName: serviceUrl, parameters: jsons as! [String : Any], completionHandler: {
-            [weak self] (response, error) in
+            (response, error) in
             if let response = response {
                 print(response)
                 let details = try? newJSONDecoder().decode(viewAllTickets.self, from: response)
-                self?.fetchData(model: details!)
-                data(true)
+                print(details?.pOutMessage as Any)
+//                self?.fetchData(model: details!)
+                data(details, true)
             }else{
-                data(false)
+//                data([], false)
             }
         })
     }
     
-    func fetchData(model: viewAllTickets) {
-        self.ticketslist = model // Cache
-        var vms = [cellModel]()
-        for item in model {
-//            vms.append(createCellModel(employee: item)!)
-        }
-        CellViewModels = vms
-    }
+//    func fetchData(model: viewAllTickets) {
+//        self.ticketslist = model.result // Cache
+//        var vms = [cellModel]()
+//        for item in model {
+////            vms.append(createCellModel(employee: item)!)
+//        }
+//        CellViewModels = vms
+//    }
     
-    func createCellModel(employee: ViewAllTicket) -> cellModel? {
-        let id = employee.contractID
-        let name = employee.userID
-        let statuss = employee.ticketStatus
-        let dates = employee.createdDT
-        
-        return cellModel( id: id!, status: statuss, unitName: name, date: dates)
-    }
+//    func createCellModel(employee: ViewAllTicket) -> cellModel? {
+//        let id = employee.result.contractID
+//        let name = employee.userID
+//        let statuss = employee.ticketStatus
+//        let dates = employee.createdDT
+//
+//        return cellModel( id: id!, status: statuss, unitName: name, date: dates)
+//    }
     
     func getCellViewModel(at indexPath: IndexPath?) -> cellModel? {
         return CellViewModels[indexPath!.row]

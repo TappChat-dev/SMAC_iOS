@@ -10,7 +10,7 @@ import UIKit
 class LoginViewModel: NSObject {
 
     private let apiManager = NetworkManager()
-    var employeeLogin = Logins()
+//    var employeeLogin = Logins()
     
     var reloadTableView: (() -> Void)?
     
@@ -20,8 +20,10 @@ class LoginViewModel: NSObject {
         }
     }
     
-    func getLoginResponse(user: LoginViewCredentialModel, data: @escaping (_ result : Logins , Bool) -> ()){
-        let serviceUrl = BaseUrl.baseURLWithIP + "login"
+    func getLoginResponse(user: LoginViewCredentialModel, data: @escaping (_ result : LoginElement , Bool) -> ()){
+//        let serviceUrl = BaseUrl.baseURLWithIP + "login"
+        let serviceUrl = BaseUrl.baseURL + "getAuth"
+
         let jsonData:Any = LoginViewCredentialModel.encode(object:user )
         print("Dic=",jsonData)
         apiManager.apiPostLogin(serviceName: serviceUrl, parameters: jsonData as! [String : Any], completionHandler: {
@@ -29,11 +31,11 @@ class LoginViewModel: NSObject {
                 guard let weakSelf = self else { return }
                 if let response = response {
                     print(response)
-                       let loginDetails = try? newJSONDecoder().decode(Logins.self, from: response)
+                    let loginDetails = try? newJSONDecoder().decode(LoginElement.self, from: response)
 //                    print(loginDetails!)
-                    data(loginDetails ?? [], true)
+                    data(loginDetails!, true)
                 }else{
-                    data([], false)
+//                    data("", false)
                 }
         })
     }

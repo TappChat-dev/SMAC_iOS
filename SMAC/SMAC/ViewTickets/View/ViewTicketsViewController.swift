@@ -15,6 +15,11 @@ class ViewTicketsViewController: UIViewController,ViewTicketCellDelegate {
     lazy var viewModels = {
         VCViewModel()
     }()
+    
+//    var userResultModel = [ResultTickets]()
+    var userResultModel = [[String: Any]]()
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 //        tableView.delegate = self
@@ -49,16 +54,28 @@ class ViewTicketsViewController: UIViewController,ViewTicketCellDelegate {
     
     func initViewModel() {
         // Get employees data
-        viewModels.API_getViewAllTickets(json: ViewTicketJsonModel.init(id: ""), data: {
-            response in
-            print(response)
-            if response == true{
+        guard let unit =  UserDefaults.standard.string(forKey: "unit") else { return print("unit id is not find.") }
+
+        viewModels.API_getViewAllTickets(json: ViewTicketJsonModel.init(id: "", unitID: "000227"), data: { [weak self]
+            response,status  in
+//            print(response!)
+            if status == true{
                 // Reload TableView closure
-                self.viewModels.reloadTableView = { [weak self] in
-                    DispatchQueue.main.async {
-                        self?.tableView.reloadData()
-                    }
+//                self.viewModels.reloadTableView = { [weak self] in
+//                    DispatchQueue.main.async {
+//                        self?.tableView.reloadData()
+//                    }
+//                }
+                print(response?.result.count)
+//                self?.userResultModel = response?.result ?? []
+                let dataResult = response!.result
+                for items in dataResult{
+                    self?.userResultModel.append(items as [String : Any])
+
                 }
+//                self?.userResultModel
+                print(self?.userResultModel)
+                self?.tableView.reloadData()
             }
         })
         
@@ -87,7 +104,7 @@ extension ViewTicketsViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return 3
+        return userResultModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -96,13 +113,21 @@ extension ViewTicketsViewController:UITableViewDelegate,UITableViewDataSource{
         cell.cellDelegate = self
         cell.btnEdit.tag = indexPath.row
 //        let cellVM = viewModels.getCellViewModel(at: indexPath)
-//        cell.cellViewModel = cellVM
+//        cell.cellViewModel = userResultModel[indexPath.row]
+//        cell.cellViewModelDic = userResultModel[indexPath.row]
+        let data = userResultModel[indexPath.row]
+        let ticketID = data["TICKET_ID"] as? String
+        let CONTRACT_NAME = data["CONTRACT_NAME"] as? String
+        let EQPT_TYPE = data["EQPT_TYPE"] as? String
+        let EQUIPMENT_NAME = data["EQUIPMENT_NAME"] as? String
+        cell.loadCellData(with: ticketID ?? "", equipmentName: EQUIPMENT_NAME ?? "", contractName: CONTRACT_NAME ?? "", eqptType: EQPT_TYPE ?? "")
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data = userResultModel[indexPath.row]
+        print("Selected Cell Data",data)
+    }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.addShadow(backgroundColor: .white, cornerRadius: 13, shadowRadius: 5, shadowOpacity: 0.1, shadowPathInset: (dx: 8, dy: 6), shadowPathOffset: (dx: 0, dy: 2))

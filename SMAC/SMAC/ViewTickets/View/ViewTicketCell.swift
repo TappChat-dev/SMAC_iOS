@@ -31,15 +31,40 @@ class ViewTicketCell: UITableViewCell {
             cellDelegate?.didPressButton(sender.tag)
          }
     
-    var cellViewModel: cellModel? {
+//    var cellViewModel: cellModel? {
+//        didSet {
+//            IDlbl.text = cellViewModel?.id
+//            dateLBL.text = cellViewModel?.date
+//            unitNamelbl.text = cellViewModel?.unitName
+//            statusLBL.text = cellViewModel?.status
+//        }
+//    }
+
+    var cellViewModel: ResultTickets? {
         didSet {
-            IDlbl.text = cellViewModel?.id
-            dateLBL.text = cellViewModel?.date
-            unitNamelbl.text = cellViewModel?.unitName
-            statusLBL.text = cellViewModel?.status
+            IDlbl.text = cellViewModel?.ticketID
+            dateLBL.text = cellViewModel?.equipmentName
+            namelbl.text = cellViewModel?.contractName
+            statusLBL.text = cellViewModel?.eqptType
         }
     }
-
+    
+//    var cellViewModelDic : ViewAllTicket{
+//        didSet{
+//            IDlbl.text = cellViewModel?.ticketID
+//            dateLBL.text = cellViewModel?.equipmentName
+//            namelbl.text = cellViewModel?.contractName
+//            statusLBL.text = cellViewModel?.eqptType
+//        }
+//    }
+    
+    func loadCellData(with ticketID: String, equipmentName: String, contractName: String, eqptType:String) {
+        IDlbl.text = ticketID
+        dateLBL.text = equipmentName
+        namelbl.text = contractName
+        statusLBL.text = eqptType
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

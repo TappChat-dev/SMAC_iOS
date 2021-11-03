@@ -22,13 +22,19 @@ class LoginViewController: UIViewController {
     lazy var viewModel = {
         LoginViewModel()
     }()
-    
+    var userResultModel = [ResultLogin]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         usernameTxt?.delegate = self
         passwordTxt?.delegate = self
         self.navigationController?.isNavigationBarHidden = true
-        usernameTxt.text = "pushkar.singh"
+//        usernameTxt.text = "pushkar.singh" // NON-ICG
+//        usernameTxt.text = "gautamsingh.12957" // ICG SDM
+//        passwordTxt.text = "18Aug2014@8851"
+        usernameTxt.text = "jaideep.04627" // ICG Equip USer
+        passwordTxt.text = "06Aug2001@6676"
+        
         UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(rgb: 0x06284D)
 
 //        self.btnSegment.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
@@ -72,10 +78,21 @@ class LoginViewController: UIViewController {
             viewModel.getLoginResponse(user: LoginViewCredentialModel(username: usernameTxt.text!, password: passwordTxt.text!, type: segmentSelectedOption!), data: {
                 response, status  in
                 print(response)
-                if status == true  && response.count > 0{
+                if status == true  && response.result.count > 0{
                     //navigate to other controller
   //                moveToDashBord()
-                    self.API_checkRole(TechID: response[0].techID, type: self.segmentSelectedOption!, roles: {
+                    var techID = ""
+                    for item in response.result {
+                        if self.segmentSelectedOption == "ICG" {
+                            print(response.result[0])
+                            techID = item.pid
+                        }else{
+                            
+                        }
+                    }
+                    
+                    
+                    self.API_checkRole(TechID: techID, type: self.segmentSelectedOption!, roles: {
                         dict in
                         print(dict)
                         UserDefaults.standard.set(dict["roleID"], forKey: "isLoginRoleID")
@@ -86,9 +103,9 @@ class LoginViewController: UIViewController {
                         vc?.roleDescp = dict["descr"] as! String
                         self.navigationController?.pushViewController(vc!, animated: true)
                     })
-                    print(response[0].adhaarNO)
+//                    print(response[0].adhaarNO)
                     UserDefaults.standard.set("Yes", forKey: "isLoginSuccess") //setObject
-                    UserDefaults.standard.set(response[0].unit, forKey: "unit")
+                    UserDefaults.standard.set(response.result[0].unit, forKey: "unit")
                     UserDefaults.standard.set("", forKey: "status")
                  
 //                    self.moveToDashBord()

@@ -8,20 +8,23 @@
 import Foundation
 
 struct ViewTicketJsonModel {
-    var ticket_ID: String
-    
+    var P_TICKET_ID: String
+    var P_UNIT_ID:String
     init() {
-    ticket_ID = ""
+        P_TICKET_ID = ""
+        P_UNIT_ID = ""
     }
     
-    init(id:String) {
-        self.ticket_ID = id
+    init(id:String,unitID:String) {
+        self.P_TICKET_ID = id
+        self.P_UNIT_ID = unitID
     }
     
     static func encode(object: ViewTicketJsonModel) -> Any {
         var user = [String: Any]()
         
-        user["ticket_ID"] = object.ticket_ID
+        user["P_TICKET_ID"] = object.P_TICKET_ID
+        user["P_UNIT_ID"] = object.P_UNIT_ID
         return user
     }
 }
