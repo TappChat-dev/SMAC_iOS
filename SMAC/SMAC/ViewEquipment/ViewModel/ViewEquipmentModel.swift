@@ -13,6 +13,6 @@ class ViewEquipmentModel:NSObject{
     let serviceURL = BaseUrl.baseURLWithIP + "Eqpt/view-eqptdetails"
     
     func API_getEquipmentList(json:[String:Any]){
-        apiManager.apiPost(serviceName: <#T##String#>, parameters: <#T##[String : Any]#>, completionHandler: <#T##(Data?, Error?) -> ()##(Data?, Error?) -> ()##(_ result: Data?, _ error: Error?) -> ()#>)
+//        apiManager.apiPost(serviceName: <#T##String#>, parameters: <#T##[String : Any]#>, completionHandler: <#T##(Data?, Error?) -> ()##(Data?, Error?) -> ()##(_ result: Data?, _ error: Error?) -> ()#>)
     }
 }

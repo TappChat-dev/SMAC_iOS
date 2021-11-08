@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0401EE4B26E0B16600185A09 /* AddEquipmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0401EE4A26E0B16600185A09 /* AddEquipmentViewController.swift */; };
 		0402E74227228F27004D866A /* ViewTicketJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402E74127228F27004D866A /* ViewTicketJsonModel.swift */; };
+		040944812735113F008E04B7 /* ViewEquipmentRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040944802735113F008E04B7 /* ViewEquipmentRequestModel.swift */; };
 		04149A3526F9B68C00B9E7AD /* ContractorSLA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04149A3326F9B68C00B9E7AD /* ContractorSLA.swift */; };
 		04149A3626F9B68C00B9E7AD /* ContractorSLA.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04149A3426F9B68C00B9E7AD /* ContractorSLA.xib */; };
 		04149A3B26F9B6C700B9E7AD /* ContractorSLA_VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04149A3A26F9B6C700B9E7AD /* ContractorSLA_VC.swift */; };
@@ -150,6 +151,7 @@
 /* Begin PBXFileReference section */
 		0401EE4A26E0B16600185A09 /* AddEquipmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEquipmentViewController.swift; sourceTree = "<group>"; };
 		0402E74127228F27004D866A /* ViewTicketJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTicketJsonModel.swift; sourceTree = "<group>"; };
+		040944802735113F008E04B7 /* ViewEquipmentRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEquipmentRequestModel.swift; sourceTree = "<group>"; };
 		04149A3326F9B68C00B9E7AD /* ContractorSLA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractorSLA.swift; sourceTree = "<group>"; };
 		04149A3426F9B68C00B9E7AD /* ContractorSLA.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContractorSLA.xib; sourceTree = "<group>"; };
 		04149A3A26F9B6C700B9E7AD /* ContractorSLA_VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractorSLA_VC.swift; sourceTree = "<group>"; };
@@ -506,6 +508,7 @@
 		044EC38A26E765FC00BCE49A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				040944802735113F008E04B7 /* ViewEquipmentRequestModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1542,6 +1545,7 @@
 				0453514726F1B6D000429987 /* SLAViewController.swift in Sources */,
 				045D42B826B4024C0082BCD1 /* LoginViewController.swift in Sources */,
 				04BCE67426C1786100801EA5 /* UIViewController+Extensions.swift in Sources */,
+				040944812735113F008E04B7 /* ViewEquipmentRequestModel.swift in Sources */,
 				045D432A26BBAA8B0082BCD1 /* DashboardViewModel.swift in Sources */,
 				045D433726BBB1E70082BCD1 /* NetworkManager.swift in Sources */,
 				04A8056A272FAF5F005CDFBE /* VendorListJsonModel.swift in Sources */,
@@ -1760,7 +1764,7 @@
 				CODE_SIGN_ENTITLEMENTS = SMAC/SMAC.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SMAC/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1768,7 +1772,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = intekmicro.com.SMAC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1781,7 +1785,7 @@
 				CODE_SIGN_ENTITLEMENTS = SMAC/SMAC.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SMAC/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1789,7 +1793,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = intekmicro.com.SMAC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
