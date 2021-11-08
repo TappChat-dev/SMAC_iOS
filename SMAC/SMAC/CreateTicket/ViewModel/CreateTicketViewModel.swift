@@ -19,6 +19,9 @@ class CreateTicketViewModel: NSObject {
 //
 //    }
     
+    
+    
+    
     func getEqpt_Type(json:jsonDictionary, data: @escaping (_ result: EquipmentType) -> ()){
         
         let jsonData:Any = jsonDictionary.encode(object:json)
