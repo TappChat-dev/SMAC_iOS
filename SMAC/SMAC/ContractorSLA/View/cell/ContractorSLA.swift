@@ -14,6 +14,9 @@ class ContractorSLA: UITableViewCell {
     @IBOutlet weak var ticketIDlbl:UILabel!
     @IBOutlet weak var slaLevellbl:UILabel!
     
+    
+    
+    
     var cellViewModel: GetContractJsonModel? {
         didSet {
             raisedBylbl.text = cellViewModel?.contractName
