@@ -76,8 +76,10 @@ struct RoleJsonDictionary {
     static func encode(object: RoleJsonDictionary) -> Any {
         var user = [String: Any]()
         
-        user["pid"] = object.pid
-        user["userType"] = object.userType
+//        user["pid"] = object.pid
+//        user["userType"] = object.userType
+        user["COM_Id"] = object.pid
+        user["P_Type"] = object.userType
         return user
     }
 }

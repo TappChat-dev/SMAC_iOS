@@ -10,10 +10,10 @@ import Foundation
 import MobileCoreServices
 import UniformTypeIdentifiers
 import IQKeyboardManagerSwift
-import MaterialComponents
-import MaterialComponents.MaterialTextFields
-import MaterialComponents.MDCTextInputControllerOutlinedTextArea
-import MaterialComponents.MDCTextInputControllerFilled
+//import MaterialComponents
+//import MaterialComponents.MaterialTextFields
+//import MaterialComponents.MDCTextInputControllerOutlinedTextArea
+//import MaterialComponents.MDCTextInputControllerFilled
 //import MaterialComponents.MaterialTextFields_Theming
 
 //import MaterialComponents.MDCMultilineTextField
@@ -23,6 +23,7 @@ import MaterialComponents.MDCTextInputControllerFilled
 //import MaterialComponents.MaterialTextControls_OutlinedTextAreas
 //import MaterialComponents.MaterialTextControls_OutlinedTextFields
 
+/*
 class TicketCreateViewController: UIViewController, UITextViewDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var titleTxt: MDCTextField!
@@ -431,3 +432,4 @@ extension TicketCreateViewController:UIDocumentPickerDelegate{
     
 }
 
+*/

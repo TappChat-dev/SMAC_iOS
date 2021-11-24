@@ -13,31 +13,33 @@ class VendorListModel: NSObject{
     let serviceURL = BaseUrl.baseURL + "getVendorDeatils"
     
     
-    func getVendorList(json:[String:Any], dataValue: @escaping (_ result: VendorListJsonModel) -> ()){
-        
-        NetworkManager.apiGet(serviceName: serviceURL, parameters: [:], completionHandler: {
+    func getVendorList(json:ViewVendorRequestModel, dataValue: @escaping (_ result: VendorListJsonModel?) -> ()){
+        print("getVendorDeatils",serviceURL)
+        let jsons =  ViewVendorRequestModel.encode(object: json)
+
+        apiManager.apiPost(serviceName: serviceURL, parameters: jsons as! [String : Any], completionHandler: {
             
-            [weak self] (response, data,error)  in
+            [weak self] (response,error)  in
                     guard let weakSelf = self else { return }
                     if let response = response {
                         print(response)
-                        _ = response["Users"] as? Array<Any>
-                        let message = response["Message"] as? String
-                        let eError = response["Error"] as? Bool
-                        print(message ?? [])
+//                        _ = response["Users"] as? Array<Any>
+//                        let message = response["Message"] as? String
+//                        let eError = response["Error"] as? Bool
+//                        print(message ?? [])
 //                        print(user)
-                        if eError == false{
-                            if let datas = data {
-                               let details = try? newJSONDecoder().decode(VendorListJsonModel.self, from: datas)
+//                        if error == false{
+//                            if let datas = response {
+                               let details = try? newJSONDecoder().decode(VendorListJsonModel.self, from: response)
     //                            print(details)
     //                            print(details?.users)
-                                print(usersList())
-                                dataValue(details!)
-                            }
-                        }
+                                print("usersList apiGet",usersList())
+                                dataValue(details)
+//                            }
+//                        }
                     }else{
                         print(error as Any)
-//                        data([any])
+                       
                     }
             
         })

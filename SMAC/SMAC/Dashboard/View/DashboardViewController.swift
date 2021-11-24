@@ -28,11 +28,11 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
     let customFlowLayout = CustomFlowLayout()
 //    let totalArray = ["Create Ticket", "View Ticket","Close Ticket", "Contractor"]
 //    let totalArray = ["Create Ticket", "View Ticket","Close Ticket", "Contractor", "List SLA", "Add Equipment","List Vender"]
-    let totalSDMICG = ["Create Ticket", "View Ticket","Close Ticket","View Contract","View Vender","View Equipment"]
-    
-    let arrSDMVender = ["Create Ticket","Assign Ticket","View Ticket","Close Ticket","View Contract","View Equipment"]
-    let arrEquipmentUser = ["Create Ticket","View Ticket","Close Ticket","View Contract","View Equipment","View Vender"]
-    let arrServiceEng = ["View Ticket","Close Ticket","View Contract","View Equipment"]
+//    let totalSDMICG = ["Create Ticket", "View Ticket","Close Ticket","View Contract","View Vender","View Equipment"]
+    let totalSDMICG = ["Create Ticket", "View Ticket","View Contract","View Vender","View Equipment"]
+    let arrSDMVender = ["Create Ticket","Assign Ticket","View Ticket","View Contract","View Equipment"]
+    let arrEquipmentUser = ["Create Ticket","View Ticket","View Contract","View Equipment","View Vender"]
+    let arrServiceEng = ["View Ticket","View Contract","View Equipment"]
 
     var totalArrayRole = [String]()
     override func viewDidLoad() {
@@ -48,13 +48,13 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
         collectionView?.register(DashboardCVCell.CVnib, forCellWithReuseIdentifier: DashboardCVCell.CVidentifier)
         roleID =  UserDefaults.standard.string(forKey: "isLoginRoleID")!
         //Assign User Role
-        if roleID == "R09" {// non-icg service desk manager
+        if roleID == "DM" {// non-icg service desk manager //"R09"
             totalArrayRole = arrSDMVender
-        }else if (roleID == "R04"){ // icg service desk manager
+        }else if (roleID == "SD"){ // icg service desk manager //"R04"
             totalArrayRole = totalSDMICG
-        }else if (roleID == "R05"){ // non-icg service engineer
+        }else if (roleID == "SE"){ // non-icg service engineer //"R05"
             totalArrayRole = arrServiceEng
-        }else if (roleID == "R08"){ // icg Eqipment user
+        }else if (roleID == "EU"){ // icg Eqipment user //"R08"
             totalArrayRole = arrEquipmentUser
         }
         

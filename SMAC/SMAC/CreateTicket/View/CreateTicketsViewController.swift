@@ -27,7 +27,7 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     @IBOutlet weak var btnReset:UIButton!
     @IBOutlet weak var btnSave:UIButton!
     @IBOutlet weak var formView:UIView!
-    
+    var globalContractID = ""
     var datePicker = UIDatePicker()
     var toolbar = UIToolbar()
     let imagePicker = UIImagePickerController()
@@ -38,6 +38,11 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     lazy var viewModelType = {
         CreateTicketViewModel()
     }()
+    
+    lazy var viewModelEquipment = {
+        ViewEquipmentModel()
+    }()
+    var arrEquipID = [String]()
     var arrEquipType = [String]()
     var arrEquip_SubType = [String]()
     var arrEquip_ProjectName = [String]()
@@ -47,14 +52,15 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     var arrEquip_PriorityDecr = [String]()
     var arrEquip_ContractorID = [String]()
     var arrEquip_ContractorName = [String]()
+    var globalContractId = ""
+    //MARK:- ViewDid Load
     override func viewDidLoad() {
         super.viewDidLoad()
         addArrowBtnToTextFields()
         getContract()
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                //call any function
-            self.apiCalling()
+//            self.apiCalling()
         }
         UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(rgb: 0x06284D)
 
@@ -68,6 +74,7 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
 
         print(titleTxt)
         let unit = UserDefaults.standard.string(forKey: "unit")
+        self.unitTxt.text = unit
 //        if unit!.count > 0 {
 //            self.unitTxt.text = unit
 //        }else{
@@ -248,30 +255,43 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
         self.navigationController?.popViewController( animated: true)
     }
     
+    //MARK:- Create
     @IBAction func tapToSubmit(_ sender:Any){
         Loader.showLoader("Creating Ticket...", target: self)
-        viewModelType.API_createTicket(json: CreateTicketJsonModel.init(description: descriptionTxtView.text, subject: "Ticket APi Demo", equip_ID: "001", equip_Type: self.equipmentTypeTxt.text!, equip_SubType: "0005", username: "vipin.gangwar"), data: {
-            response  in
-            Loader.hideLoader(self)
-                print("Response APi")
-            print(response)
-            
-        })
+//        viewModelType.API_createTicket(json: CreateTicketJsonModel.init(description: descriptionTxtView.text, subject: "Ticket APi Demo", equip_ID: "001", equip_Type: self.equipmentTypeTxt.text!, equip_SubType: "0005", username: "vipin.gangwar"), data: {
+        if globalContractId != "" {
+            viewModelType.API_createTicket(json: CreateTicketJsonModel.init(description: descriptionTxtView.text, subject: self.titleTxt.text!, equip_ID: self.equipmentNameTxt.text!, equip_Type: self.equipmentTypeTxt.text!, units: unitTxt.text!, servicetype: self.serviceTypeTxt.text!, contractsID: globalContractID, username: "", docpath: ""), data: {
+                response  in
+                Loader.hideLoader(self)
+                    print("Response APi")
+                print(response)
+                
+            })
+        }
     }
     @IBAction func tapToReset(_ sender:Any){
-        
+        self.contractNameTxt.text = nil
+        self.equipmentNameTxt.text = nil
+        self.titleTxt.text = nil
+        self.equipmentTypeTxt.text = nil
+        self.descriptionTxtView.text = nil
     }
     
     //MARK:- API Call
     func getContract(){
-        viewModelType.getContract_API(json: jsonDictionaryForGetContract.init(id: ""), data: {
+        
+        Loader.showLoader("Loding Contract...", target: self)
+        viewModelType.getContract_API(json: jsonDictionaryForGetContract.init(id: "0055"), data: {
             response in
-            print("6th APi")
             DispatchQueue.main.async {
                 var firstitem: Bool = false
-                if  response.count > 0{
-                    //                Loader.hideLoader(self)
-                    for id in response {
+                if  response?.users.count ?? 0 > 0{
+                                    Loader.hideLoader(self)
+//                    let item : [UserContract]? = response!.users
+//                    for id in response!.users {
+//                        print(id)
+//                    }
+                    for id in response!.users {
                         if firstitem == false {
                             firstitem = true
                             self.arrEquip_ContractorID.append("Select")
@@ -285,9 +305,41 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
                     }
                     self.contractNameTxt.loadDropdownData(data: self.arrEquip_ContractorName)
                 }else{
-                    //                Loader.hideLoader(self)
+                                    Loader.hideLoader(self)
                     Utility().addAlertView("Alert!", "Something is wrong", "OK", self)
                 }
+            }
+        })
+    }
+    
+    func Api_ComboData(com_Id:String){
+        let jsons = ViewEquipmentRequestModel.init(id: com_Id, type: "EQUIPMENT")
+        globalContractID = com_Id
+        viewModelEquipment.API_getEquipmentList(json: jsons, dataValue: {
+            responseSorces in
+            print("Count",responseSorces?.result)
+            Loader.hideLoader(self)
+            if responseSorces?.result.count ?? 0 > 0 {
+                var firstitem: Bool = false
+
+            for id in responseSorces!.result {
+                if firstitem == false {
+                    firstitem = true
+                    self.arrEquipType.append("Select")
+                    self.arrEquipID.append("Select")
+                    self.arrEquip_SubType.append("Select")
+                    self.arrEquipType.append(id.eqptType!)
+                    self.arrEquipID.append(id.eqptID)
+                    self.arrEquip_SubType.append(id.name!)
+                }else{
+                    self.arrEquipType.append(id.eqptType ?? "")
+                    self.arrEquipID.append(id.eqptID)
+                    self.arrEquip_SubType.append(id.name ?? "")
+                }
+              let orderedNoDuplicates =  Array(NSOrderedSet(array: self.arrEquipType).map({ $0 as! String }))
+                self.equipmentTypeTxt.loadDropdownData(data: orderedNoDuplicates)
+                self.equipmentNameTxt.loadDropdownData(data: self.arrEquip_SubType)
+            }//            self.userModelEquip = responseSorces?.result ?? []
             }
         })
     }
@@ -301,7 +353,7 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
 //            print(response)
             print("1st APi")
             DispatchQueue.main.async { [self] in
-            if  response.count > 0{
+                if  response.count > 0{
                 var firstitem: Bool = false
                 for id in response {
                     if firstitem == false {
@@ -441,6 +493,18 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     }
     
     func apiSubmit_CreateTask(){
+        
+    }
+    
+    @IBAction func textFieldEditingDidChange(_ sender: Any) {
+        print("change name")
+        let index =  arrEquip_ContractorName.firstIndex(where: { $0 == self.contractNameTxt.text }) ?? 0
+        let nameID =  arrEquip_ContractorID[index]
+        if (nameID != "" ||  nameID != "Select") {
+            Loader.showLoader("Downloading Details...", target: self)
+            globalContractId = nameID
+            Api_ComboData(com_Id: nameID)
+        }
     }
 }
 
@@ -450,6 +514,10 @@ extension CreateTicketsViewController:UITextFieldDelegate{
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         print("TextField did end editing method called\(textField.text!)")
+        if (textField.tag == 111){
+            textFieldEditingDidChange(self)
+        }
+        
     }
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         print("TextField should begin editing method called")
@@ -472,6 +540,8 @@ extension CreateTicketsViewController:UITextFieldDelegate{
         textField.resignFirstResponder();
         return true;
     }
+    
+    
 }
 
 extension CreateTicketsViewController:UITextViewDelegate{

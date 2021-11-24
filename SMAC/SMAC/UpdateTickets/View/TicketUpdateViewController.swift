@@ -10,11 +10,11 @@ import IQKeyboardManagerSwift
 import MobileCoreServices
 import UniformTypeIdentifiers
 import Foundation
-import MaterialComponents
-import MaterialComponents.MaterialTextFields
-import MaterialComponents.MDCTextInputControllerOutlinedTextArea
-import MaterialComponents.MDCTextInputControllerFilled
-
+//import MaterialComponents
+//import MaterialComponents.MaterialTextFields
+//import MaterialComponents.MDCTextInputControllerOutlinedTextArea
+//import MaterialComponents.MDCTextInputControllerFilled
+/*
 class TicketUpdateViewController: UIViewController,UITextViewDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var serviceRequesterTxt: MDCTextField!
     @IBOutlet weak var titleTxt: MDCTextField!
@@ -328,3 +328,4 @@ extension TicketUpdateViewController:UIDocumentPickerDelegate{
     }
     
 }
+*/

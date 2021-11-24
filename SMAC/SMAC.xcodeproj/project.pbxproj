@@ -30,11 +30,14 @@
 		042A63A82704359200182358 /* TicketStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A63A62704359200182358 /* TicketStatusCell.swift */; };
 		042A63A92704359200182358 /* TicketStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042A63A72704359200182358 /* TicketStatusCell.xib */; };
 		042A63AE27043D6A00182358 /* TicketStatusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A63AD27043D6A00182358 /* TicketStatusVC.swift */; };
+		042B7FF2273B9B1100E2DD6C /* ContractResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B7FF1273B9B1100E2DD6C /* ContractResponseModel.swift */; };
+		042B7FF4273B9BF300E2DD6C /* ContractModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B7FF3273B9BF300E2DD6C /* ContractModel.swift */; };
 		043FCC5426CB935400120117 /* VCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FCC5326CB935400120117 /* VCViewModel.swift */; };
 		043FCC5926CB93E300120117 /* VCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FCC5826CB93E300120117 /* VCModel.swift */; };
 		043FCC6226CCC7B200120117 /* UpdateTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FCC6126CCC7B200120117 /* UpdateTicketViewController.swift */; };
 		0440D346273269DD005DB963 /* ViewEquipJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440D345273269DD005DB963 /* ViewEquipJsonModel.swift */; };
 		0440D34827326A05005DB963 /* ViewEquipmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0440D34727326A05005DB963 /* ViewEquipmentModel.swift */; };
+		04426594273E371300EB5933 /* VenderRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04426593273E371300EB5933 /* VenderRequestModel.swift */; };
 		044EC38F26E7666A00BCE49A /* ViewEquipmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044EC38D26E7666A00BCE49A /* ViewEquipmentCell.swift */; };
 		044EC39026E7666A00BCE49A /* ViewEquipmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044EC38E26E7666A00BCE49A /* ViewEquipmentCell.xib */; };
 		044EC39526E778F700BCE49A /* ViewEquipmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044EC39426E778F700BCE49A /* ViewEquipmentVC.swift */; };
@@ -172,11 +175,14 @@
 		042A63A62704359200182358 /* TicketStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketStatusCell.swift; sourceTree = "<group>"; };
 		042A63A72704359200182358 /* TicketStatusCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TicketStatusCell.xib; sourceTree = "<group>"; };
 		042A63AD27043D6A00182358 /* TicketStatusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketStatusVC.swift; sourceTree = "<group>"; };
+		042B7FF1273B9B1100E2DD6C /* ContractResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractResponseModel.swift; sourceTree = "<group>"; };
+		042B7FF3273B9BF300E2DD6C /* ContractModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractModel.swift; sourceTree = "<group>"; };
 		043FCC5326CB935400120117 /* VCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCViewModel.swift; sourceTree = "<group>"; };
 		043FCC5826CB93E300120117 /* VCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCModel.swift; sourceTree = "<group>"; };
 		043FCC6126CCC7B200120117 /* UpdateTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTicketViewController.swift; sourceTree = "<group>"; };
 		0440D345273269DD005DB963 /* ViewEquipJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEquipJsonModel.swift; sourceTree = "<group>"; };
 		0440D34727326A05005DB963 /* ViewEquipmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEquipmentModel.swift; sourceTree = "<group>"; };
+		04426593273E371300EB5933 /* VenderRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenderRequestModel.swift; sourceTree = "<group>"; };
 		044EC38D26E7666A00BCE49A /* ViewEquipmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEquipmentCell.swift; sourceTree = "<group>"; };
 		044EC38E26E7666A00BCE49A /* ViewEquipmentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewEquipmentCell.xib; sourceTree = "<group>"; };
 		044EC39426E778F700BCE49A /* ViewEquipmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEquipmentVC.swift; sourceTree = "<group>"; };
@@ -376,6 +382,8 @@
 		04149A3126F9B62000B9E7AD /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				042B7FF1273B9B1100E2DD6C /* ContractResponseModel.swift */,
+				042B7FF3273B9BF300E2DD6C /* ContractModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -619,6 +627,7 @@
 		0453514F26F1F94D00429987 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				04426593273E371300EB5933 /* VenderRequestModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1485,6 +1494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				045D433C26BBEB460082BCD1 /* StringConstant.swift in Sources */,
+				04426594273E371300EB5933 /* VenderRequestModel.swift in Sources */,
 				045D439626BD334B0082BCD1 /* DashboardCVCell.swift in Sources */,
 				045D427D26B27B060082BCD1 /* ViewController.swift in Sources */,
 				0453515526F1F9A400429987 /* VenderListCell.swift in Sources */,
@@ -1555,10 +1565,12 @@
 				471CF8DE26BBBC63008E1C9C /* SideMenuController.swift in Sources */,
 				045D430026B93AC40082BCD1 /* UIColor+Theme.swift in Sources */,
 				471CF8D726BBBC63008E1C9C /* StatusBar.swift in Sources */,
+				042B7FF2273B9B1100E2DD6C /* ContractResponseModel.swift in Sources */,
 				04149A6E26F9E2CE00B9E7AD /* MenuCustomViewController.swift in Sources */,
 				045D42D126B929060082BCD1 /* LoginViewModel.swift in Sources */,
 				0440D346273269DD005DB963 /* ViewEquipJsonModel.swift in Sources */,
 				045D42FF26B93AC40082BCD1 /* RoundedCorner.swift in Sources */,
+				042B7FF4273B9BF300E2DD6C /* ContractModel.swift in Sources */,
 				043FCC5926CB93E300120117 /* VCModel.swift in Sources */,
 				471CF8BC26BBB804008E1C9C /* SideMenuNavigationController.swift in Sources */,
 				04BCE68226C241B000801EA5 /* SideMenuModel.swift in Sources */,
@@ -1763,8 +1775,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SMAC/SMAC.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 77RD563Q8T;
 				INFOPLIST_FILE = SMAC/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1784,8 +1797,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SMAC/SMAC.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 77RD563Q8T;
 				INFOPLIST_FILE = SMAC/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

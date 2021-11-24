@@ -29,17 +29,21 @@ typealias Logins = LoginElement
 
 // MARK: - LoginElement
 struct LoginElement:Codable{
-let result: [ResultLogin]
-let pResult, msg: String
+    let result: [ResultLogin]
+    let pResult, status, msg, uimsg: String
 
-enum CodingKeys: String, CodingKey {
-    case result
-    case pResult = "P_RESULT"
-    case msg
+    enum CodingKeys: String, CodingKey {
+        case result
+        case pResult = "P_RESULT"
+        case status = "STATUS"
+        case msg, uimsg
+    }
 }
-}
+
 struct ResultLogin: Codable {
-    let pid, pno, firstname: String
+    let pid, pno: String
+    let techID: JSONNull?
+    let firstname: String
     let lastname: JSONNull?
     let unitName, unit, station, rank: String
     let mobilenumber, officialemail, personalemail, panno: JSONNull?
@@ -49,6 +53,7 @@ struct ResultLogin: Codable {
     enum CodingKeys: String, CodingKey {
         case pid = "PID"
         case pno = "PNO"
+        case techID = "TECH_ID"
         case firstname = "FIRSTNAME"
         case lastname = "LASTNAME"
         case unitName = "UNIT_NAME"
@@ -125,24 +130,26 @@ class JSONNull: Codable, Hashable {
 
 
 struct RoleResponsiblity: Codable {
-    let error: Bool
-    let message: String
-    let users: [UserRole]
+    let result: [UserRole]
+    let status, msg: String
 
     enum CodingKeys: String, CodingKey {
-        case error = "Error"
-        case message = "Message"
-        case users = "Users"
+        case result
+        case status = "STATUS"
+        case msg
     }
 }
 
 // MARK: - User
 struct UserRole: Codable {
-    let rID, descr: String
+    let rID, roleName: String
+    let contractID, contractName: String?
 
     enum CodingKeys: String, CodingKey {
         case rID = "R_ID"
-        case descr = "DESCR"
+        case roleName = "ROLE_NAME"
+        case contractID = "CONTRACT_ID"
+        case contractName = "CONTRACT_NAME"
     }
 }
 

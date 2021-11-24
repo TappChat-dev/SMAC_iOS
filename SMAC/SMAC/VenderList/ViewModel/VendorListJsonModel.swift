@@ -21,15 +21,14 @@ struct VendorListJsonModel: Codable {
 
 // MARK: - User
 struct User: Codable {
-    let vendorID, name, contactNo, officialEmail: String
-    let address1: String
-    let address2: String?
+    let vendorID, name: String
+    let contactNo, officialEmail, address1, address2: JSONNull?
     let city: String
-    let state: String?
-    let pin: Int?
+    let state, pin: JSONNull?
     let isActive: Int
-    let gstNo, panNo: String?
-    let userID, createdDt, updatedDt: JSONNull?
+    let gstNo, panNo: JSONNull?
+    let userID: UserID
+    let createdDt, updatedDt: String
 
     enum CodingKeys: String, CodingKey {
         case vendorID = "VENDOR_ID"
@@ -49,5 +48,10 @@ struct User: Codable {
         case updatedDt = "UPDATED_DT"
     }
 }
+
+enum UserID: String, Codable {
+    case the01E1 = "01E1"
+}
+
 typealias vendorList = VendorListJsonModel
 typealias usersList = [User]

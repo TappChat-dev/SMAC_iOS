@@ -42,13 +42,14 @@ class VenderListViewController: UIViewController {
     }
     
     func fetchAPI_VenderList(){
-        viewModelType.getVendorList(json: [:], dataValue: { [self]
+        viewModelType.getVendorList(json: ViewVendorRequestModel.init(id: ""), dataValue: { [self]
             response in
-            print(response.users)
+            print(response?.users)
             Loader.hideLoader(self)
-            print("userModel==",userModel)
-            userModel = response.users
+            print("userModel==",userModel.count)
+            userModel = response?.users ?? []
             self.tableview.reloadData()
+            Loader.hideLoader(self)
         })
     }
 }

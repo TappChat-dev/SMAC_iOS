@@ -16,8 +16,8 @@ class ViewTicketsViewController: UIViewController,ViewTicketCellDelegate {
         VCViewModel()
     }()
     
-//    var userResultModel = [ResultTickets]()
-    var userResultModel = [[String: Any]]()
+    var userResultModel = [ResultTickets]()
+//    var userResultModel = [[String: Any]]()
 
 
     override func viewDidLoad() {
@@ -40,7 +40,8 @@ class ViewTicketsViewController: UIViewController,ViewTicketCellDelegate {
         self.segmentOption.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
         self.segmentOption.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x06284D)], for: .selected)
         tableView.register(ViewTicketCell.nib, forCellReuseIdentifier: ViewTicketCell.identifier)
-        initViewModel()
+//        initViewModel()
+        getTicketUsingCOmbo()
         // Do any additional setup after loading the view.
     }
     
@@ -55,8 +56,8 @@ class ViewTicketsViewController: UIViewController,ViewTicketCellDelegate {
     func initViewModel() {
         // Get employees data
         guard let unit =  UserDefaults.standard.string(forKey: "unit") else { return print("unit id is not find.") }
-
-        viewModels.API_getViewAllTickets(json: ViewTicketJsonModel.init(id: "", unitID: "000227"), data: { [weak self]
+//012345 , 000227
+        viewModels.API_getViewAllTickets(json: ViewTicketJsonModel.init(id: "", unitID: unit), data: { [weak self]
             response,status  in
 //            print(response!)
             if status == true{
@@ -68,9 +69,10 @@ class ViewTicketsViewController: UIViewController,ViewTicketCellDelegate {
 //                }
                 print(response?.result.count)
 //                self?.userResultModel = response?.result ?? []
-                let dataResult = response!.result
+                let dataResult = response?.result ?? []
                 for items in dataResult{
-                    self?.userResultModel.append(items as [String : Any])
+//                    self?.userResultModel.append(items as [String : Any])
+                    self?.userResultModel.append(items)
 
                 }
 //                self?.userResultModel
@@ -82,6 +84,26 @@ class ViewTicketsViewController: UIViewController,ViewTicketCellDelegate {
        
     }
 
+    func getTicketUsingCOmbo(){
+        guard let techID =  UserDefaults.standard.string(forKey: "TechID") else { return print("unit id is not find.") }
+        Loader.showLoader("Getting all tickets...", target: self)
+
+        viewModels.API_getViewAllTicketsWithCombo(json: RoleJsonDictionary.init(id: techID, type: "TICKET_BY_PID"), data: { [weak self]
+            response,status  in
+            if status == true{
+//                print(response?.result.count)
+                let dataResult = response?.result ?? []
+                for items in dataResult{
+                    self?.userResultModel.append(items)
+                }
+                Loader.hideLoader(self)
+
+//                print(self?.userResultModel)
+                self?.tableView.reloadData()
+            }
+            Loader.hideLoader(self)
+        })
+    }
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -113,14 +135,14 @@ extension ViewTicketsViewController:UITableViewDelegate,UITableViewDataSource{
         cell.cellDelegate = self
         cell.btnEdit.tag = indexPath.row
 //        let cellVM = viewModels.getCellViewModel(at: indexPath)
-//        cell.cellViewModel = userResultModel[indexPath.row]
+        cell.cellViewModel = userResultModel[indexPath.row]
 //        cell.cellViewModelDic = userResultModel[indexPath.row]
-        let data = userResultModel[indexPath.row]
-        let ticketID = data["TICKET_ID"] as? String
-        let CONTRACT_NAME = data["CONTRACT_NAME"] as? String
-        let EQPT_TYPE = data["EQPT_TYPE"] as? String
-        let EQUIPMENT_NAME = data["EQUIPMENT_NAME"] as? String
-        cell.loadCellData(with: ticketID ?? "", equipmentName: EQUIPMENT_NAME ?? "", contractName: CONTRACT_NAME ?? "", eqptType: EQPT_TYPE ?? "")
+//        let data = userResultModel[indexPath.row]
+//        let ticketID = data["TICKET_ID"] as? String
+//        let CONTRACT_NAME = data["CONTRACT_NAME"] as? String
+//        let EQPT_TYPE = data["EQPT_TYPE"] as? String
+//        let EQUIPMENT_NAME = data["EQUIPMENT_NAME"] as? String
+//        cell.loadCellData(with: ticketID ?? "", equipmentName: EQUIPMENT_NAME ?? "", contractName: CONTRACT_NAME ?? "", eqptType: EQPT_TYPE ?? "")
         return cell
     }
     

@@ -32,8 +32,14 @@ class VenderListCell: UITableViewCell {
         didSet {
             venderNamelbl.text = cellViewModel?.name
             venderIDlbl.text = cellViewModel?.vendorID
-            venderAddresslbl.text = cellViewModel?.address1
-            venderNumberbl.text = cellViewModel?.gstNo
+            if let fetchedAdd = cellViewModel?.address1 as? String {
+                venderAddresslbl.text = fetchedAdd
+            }
+//            venderAddresslbl.text = cellViewModel?.address1
+            if let fetchedAdd = cellViewModel?.gstNo as? String {
+                venderNumberbl.text = fetchedAdd
+            }
+//            venderNumberbl.text = cellViewModel?.gstNo
         }
     }
 }

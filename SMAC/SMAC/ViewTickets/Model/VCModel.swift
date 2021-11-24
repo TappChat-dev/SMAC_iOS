@@ -57,38 +57,58 @@ typealias viewAllTickets = [ViewAllTicket]
  */
 
 struct ViewAllTicket:Codable {
-//    let result: [ResultTickets]
-//    let pOutMessage, msg: String
-//
-//    enum CodingKeys: String, CodingKey {
-//        case result
-//        case pOutMessage = "P_Out_Message"
-//        case msg
-//    }
-    
-        let result: [[String: String?]]
-        let pOutMessage, msg: String
+    let result: [ResultTickets]
+//      let message, msg, status: String
+    let status, msg: String
 
-        enum CodingKeys: String, CodingKey {
-            case result
-            case pOutMessage = "P_Out_Message"
-            case msg
-        }
+      enum CodingKeys: String, CodingKey {
+          case result
+          case status = "STATUS"
+          case msg
+      }
+    
+//        let result: [[String: String?]]
+//        let pOutMessage, msg: String
+//
+//        enum CodingKeys: String, CodingKey {
+//            case result
+//            case pOutMessage = "P_Out_Message"
+//            case msg
+//        }
 }
 
 // MARK: - Result
 struct ResultTickets: Codable {
-    let ticketID: String
-    let contractID, contractName: String?
-    let eqptID, equipmentName, eqptType: String
+    let ticketID, contractID, createdDt, subject: String
+    let descr, contractName, eqptID, unit: String
+    let unitName: String?
+    let serviceType: String
+    let equipmentName: String?
+    let eqptType: String
+    let eqptDescr: String?
+    let ticketStatus, ticketStatusName: String
+    let isPaneltyActive: Int
+    let isNac, nacRequestedDt: JSONNull?
 
     enum CodingKeys: String, CodingKey {
         case ticketID = "TICKET_ID"
         case contractID = "CONTRACT_ID"
+        case createdDt = "CREATED_DT"
+        case subject = "SUBJECT"
+        case descr = "DESCR"
         case contractName = "CONTRACT_NAME"
         case eqptID = "EQPT_ID"
+        case unit = "UNIT"
+        case unitName = "UNIT_NAME"
+        case serviceType = "SERVICE_TYPE"
         case equipmentName = "EQUIPMENT_NAME"
         case eqptType = "EQPT_TYPE"
+        case eqptDescr = "EQPT_DESCR"
+        case ticketStatus = "TICKET_STATUS"
+        case ticketStatusName = "TICKET_STATUS_NAME"
+        case isPaneltyActive = "IS_PANELTY_ACTIVE"
+        case isNac = "IS_NAC"
+        case nacRequestedDt = "NAC_REQUESTED_DT"
     }
 }
 typealias viewAllTickets = ViewAllTicket
@@ -106,3 +126,5 @@ typealias viewAllTickets = ViewAllTicket
              "TICKET_STATUS": "PD",
              "TICKET_STATUS_NAME": "PENDING"
  */
+
+

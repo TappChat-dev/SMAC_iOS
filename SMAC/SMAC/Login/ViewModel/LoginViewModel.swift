@@ -20,7 +20,7 @@ class LoginViewModel: NSObject {
         }
     }
     
-    func getLoginResponse(user: LoginViewCredentialModel, data: @escaping (_ result : LoginElement , Bool) -> ()){
+    func getLoginResponse(user: LoginViewCredentialModel, data: @escaping (_ result : LoginElement? , Bool) -> ()){
 //        let serviceUrl = BaseUrl.baseURLWithIP + "login"
         let serviceUrl = BaseUrl.baseURL + "getAuth"
 
@@ -33,23 +33,28 @@ class LoginViewModel: NSObject {
                     print(response)
                     let loginDetails = try? newJSONDecoder().decode(LoginElement.self, from: response)
 //                    print(loginDetails!)
-                    data(loginDetails!, true)
+                    if loginDetails?.result.count ?? 0 > 0 {
+                        data(loginDetails, true)
+                    }else{
+                        data(loginDetails, false)
+                    }
+                    
                 }else{
-//                    data("", false)
+                    data(nil, false)
                 }
         })
     }
     
     func getRoles(user:RoleJsonDictionary,data:@escaping(_ result: RoleResponsiblity) ->()){
-        let serviceUrl = BaseUrl.baseURL + "getUserRoles"
+        let serviceUrl = BaseUrl.baseURL +  "getcomboData"//"getUserRoles"
         let jsonData:Any = RoleJsonDictionary.encode(object:user )
         apiManager.apiPost(serviceName: serviceUrl, parameters: jsonData as! [String : Any], completionHandler: {
             [weak self](response, error) in
-            print(response)
+            print(response as Any)
             if let response = response {
             let roleDetails = try? newJSONDecoder().decode(RoleResponsiblity.self, from: response)
-                print(roleDetails?.users.count)
-                if roleDetails?.users.count ?? 0  > 0 {
+                print(roleDetails?.result.count)
+                if roleDetails?.result.count ?? 0  > 0 {
                     data(roleDetails!)
                 }
             }

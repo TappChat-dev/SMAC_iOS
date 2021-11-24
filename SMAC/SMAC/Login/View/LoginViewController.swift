@@ -18,11 +18,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var btnHideUnhide: UIButton!
     @IBOutlet weak var btnForgetPassword: UIButton!
     @IBOutlet weak var btnSegment:UISegmentedControl!
+    @IBOutlet weak var loginLogo: UIImageView!
+
     var segmentSelectedOption:String?
     lazy var viewModel = {
         LoginViewModel()
     }()
-    var userResultModel = [ResultLogin]()
+    var userResultModel = [ResultLogin]() //viewAllTickets
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,15 +34,24 @@ class LoginViewController: UIViewController {
 //        usernameTxt.text = "pushkar.singh" // NON-ICG
 //        usernameTxt.text = "gautamsingh.12957" // ICG SDM
 //        passwordTxt.text = "18Aug2014@8851"
-        usernameTxt.text = "jaideep.04627" // ICG Equip USer
-        passwordTxt.text = "06Aug2001@6676"
-        
+//        usernameTxt.text = "jaideep.04627" // ICG Equip USer
+        passwordTxt.text = "123"//"06Aug2001@6676"
+//        usernameTxt.text = "gautamsingh.12954"
+//        usernameTxt.text = "ramnaresh.03591"
+//        usernameTxt.text = "deewan@intek.com"
+        usernameTxt.text = "smishra.06348"
+
         UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(rgb: 0x06284D)
 
 //        self.btnSegment.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
         self.btnSegment?.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x06284D)], for: .normal)
 //        self.btnSegment.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x06284D)], for: .selected)
         self.btnSegment?.setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+//        loginLogo.layer.borderWidth = 1
+//        loginLogo.layer.masksToBounds = false
+//        loginLogo.layer.borderColor = UIColor.black.cgColor
+        loginLogo.layer.cornerRadius = loginLogo.frame.height/2
+        loginLogo.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
     
@@ -78,14 +89,19 @@ class LoginViewController: UIViewController {
             viewModel.getLoginResponse(user: LoginViewCredentialModel(username: usernameTxt.text!, password: passwordTxt.text!, type: segmentSelectedOption!), data: {
                 response, status  in
                 print(response)
-                if status == true  && response.result.count > 0{
+                if status == true  && response?.result.count ?? 0 > 0{
                     //navigate to other controller
   //                moveToDashBord()
                     var techID = ""
-                    for item in response.result {
+                    for item in response!.result {
                         if self.segmentSelectedOption == "ICG" {
-                            print(response.result[0])
-                            techID = item.pid
+                            print(response!.result[0])
+                            let id = item.pid
+                            if id != "" {
+                                techID = id
+                            }else{
+                                
+                            }
                         }else{
                             
                         }
@@ -105,13 +121,16 @@ class LoginViewController: UIViewController {
                     })
 //                    print(response[0].adhaarNO)
                     UserDefaults.standard.set("Yes", forKey: "isLoginSuccess") //setObject
-                    UserDefaults.standard.set(response.result[0].unit, forKey: "unit")
+                    UserDefaults.standard.set(techID, forKey: "TechID")
+
+                    UserDefaults.standard.set(response?.result[0].unit, forKey: "unit")
                     UserDefaults.standard.set("", forKey: "status")
                  
 //                    self.moveToDashBord()
                 }else{
                     Loader.hideLoader(self)
-                    Utility().addAlertView("Alert!", "Please Check Your Selected Option!", "OK", self)
+//                    Utility().addAlertView("Alert!", "Please Check Your Selected Option!", "OK", self)
+                    Utility().addAlertView("Alert!", "Please contact to admin.", "OK", self)
                 }
             })
 //              if status == true {
@@ -182,9 +201,11 @@ class LoginViewController: UIViewController {
             response  in
             print(response)
             var dic = [String:Any]()
-            for id in response.users{
+            for id in response.result{
                 print(id.rID)
-                dic = ["roleID":id.rID,"descr":id.descr]
+                if (id.rID == "DM" || id.rID == "SD" || id.rID == "SE" || id.rID == "EU") {
+                    dic = ["roleID":id.rID,"descr":id.roleName]
+                }
             }
             roles(dic)
         })

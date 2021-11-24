@@ -45,7 +45,8 @@ class SMACPickerView: UIPickerView, UIPickerViewDataSource, UIPickerViewDelegate
  
     init(pickerData: [String], dropdownField: UITextField) {
         super.init(frame: CGRect.zero)
- 
+        self.autoresizingMask = .flexibleWidth
+
         self.pickerData = pickerData
         self.pickerTextField = dropdownField
  

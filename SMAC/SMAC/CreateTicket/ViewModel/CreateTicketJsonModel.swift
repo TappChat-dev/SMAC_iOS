@@ -11,38 +11,50 @@ struct CreateTicketJsonModel {
     
     var description: String
     var subject: String
+    var unit:String
     var equipmentID: String
     var equipmentType: String
-    var equipment_SubType: String
-    var username: String
+    var serviceType: String
+    var ContractID: String
+    var userName: String
+    var docPath: String
     
     init() {
         description = ""
         subject = ""
+        unit = ""
         equipmentID = ""
         equipmentType = ""
-        equipment_SubType = ""
-        username = ""
+        serviceType = ""
+        ContractID = ""
+        userName = ""
+        docPath = ""
     }
     
-    init(description: String, subject: String,equip_ID: String,equip_Type: String, equip_SubType: String,username: String) {
-        self.username = username
+    init(description: String, subject: String,equip_ID: String,equip_Type: String, units: String,servicetype:String,contractsID:String,username: String, docpath:String) {
         self.description = description
         self.subject = subject
         self.equipmentID = equip_ID
         self.equipmentType = equip_Type
-        self.equipment_SubType = equip_SubType
+        self.unit = units
+        self.serviceType = servicetype
+        self.ContractID = contractsID
+        self.userName = username
+        self.docPath = docpath
     }
     
     static func encode(object: CreateTicketJsonModel) -> Any {
         var user = [String: Any]()
         
-        user["descr"] = object.description
-        user["subject"] = object.subject
-        user["eqpt_ID"] = object.equipmentID
-        user["eqpt_TYPE"] = object.equipmentType
-        user["eqpt_SUBTYPE"] = object.equipment_SubType
-        user["user_NAME"] = object.username
+        user["P_DESCR"] = object.description
+        user["P_SUBJECT"] = object.subject
+        user["P_EQPT_ID"] = object.equipmentID
+        user["P_EQPT_TYPE"] = object.equipmentType
+        user["P_UNIT"] = object.unit
+        user["P_SERVICE_TYPE"] = object.serviceType
+        user["P_DOC_PATH"] = object.docPath
+        user["P_CONTRACT_ID"] = object.ContractID
+        user["P_USERNAME"] = object.userName
         return user
     }
 }

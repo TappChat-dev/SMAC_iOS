@@ -33,4 +33,13 @@ class ViewEquipmentCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    var cellViewModel: ResultEquipment? {
+        didSet {
+            eqipmentNamelbl.text = cellViewModel?.name
+            eqipmentTypelbl.text = cellViewModel?.eqptType
+            eqipmentNoLBL.text = cellViewModel?.eqptID
+            modelNoLBL.text = cellViewModel?.eqptDescr
+        }
+    }
+    
 }

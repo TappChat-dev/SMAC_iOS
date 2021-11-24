@@ -8,23 +8,23 @@
 import Foundation
 
 struct ViewEquipmentRequestModel {
-    var E_TICKET_ID: String
-    var E_UNIT_ID:String
+    var P_Type: String
+    var COM_Id:String
     init() {
-        E_TICKET_ID = ""
-        E_UNIT_ID = ""
+        P_Type = ""
+        COM_Id = ""
     }
     
-    init(id:String,unitID:String) {
-        self.E_TICKET_ID = id
-        self.E_UNIT_ID = unitID
+    init(id:String,type:String) {
+        self.P_Type = type
+        self.COM_Id = id
     }
     
     static func encode(object: ViewEquipmentRequestModel) -> Any {
         var user = [String: Any]()
         
-        user["P_TICKET_ID"] = object.E_TICKET_ID
-        user["P_UNIT_ID"] = object.E_UNIT_ID
+        user["P_Type"] = object.P_Type
+        user["COM_Id"] = object.COM_Id
         return user
     }
 }
