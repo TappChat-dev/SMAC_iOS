@@ -29,9 +29,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xyz" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="082-4O-FkF">
-                                <rect key="frame" x="145" y="15" width="222" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Indian Coast Guard Dist HQs No-5, GM Pettai Road, Royapuram, Chennai- 13" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="082-4O-FkF">
+                                <rect key="frame" x="145" y="15" width="222" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -92,8 +92,7 @@
                             <constraint firstAttribute="trailing" secondItem="082-4O-FkF" secondAttribute="trailing" constant="8" id="3ct-gH-yOg"/>
                             <constraint firstItem="nA9-T7-qd7" firstAttribute="leading" secondItem="VjE-sj-nRv" secondAttribute="leading" constant="10" id="6bl-Cf-M5h"/>
                             <constraint firstAttribute="trailing" secondItem="lLt-ig-ZjU" secondAttribute="trailing" constant="8" id="7Ia-Fq-itO"/>
-                            <constraint firstItem="WWD-Vt-XaC" firstAttribute="centerY" secondItem="nA9-T7-qd7" secondAttribute="centerY" id="7aC-w4-Kv0"/>
-                            <constraint firstItem="lLt-ig-ZjU" firstAttribute="top" secondItem="082-4O-FkF" secondAttribute="bottom" constant="10" id="A4z-Bd-ZPn"/>
+                            <constraint firstItem="lLt-ig-ZjU" firstAttribute="top" secondItem="082-4O-FkF" secondAttribute="bottom" constant="8" id="A4z-Bd-ZPn"/>
                             <constraint firstItem="WWD-Vt-XaC" firstAttribute="leading" secondItem="nA9-T7-qd7" secondAttribute="trailing" constant="5" id="C1g-qp-wJB"/>
                             <constraint firstItem="0ya-g4-bD6" firstAttribute="leading" secondItem="VjE-sj-nRv" secondAttribute="leading" constant="10" id="CQo-4R-RWx"/>
                             <constraint firstItem="hY9-yf-J3V" firstAttribute="top" secondItem="WWD-Vt-XaC" secondAttribute="bottom" constant="10" id="FCX-7Y-LoJ"/>
@@ -107,7 +106,6 @@
                             <constraint firstItem="nA9-T7-qd7" firstAttribute="top" secondItem="0ya-g4-bD6" secondAttribute="bottom" constant="10" id="heZ-8e-0gA"/>
                             <constraint firstAttribute="trailing" secondItem="hY9-yf-J3V" secondAttribute="trailing" constant="8" id="iMr-0s-LMO"/>
                             <constraint firstItem="hY9-yf-J3V" firstAttribute="leading" secondItem="tL2-EK-Hk4" secondAttribute="trailing" constant="5" id="mIH-9D-s5I"/>
-                            <constraint firstItem="082-4O-FkF" firstAttribute="centerY" secondItem="66U-eD-DV9" secondAttribute="centerY" id="mwk-BP-wqE"/>
                             <constraint firstAttribute="bottom" secondItem="hY9-yf-J3V" secondAttribute="bottom" constant="15" id="qwm-y6-nkE"/>
                             <constraint firstItem="082-4O-FkF" firstAttribute="leading" secondItem="66U-eD-DV9" secondAttribute="trailing" constant="5" id="tDK-t6-bDg"/>
                             <constraint firstItem="tL2-EK-Hk4" firstAttribute="top" secondItem="nA9-T7-qd7" secondAttribute="bottom" constant="10" id="tKj-8S-A8z"/>

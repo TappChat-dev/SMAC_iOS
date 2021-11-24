@@ -28,15 +28,16 @@ class VenderListCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    var cellViewModel: User? {
+//    var cellViewModel: User? {
+    var cellViewModel: ResultVendor? {
         didSet {
             venderNamelbl.text = cellViewModel?.name
-            venderIDlbl.text = cellViewModel?.vendorID
-            if let fetchedAdd = cellViewModel?.address1 as? String {
-                venderAddresslbl.text = fetchedAdd
-            }
-//            venderAddresslbl.text = cellViewModel?.address1
-            if let fetchedAdd = cellViewModel?.gstNo as? String {
+            venderIDlbl.text = cellViewModel?.gstNo
+            venderAddresslbl.text = cellViewModel?.address
+//            if let fetchedAdd = cellViewModel?.address1 as? String {
+//                venderAddresslbl.text = fetchedAdd
+//            }
+            if let fetchedAdd = cellViewModel?.contactNo as? String {
                 venderNumberbl.text = fetchedAdd
             }
 //            venderNumberbl.text = cellViewModel?.gstNo

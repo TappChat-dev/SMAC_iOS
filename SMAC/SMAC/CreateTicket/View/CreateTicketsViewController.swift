@@ -57,7 +57,8 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         addArrowBtnToTextFields()
-        getContract()
+//        getContract()
+        API_ComboDataContract()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                //call any function
 //            self.apiCalling()
@@ -258,14 +259,20 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     //MARK:- Create
     @IBAction func tapToSubmit(_ sender:Any){
         Loader.showLoader("Creating Ticket...", target: self)
+        let index =  arrEquip_SubType.firstIndex(where: { $0 == self.equipmentNameTxt.text }) ?? 0
+        let nameEquipID =  arrEquipID[index]
+        
+        guard let techID =  UserDefaults.standard.string(forKey: "TechID") else { return print("unit id is not find.") }
+        Loader.showLoader("Creating ticket...", target: self)
 //        viewModelType.API_createTicket(json: CreateTicketJsonModel.init(description: descriptionTxtView.text, subject: "Ticket APi Demo", equip_ID: "001", equip_Type: self.equipmentTypeTxt.text!, equip_SubType: "0005", username: "vipin.gangwar"), data: {
         if globalContractId != "" {
-            viewModelType.API_createTicket(json: CreateTicketJsonModel.init(description: descriptionTxtView.text, subject: self.titleTxt.text!, equip_ID: self.equipmentNameTxt.text!, equip_Type: self.equipmentTypeTxt.text!, units: unitTxt.text!, servicetype: self.serviceTypeTxt.text!, contractsID: globalContractID, username: "", docpath: ""), data: {
+            viewModelType.API_createTicket(json: CreateTicketJsonModel.init(description: descriptionTxtView.text, subject: self.titleTxt.text!, equip_ID: nameEquipID, equip_Type: self.equipmentTypeTxt.text!, units: unitTxt.text!, servicetype: self.serviceTypeTxt.text!, contractsID: globalContractID, username: techID, docpath: ""), data: {
                 response  in
                 Loader.hideLoader(self)
-                    print("Response APi")
+                    print("Create tickets Response APi")
                 print(response)
-                
+                let mssage = response["uimsg"] as? String
+                Utility().addAlertView("Alert!", mssage ?? "Getting error from server.", "OK", self)
             })
         }
     }
@@ -306,9 +313,48 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
                     self.contractNameTxt.loadDropdownData(data: self.arrEquip_ContractorName)
                 }else{
                                     Loader.hideLoader(self)
-                    Utility().addAlertView("Alert!", "Something is wrong", "OK", self)
+                    Utility().addAlertView("Alert!", "Getting error from server.", "OK", self)
                 }
             }
+        })
+    }
+    
+    func API_ComboDataContract(){
+        guard let techID =  UserDefaults.standard.string(forKey: "TechID") else { return print("unit id is not find.") }
+        Loader.showLoader("Loding Contract...", target: self)
+        viewModelType.API_getViewAllTicketsWithComboCreateContract(json: RoleJsonDictionary.init(id: techID, type: "2"), data: { [weak self]
+            (responseResult,resultBool) in
+            if resultBool == true{
+                var firstitem: Bool = false
+
+                let dataResult = responseResult?.result ?? []
+                
+                if  responseResult?.result.count ?? 0 > 0{
+                                    Loader.hideLoader(self)
+                    for id in responseResult!.result {
+//                        print(id)
+                        if firstitem == false {
+                            firstitem = true
+                            self?.arrEquip_ContractorID.append("Select")
+                            self?.arrEquip_ContractorName.append("Select")
+                            self?.arrEquip_ContractorID.append(id.contractID )
+                            self?.arrEquip_ContractorName.append(id.contractName)
+                        }else{
+                            self?.arrEquip_ContractorID.append(id.contractID)
+                            self?.arrEquip_ContractorName.append(id.contractName)
+                        }
+                    }
+                
+                    self?.contractNameTxt.loadDropdownData(data: self!.arrEquip_ContractorName)
+                }else{
+                                    Loader.hideLoader(self)
+                    Utility().addAlertView("Alert!", "Getting error from server.", "OK", self!)
+                }
+                
+                Loader.hideLoader(self)
+
+            }
+            Loader.hideLoader(self)
         })
     }
     

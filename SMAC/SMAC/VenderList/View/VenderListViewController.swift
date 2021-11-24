@@ -15,12 +15,15 @@ class VenderListViewController: UIViewController {
     }()
     
     var userModel = [User]()
+    var userModelvendor = [ResultVendor]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(rgb: 0x06284D)
         tableview.register(VenderListCell.nib, forCellReuseIdentifier: VenderListCell.identifier)
         Loader.showLoader("Downloading Details...", target: self)
-        fetchAPI_VenderList()
+//        fetchAPI_VenderList()
+        API_fetchAllvendor()
         // Do any additional setup after loading the view.
     }
     
@@ -52,6 +55,23 @@ class VenderListViewController: UIViewController {
             Loader.hideLoader(self)
         })
     }
+    
+    func API_fetchAllvendor(){
+        viewModelType.API_getViewAllTicketsWithComboVendor(json: RoleJsonDictionary.init(id: "", type: "VENDOR_BY_ID"), data: { [weak self]
+            (result,resultBool) in
+            if resultBool == true{
+//                print(response?.result.count)
+                let dataResult = result?.result ?? []
+                for items in dataResult{
+                    self?.userModelvendor.append(items)
+                }
+                Loader.hideLoader(self)
+
+                self?.tableview.reloadData()
+            }
+            Loader.hideLoader(self)
+        })
+    }
 }
 
 extension VenderListViewController:UITableViewDelegate,UITableViewDataSource{
@@ -60,14 +80,16 @@ extension VenderListViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userModel.count
+//        return userModel.count
+        return userModelvendor.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: VenderListCell.identifier, for: indexPath) as? VenderListCell else { fatalError("xib does not exists") }
 //        cell.addShadow(backgroundColor: .white, cornerRadius: 13, shadowRadius: 5, shadowOpacity: 0.1, shadowPathInset: (dx: 8, dy: 6), shadowPathOffset: (dx: 0, dy: 2))
 //        let cellVM = viewModel.getCellViewModel(at: indexPath)
-        cell.cellViewModel = userModel[indexPath.row]
+//        cell.cellViewModel = userModel[indexPath.row]
+        cell.cellViewModel = userModelvendor[indexPath.row]
         return cell
     }
     

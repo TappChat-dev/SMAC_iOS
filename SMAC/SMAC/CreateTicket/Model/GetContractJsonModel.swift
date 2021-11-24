@@ -75,3 +75,49 @@ class JSONNulls: Codable, Hashable {
         try container.encodeNil()
     }
 }
+
+struct GetContractJsonModelTicket: Codable {
+    let result: [ContractCreateTicket]
+    let status, msg: String
+
+    enum CodingKeys: String, CodingKey {
+        case result
+        case status = "STATUS"
+        case msg
+    }
+}
+// MARK: - Result
+struct ContractCreateTicket: Codable {
+    let contractID, vendorID, vendorName, contractDt: String
+    let contractNo, contractAuthName, contractName, contractDescr: String
+    let contractDocs, slaDocs: JSONNull?
+    let unit, unitName, station, stationName: String
+    let duration: Int
+    let fmDt, endDt, contractType, contractTypeName: String
+    let pid: String
+    let isSlaActive: Int
+
+    enum CodingKeys: String, CodingKey {
+        case contractID = "CONTRACT_ID"
+        case vendorID = "VENDOR_ID"
+        case vendorName = "VENDOR_NAME"
+        case contractDt = "CONTRACT_DT"
+        case contractNo = "CONTRACT_NO"
+        case contractAuthName = "CONTRACT_AUTH_NAME"
+        case contractName = "CONTRACT_NAME"
+        case contractDescr = "CONTRACT_DESCR"
+        case contractDocs = "CONTRACT_DOCS"
+        case slaDocs = "SLA_DOCS"
+        case unit = "UNIT"
+        case unitName = "UNIT_NAME"
+        case station = "STATION"
+        case stationName = "STATION_NAME"
+        case duration = "DURATION"
+        case fmDt = "FM_DT"
+        case endDt = "END_DT"
+        case contractType = "CONTRACT_TYPE"
+        case contractTypeName = "CONTRACT_TYPE_NAME"
+        case pid = "PID"
+        case isSlaActive = "IS_SLA_ACTIVE"
+    }
+}

@@ -55,3 +55,36 @@ enum UserID: String, Codable {
 
 typealias vendorList = VendorListJsonModel
 typealias usersList = [User]
+
+
+
+struct ViewAllVendor:Codable {
+    let result: [ResultVendor]
+    let status, msg: String
+
+    enum CodingKeys: String, CodingKey {
+        case result
+        case status = "STATUS"
+        case msg
+    }
+}
+
+// MARK: - Result
+struct ResultVendor: Codable {
+    let name, address: String
+    let contactNo, officialEmail: String?
+    let city: String
+    let state, gstNo, panNo: String?
+
+    enum CodingKeys: String, CodingKey {
+        case name = "NAME"
+        case address = "ADDRESS"
+        case contactNo = "CONTACT_NO"
+        case officialEmail = "OFFICIAL_EMAIL"
+        case city = "CITY"
+        case state = "STATE"
+        case gstNo = "GST_NO"
+        case panNo = "PAN_NO"
+    }
+}
+typealias viewAllVendors = ViewAllVendor
