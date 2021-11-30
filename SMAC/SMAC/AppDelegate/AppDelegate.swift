@@ -36,6 +36,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        self.window = UIWindow(frame: UIScreen.main.bounds)
 //        window?.rootViewController = ContainerViewController()
 //        window?.makeKeyAndVisible()
+        if #available(iOS 13.0, *) {
+            print("Appdelegate check ios version")
+        }else{
+            let loginStatus =  UserDefaults.standard.string(forKey: "isLoginSuccess")
+              if loginStatus == "Yes"{
+                  print(" Login ststus yes")
+      //            window = UIWindow(windowScene:wScene)
+                  let vc = (UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController)!
+      //            vc.didMove(toParent: ContainerViewController())
+      //            vc.addChild(ContainerViewController())
+                  let navigationController = UINavigationController(rootViewController: vc)
+                  navigationController.isNavigationBarHidden = false
+
+                  window?.rootViewController = navigationController
+                  window?.makeKeyAndVisible()
+              }else{
+                  print("Not Login")
+                  let vc = (UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController)!
+      //            vc.didMove(toParent: ContainerViewController())
+      //            vc.addChild(ContainerViewController())
+                  let navigationController = UINavigationController(rootViewController: vc)
+                  navigationController.isNavigationBarHidden = false
+
+                  window?.rootViewController = navigationController
+                  window?.makeKeyAndVisible()
+              }
+        }
         return true
     }
 

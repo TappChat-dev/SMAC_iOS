@@ -23,6 +23,7 @@ class UpdateTicketViewController: UIViewController,UINavigationControllerDelegat
         @IBOutlet weak var uploadSLATxt: UITextField!
         @IBOutlet weak var descriptionTxtView: UITextView!
     @IBOutlet weak var statusTxt: UITextField!
+    @IBOutlet weak var statusDropDownTxt: UITextField!
     @IBOutlet weak var shortNotesTxtView: UITextView!
         
         @IBOutlet weak var btnUploadDoc:UIButton!
@@ -35,6 +36,14 @@ class UpdateTicketViewController: UIViewController,UINavigationControllerDelegat
     var toolbar = UIToolbar()
     let imagePicker = UIImagePickerController()
     let pickerView = UIPickerView()
+    var userResultUpdateModel: ResultTickets? = nil
+
+    var arrStatusDESCR = [String]()
+    var arrStatusShort = [String]()
+
+    lazy var viewModelsUpdate = {
+        UpdateTicketsJsonModel()
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,30 +52,40 @@ class UpdateTicketViewController: UIViewController,UINavigationControllerDelegat
         let salutations = ["Requester Name", "Mr.", "Ms.", "Mrs."]
         serviceRequesterTxt?.loadDropdownData(data: salutations)
         print(titleTxt)
+        API_GetStatusWithCombo()
+//        print(userResultUpdateModel)
+        self.titleTxt.text = userResultUpdateModel?.ticketStatusName
+        self.equipmentTypeTxt.text = userResultUpdateModel?.eqptType
+        self.equipmentNameTxt.text = userResultUpdateModel?.equipmentName
+        self.unitTxt.text = userResultUpdateModel?.unitName
+        self.contractNameTxt.text = userResultUpdateModel?.contractName
+        self.descriptionTxtView.text = userResultUpdateModel?.descr
+        self.serviceTypeTxt.text = userResultUpdateModel?.serviceType
+        self.serviceRequesterTxt.text = userResultUpdateModel?.ticketID
     }
     
     fileprivate func addArrowBtnToTextField() {
         
         let dropDownBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
           dropDownBtn.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal) //  downArrow_black arrowtriangle.down.fill, IQButtonBarArrowDown
-          serviceTypeTxt.rightViewMode = UITextField.ViewMode.always
-          serviceTypeTxt.rightView = dropDownBtn
+//          serviceTypeTxt.rightViewMode = UITextField.ViewMode.always
+//          serviceTypeTxt.rightView = dropDownBtn
           let dropDownBtn1 = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
           dropDownBtn1.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal)
-          contractNameTxt.rightViewMode = UITextField.ViewMode.always
-          contractNameTxt.rightView = dropDownBtn1
+//          contractNameTxt.rightViewMode = UITextField.ViewMode.always
+//          contractNameTxt.rightView = dropDownBtn1
           let dropDownBtn2 = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
           dropDownBtn2.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal)
-          unitTxt.rightViewMode = UITextField.ViewMode.always
-          unitTxt.rightView = dropDownBtn2
+//          unitTxt.rightViewMode = UITextField.ViewMode.always
+//          unitTxt.rightView = dropDownBtn2
           let dropDownBtn3 = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
           dropDownBtn3.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal)
-          titleTxt.rightViewMode = UITextField.ViewMode.always
-          titleTxt.rightView = dropDownBtn3
+//          titleTxt.rightViewMode = UITextField.ViewMode.always
+//          titleTxt.rightView = dropDownBtn3
           let dropDownBtn4 = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
           dropDownBtn4.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal)
-          equipmentNameTxt.rightViewMode = UITextField.ViewMode.always
-          equipmentNameTxt.rightView = dropDownBtn4
+//          equipmentNameTxt.rightViewMode = UITextField.ViewMode.always
+//          equipmentNameTxt.rightView = dropDownBtn4
           let dropDownBtn5 = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
           dropDownBtn5.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal)
         statusTxt.rightViewMode = UITextField.ViewMode.always
@@ -209,6 +228,40 @@ class UpdateTicketViewController: UIViewController,UINavigationControllerDelegat
         documentPicker.delegate = self
         documentPicker.modalPresentationStyle = .fullScreen
             present(documentPicker, animated: true, completion: nil)
+    }
+    
+    //MARK:- STATUS API
+    func API_GetStatusWithCombo(){
+        guard let techID =  UserDefaults.standard.string(forKey: "TechID") else { return print("unit id is not find.") }
+        viewModelsUpdate.API_getViewStatusWithCombo(json: RoleJsonDictionary.init(id:techID , type: "LIST_STATE_TICKET"), data: {resultData,resultBool in
+            
+            if resultBool == true {
+                
+            if let responseData = resultData {
+                print(responseData)
+                var firstitem: Bool = false
+
+                for items in responseData.result {
+                    print(items)
+                    if firstitem == false {
+                        firstitem = true
+                    self.arrStatusDESCR.append("Select")
+                    self.arrStatusShort.append("Select")
+                        self.arrStatusDESCR.append(items.descr)
+                        self.arrStatusShort.append(items.ticketStatus)
+                    }else{
+                        self.arrStatusDESCR.append(items.descr)
+                        self.arrStatusShort.append(items.ticketStatus)
+                    }
+                }
+                self.statusTxt?.loadDropdownData(data: self.arrStatusDESCR)
+
+            }
+            }else{
+                Utility().addAlertView("Alert!", "Status data not found.", "OK", self)
+
+            }
+        })
     }
 }
 

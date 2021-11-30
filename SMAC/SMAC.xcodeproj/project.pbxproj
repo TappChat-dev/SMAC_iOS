@@ -98,6 +98,9 @@
 		045D439626BD334B0082BCD1 /* DashboardCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D439426BD334B0082BCD1 /* DashboardCVCell.swift */; };
 		045D439726BD334B0082BCD1 /* DashboardCVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045D439526BD334B0082BCD1 /* DashboardCVCell.xib */; };
 		045D439C26BD414C0082BCD1 /* CustomFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045D439B26BD414B0082BCD1 /* CustomFlowLayout.swift */; };
+		046D9D24274F9E3F0057074A /* UpdateTicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D9D23274F9E3F0057074A /* UpdateTicketViewModel.swift */; };
+		046D9D26274F9E540057074A /* UpdateTicketsJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D9D25274F9E540057074A /* UpdateTicketsJsonModel.swift */; };
+		046D9D28274F9E6C0057074A /* UpdateTicketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D9D27274F9E6C0057074A /* UpdateTicketModel.swift */; };
 		047A4A3926F85B37004D514F /* PenaltyDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A4A3826F85B37004D514F /* PenaltyDetailsVC.swift */; };
 		047A4A4526F86609004D514F /* ApproveContractVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A4A4426F86609004D514F /* ApproveContractVC.swift */; };
 		04A80567272D3CCC005CDFBE /* AssignTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A80566272D3CCC005CDFBE /* AssignTicketViewController.swift */; };
@@ -250,6 +253,9 @@
 		045D439426BD334B0082BCD1 /* DashboardCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardCVCell.swift; sourceTree = "<group>"; };
 		045D439526BD334B0082BCD1 /* DashboardCVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DashboardCVCell.xib; sourceTree = "<group>"; };
 		045D439B26BD414B0082BCD1 /* CustomFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFlowLayout.swift; sourceTree = "<group>"; };
+		046D9D23274F9E3F0057074A /* UpdateTicketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTicketViewModel.swift; sourceTree = "<group>"; };
+		046D9D25274F9E540057074A /* UpdateTicketsJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTicketsJsonModel.swift; sourceTree = "<group>"; };
+		046D9D27274F9E6C0057074A /* UpdateTicketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTicketModel.swift; sourceTree = "<group>"; };
 		047A4A3826F85B37004D514F /* PenaltyDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenaltyDetailsVC.swift; sourceTree = "<group>"; };
 		047A4A4426F86609004D514F /* ApproveContractVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveContractVC.swift; sourceTree = "<group>"; };
 		04A80566272D3CCC005CDFBE /* AssignTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignTicketViewController.swift; sourceTree = "<group>"; };
@@ -483,6 +489,7 @@
 		043FCC5E26CCC6E700120117 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				046D9D27274F9E6C0057074A /* UpdateTicketModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -499,6 +506,8 @@
 		043FCC6026CCC78200120117 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				046D9D23274F9E3F0057074A /* UpdateTicketViewModel.swift */,
+				046D9D25274F9E540057074A /* UpdateTicketsJsonModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1518,6 +1527,7 @@
 				471CF8D826BBBC63008E1C9C /* Preferences.swift in Sources */,
 				045D439C26BD414C0082BCD1 /* CustomFlowLayout.swift in Sources */,
 				045D430326B93AC40082BCD1 /* UINib+Loader.swift in Sources */,
+				046D9D28274F9E6C0057074A /* UpdateTicketModel.swift in Sources */,
 				04149A4A26F9DFE100B9E7AD /* protocols.swift in Sources */,
 				0458038426C52503007B0796 /* ViewTicketCell.swift in Sources */,
 				04149A3526F9B68C00B9E7AD /* ContractorSLA.swift in Sources */,
@@ -1549,6 +1559,7 @@
 				045D438A26BD11C40082BCD1 /* DashboardTVCell.swift in Sources */,
 				04BCE68926C243DA00801EA5 /* MainViewController.swift in Sources */,
 				04E90EE026F46E64005E857C /* InitiatePenaltyVC.swift in Sources */,
+				046D9D26274F9E540057074A /* UpdateTicketsJsonModel.swift in Sources */,
 				04A8056C272FAFCC005CDFBE /* VendorListModel.swift in Sources */,
 				04149A6326F9E17F00B9E7AD /* menuCell.swift in Sources */,
 				0426A0C02726889100158244 /* GetContractJsonModel.swift in Sources */,
@@ -1578,6 +1589,7 @@
 				042A63A82704359200182358 /* TicketStatusCell.swift in Sources */,
 				471CF8C226BBB926008E1C9C /* PreferencesViewController.swift in Sources */,
 				045D42F226B93ABB0082BCD1 /* FileUtils.swift in Sources */,
+				046D9D24274F9E3F0057074A /* UpdateTicketViewModel.swift in Sources */,
 				043FCC5426CB935400120117 /* VCViewModel.swift in Sources */,
 				0401EE4B26E0B16600185A09 /* AddEquipmentViewController.swift in Sources */,
 				0440D34827326A05005DB963 /* ViewEquipmentModel.swift in Sources */,

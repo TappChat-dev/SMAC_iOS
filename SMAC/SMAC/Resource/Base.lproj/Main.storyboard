@@ -165,7 +165,7 @@
                                             <action selector="tapToLogin:" destination="NvE-1v-j16" eventType="touchUpInside" id="9px-Ns-gbU"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="u1e-De-Gga">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_new" translatesAutoresizingMaskIntoConstraints="NO" id="u1e-De-Gga">
                                         <rect key="frame" x="93.5" y="0.0" width="128" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="128" id="XC3-C0-fFK"/>
@@ -213,6 +213,7 @@
                     <connections>
                         <outlet property="btnLogin" destination="Qvp-R6-qKc" id="o0r-r0-UUQ"/>
                         <outlet property="btnSegment" destination="PkF-uz-LG8" id="nKt-5Z-Gcz"/>
+                        <outlet property="loginLogo" destination="u1e-De-Gga" id="PmF-8J-auK"/>
                         <outlet property="loginView" destination="9Jw-mb-XMB" id="fcd-q2-8ta"/>
                         <outlet property="passwordTxt" destination="Aku-eG-6Ts" id="HDP-U6-gx7"/>
                         <outlet property="usernameTxt" destination="fCM-O8-sBB" id="tMb-7X-qB9"/>
@@ -272,7 +273,7 @@
                                         <color key="textColor" red="0.96852236989999996" green="0.96868795159999999" blue="0.96851199870000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ms-nf-Itx">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ms-nf-Itx">
                                         <rect key="frame" x="25" y="16" width="32" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="5kO-K1-P7E"/>
@@ -1679,7 +1680,7 @@
         <!--Update Ticket View Controller-->
         <scene sceneID="IvV-R3-MFR">
             <objects>
-                <viewController storyboardIdentifier="UpdateTicketViewController" id="fZ2-8w-Nhx" customClass="UpdateTicketViewController" customModule="SMAC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="UpdateTicketViewController" storyboardIdentifier="UpdateTicketViewController" id="fZ2-8w-Nhx" customClass="UpdateTicketViewController" customModule="SMAC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nk4-Iz-Pzh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2373,7 +2374,7 @@
                         <outlet property="equipmentNameTxt" destination="FZV-6f-MDZ" id="cNT-Ss-Z1J"/>
                         <outlet property="equipmentTypeTxt" destination="xUY-km-8Ku" id="apn-q6-v6B"/>
                         <outlet property="formView" destination="tu5-ad-qHa" id="tEs-Rr-mR5"/>
-                        <outlet property="serviceRequesterTxt" destination="XgC-4C-8A4" id="v4a-Og-NPJ"/>
+                        <outlet property="serviceRequesterTxt" destination="XgC-4C-8A4" id="2pe-qb-lEI"/>
                         <outlet property="serviceTypeTxt" destination="cMm-OF-a7e" id="vBs-WE-IMe"/>
                         <outlet property="shortNotesTxtView" destination="VMF-zo-0gh" id="hh3-j6-OgZ"/>
                         <outlet property="statusTxt" destination="Fcl-bD-RPO" id="zmo-Lg-7C1"/>
@@ -6828,7 +6829,7 @@
         <image name="background" width="721" height="1280"/>
         <image name="calender" width="60" height="60"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
-        <image name="logo" width="180" height="192"/>
+        <image name="logo_new" width="180" height="180"/>
         <image name="menu" width="32" height="32"/>
         <image name="password" width="24" height="24"/>
         <image name="username" width="24" height="24"/>
