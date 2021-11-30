@@ -74,6 +74,11 @@ class LoginViewController: UIViewController {
         return true
     }
     
+    private func configureSideMenu() {
+        SideMenuController.preferences.basic.menuWidth = 240
+        SideMenuController.preferences.basic.defaultCacheKey = "0"
+    }
+    
     // MARK: - Login Button
     @IBAction func tapToLogin(_ sender:UIButton){
         if validationCheck() {
@@ -113,11 +118,17 @@ class LoginViewController: UIViewController {
                         print(dict)
                         UserDefaults.standard.set(dict["roleID"], forKey: "isLoginRoleID")
                         UserDefaults.standard.set(dict["descr"], forKey: "isLoginRoleDesc")
-                        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController
+//                        let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController
                           Loader.hideLoader(self)
-                        vc?.roleID = dict["roleID"] as! String
-                        vc?.roleDescp = dict["descr"] as! String
-                        self.navigationController?.pushViewController(vc!, animated: true)
+                        roleID = dict["roleID"] as! String
+                        roleDescp = dict["descr"] as! String
+//                        self.navigationController?.pushViewController(vc!, animated: true)
+                        self.configureSideMenu()
+//                        self.navigationController?.hidesBarsOnTap = false
+                        self.navigationController?.navigationBar.isHidden = true
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        let v1 = storyboard.instantiateViewController(withIdentifier:"SideMenu") as? SideMenuController
+                        self.navigationController?.pushViewController(v1!, animated: true)
                     })
 //                    print(response[0].adhaarNO)
                     UserDefaults.standard.set("Yes", forKey: "isLoginSuccess") //setObject

@@ -42,15 +42,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let loginStatus =  UserDefaults.standard.string(forKey: "isLoginSuccess")
               if loginStatus == "Yes"{
                   print(" Login ststus yes")
-      //            window = UIWindow(windowScene:wScene)
-                  let vc = (UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController)!
-      //            vc.didMove(toParent: ContainerViewController())
-      //            vc.addChild(ContainerViewController())
-                  let navigationController = UINavigationController(rootViewController: vc)
-                  navigationController.isNavigationBarHidden = false
+//                  let vc = (UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DashboardViewController") as? DashboardViewController)!
+//                  let navigationController = UINavigationController(rootViewController: vc)
+//                  navigationController.isNavigationBarHidden = false
+//                  window?.rootViewController = navigationController
+//                  window?.makeKeyAndVisible()
+                  self.configureSideMenu()
 
-                  window?.rootViewController = navigationController
-                  window?.makeKeyAndVisible()
+                  let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                  let v1 = storyboard.instantiateViewController(withIdentifier:"SideMenu") as? SideMenuController
+                              window?.rootViewController = v1
+                              window?.makeKeyAndVisible()
               }else{
                   print("Not Login")
                   let vc = (UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController)!
@@ -126,6 +128,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+    private func configureSideMenu() {
+        SideMenuController.preferences.basic.menuWidth = 240
+        SideMenuController.preferences.basic.defaultCacheKey = "0"
+    }
 }
 

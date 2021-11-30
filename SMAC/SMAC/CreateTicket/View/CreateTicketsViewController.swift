@@ -9,7 +9,7 @@ import UIKit
 import IQKeyboardManagerSwift
 import MobileCoreServices
 import UniformTypeIdentifiers
-
+import SideMenuSwift
 
 class CreateTicketsViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var titleTxt: UITextField!
@@ -253,7 +253,9 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     
     // MARK: - Back Button
     @IBAction func tapToBackButton(_ sender:Any){
-        self.navigationController?.popViewController( animated: true)
+//        self.navigationController?.popViewController( animated: true)
+        self.sideMenuController?.revealMenu()
+
     }
     
     //MARK:- Create

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SideMenuSwift
 
 class ViewTicketsViewController: UIViewController,ViewTicketCellDelegate {
     
@@ -52,6 +53,10 @@ class ViewTicketsViewController: UIViewController,ViewTicketCellDelegate {
 //        tableView.layoutIfNeeded()
 //        tableView.reloadData()
 //    }
+    
+    @IBAction func tapTomenu(_ sender:Any){
+        
+    }
     
     func initViewModel() {
         // Get employees data
@@ -110,7 +115,8 @@ class ViewTicketsViewController: UIViewController,ViewTicketCellDelegate {
     
     // MARK: - Back Button
     @IBAction func tapToBackButton(_ sender:Any){
-        self.navigationController?.popViewController( animated: true)
+//        self.navigationController?.popViewController( animated: true)
+        self.sideMenuController?.revealMenu()
     }
     
     func didPressButton(_ tag: Int) {

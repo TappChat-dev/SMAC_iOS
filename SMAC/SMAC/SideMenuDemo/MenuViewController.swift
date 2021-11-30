@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import SideMenu
+import SideMenuSwift
 
 class Preferences {
     static let shared = Preferences()
@@ -35,11 +35,11 @@ class MenuViewController: UIViewController {
         configureView()
 
         sideMenuController?.cache(viewControllerGenerator: {
-            self.storyboard?.instantiateViewController(withIdentifier: "SecondViewController")
+            self.storyboard?.instantiateViewController(withIdentifier: "CreateTicket")
         }, with: "1")
 
         sideMenuController?.cache(viewControllerGenerator: {
-            self.storyboard?.instantiateViewController(withIdentifier: "ThirdViewController")
+            self.storyboard?.instantiateViewController(withIdentifier: "ViewTicket")
         }, with: "2")
 
         sideMenuController?.delegate = self
@@ -127,11 +127,11 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
         cell.contentView.backgroundColor = themeColor
         let row = indexPath.row
         if row == 0 {
-            cell.titleLabel?.text = "Profile"
+            cell.titleLabel?.text = "DashBoard"
         } else if row == 1 {
             cell.titleLabel?.text = "Create Ticket"
         } else if row == 2 {
-            cell.titleLabel?.text = "Logout"
+            cell.titleLabel?.text = "View Ticket"
         }
         cell.titleLabel?.textColor = isDarkModeEnabled ? .white : .black
         return cell
@@ -149,8 +149,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-        
+        return 44
     }
 }
 

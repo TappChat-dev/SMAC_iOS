@@ -7,16 +7,16 @@
 
 import UIKit
 import Foundation
+import SideMenuSwift
 
-
-
+var roleID:String = ""
+var roleDescp:String = ""
 class DashboardViewController: UIViewController, SideMenuControllerDelegate {
 //    @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var collectionView:UICollectionView!
     @IBOutlet weak var btnMenu:UIButton!
     @IBOutlet weak var containerView: UIView!
-    var roleID:String = ""
-    var roleDescp:String = ""
+    
     var menuDelegate: MenuDelegate?
     
     var isDarkModeEnabled = false
@@ -65,12 +65,13 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
     }
     
     private func configureUI() {
-
+        
         if isDarkModeEnabled {
-            themeColor = .mirage
+           
+         
+         
             navigationController?.navigationBar.isTranslucent = false
-            navigationController?.navigationBar.tintColor = .lobolly
-            navigationController?.navigationBar.barTintColor = .mirage
+          
             navigationController?.navigationBar.titleTextAttributes = [
                 NSAttributedString.Key.foregroundColor: UIColor.white
             ]
@@ -79,33 +80,28 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
         }
 
         view.backgroundColor = themeColor
-        containerView?.backgroundColor = themeColor
+     
 
         let preferences = SideMenuController.preferences.basic
         guard let behaviorIndex = statusBarBehaviors.firstIndex(of: preferences.statusBarBehavior) else {
             fatalError("Configuration is messed up")
         }
-        
-//        let contentViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContentNavigation")
-//        let menuViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MenuNavigation")
-//        let sideMenuController = SideMenuController(contentViewController: contentViewController, menuViewController: menuViewController)
-//        self.view .addSubview(sideMenuController.view)
-//        statusBarBehaviorSegment.selectedSegmentIndex = behaviorIndex
-//
-//        guard let menuPositionIndex = menuPosition.firstIndex(of: preferences.position) else {
-//            fatalError("Configuration is messed up")
-//        }
-//        menuPositionSegment.selectedSegmentIndex = menuPositionIndex
-//
-//        guard let menuDirectionIndex = menuDirections.firstIndex(of: preferences.direction) else {
-//            fatalError("Configuration is messed up")
-//        }
-//        menuDirectionSegment.selectedSegmentIndex = menuDirectionIndex
-//
-//        guard let menuOrientationIndex = menuOrientation.firstIndex(of: preferences.supportedOrientations)else {
-//            fatalError("Configuration is messed up")
-//        }
-//        orientationSegment.selectedSegmentIndex = menuOrientationIndex
+      
+
+        guard let menuPositionIndex = menuPosition.firstIndex(of: preferences.position) else {
+            fatalError("Configuration is messed up")
+        }
+     
+
+        guard let menuDirectionIndex = menuDirections.firstIndex(of: preferences.direction) else {
+            fatalError("Configuration is messed up")
+        }
+     
+
+        guard let menuOrientationIndex = menuOrientation.firstIndex(of: preferences.supportedOrientations)else {
+            fatalError("Configuration is messed up")
+        }
+    
     }
   
     func ConfigureCollectionUI(){
