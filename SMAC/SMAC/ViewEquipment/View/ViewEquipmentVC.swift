@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SideMenuSwift
 
 class ViewEquipmentVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -39,7 +40,9 @@ class ViewEquipmentVC: UIViewController {
     
     // MARK: - Back Button
     @IBAction func tapToBackButton(_ sender:Any){
-        self.navigationController?.popViewController( animated: true)
+//        self.navigationController?.popViewController( animated: true)
+        self.sideMenuController?.revealMenu()
+
     }
 
     // MARK: - Navigation

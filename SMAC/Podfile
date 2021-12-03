@@ -18,6 +18,7 @@ pod 'SSCustomSideMenu'
 #pod 'SwiftySideMenuO'
 pod 'CSSimpleSideMenu'
 pod 'IQKeyboardManagerSwift', '6.5.0'
+pod 'Charts'
 
   target 'SMACTests' do
     inherit! :search_paths

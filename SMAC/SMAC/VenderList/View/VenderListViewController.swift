@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SideMenuSwift
 
 class VenderListViewController: UIViewController {
     @IBOutlet weak var tableview:UITableView!
@@ -29,7 +30,9 @@ class VenderListViewController: UIViewController {
     
     // MARK: - Back Button
     @IBAction func tapToBackButton(_ sender:Any){
-        self.navigationController?.popViewController( animated: true)
+//        self.navigationController?.popViewController( animated: true)
+        self.sideMenuController?.revealMenu()
+
     }
    
     override func viewWillAppear(_ animated: Bool) {

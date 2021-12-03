@@ -28,19 +28,96 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var selectionMenuTrailingConstraint: NSLayoutConstraint!
     private var themeColor = UIColor.white
 
+    let totalSDMICG = ["DashBoard","Create Ticket", "View Ticket","View Contract","View Vender","View Equipment"]
+    let arrSDMVender = ["DashBoard","Create Ticket","Assign Ticket","View Ticket","View Contract","View Equipment"]
+    let arrEquipmentUser = ["DashBoard","Create Ticket","View Ticket","View Contract","View Equipment","View Vender"]
+    let arrServiceEng = ["DashBoard","View Ticket","View Contract","View Equipment"]
+    var totalArrayRole = [String]()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        roleID =  UserDefaults.standard.string(forKey: "isLoginRoleID")!
+        if roleID == "DM" {// non-icg service desk manager //"R09"
+            totalArrayRole = arrSDMVender
+        }else if (roleID == "SD"){ // icg service desk manager //"R04"
+            totalArrayRole = totalSDMICG
+        }else if (roleID == "SE"){ // non-icg service engineer //"R05"
+            totalArrayRole = arrServiceEng
+        }else if (roleID == "EU"){ // icg Eqipment user //"R08"
+            totalArrayRole = arrEquipmentUser
+        }
         isDarkModeEnabled = SideMenuController.preferences.basic.position == .under
         configureView()
 
-        sideMenuController?.cache(viewControllerGenerator: {
-            self.storyboard?.instantiateViewController(withIdentifier: "CreateTicket")
-        }, with: "1")
+        if roleID == "DM" {
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "CreateTicket")
+            }, with: "1")
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "AssignTicket")
+            }, with: "2")
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "ViewTicket")
+            }, with: "3")
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "ViewContract")
+            }, with: "4")
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "ViewEquipment")
+            }, with: "5")
+        }else if (roleID == "SD"){// icg service desk manager //"R04"
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "CreateTicket")
+            }, with: "1")
 
-        sideMenuController?.cache(viewControllerGenerator: {
-            self.storyboard?.instantiateViewController(withIdentifier: "ViewTicket")
-        }, with: "2")
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "ViewTicket")
+            }, with: "2")
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "ViewContract")
+            }, with: "3")
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "ViewVender")
+            }, with: "4")
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "ViewEquipment")
+            }, with: "5")
+        }else if (roleID == "SE"){ // non-icg service engineer //"R05"
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "ViewTicket")
+            }, with: "1")
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "ViewContract")
+            }, with: "2")
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "ViewEquipment")
+            }, with: "3")
+        }else if (roleID == "EU"){ // icg Eqipment user //"R08"
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "CreateTicket")
+            }, with: "1")
+
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "ViewTicket")
+            }, with: "2")
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "ViewContract")
+            }, with: "3")
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "ViewEquipment")
+            }, with: "4")
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "ViewVender")
+            }, with: "5")
+        }
+//        sideMenuController?.cache(viewControllerGenerator: {
+//            self.storyboard?.instantiateViewController(withIdentifier: "CreateTicket")
+//        }, with: "1")
+//
+//        sideMenuController?.cache(viewControllerGenerator: {
+//            self.storyboard?.instantiateViewController(withIdentifier: "ViewTicket")
+//        }, with: "2")
 
         sideMenuController?.delegate = self
     }
@@ -118,22 +195,31 @@ extension MenuViewController: SideMenuControllerDelegate {
 
 extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return   totalArrayRole.count
     }
 
     // swiftlint:disable force_cast
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SelectionCell
         cell.contentView.backgroundColor = themeColor
+        
         let row = indexPath.row
-        if row == 0 {
-            cell.titleLabel?.text = "DashBoard"
-        } else if row == 1 {
-            cell.titleLabel?.text = "Create Ticket"
-        } else if row == 2 {
-            cell.titleLabel?.text = "View Ticket"
+//        if row == 0 {
+//            cell.titleLabel?.text = "DashBoard"
+//        } else{
+            cell.titleLabel?.text = totalArrayRole[indexPath.row]
+//        }
+//        if row == 1 {
+//            cell.titleLabel?.text = "Create Ticket"
+//        } else if row == 2 {
+//            cell.titleLabel?.text = "View Ticket"
+//        }
+        if isDarkModeEnabled {
+            cell.titleLabel?.textColor = UIColor.white
+        }else{
+            cell.titleLabel?.textColor = UIColor.black
         }
-        cell.titleLabel?.textColor = isDarkModeEnabled ? .white : .black
+        
         return cell
     }
 
@@ -149,7 +235,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        return 60
     }
 }
 

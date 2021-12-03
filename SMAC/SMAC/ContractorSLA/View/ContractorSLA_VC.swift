@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SideMenuSwift
 
 class ContractorSLA_VC: UIViewController {
     @IBOutlet weak var tableView:UITableView!
@@ -42,7 +43,9 @@ class ContractorSLA_VC: UIViewController {
     
     // MARK: - Back Button
     @IBAction func tapToBackButton(_ sender:Any){
-        self.navigationController?.popViewController( animated: true)
+//        self.navigationController?.popViewController( animated: true)
+        self.sideMenuController?.revealMenu()
+
     }
     //MARK:- API Call
     func getContract(){

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SideMenuSwift
 
 class AssignTicketViewController: UIViewController {
     @IBOutlet weak var contractNameTxt: UITextField!
@@ -35,7 +36,9 @@ class AssignTicketViewController: UIViewController {
     // MARK: - Navigation
     
     @IBAction func tapToBackButton(_ sender:Any){
-        self.navigationController?.popViewController( animated: true)
+//        self.navigationController?.popViewController( animated: true)
+        self.sideMenuController?.revealMenu()
+
     }
     
     @IBAction func tapToViewDocument(_ sender:Any){
