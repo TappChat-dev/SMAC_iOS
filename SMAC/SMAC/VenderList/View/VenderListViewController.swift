@@ -8,14 +8,17 @@
 import UIKit
 import SideMenuSwift
 
-class VenderListViewController: UIViewController {
+class VenderListViewController: UIViewController,UISearchBarDelegate {
     @IBOutlet weak var tableview:UITableView!
-    
+    @IBOutlet weak var testbar: UISearchBar!
+    var SearchBarValue:String!
+       var searchActive : Bool = false
     lazy var viewModelType = {
         VendorListModel()
     }()
     
     var userModel = [User]()
+    var searchUserModel = [ResultVendor]()
     var userModelvendor = [ResultVendor]()
 
     override func viewDidLoad() {
@@ -24,6 +27,8 @@ class VenderListViewController: UIViewController {
         tableview.register(VenderListCell.nib, forCellReuseIdentifier: VenderListCell.identifier)
         Loader.showLoader("Downloading Details...", target: self)
 //        fetchAPI_VenderList()
+//        self.searchBar.delegate = self
+
         API_fetchAllvendor()
         // Do any additional setup after loading the view.
     }
@@ -75,6 +80,59 @@ class VenderListViewController: UIViewController {
             Loader.hideLoader(self)
         })
     }
+    
+    //MARK: Search bar
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+            searchActive = true
+        }
+
+        func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+            searchActive = true
+        }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+            searchActive = false;
+
+            searchBar.text = nil
+            searchBar.resignFirstResponder()
+//            self.tableView.reloadData()
+        }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            searchActive = true
+        searchBar.resignFirstResponder()
+        }
+
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.resignFirstResponder()
+                    return true
+        }
+
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+//                self.searchActive = true;
+//                self.searchBar.showsCancelButton = true
+
+            if searchBar.text == nil || searchBar.text == "" {
+                searchActive = false
+                tableview.reloadData()
+            }else { //if searchBar.text!.count > 2
+                searchActive = true
+                searchUserModel = userModelvendor.filter({ value -> Bool in
+//                    guard let text = searchText else { return false }
+                    return ((value.contactNo?.localizedLowercase.contains(searchText.localizedLowercase)) != nil)
+                })
+//                searchUserModel = userModelvendor.filter({( item : ResultVendor) -> Bool in
+//                    return  item.contactNo!.lowercased().contains(searchText.lowercased())
+//                })
+                print(searchUserModel.count)
+                tableview.reloadData()
+            }
+                   
+
+
+        }
 }
 
 extension VenderListViewController:UITableViewDelegate,UITableViewDataSource{
@@ -84,7 +142,13 @@ extension VenderListViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return userModel.count
-        return userModelvendor.count
+//        return userModelvendor.count
+        if searchActive {
+            return searchUserModel.count
+        }else{
+            return userModelvendor.count
+        }
+   return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -92,7 +156,12 @@ extension VenderListViewController:UITableViewDelegate,UITableViewDataSource{
 //        cell.addShadow(backgroundColor: .white, cornerRadius: 13, shadowRadius: 5, shadowOpacity: 0.1, shadowPathInset: (dx: 8, dy: 6), shadowPathOffset: (dx: 0, dy: 2))
 //        let cellVM = viewModel.getCellViewModel(at: indexPath)
 //        cell.cellViewModel = userModel[indexPath.row]
+        if searchActive {
+            cell.cellViewModel = searchUserModel[indexPath.row]
+
+        }else {
         cell.cellViewModel = userModelvendor[indexPath.row]
+        }
         return cell
     }
     

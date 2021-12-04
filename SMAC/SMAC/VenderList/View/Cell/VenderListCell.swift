@@ -37,10 +37,10 @@ class VenderListCell: UITableViewCell {
 //            if let fetchedAdd = cellViewModel?.address1 as? String {
 //                venderAddresslbl.text = fetchedAdd
 //            }
-            if let fetchedAdd = cellViewModel?.contactNo as? String {
-                venderNumberbl.text = fetchedAdd
-            }
-//            venderNumberbl.text = cellViewModel?.gstNo
+//            if let fetchedAdd = cellViewModel?.contactNo as? String {
+//                venderNumberbl.text = fetchedAdd
+//            }
+            venderNumberbl.text = cellViewModel?.contactNo
         }
     }
 }

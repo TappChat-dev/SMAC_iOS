@@ -55,7 +55,7 @@ class UpdateTicketViewController: UIViewController,UINavigationControllerDelegat
         API_GetStatusWithCombo()
 //        print(userResultUpdateModel)
         self.titleTxt.text = userResultUpdateModel?.ticketStatusName
-        self.equipmentTypeTxt.text = userResultUpdateModel?.eqptType
+//        self.equipmentTypeTxt.text = userResultUpdateModel?.eqptType
         self.equipmentNameTxt.text = userResultUpdateModel?.equipmentName
         self.unitTxt.text = userResultUpdateModel?.unitName
         self.contractNameTxt.text = userResultUpdateModel?.contractName

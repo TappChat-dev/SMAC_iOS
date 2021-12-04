@@ -34,7 +34,8 @@ class ContractModel: NSObject{
         })
     }
     
-    func API_getViewAllTicketsWithComboContract(json:RoleJsonDictionary, data:@escaping (_ result:viewAllTickets?,_ resultBool: Bool) -> ()){
+//    func API_getViewAllTicketsWithComboContract(json:RoleJsonDictionary, data:@escaping (_ result:viewAllTickets?,_ resultBool: Bool) -> ()){
+    func API_getViewAllTicketsWithComboContract(json:RoleJsonDictionary, data:@escaping (_ result:RedefineAllContract?,_ resultBool: Bool) -> ()){
         let jsons =  RoleJsonDictionary.encode(object: json)
         print("View ticket request",jsons)
         print("View ticket url",serviceUrlCombo)
@@ -42,7 +43,7 @@ class ContractModel: NSObject{
             (response, error) in
             if let response = response {
                 print(response)
-                let details = try? newJSONDecoder().decode(viewAllTickets.self, from: response)
+                let details = try? newJSONDecoder().decode(RedefineAllContract.self, from: response)
                 print(details?.result as Any)
 //                self?.fetchData(model: details!)
                 data(details, true)

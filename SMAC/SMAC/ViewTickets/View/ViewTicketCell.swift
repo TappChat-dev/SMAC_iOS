@@ -45,7 +45,7 @@ class ViewTicketCell: UITableViewCell {
             IDlbl.text = cellViewModel?.ticketID
             dateLBL.text = cellViewModel?.equipmentName
             namelbl.text = cellViewModel?.contractName
-            statusLBL.text = cellViewModel?.eqptType
+            statusLBL.text = cellViewModel?.ticketStatusName
         }
     }
     

@@ -80,15 +80,15 @@ struct ViewAllTicket:Codable {
 // MARK: - Result
 struct ResultTickets: Codable {
     let ticketID, contractID, createdDt, subject: String
-    let descr, contractName, eqptID, unit: String
-    let unitName: String?
-    let serviceType: String
-    let equipmentName: String?
-    let eqptType: String
-    let eqptDescr: String?
-    let ticketStatus, ticketStatusName: String
+    let descr, contractName, eqptID, ticketForUnit: String
+    let unitName, serviceType: String
+    let equipmentName, ticketStatus, ticketStatusName: String?
     let isPaneltyActive: Int
     let isNac, nacRequestedDt: JSONNull?
+    let responseTime: Int
+    let eqptUsername: String?
+    let contactNo: Int?
+    let eqptSerialNo, eqptLocation: String
 
     enum CodingKeys: String, CodingKey {
         case ticketID = "TICKET_ID"
@@ -98,17 +98,20 @@ struct ResultTickets: Codable {
         case descr = "DESCR"
         case contractName = "CONTRACT_NAME"
         case eqptID = "EQPT_ID"
-        case unit = "UNIT"
+        case ticketForUnit = "TICKET_FOR_UNIT"
         case unitName = "UNIT_NAME"
         case serviceType = "SERVICE_TYPE"
         case equipmentName = "EQUIPMENT_NAME"
-        case eqptType = "EQPT_TYPE"
-        case eqptDescr = "EQPT_DESCR"
         case ticketStatus = "TICKET_STATUS"
         case ticketStatusName = "TICKET_STATUS_NAME"
         case isPaneltyActive = "IS_PANELTY_ACTIVE"
         case isNac = "IS_NAC"
         case nacRequestedDt = "NAC_REQUESTED_DT"
+        case responseTime = "RESPONSE_TIME"
+        case eqptUsername = "EQPT_USERNAME"
+        case contactNo = "CONTACT_NO"
+        case eqptSerialNo = "EQPT_SERIAL_NO"
+        case eqptLocation = "EQPT_LOCATION"
     }
 }
 typealias viewAllTickets = ViewAllTicket

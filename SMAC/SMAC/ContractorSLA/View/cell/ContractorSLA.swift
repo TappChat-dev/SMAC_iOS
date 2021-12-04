@@ -18,12 +18,13 @@ class ContractorSLA: UITableViewCell {
     
     
 //    var cellViewModel: UserContract? {//ResultTickets
-    var cellViewModel: ResultTickets? {
+    var cellViewModel: RedefineResult? {
 
         didSet {
             raisedBylbl.text = cellViewModel?.contractName
-            raisedDatelbl.text = cellViewModel?.createdDt
-            descriptionlbl.text = cellViewModel?.descr
+           let date = cellViewModel?.contractDt
+            raisedDatelbl.text = date?.rawValue
+            descriptionlbl.text = cellViewModel?.contractDescr?.rawValue
             ticketIDlbl.text = cellViewModel?.contractID
         }
     }

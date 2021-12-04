@@ -11,7 +11,9 @@ import SideMenuSwift
 class ContractorSLA_VC: UIViewController {
     @IBOutlet weak var tableView:UITableView!
     var userModel = [UserContract]()// viewAllTickets
-    var userModelContr = [ResultTickets]()
+//    var userModelContr = [ResultTickets]()
+    var userModelContr = [RedefineResult]()
+
     lazy var viewModelType = {
         ContractModel()
     }()
@@ -69,13 +71,16 @@ class ContractorSLA_VC: UIViewController {
 //        Loader.hideLoader(self)
         
         guard let techID =  UserDefaults.standard.string(forKey: "TechID") else { return print("unit id is not find.") }
-        viewModelType.API_getViewAllTicketsWithComboContract(json: RoleJsonDictionary.init(id: techID, type: "TICKET_BY_PID"), data: { [weak self]
+        viewModelType.API_getViewAllTicketsWithComboContract(json: RoleJsonDictionary.init(id: techID, type: "ALL_CONTRACT_BY_PID"), data: { [weak self]
             response,status  in
             if status == true{
 //                print(response?.result.count)
                 let dataResult = response?.result ?? []
-                for items in dataResult{
-                    self?.userModelContr.append(items)
+//                for items in dataResult{
+//                    self?.userModelContr.append(items)
+//                }
+                if dataResult.count > 0 {
+                    self?.userModelContr = dataResult
                 }
                 Loader.hideLoader(self)
 
