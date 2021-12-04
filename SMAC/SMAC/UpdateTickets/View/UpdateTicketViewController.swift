@@ -27,7 +27,8 @@ class UpdateTicketViewController: UIViewController,UINavigationControllerDelegat
     @IBOutlet weak var shortNotesTxtView: UITextView!
         
         @IBOutlet weak var btnUploadDoc:UIButton!
-        @IBOutlet weak var btnDatePicker:UIButton!
+        @IBOutlet weak var btnAccept:UIButton!
+        @IBOutlet weak var btnReject:UIButton!
         @IBOutlet weak var btnReset:UIButton!
         @IBOutlet weak var btnUpdate:UIButton!
         @IBOutlet weak var formView:UIView!
@@ -37,6 +38,7 @@ class UpdateTicketViewController: UIViewController,UINavigationControllerDelegat
     let imagePicker = UIImagePickerController()
     let pickerView = UIPickerView()
     var userResultUpdateModel: ResultTickets? = nil
+    let radioController: RadioButtonController = RadioButtonController()
 
     var arrStatusDESCR = [String]()
     var arrStatusShort = [String]()
@@ -62,6 +64,8 @@ class UpdateTicketViewController: UIViewController,UINavigationControllerDelegat
         self.descriptionTxtView.text = userResultUpdateModel?.descr
         self.serviceTypeTxt.text = userResultUpdateModel?.serviceType
         self.serviceRequesterTxt.text = userResultUpdateModel?.ticketID
+        radioController.buttonsArray = [btnReject,btnAccept]
+        radioController.defaultButton = btnAccept
     }
     
     fileprivate func addArrowBtnToTextField() {
@@ -101,6 +105,15 @@ class UpdateTicketViewController: UIViewController,UINavigationControllerDelegat
     @IBAction func tapToUploadDoc(_ sender:Any){
         self.actionSheetOption()
     }
+    
+    @IBAction func btnRejectAction(_ sender: UIButton) {
+         radioController.buttonArrayUpdated(buttonSelected: sender)
+     }
+
+     @IBAction func btnAcceptAction(_ sender: UIButton) {
+         radioController.buttonArrayUpdated(buttonSelected: sender)
+     }
+    
     // MARK: - Date Picker Button
     @IBAction func tapToDatePicker(_ sender:Any){
         datePicker = UIDatePicker.init()
