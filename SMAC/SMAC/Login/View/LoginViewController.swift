@@ -108,7 +108,10 @@ class LoginViewController: UIViewController {
                                 
                             }
                         }else{
-                            
+                            let id = item.techID as? String
+                            if id != "" {
+                                techID = id!
+                            }
                         }
                     }
                     

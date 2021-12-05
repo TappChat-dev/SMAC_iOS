@@ -22,12 +22,7 @@ class ContractorSLA_VC: UIViewController {
         UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(rgb: 0x06284D)
 
         self.tableView.register(ContractorSLA.nib, forCellReuseIdentifier: ContractorSLA.identifier)
-        if userModel.count > 0 {
-            self.tableView.reloadData()
-        }else{
-            Loader.showLoader("Downloading Contract...", target: self)
-            getContract()
-        }
+      
         // Do any additional setup after loading the view.
     }
     
@@ -38,6 +33,12 @@ class ContractorSLA_VC: UIViewController {
         tableView.setNeedsLayout()
         tableView.layoutIfNeeded()
         tableView.reloadData()
+        if userModel.count > 0 {
+            self.tableView.reloadData()
+        }else{
+            Loader.showLoader("Downloading Contract...", target: self)
+            getContract()
+        }
     }
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent

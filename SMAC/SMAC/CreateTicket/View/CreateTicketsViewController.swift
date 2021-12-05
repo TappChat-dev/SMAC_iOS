@@ -268,7 +268,7 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
         Loader.showLoader("Creating ticket...", target: self)
 //        viewModelType.API_createTicket(json: CreateTicketJsonModel.init(description: descriptionTxtView.text, subject: "Ticket APi Demo", equip_ID: "001", equip_Type: self.equipmentTypeTxt.text!, equip_SubType: "0005", username: "vipin.gangwar"), data: {
         if globalContractId != "" {
-            viewModelType.API_createTicket(json: CreateTicketJsonModel.init(description: descriptionTxtView.text, subject: self.titleTxt.text!, equip_ID: nameEquipID, equip_Type: self.equipmentTypeTxt.text!, units: unitTxt.text!, servicetype: self.serviceTypeTxt.text!, contractsID: globalContractID, username: techID, docpath: ""), data: {
+            viewModelType.API_createTicket(json: CreateTicketJsonModel.init(description: descriptionTxtView.text, subject: self.titleTxt.text!, equip_ID: nameEquipID, ticketUnit: unitTxt.text!, servicetype: self.serviceTypeTxt.text!, docpath: "", contractsID: globalContractID, response_Time: "7", creator_ID: "", equpt_Username: "", contact_NO: "", eqpt_SerialNo: "", eqpt_Location: ""), data: {
                 response  in
                 Loader.hideLoader(self)
                     print("Create tickets Response APi")

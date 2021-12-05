@@ -53,6 +53,8 @@ struct UserContract: Codable {
     }
 }
 
+
+//MARK: Modify second time
 struct RedefineAllContract:Codable {
     let result: [RedefineResult]
     let status, msg: String

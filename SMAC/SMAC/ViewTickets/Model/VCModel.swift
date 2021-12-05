@@ -84,7 +84,7 @@ struct ResultTickets: Codable {
     let unitName, serviceType: String
     let equipmentName, ticketStatus, ticketStatusName: String?
     let isPaneltyActive: Int
-    let isNac, nacRequestedDt: JSONNull?
+    let isNac, nacRequestedDt: String?
     let responseTime: Int
     let eqptUsername: String?
     let contactNo: Int?

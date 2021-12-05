@@ -11,36 +11,52 @@ struct CreateTicketJsonModel {
     
     var description: String
     var subject: String
-    var unit:String
+//    var unit:String
     var equipmentID: String
-    var equipmentType: String
+    var ticketForUnit: String
     var serviceType: String
-    var ContractID: String
-    var userName: String
     var docPath: String
+    var ContractID: String
+    var responseTime: String
+    var creatorID:String
+    var eqpt_username:String
+    var contactNO:String
+    var eqptSerialNo:String
+    var eqptLocation:String
     
     init() {
         description = ""
         subject = ""
-        unit = ""
+//        unit = ""
         equipmentID = ""
-        equipmentType = ""
+        ticketForUnit = ""
         serviceType = ""
-        ContractID = ""
-        userName = ""
         docPath = ""
+        ContractID = ""
+        responseTime = ""
+        creatorID = ""
+        eqpt_username = ""
+        contactNO = ""
+        eqptSerialNo = ""
+        eqptLocation = ""
+        
+        
     }
     
-    init(description: String, subject: String,equip_ID: String,equip_Type: String, units: String,servicetype:String,contractsID:String,username: String, docpath:String) {
+    init(description: String, subject: String,equip_ID: String,ticketUnit: String,servicetype:String,docpath:String, contractsID:String,response_Time: String,creator_ID:String,equpt_Username:String,contact_NO:String,eqpt_SerialNo:String,eqpt_Location:String) {
         self.description = description
         self.subject = subject
         self.equipmentID = equip_ID
-        self.equipmentType = equip_Type
-        self.unit = units
+        self.ticketForUnit = ticketUnit
         self.serviceType = servicetype
-        self.ContractID = contractsID
-        self.userName = username
         self.docPath = docpath
+        self.ContractID = contractsID
+        self.responseTime = response_Time
+        self.creatorID = creator_ID
+        self.eqpt_username = equpt_Username
+        self.contactNO = contact_NO
+        self.eqptSerialNo = eqpt_SerialNo
+        self.eqptLocation = eqpt_Location
     }
     
     static func encode(object: CreateTicketJsonModel) -> Any {
@@ -49,12 +65,17 @@ struct CreateTicketJsonModel {
         user["P_DESCR"] = object.description
         user["P_SUBJECT"] = object.subject
         user["P_EQPT_ID"] = object.equipmentID
-        user["P_EQPT_TYPE"] = object.equipmentType
-        user["P_UNIT"] = object.unit
+        user["P_TICKET_FOR_UNIT"] = object.ticketForUnit
         user["P_SERVICE_TYPE"] = object.serviceType
         user["P_DOC_PATH"] = object.docPath
         user["P_CONTRACT_ID"] = object.ContractID
-        user["P_USERNAME"] = object.userName
+        user["P_RESPONSE_TIME"] = object.responseTime
+        user["P_CREATOR_ID"] = object.creatorID
+        user["P_EQPT_USERNAME"] = object.eqpt_username
+        user["P_CONTACT_NO"] = object.contactNO
+        user["P_EQPT_SERIAL_NO"] = object.eqptSerialNo
+        user["P_EQPT_LOCATION"] = object.eqptLocation
+
         return user
     }
 }

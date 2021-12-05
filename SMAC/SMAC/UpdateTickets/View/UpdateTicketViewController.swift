@@ -66,6 +66,17 @@ class UpdateTicketViewController: UIViewController,UINavigationControllerDelegat
         self.serviceRequesterTxt.text = userResultUpdateModel?.ticketID
         radioController.buttonsArray = [btnReject,btnAccept]
         radioController.defaultButton = btnAccept
+        let swipeGestureRecognizerDown = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe(_:)))
+        swipeGestureRecognizerDown.direction = .right
+
+        self.view.addGestureRecognizer(swipeGestureRecognizerDown)
+
+    }
+    
+    
+    @objc private func didSwipe(_ sender: UISwipeGestureRecognizer) {
+print("Swipable")
+        self.navigationController?.popViewController(animated: true)
     }
     
     fileprivate func addArrowBtnToTextField() {

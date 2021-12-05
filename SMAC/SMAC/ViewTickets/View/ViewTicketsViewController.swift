@@ -42,17 +42,21 @@ class ViewTicketsViewController: UIViewController,ViewTicketCellDelegate {
         self.segmentOption.setTitleTextAttributes([.foregroundColor: UIColor.init(rgb: 0x06284D)], for: .selected)
         tableView.register(ViewTicketCell.nib, forCellReuseIdentifier: ViewTicketCell.identifier)
 //        initViewModel()
-        getTicketUsingCOmbo()
         // Do any additional setup after loading the view.
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super .viewWillAppear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super .viewWillAppear(true)
 //        tableView.reloadData()
 //        tableView.setNeedsLayout()
 //        tableView.layoutIfNeeded()
 //        tableView.reloadData()
-//    }
+        if (self.userResultModel.count) > 0 {
+            self.userResultModel = []
+        }
+        getTicketUsingCOmbo()
+
+    }
     
     @IBAction func tapTomenu(_ sender:Any){
         
