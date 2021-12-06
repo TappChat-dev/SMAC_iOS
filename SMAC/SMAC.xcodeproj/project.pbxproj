@@ -33,6 +33,7 @@
 		042A63AE27043D6A00182358 /* TicketStatusVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042A63AD27043D6A00182358 /* TicketStatusVC.swift */; };
 		042B7FF2273B9B1100E2DD6C /* ContractResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B7FF1273B9B1100E2DD6C /* ContractResponseModel.swift */; };
 		042B7FF4273B9BF300E2DD6C /* ContractModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B7FF3273B9BF300E2DD6C /* ContractModel.swift */; };
+		042DB0C9275E1FA200452905 /* SEUpdateTicketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DB0C8275E1FA100452905 /* SEUpdateTicketVC.swift */; };
 		043FCC5426CB935400120117 /* VCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FCC5326CB935400120117 /* VCViewModel.swift */; };
 		043FCC5926CB93E300120117 /* VCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FCC5826CB93E300120117 /* VCModel.swift */; };
 		043FCC6226CCC7B200120117 /* UpdateTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FCC6126CCC7B200120117 /* UpdateTicketViewController.swift */; };
@@ -179,6 +180,7 @@
 		042A63AD27043D6A00182358 /* TicketStatusVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketStatusVC.swift; sourceTree = "<group>"; };
 		042B7FF1273B9B1100E2DD6C /* ContractResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractResponseModel.swift; sourceTree = "<group>"; };
 		042B7FF3273B9BF300E2DD6C /* ContractModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractModel.swift; sourceTree = "<group>"; };
+		042DB0C8275E1FA100452905 /* SEUpdateTicketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SEUpdateTicketVC.swift; sourceTree = "<group>"; };
 		043FCC5326CB935400120117 /* VCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCViewModel.swift; sourceTree = "<group>"; };
 		043FCC5826CB93E300120117 /* VCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCModel.swift; sourceTree = "<group>"; };
 		043FCC6126CCC7B200120117 /* UpdateTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTicketViewController.swift; sourceTree = "<group>"; };
@@ -495,6 +497,7 @@
 			children = (
 				043FCC6126CCC7B200120117 /* UpdateTicketViewController.swift */,
 				0421D2E3271590B800AD2998 /* TicketUpdateViewController.swift */,
+				042DB0C8275E1FA100452905 /* SEUpdateTicketVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1563,6 +1566,7 @@
 				0440D346273269DD005DB963 /* ViewEquipJsonModel.swift in Sources */,
 				045D42FF26B93AC40082BCD1 /* RoundedCorner.swift in Sources */,
 				042B7FF4273B9BF300E2DD6C /* ContractModel.swift in Sources */,
+				042DB0C9275E1FA200452905 /* SEUpdateTicketVC.swift in Sources */,
 				04689F7F27562B53002D6263 /* UIViewController+Container.swift in Sources */,
 				043FCC5926CB93E300120117 /* VCModel.swift in Sources */,
 				04BCE68226C241B000801EA5 /* SideMenuModel.swift in Sources */,

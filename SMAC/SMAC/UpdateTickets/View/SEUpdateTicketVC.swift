@@ -1,8 +1,8 @@
 //
-//  UpdateTicketViewController.swift
+//  SEUpdateTicketVC.swift
 //  SMAC
 //
-//  Created by MAC on 18/08/21.
+//  Created by MAC on 06/12/21.
 //
 
 import UIKit
@@ -11,7 +11,7 @@ import MobileCoreServices
 import UniformTypeIdentifiers
 import Foundation
 
-class UpdateTicketViewController: UIViewController,UINavigationControllerDelegate {
+class SEUpdateTicketVC: UIViewController,UINavigationControllerDelegate {
     @IBOutlet weak var ticketIDTxt: UITextField!
     @IBOutlet weak var contractNameTxt: UITextField!
     @IBOutlet weak var equipmentNameTxt: UITextField!
@@ -26,8 +26,7 @@ class UpdateTicketViewController: UIViewController,UINavigationControllerDelegat
     @IBOutlet weak var shortNotesTxtView: UITextView!
         
         @IBOutlet weak var btnUploadDoc:UIButton!
-        @IBOutlet weak var btnAccept:UIButton!
-        @IBOutlet weak var btnReject:UIButton!
+        @IBOutlet weak var btnNACRequest:UIButton!
         @IBOutlet weak var btnReset:UIButton!
         @IBOutlet weak var btnUpdate:UIButton!
         @IBOutlet weak var formView:UIView!
@@ -289,7 +288,7 @@ print("Swipable")
     }
 }
 
-extension UpdateTicketViewController:UIImagePickerControllerDelegate{
+extension SEUpdateTicketVC:UIImagePickerControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if (info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage) != nil {
 //            imageRetrieved.contentMode = .ScaleAspectFill
@@ -335,7 +334,7 @@ print("Camera Url",photoURL)
     }
 }
 
-extension UpdateTicketViewController: UIDocumentPickerDelegate{
+extension SEUpdateTicketVC: UIDocumentPickerDelegate{
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
        guard let url = urls.first else {

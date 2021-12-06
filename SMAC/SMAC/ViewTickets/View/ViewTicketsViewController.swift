@@ -126,10 +126,20 @@ class ViewTicketsViewController: UIViewController,ViewTicketCellDelegate {
     func didPressButton(_ tag: Int) {
         print(tag)
         let data = userResultModel[tag]
+        roleID =  UserDefaults.standard.string(forKey: "isLoginRoleID")!
+
+        if roleID == "SE" {
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SEUpdateTicketVC") as! SEUpdateTicketVC
+            nextViewController.userResultUpdateModel = data
+                navigationController?.pushViewController(nextViewController, animated: true)
+        }else{
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "UpdateTicketViewController") as! UpdateTicketViewController
         nextViewController.userResultUpdateModel = data
             navigationController?.pushViewController(nextViewController, animated: true)
+            
+        }
     }
 }
 
