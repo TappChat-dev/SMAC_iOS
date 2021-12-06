@@ -39,8 +39,13 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
 
     var totalArrayRole = [String]()
     
-    let players = ["Ozil", "Ramsey", "Laca", "Auba", "Xhaka", "Torreira"]
-    let goals = [6, 8, 26, 30, 8, 10]
+    var players : [String]? = []
+    var goals : [Double]? = []
+    
+    lazy var viewModelType = {
+        DashboardViewModel()
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
@@ -63,7 +68,7 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
         }else if (roleID == "EU"){ // icg Eqipment user //"R08"
             totalArrayRole = arrEquipmentUser
         }
-        customizeChart(dataPoints: players, values: goals.map{ Double($0) })
+        customizeChart(dataPoints: players ?? [], values: goals.map{ $0 } as! [Double])
 
         // Do any additional setup after loading the view.
     }
@@ -129,6 +134,8 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
         UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(rgb: 0x06284D) 
 
         ConfigureCollectionUI()
+        API_Dashboard()
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -182,6 +189,27 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
         colors.append(color)
       }
       return colors
+    }
+    
+    //MARK: API Dashboard Count
+    func API_Dashboard(){
+        guard let techID =  UserDefaults.standard.string(forKey: "TechID") else { return print("unit id is not find.") }
+        
+        viewModelType.getDashboard_Count(json: DashboardJsonDictionary.init(id: techID), data: {result in
+            print(result)
+            let status = result["STATUS"] as? String
+            let msg = result["msg"] as? String
+            if status == "Success" {
+                let TICKETS_ALL = result["P_TICKETS_ALL"] as? NSNumber
+                let InProgress = result["P_TICKETS_INPROGRESS"] as? NSNumber
+
+                let Closed = result["P_TICKETS_CLOSED"] as? NSNumber
+                self.players = ["AllTickets", "InProgress", "Close"]
+                self.goals = [Double(truncating: TICKETS_ALL!),Double(truncating: InProgress!),Double(truncating: Closed!)]
+                self.customizeChart(dataPoints: self.players!, values: self.goals.map{ $0 } as! [Double] )
+
+            }
+        })
     }
 }
 

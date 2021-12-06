@@ -911,8 +911,8 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gqy-ef-XEe">
                                                         <rect key="frame" x="20" y="1046" width="335" height="109"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Equipment Serial No" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qh5-Tp-er3">
-                                                                <rect key="frame" x="20" y="20" width="167.5" height="22"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Equipment Unique Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qh5-Tp-er3">
+                                                                <rect key="frame" x="20" y="20" width="227" height="22"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="22" id="aMQ-KC-6Vm"/>
                                                                 </constraints>
@@ -968,7 +968,7 @@
                                                             </label>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="t8X-6C-d9z">
                                                                 <rect key="frame" x="20" y="55" width="295" height="105"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                 <color key="textColor" systemColor="labelColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1208,13 +1208,17 @@
                         <outlet property="btnReset" destination="nBE-1f-aBc" id="7fn-6p-NAE"/>
                         <outlet property="btnSave" destination="5Q0-BD-fI2" id="ow3-Zg-YAx"/>
                         <outlet property="btnUploadDoc" destination="rTi-ix-Fug" id="vRh-an-uTk"/>
-                        <outlet property="contractNameTxt" destination="wvy-WY-cN9" id="CdC-9Q-1Z1"/>
+                        <outlet property="contactNoTxt" destination="bys-r9-5n8" id="8Uv-uu-LL4"/>
+                        <outlet property="contractNameTxt" destination="wvy-WY-cN9" id="6F8-Ii-6TZ"/>
                         <outlet property="descriptionTxtView" destination="t8X-6C-d9z" id="fvP-3z-kBK"/>
                         <outlet property="equipmentNameTxt" destination="vdA-0b-7mk" id="cFA-pQ-uCg"/>
-                        <outlet property="equipmentTypeTxt" destination="gqY-ij-9to" id="2qQ-Tj-egU"/>
+                        <outlet property="equpt_UsernameTXT" destination="Ufq-yr-eSA" id="ONs-D8-w1v"/>
+                        <outlet property="equpt_uniqueLocationTXT" destination="OV5-4g-NPI" id="mtf-od-ipR"/>
                         <outlet property="formView" destination="YG0-8S-oG2" id="T2Z-b5-IHw"/>
+                        <outlet property="responseTimeTxt" destination="gqY-ij-9to" id="BKe-vu-B5S"/>
+                        <outlet property="serialNoTxt" destination="hzN-uF-kDw" id="zHH-hk-Pvw"/>
                         <outlet property="serviceTypeTxt" destination="T1h-7I-gjj" id="BqP-lq-Dqy"/>
-                        <outlet property="titleTxt" destination="YDi-WG-3Ue" id="oCs-0T-31P"/>
+                        <outlet property="titleTicketIssueTxt" destination="YDi-WG-3Ue" id="A52-Wb-8w5"/>
                         <outlet property="unitTxt" destination="f4v-AX-Zy7" id="9G4-wv-LR6"/>
                         <outlet property="uploadSLATxt" destination="mKr-Qb-qsr" id="Ulw-C7-Fr2"/>
                     </connections>
@@ -3576,7 +3580,7 @@
                                                                 <color key="textColor" red="0.023529411760000001" green="0.15686274510000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="To Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oFs-ND-o0J" customClass="DesignableUITextField" customModule="SMAC" customModuleProvider="target">
+                                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Service Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oFs-ND-o0J" customClass="DesignableUITextField" customModule="SMAC" customModuleProvider="target">
                                                                 <rect key="frame" x="20" y="50" width="295" height="45"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -3663,9 +3667,9 @@
                                                                 <color key="textColor" red="0.023529411760000001" green="0.15686274510000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fsq-3c-JOv">
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fsq-3c-JOv">
                                                                 <rect key="frame" x="20" y="55" width="295" height="105"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                                 <color key="textColor" systemColor="labelColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -4000,18 +4004,18 @@
                         <outlet property="btnReject" destination="bdX-Rl-SVs" id="fGS-sh-KFj"/>
                         <outlet property="btnUpdate" destination="0tH-Na-tMW" id="GQo-Bo-oSB"/>
                         <outlet property="btnUploadDoc" destination="6N1-Vh-Dlc" id="nFx-mK-KE7"/>
-                        <outlet property="contractNameTxt" destination="bWc-F6-SV8" id="gnD-YL-1N6"/>
-                        <outlet property="dateTxt" destination="oFs-ND-o0J" id="DiE-fg-2gA"/>
+                        <outlet property="contractNameTxt" destination="xzX-yY-9iL" id="A8x-nu-fvU"/>
                         <outlet property="descriptionTxtView" destination="fsq-3c-JOv" id="cM2-rV-0mI"/>
-                        <outlet property="equipmentNameTxt" destination="YCd-uG-8Ya" id="PwC-Tc-eqO"/>
-                        <outlet property="equipmentTypeTxt" destination="aei-i6-kVe" id="xb0-2y-cI7"/>
+                        <outlet property="equipmentNameTxt" destination="bWc-F6-SV8" id="mCS-d1-Cfm"/>
+                        <outlet property="equipmentTypeTxt" destination="YCd-uG-8Ya" id="sMC-1D-Xlg"/>
                         <outlet property="formView" destination="WnI-BM-sgf" id="0Im-Fd-fm5"/>
-                        <outlet property="serviceRequesterTxt" destination="F6c-zp-WZv" id="ydj-QS-8Ub"/>
-                        <outlet property="serviceTypeTxt" destination="rwV-4l-NZA" id="4g7-Nn-bTn"/>
+                        <outlet property="serviceTypeTxt" destination="oFs-ND-o0J" id="bCO-TJ-Jf0"/>
                         <outlet property="shortNotesTxtView" destination="0dR-xU-G3x" id="CSZ-Pn-O5U"/>
-                        <outlet property="statusTxt" destination="k8N-ba-sbP" id="v8Z-Xn-pDT"/>
-                        <outlet property="titleTxt" destination="xzX-yY-9iL" id="ixP-S3-Srq"/>
-                        <outlet property="unitTxt" destination="tAD-cy-IVr" id="1Gj-ja-vPU"/>
+                        <outlet property="statusPredefineTxt" destination="rwV-4l-NZA" id="YDc-ez-etu"/>
+                        <outlet property="statusTxt" destination="k8N-ba-sbP" id="B4y-qQ-Afo"/>
+                        <outlet property="ticketIDTxt" destination="F6c-zp-WZv" id="c23-7j-OdH"/>
+                        <outlet property="ticketIssueForTxt" destination="aei-i6-kVe" id="2xc-mB-C5M"/>
+                        <outlet property="unitTxt" destination="tAD-cy-IVr" id="QGV-h2-Qxk"/>
                         <outlet property="uploadSLATxt" destination="iek-gI-ROu" id="g6R-Cv-0da"/>
                     </connections>
                 </viewController>
@@ -9147,7 +9151,7 @@
             <size key="intrinsicContentSize" width="20" height="21"/>
         </designable>
         <designable name="F6c-zp-WZv">
-            <size key="intrinsicContentSize" width="79" height="21"/>
+            <size key="intrinsicContentSize" width="64" height="21"/>
         </designable>
         <designable name="FZV-6f-MDZ">
             <size key="intrinsicContentSize" width="20" height="21"/>
@@ -9225,19 +9229,19 @@
             <size key="intrinsicContentSize" width="79" height="21"/>
         </designable>
         <designable name="YCd-uG-8Ya">
-            <size key="intrinsicContentSize" width="20" height="21"/>
+            <size key="intrinsicContentSize" width="5" height="21"/>
         </designable>
         <designable name="YDi-WG-3Ue">
             <size key="intrinsicContentSize" width="20" height="21"/>
         </designable>
         <designable name="aei-i6-kVe">
-            <size key="intrinsicContentSize" width="20" height="21"/>
+            <size key="intrinsicContentSize" width="5" height="21"/>
         </designable>
         <designable name="bCQ-dd-Gg4">
             <size key="intrinsicContentSize" width="20" height="21"/>
         </designable>
         <designable name="bWc-F6-SV8">
-            <size key="intrinsicContentSize" width="20" height="21"/>
+            <size key="intrinsicContentSize" width="5" height="21"/>
         </designable>
         <designable name="bys-r9-5n8">
             <size key="intrinsicContentSize" width="20" height="21"/>
@@ -9279,10 +9283,10 @@
             <size key="intrinsicContentSize" width="20" height="21"/>
         </designable>
         <designable name="iek-gI-ROu">
-            <size key="intrinsicContentSize" width="10" height="21"/>
+            <size key="intrinsicContentSize" width="5" height="21"/>
         </designable>
         <designable name="k8N-ba-sbP">
-            <size key="intrinsicContentSize" width="20" height="21"/>
+            <size key="intrinsicContentSize" width="5" height="21"/>
         </designable>
         <designable name="k9I-D4-lrx">
             <size key="intrinsicContentSize" width="20" height="21"/>
@@ -9294,7 +9298,7 @@
             <size key="intrinsicContentSize" width="9" height="18.5"/>
         </designable>
         <designable name="oFs-ND-o0J">
-            <size key="intrinsicContentSize" width="71" height="21"/>
+            <size key="intrinsicContentSize" width="94" height="21"/>
         </designable>
         <designable name="oJP-Or-PCs">
             <size key="intrinsicContentSize" width="10" height="21"/>
@@ -9318,7 +9322,7 @@
             <size key="intrinsicContentSize" width="19" height="18.5"/>
         </designable>
         <designable name="rwV-4l-NZA">
-            <size key="intrinsicContentSize" width="20" height="21"/>
+            <size key="intrinsicContentSize" width="5" height="21"/>
         </designable>
         <designable name="s0u-QJ-ZuQ">
             <size key="intrinsicContentSize" width="20" height="21"/>
@@ -9327,7 +9331,7 @@
             <size key="intrinsicContentSize" width="19" height="18.5"/>
         </designable>
         <designable name="tAD-cy-IVr">
-            <size key="intrinsicContentSize" width="20" height="21"/>
+            <size key="intrinsicContentSize" width="5" height="21"/>
         </designable>
         <designable name="vdA-0b-7mk">
             <size key="intrinsicContentSize" width="19" height="18.5"/>
@@ -9351,7 +9355,7 @@
             <size key="intrinsicContentSize" width="10" height="21"/>
         </designable>
         <designable name="xzX-yY-9iL">
-            <size key="intrinsicContentSize" width="20" height="21"/>
+            <size key="intrinsicContentSize" width="5" height="21"/>
         </designable>
     </designables>
     <resources>

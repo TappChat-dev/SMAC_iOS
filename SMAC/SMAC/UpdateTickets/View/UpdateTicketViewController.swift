@@ -12,18 +12,17 @@ import UniformTypeIdentifiers
 import Foundation
 
 class UpdateTicketViewController: UIViewController,UINavigationControllerDelegate {
-    @IBOutlet weak var serviceRequesterTxt: UITextField!
-    @IBOutlet weak var titleTxt: UITextField!
-        @IBOutlet weak var contractNameTxt: UITextField!
+    @IBOutlet weak var ticketIDTxt: UITextField!
+    @IBOutlet weak var contractNameTxt: UITextField!
+    @IBOutlet weak var equipmentNameTxt: UITextField!
+    @IBOutlet weak var unitTxt: UITextField!
+    @IBOutlet weak var ticketIssueForTxt: UITextField!
+    @IBOutlet weak var equipmentTypeTxt: UITextField!
         @IBOutlet weak var serviceTypeTxt: UITextField!
-        @IBOutlet weak var unitTxt: UITextField!
-        @IBOutlet weak var equipmentNameTxt: UITextField!
-        @IBOutlet weak var equipmentTypeTxt: UITextField!
-        @IBOutlet weak var dateTxt: UITextField!
+    @IBOutlet weak var statusPredefineTxt: UITextField!
+    @IBOutlet weak var descriptionTxtView: UITextView!
         @IBOutlet weak var uploadSLATxt: UITextField!
-        @IBOutlet weak var descriptionTxtView: UITextView!
     @IBOutlet weak var statusTxt: UITextField!
-    @IBOutlet weak var statusDropDownTxt: UITextField!
     @IBOutlet weak var shortNotesTxtView: UITextView!
         
         @IBOutlet weak var btnUploadDoc:UIButton!
@@ -52,11 +51,11 @@ class UpdateTicketViewController: UIViewController,UINavigationControllerDelegat
         addArrowBtnToTextField()
         // Do any additional setup after loading the view.
         let salutations = ["Requester Name", "Mr.", "Ms.", "Mrs."]
-        serviceRequesterTxt?.loadDropdownData(data: salutations)
+//        serviceRequesterTxt?.loadDropdownData(data: salutations)
         print(titleTxt)
         API_GetStatusWithCombo()
 //        print(userResultUpdateModel)
-        self.titleTxt.text = userResultUpdateModel?.ticketStatusName
+        self.titleTxt.text = userResultUpdateModel?.contractName
 //        self.equipmentTypeTxt.text = userResultUpdateModel?.eqptType
         self.equipmentNameTxt.text = userResultUpdateModel?.equipmentName
         self.unitTxt.text = userResultUpdateModel?.unitName

@@ -12,15 +12,18 @@ import UniformTypeIdentifiers
 import SideMenuSwift
 
 class CreateTicketsViewController: UIViewController, UINavigationControllerDelegate {
-    @IBOutlet weak var titleTxt: UITextField!
     @IBOutlet weak var contractNameTxt: UITextField!
-    @IBOutlet weak var serviceTypeTxt: UITextField!
     @IBOutlet weak var unitTxt: UITextField!
     @IBOutlet weak var equipmentNameTxt: UITextField!
-    @IBOutlet weak var equipmentTypeTxt: UITextField!
-    @IBOutlet weak var dateTxt: UITextField!
-    @IBOutlet weak var uploadSLATxt: UITextField!
+    @IBOutlet weak var responseTimeTxt: UITextField!
+    @IBOutlet weak var serviceTypeTxt: UITextField!
+    @IBOutlet weak var titleTicketIssueTxt: UITextField!
+    @IBOutlet weak var equpt_UsernameTXT: UITextField!
+    @IBOutlet weak var contactNoTxt: UITextField!
+    @IBOutlet weak var serialNoTxt: UITextField!
+    @IBOutlet weak var equpt_uniqueLocationTXT: UITextField!
     @IBOutlet weak var descriptionTxtView: UITextView!
+    @IBOutlet weak var uploadSLATxt: UITextField!
     
     @IBOutlet weak var btnUploadDoc:UIButton!
     @IBOutlet weak var btnDatePicker:UIButton!
@@ -53,6 +56,8 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     var arrEquip_ContractorID = [String]()
     var arrEquip_ContractorName = [String]()
     var globalContractId = ""
+    var arrUnitID = [String]()
+    var arrUnit = [String]()
     //MARK:- ViewDid Load
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,16 +71,15 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
         UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(rgb: 0x06284D)
 
 //        let salutations = ["Select", "Mr.", "Ms.", "Mrs."]
-        let service = ["Select", "Remote", "Telephone", "Onsite"]
+        let service = ["Select", "Remote", "Onsite"]
 //        titleTxt?.loadDropdownData(data: salutations)
         serviceTypeTxt.loadDropdownData(data: service)
-        equipmentTypeTxt.loadDropdownData(data: arrEquipType)
+//        equipmentTypeTxt.loadDropdownData(data: arrEquipType)
         equipmentNameTxt.loadDropdownData(data: arrEquip_SubType)
         self.contractNameTxt.loadDropdownData(data: self.arrEquip_ContractorName)
 
-        print(titleTxt)
         let unit = UserDefaults.standard.string(forKey: "unit")
-        self.unitTxt.text = unit
+//        self.unitTxt.text = unit
 //        if unit!.count > 0 {
 //            self.unitTxt.text = unit
 //        }else{
@@ -114,9 +118,9 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
         equipmentNameTxt.rightView = dropDownBtn4
         let dropDownBtn5 = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
         dropDownBtn5.setBackgroundImage(UIImage(named: "fill_downArrow_small.png"), for: UIControl.State.normal)
-        equipmentTypeTxt.rightViewMode = UITextField.ViewMode.always
-        equipmentTypeTxt.rightView = dropDownBtn5
-        
+        unitTxt.rightViewMode = UITextField.ViewMode.always
+        unitTxt.rightView = dropDownBtn5
+//
     }
     
     // MARK: - Date Picker
@@ -153,9 +157,9 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     
     @objc func onDoneButtonClick() {
         if selectedDate == "" {
-            self.dateTxt.text = Date.getCurrentDate()
+//            self.dateTxt.text = Date.getCurrentDate()
         }else{
-            self.dateTxt.text = selectedDate
+//            self.dateTxt.text = selectedDate
         }
         toolbar.removeFromSuperview()
         datePicker.removeFromSuperview()
@@ -258,7 +262,7 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
 
     }
     
-    //MARK:- Create
+    //MARK: - Submit Button
     @IBAction func tapToSubmit(_ sender:Any){
         Loader.showLoader("Creating Ticket...", target: self)
         let index =  arrEquip_SubType.firstIndex(where: { $0 == self.equipmentNameTxt.text }) ?? 0
@@ -266,9 +270,8 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
         
         guard let techID =  UserDefaults.standard.string(forKey: "TechID") else { return print("unit id is not find.") }
         Loader.showLoader("Creating ticket...", target: self)
-//        viewModelType.API_createTicket(json: CreateTicketJsonModel.init(description: descriptionTxtView.text, subject: "Ticket APi Demo", equip_ID: "001", equip_Type: self.equipmentTypeTxt.text!, equip_SubType: "0005", username: "vipin.gangwar"), data: {
         if globalContractId != "" {
-            viewModelType.API_createTicket(json: CreateTicketJsonModel.init(description: descriptionTxtView.text, subject: self.titleTxt.text!, equip_ID: nameEquipID, ticketUnit: unitTxt.text!, servicetype: self.serviceTypeTxt.text!, docpath: "", contractsID: globalContractID, response_Time: "7", creator_ID: "", equpt_Username: "", contact_NO: "", eqpt_SerialNo: "", eqpt_Location: ""), data: {
+            viewModelType.API_createTicket(json: CreateTicketJsonModel.init(description: descriptionTxtView.text, subject: self.titleTicketIssueTxt.text!, equip_ID: nameEquipID, ticketUnit: unitTxt.text!, servicetype: self.serviceTypeTxt.text!, docpath: self.uploadSLATxt.text!, contractsID: globalContractID, response_Time: self.responseTimeTxt.text!, creator_ID: techID, equpt_Username: self.equpt_UsernameTXT.text!, contact_NO: self.contactNoTxt.text!, eqpt_SerialNo: self.serialNoTxt.text!, eqpt_Location: self.equpt_uniqueLocationTXT.text!), data: {
                 response  in
                 Loader.hideLoader(self)
                     print("Create tickets Response APi")
@@ -281,8 +284,7 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     @IBAction func tapToReset(_ sender:Any){
         self.contractNameTxt.text = nil
         self.equipmentNameTxt.text = nil
-        self.titleTxt.text = nil
-        self.equipmentTypeTxt.text = nil
+        self.titleTicketIssueTxt.text = nil
         self.descriptionTxtView.text = nil
     }
     
@@ -360,6 +362,7 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
         })
     }
     
+    //MARK: API Get Equipment
     func Api_ComboData(com_Id:String){
         let jsons = ViewEquipmentRequestModel.init(id: com_Id, type: "EQUIPMENT")
         globalContractID = com_Id
@@ -385,8 +388,37 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
                     self.arrEquip_SubType.append(id.name ?? "")
                 }
               let orderedNoDuplicates =  Array(NSOrderedSet(array: self.arrEquipType).map({ $0 as! String }))
-                self.equipmentTypeTxt.loadDropdownData(data: orderedNoDuplicates)
+//                self.equipmentTypeTxt.loadDropdownData(data: orderedNoDuplicates)
                 self.equipmentNameTxt.loadDropdownData(data: self.arrEquip_SubType)
+            }//            self.userModelEquip = responseSorces?.result ?? []
+            }
+        })
+    }
+    
+    //MARK: API Get Unit
+    func Api_ComboData_UNIT(com_Id:String){
+        let jsons = ViewEquipmentRequestModel.init(id: com_Id, type: "CONTRACT_FOR_UNIT")
+        globalContractID = com_Id
+        viewModelEquipment.API_getEquipmentList(json: jsons, dataValue: {
+            responseSorces in
+            print("Count",responseSorces?.result)
+            Loader.hideLoader(self)
+            if responseSorces?.result.count ?? 0 > 0 {
+                var firstitem: Bool = false
+
+            for id in responseSorces!.result {
+                if firstitem == false {
+                    firstitem = true
+                    self.arrUnitID.append("Select")
+                    self.arrUnit.append("Select")
+                    self.arrUnit.append(id.eqptType!)
+                    self.arrUnitID.append(id.eqptID)
+                }else{
+                    self.arrUnit.append(id.eqptType ?? "")
+                    self.arrUnitID.append(id.eqptID)
+                }
+              let orderedNoDuplicates =  Array(NSOrderedSet(array: self.arrUnit).map({ $0 as! String }))
+                self.unitTxt.loadDropdownData(data: orderedNoDuplicates)
             }//            self.userModelEquip = responseSorces?.result ?? []
             }
         })
@@ -412,7 +444,7 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
                     arrEquipType.append(id.eqptType)
                     }
                 }
-                equipmentTypeTxt.loadDropdownData(data: arrEquipType)
+//                equipmentTypeTxt.loadDropdownData(data: arrEquipType)
 //                Loader.hideLoader(self)
                 
             }else{
@@ -551,7 +583,11 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
         if (nameID != "" ||  nameID != "Select") {
             Loader.showLoader("Downloading Details...", target: self)
             globalContractId = nameID
-            Api_ComboData(com_Id: nameID)
+            Api_ComboData_UNIT(com_Id: nameID)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.Api_ComboData(com_Id: nameID)
+            }
+            
         }
     }
 }
