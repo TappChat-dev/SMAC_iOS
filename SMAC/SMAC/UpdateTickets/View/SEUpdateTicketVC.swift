@@ -63,7 +63,7 @@ class SEUpdateTicketVC: UIViewController,UINavigationControllerDelegate {
         self.descriptionTxtView.text = userResultUpdateModel?.descr
         
         
-        radioController.buttonsArray = [btnReject,btnAccept]
+        radioController.buttonsArray = [btnNACRequest]
 //        radioController.defaultButton = btnAccept
         let swipeGestureRecognizerDown = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe(_:)))
         swipeGestureRecognizerDown.direction = .right
@@ -123,6 +123,10 @@ print("Swipable")
      @IBAction func btnAcceptAction(_ sender: UIButton) {
          radioController.buttonArrayUpdated(buttonSelected: sender)
      }
+    
+    @IBAction func tapToUpdateTicketSE(_ sender:Any){
+        
+    }
     
     // MARK: - Date Picker Button
     @IBAction func tapToDatePicker(_ sender:Any){

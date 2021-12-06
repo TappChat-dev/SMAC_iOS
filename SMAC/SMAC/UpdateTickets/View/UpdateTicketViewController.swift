@@ -125,6 +125,10 @@ print("Swipable")
          radioController.buttonArrayUpdated(buttonSelected: sender)
      }
     
+    @IBAction func tapToUpdateTicket(_ sender:Any){
+        
+    }
+    
     // MARK: - Date Picker Button
     @IBAction func tapToDatePicker(_ sender:Any){
         datePicker = UIDatePicker.init()

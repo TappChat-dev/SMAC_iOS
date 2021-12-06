@@ -3903,6 +3903,9 @@
                                                                         <color key="value" red="0.17254901959999999" green="0.60784313729999995" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="tapToUpdateTicket:" destination="RiQ-ef-EjM" eventType="touchUpInside" id="Xrc-FK-5JX"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4640,6 +4643,9 @@
                                                                         <color key="value" red="0.17254901959999999" green="0.60784313729999995" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="tapToUpdateTicketSE:" destination="0HO-nr-3E0" eventType="touchUpInside" id="Ug6-8J-2fo"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -9839,7 +9845,7 @@
     </scenes>
     <designables>
         <designable name="0U3-X8-Upf">
-            <size key="intrinsicContentSize" width="5" height="21"/>
+            <size key="intrinsicContentSize" width="20" height="21"/>
         </designable>
         <designable name="2do-ef-MDa">
             <size key="intrinsicContentSize" width="20" height="21"/>
@@ -9851,7 +9857,7 @@
             <size key="intrinsicContentSize" width="133" height="19.5"/>
         </designable>
         <designable name="4Od-dd-GJC">
-            <size key="intrinsicContentSize" width="5" height="21"/>
+            <size key="intrinsicContentSize" width="20" height="21"/>
         </designable>
         <designable name="5PJ-le-RJD">
             <size key="intrinsicContentSize" width="20" height="21"/>
@@ -9878,7 +9884,7 @@
             <size key="intrinsicContentSize" width="65" height="18.5"/>
         </designable>
         <designable name="Cr4-ub-CYI">
-            <size key="intrinsicContentSize" width="5" height="21"/>
+            <size key="intrinsicContentSize" width="20" height="21"/>
         </designable>
         <designable name="DGe-sC-3W5">
             <size key="intrinsicContentSize" width="9" height="18.5"/>
@@ -9929,7 +9935,7 @@
             <size key="intrinsicContentSize" width="20" height="21"/>
         </designable>
         <designable name="LgX-gv-LU7">
-            <size key="intrinsicContentSize" width="64" height="21"/>
+            <size key="intrinsicContentSize" width="79" height="21"/>
         </designable>
         <designable name="MdU-ZE-prZ">
             <size key="intrinsicContentSize" width="113.5" height="19.5"/>
@@ -9938,7 +9944,7 @@
             <size key="intrinsicContentSize" width="20" height="21"/>
         </designable>
         <designable name="O4b-vA-fqz">
-            <size key="intrinsicContentSize" width="5" height="21"/>
+            <size key="intrinsicContentSize" width="20" height="21"/>
         </designable>
         <designable name="OTD-zt-ZVm">
             <size key="intrinsicContentSize" width="20" height="21"/>
@@ -9962,7 +9968,7 @@
             <size key="intrinsicContentSize" width="155" height="19.5"/>
         </designable>
         <designable name="S3j-Gv-AVx">
-            <size key="intrinsicContentSize" width="5" height="21"/>
+            <size key="intrinsicContentSize" width="20" height="21"/>
         </designable>
         <designable name="T1h-7I-gjj">
             <size key="intrinsicContentSize" width="19" height="18.5"/>
@@ -9971,7 +9977,7 @@
             <size key="intrinsicContentSize" width="20" height="21"/>
         </designable>
         <designable name="Uci-De-ILQ">
-            <size key="intrinsicContentSize" width="5" height="21"/>
+            <size key="intrinsicContentSize" width="20" height="21"/>
         </designable>
         <designable name="Ufq-yr-eSA">
             <size key="intrinsicContentSize" width="20" height="21"/>
@@ -10010,7 +10016,7 @@
             <size key="intrinsicContentSize" width="20" height="21"/>
         </designable>
         <designable name="eO0-G0-wkn">
-            <size key="intrinsicContentSize" width="94" height="21"/>
+            <size key="intrinsicContentSize" width="109" height="21"/>
         </designable>
         <designable name="f4v-AX-Zy7">
             <size key="intrinsicContentSize" width="19" height="18.5"/>
@@ -10046,7 +10052,7 @@
             <size key="intrinsicContentSize" width="10" height="21"/>
         </designable>
         <designable name="iex-qp-1fc">
-            <size key="intrinsicContentSize" width="5" height="21"/>
+            <size key="intrinsicContentSize" width="10" height="21"/>
         </designable>
         <designable name="k8N-ba-sbP">
             <size key="intrinsicContentSize" width="20" height="21"/>
@@ -10094,7 +10100,7 @@
             <size key="intrinsicContentSize" width="19" height="18.5"/>
         </designable>
         <designable name="swA-bK-6yq">
-            <size key="intrinsicContentSize" width="5" height="21"/>
+            <size key="intrinsicContentSize" width="20" height="21"/>
         </designable>
         <designable name="tAD-cy-IVr">
             <size key="intrinsicContentSize" width="20" height="21"/>
