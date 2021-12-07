@@ -5572,7 +5572,7 @@
                                     <outlet property="delegate" destination="STI-iU-AQ3" id="01t-Cm-W9E"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="fwj-pA-id2">
+                            <searchBar contentMode="redraw" placeholder="Search to address,unit name, contract name" translatesAutoresizingMaskIntoConstraints="NO" id="fwj-pA-id2">
                                 <rect key="frame" x="0.0" y="132" width="375" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -7932,29 +7932,40 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BYf-Ng-9E1">
-                                <rect key="frame" x="0.0" y="65" width="375" height="602"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ooQ-QJ-O0k" id="5yb-Bs-4Qe"/>
                                     <outlet property="delegate" destination="ooQ-QJ-O0k" id="84F-ga-OFS"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" placeholder="Search to station name, contractname,unitCreator" translatesAutoresizingMaskIntoConstraints="NO" id="wer-pG-Buh">
+                                <rect key="frame" x="0.0" y="65" width="375" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ooQ-QJ-O0k" id="lJM-wO-Fng"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="U2C-Oa-aww"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="BYf-Ng-9E1" firstAttribute="trailing" secondItem="tFN-qS-0Vk" secondAttribute="trailing" id="Ii9-MS-Za3"/>
-                            <constraint firstItem="BYf-Ng-9E1" firstAttribute="bottom" secondItem="tFN-qS-0Vk" secondAttribute="bottom" id="Nxo-kC-n89"/>
+                            <constraint firstItem="BYf-Ng-9E1" firstAttribute="top" secondItem="wer-pG-Buh" secondAttribute="bottom" id="6MB-Dr-PtE"/>
+                            <constraint firstItem="BYf-Ng-9E1" firstAttribute="trailing" secondItem="U2C-Oa-aww" secondAttribute="trailing" id="FK2-63-Ow3"/>
+                            <constraint firstItem="BYf-Ng-9E1" firstAttribute="bottom" secondItem="U2C-Oa-aww" secondAttribute="bottom" id="J8S-sg-s68"/>
+                            <constraint firstItem="BYf-Ng-9E1" firstAttribute="leading" secondItem="U2C-Oa-aww" secondAttribute="leading" id="L5y-nA-TPq"/>
                             <constraint firstItem="DrB-f0-ZYH" firstAttribute="leading" secondItem="tFN-qS-0Vk" secondAttribute="leading" id="Qc9-MO-ajZ"/>
                             <constraint firstItem="DrB-f0-ZYH" firstAttribute="top" secondItem="U2C-Oa-aww" secondAttribute="top" id="Y8e-fL-vHA"/>
-                            <constraint firstItem="BYf-Ng-9E1" firstAttribute="top" secondItem="DrB-f0-ZYH" secondAttribute="bottom" id="btS-og-cMH"/>
-                            <constraint firstItem="BYf-Ng-9E1" firstAttribute="leading" secondItem="tFN-qS-0Vk" secondAttribute="leading" id="dgR-Po-UAR"/>
+                            <constraint firstItem="wer-pG-Buh" firstAttribute="top" secondItem="DrB-f0-ZYH" secondAttribute="bottom" id="cSE-7D-AWU"/>
+                            <constraint firstItem="wer-pG-Buh" firstAttribute="trailing" secondItem="U2C-Oa-aww" secondAttribute="trailing" id="cUh-wb-5Sn"/>
                             <constraint firstItem="DrB-f0-ZYH" firstAttribute="trailing" secondItem="tFN-qS-0Vk" secondAttribute="trailing" id="lIz-6C-UuY"/>
+                            <constraint firstItem="wer-pG-Buh" firstAttribute="leading" secondItem="U2C-Oa-aww" secondAttribute="leading" id="pU6-I1-6Ba"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AlI-Of-Iel"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="searchBar" destination="wer-pG-Buh" id="AbB-8J-gr8"/>
                         <outlet property="tableView" destination="BYf-Ng-9E1" id="Auf-Ef-5Yd"/>
                     </connections>
                 </viewController>
@@ -8103,7 +8114,7 @@
                                     <outlet property="delegate" destination="vaH-5F-vkv" id="0Ah-eQ-dlQ"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="phL-1R-GAi">
+                            <searchBar contentMode="redraw" placeholder="Search to name, address,contact number" translatesAutoresizingMaskIntoConstraints="NO" id="phL-1R-GAi">
                                 <rect key="frame" x="0.0" y="65" width="375" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="eDA-8t-tWn"/>

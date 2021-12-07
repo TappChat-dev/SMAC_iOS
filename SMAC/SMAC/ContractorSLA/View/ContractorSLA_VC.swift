@@ -8,7 +8,7 @@
 import UIKit
 import SideMenuSwift
 
-class ContractorSLA_VC: UIViewController {
+class ContractorSLA_VC: UIViewController,UISearchBarDelegate {
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     var SearchBarValue:String!
