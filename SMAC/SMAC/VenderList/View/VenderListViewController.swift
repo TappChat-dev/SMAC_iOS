@@ -119,13 +119,19 @@ class VenderListViewController: UIViewController,UISearchBarDelegate {
                 tableview.reloadData()
             }else { //if searchBar.text!.count > 2
                 searchActive = true
-                searchUserModel = userModelvendor.filter({ value -> Bool in
-//                    guard let text = searchText else { return false }
-                    return ((value.contactNo?.localizedLowercase.contains(searchText.localizedLowercase)) != nil)
-                })
+//                searchUserModel = userModelvendor.filter({ value -> Bool in
+////                    guard let text = searchText else { return false }
+//                    return ((value.contactNo?.localizedLowercase.contains(searchText.localizedLowercase)) != nil)
+//                })
 //                searchUserModel = userModelvendor.filter({( item : ResultVendor) -> Bool in
 //                    return  item.contactNo!.lowercased().contains(searchText.lowercased())
 //                })
+                searchUserModel = userModelvendor.filter({ (products) -> Bool in
+                    return products.name.range(of: searchText, options: [ .caseInsensitive, .diacriticInsensitive ]) != nil ||
+                    products.contactNo?.range(of: searchText, options: [ .caseInsensitive, .diacriticInsensitive ]) != nil ||
+                           products.address.range(of: searchText, options: [ .caseInsensitive, .diacriticInsensitive ]) != nil
+                    // Add the rest as needed.
+                 })
                 print(searchUserModel.count)
                 tableview.reloadData()
             }
@@ -148,7 +154,6 @@ extension VenderListViewController:UITableViewDelegate,UITableViewDataSource{
         }else{
             return userModelvendor.count
         }
-   return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

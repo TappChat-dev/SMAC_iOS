@@ -31,6 +31,7 @@ class SEUpdateTicketVC: UIViewController,UINavigationControllerDelegate {
         @IBOutlet weak var btnUpdate:UIButton!
         @IBOutlet weak var formView:UIView!
     var selectedDate = ""
+    var selectedNAC:Int = 0
     var datePicker = UIDatePicker()
     var toolbar = UIToolbar()
     let imagePicker = UIImagePickerController()
@@ -61,8 +62,13 @@ class SEUpdateTicketVC: UIViewController,UINavigationControllerDelegate {
         self.equipmentTypeTxt.text = userResultUpdateModel?.eqptSerialNo
         self.statusPredefineTxt.text = userResultUpdateModel?.ticketStatus
         self.descriptionTxtView.text = userResultUpdateModel?.descr
-        
-        
+        let selectedNAC = userResultUpdateModel?.isNac
+        if selectedNAC == 0 {
+            btnNACRequest.isUserInteractionEnabled = true
+        }else{
+            btnNACRequest.isUserInteractionEnabled = false
+            Utility().addAlertView("Warning!", "You don't have access", "OK", self)
+        }
         radioController.buttonsArray = [btnNACRequest]
 //        radioController.defaultButton = btnAccept
         let swipeGestureRecognizerDown = UISwipeGestureRecognizer(target: self, action: #selector(didSwipe(_:)))
@@ -125,7 +131,10 @@ print("Swipable")
      }
     
     @IBAction func tapToUpdateTicketSE(_ sender:Any){
-        
+//        selectedNAC
+        viewModelsUpdate.API_postUpdateTicketSE(json: UpdateTicketJsonModel.init(user_ID: "", r_ID: "", nac_Status: "", ticket_ID: "", assign_By: "", ticket_Status: "", remarks: shortNotesTxtView.text, nac_HandoverDOC: self.uploadSLATxt.text!, nac_ResponseTime:self.userResultUpdateModel!.nacRequestedDt , spare_Supply: ""), data: {result in
+            print(result)
+        })
     }
     
     // MARK: - Date Picker Button

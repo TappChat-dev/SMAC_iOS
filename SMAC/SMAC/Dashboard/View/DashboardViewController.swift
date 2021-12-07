@@ -160,11 +160,12 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
       
       // 1. Set ChartDataEntry
       var dataEntries: [ChartDataEntry] = []
+        if values.count > 0 {
       for i in 0..<dataPoints.count {
         let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i], data:  dataPoints[i] as AnyObject)
         dataEntries.append(dataEntry)
       }
-      
+        }
       // 2. Set ChartDataSet
         let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
       pieChartDataSet.colors = colorsOfCharts(numbersOfColor: dataPoints.count)
@@ -205,7 +206,10 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
 
                 let Closed = result["P_TICKETS_CLOSED"] as? NSNumber
                 self.players = ["AllTickets", "InProgress", "Close"]
-                self.goals = [Double(truncating: TICKETS_ALL!),Double(truncating: InProgress!),Double(truncating: Closed!)]
+                if TICKETS_ALL?.rangeValue.length ?? -1 >= 0 || InProgress?.rangeValue.length ?? -1 >= 0 || Closed?.rangeValue.length ?? -1 >= 0 {
+                    self.goals = [Double(truncating: TICKETS_ALL!),Double(truncating: InProgress!),Double(truncating: Closed!)]
+
+                }
                 self.customizeChart(dataPoints: self.players!, values: self.goals.map{ $0 } as! [Double] )
 
             }

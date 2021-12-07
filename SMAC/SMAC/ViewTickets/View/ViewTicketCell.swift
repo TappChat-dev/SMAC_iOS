@@ -14,7 +14,8 @@ protocol ViewTicketCellDelegate : class {
 class ViewTicketCell: UITableViewCell {
     @IBOutlet weak var namelbl:UILabel!
     @IBOutlet weak var IDlbl:UILabel!
-    @IBOutlet weak var EqipmentNamelbl:UILabel!
+    @IBOutlet weak var subjectlbl:UILabel!
+    @IBOutlet weak var descriptionlbl:UILabel!
     @IBOutlet weak var unitNamelbl:UILabel!
     @IBOutlet weak var statusLBL:UILabel!
     @IBOutlet weak var dateLBL:UILabel!
@@ -46,6 +47,9 @@ class ViewTicketCell: UITableViewCell {
             dateLBL.text = cellViewModel?.equipmentName
             namelbl.text = cellViewModel?.contractName
             statusLBL.text = cellViewModel?.ticketStatusName
+            unitNamelbl.text = cellViewModel?.unitName
+            subjectlbl.text = cellViewModel?.subject
+            descriptionlbl.text = cellViewModel?.descr
         }
     }
     

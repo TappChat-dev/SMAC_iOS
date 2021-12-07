@@ -8,17 +8,20 @@
 import UIKit
 import SideMenuSwift
 
-class ViewTicketsViewController: UIViewController,ViewTicketCellDelegate {
+class ViewTicketsViewController: UIViewController,ViewTicketCellDelegate,UISearchBarDelegate {
     
     
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var segmentOption:UISegmentedControl!
+    @IBOutlet weak var testbar: UISearchBar!
+    var SearchBarValue:String!
+       var searchActive : Bool = false
     lazy var viewModels = {
         VCViewModel()
     }()
     
     var userResultModel = [ResultTickets]()
-//    var userResultModel = [[String: Any]]()
+    var SearchResultModel = [ResultTickets]()
 
 
     override func viewDidLoad() {
@@ -125,7 +128,13 @@ class ViewTicketsViewController: UIViewController,ViewTicketCellDelegate {
     
     func didPressButton(_ tag: Int) {
         print(tag)
-        let data = userResultModel[tag]
+        var data : ResultTickets? = nil
+        if searchActive {
+            data = SearchResultModel[tag]
+        }else{
+            data = userResultModel[tag]
+        }
+//        let data = userResultModel[tag]
         roleID =  UserDefaults.standard.string(forKey: "isLoginRoleID")!
 
         if roleID == "SE" {
@@ -141,6 +150,53 @@ class ViewTicketsViewController: UIViewController,ViewTicketCellDelegate {
             
         }
     }
+    
+    //MARK: Search bar
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+            searchActive = true
+        }
+
+        func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+            searchActive = true
+        }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+            searchActive = false;
+
+            searchBar.text = nil
+            searchBar.resignFirstResponder()
+        }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            searchActive = true
+        searchBar.resignFirstResponder()
+        }
+
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.resignFirstResponder()
+                    return true
+        }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+
+            if searchBar.text == nil || searchBar.text == "" {
+                searchActive = false
+                tableView.reloadData()
+            }else { //if searchBar.text!.count > 2
+                searchActive = true
+                SearchResultModel = userResultModel.filter({ (products) -> Bool in
+                    return products.contractName.range(of: searchText, options: [ .caseInsensitive, .diacriticInsensitive ]) != nil ||
+                    products.unitName.range(of: searchText, options: [ .caseInsensitive, .diacriticInsensitive ]) != nil ||
+                           products.subject.range(of: searchText, options: [ .caseInsensitive, .diacriticInsensitive ]) != nil
+                    // Add the rest as needed.
+                 })
+                print(SearchResultModel.count)
+                tableView.reloadData()
+            }
+                   
+
+
+        }
 }
 
 extension ViewTicketsViewController:UITableViewDelegate,UITableViewDataSource{
@@ -149,7 +205,11 @@ extension ViewTicketsViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchActive {
+            return SearchResultModel.count
+        }else{
         return userResultModel.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -158,7 +218,12 @@ extension ViewTicketsViewController:UITableViewDelegate,UITableViewDataSource{
         cell.cellDelegate = self
         cell.btnEdit.tag = indexPath.row
 //        let cellVM = viewModels.getCellViewModel(at: indexPath)
-        cell.cellViewModel = userResultModel[indexPath.row]
+        if searchActive {
+            cell.cellViewModel = SearchResultModel[indexPath.row]
+        }else{
+            cell.cellViewModel = userResultModel[indexPath.row]
+            
+        }
 //        cell.cellViewModelDic = userResultModel[indexPath.row]
 //        let data = userResultModel[indexPath.row]
 //        let ticketID = data["TICKET_ID"] as? String
@@ -177,4 +242,7 @@ extension ViewTicketsViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.addShadow(backgroundColor: .white, cornerRadius: 13, shadowRadius: 5, shadowOpacity: 0.1, shadowPathInset: (dx: 8, dy: 6), shadowPathOffset: (dx: 0, dy: 2))
     }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 230.0
+//    }
 }

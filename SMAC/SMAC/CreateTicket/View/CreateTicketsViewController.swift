@@ -326,7 +326,7 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     func API_ComboDataContract(){
         guard let techID =  UserDefaults.standard.string(forKey: "TechID") else { return print("unit id is not find.") }
         Loader.showLoader("Loding Contract...", target: self)
-        viewModelType.API_getViewAllTicketsWithComboCreateContract(json: RoleJsonDictionary.init(id: techID, type: "2"), data: { [weak self]
+        viewModelType.API_getViewAllTicketsWithComboCreateContract(json: RoleJsonDictionary.init(id: techID, type: "1"), data: { [weak self]
             (responseResult,resultBool) in
             if resultBool == true{
                 var firstitem: Bool = false
