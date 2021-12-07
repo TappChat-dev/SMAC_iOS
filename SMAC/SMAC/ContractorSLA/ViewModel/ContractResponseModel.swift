@@ -67,7 +67,8 @@ struct RedefineAllContract:Codable {
 }
 
 struct RedefineResult: Codable {
-    let contractID, vendorID: String
+    let contractID: String
+    let vendorID: VendorID
     let vendorName: VendorName?
     let contractDt: ContractDt?
     let contractNo: String?
@@ -130,10 +131,18 @@ enum ContractDt: String, Codable {
     case the20211101T070720000Z = "2021-11-01T07:07:20.000Z"
     case the20211114T183000000Z = "2021-11-14T18:30:00.000Z"
 }
+enum ContractNo: String, Codable {
+    case cg = "cg"
+    case cg2021A = "CG/2021/A"
+    case cgDummy = "CG-DUMMY"
+    case sdot003001 = "SDOT003001"
+    case wt001 = "WT001"
+}
 
 enum ContractStatus: String, Codable {
     case contractApproved = "CONTRACT APPROVED"
     case equipmentNotMapped = "EQUIPMENT NOT MAPPED"
+    case contractCreated = "CONTRACT CREATED"
 }
 
 enum EndDt: String, Codable {
@@ -154,6 +163,14 @@ enum SlaDocs: String, Codable {
 enum StationName: String, Codable {
     case delhi = "Delhi"
 }
+enum VendorID: String, Codable {
+    case v001 = "V001"
+    case v0010 = "V0010"
+    case v003 = "V003"
+    case v01 = "v01"
+    case v012 = "v012"
+}
+
 enum VendorName: String, Codable {
     case mSKongsbergMaritimeMumbai = "M/s Kongsberg Maritime, Mumbai"
 }
