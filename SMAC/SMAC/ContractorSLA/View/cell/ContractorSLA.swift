@@ -24,7 +24,7 @@ class ContractorSLA: UITableViewCell {
             raisedBylbl.text = cellViewModel?.contractName
            let date = cellViewModel?.contractDt
             raisedDatelbl.text = date?.rawValue
-            descriptionlbl.text = cellViewModel?.contractDescr?.rawValue
+            descriptionlbl.text = cellViewModel?.contractDescr
             ticketIDlbl.text = cellViewModel?.contractID
         }
     }

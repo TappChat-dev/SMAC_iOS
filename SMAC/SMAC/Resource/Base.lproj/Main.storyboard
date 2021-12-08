@@ -5572,7 +5572,7 @@
                                     <outlet property="delegate" destination="STI-iU-AQ3" id="01t-Cm-W9E"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Search to address,unit name, contract name" translatesAutoresizingMaskIntoConstraints="NO" id="fwj-pA-id2">
+                            <searchBar contentMode="redraw" placeholder="Address,Unit name, Contract name" translatesAutoresizingMaskIntoConstraints="NO" id="fwj-pA-id2">
                                 <rect key="frame" x="0.0" y="132" width="375" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -6772,7 +6772,7 @@
                                     <outlet property="delegate" destination="FNI-Bt-i9p" id="7In-ol-n3k"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Search from ID, name, description" translatesAutoresizingMaskIntoConstraints="NO" id="laS-6r-QJT">
+                            <searchBar contentMode="redraw" placeholder="ID, Name, Description" translatesAutoresizingMaskIntoConstraints="NO" id="laS-6r-QJT">
                                 <rect key="frame" x="0.0" y="65" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="tTV-Bp-YIo"/>
@@ -7939,7 +7939,7 @@
                                     <outlet property="delegate" destination="ooQ-QJ-O0k" id="84F-ga-OFS"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Search to station name, contractname,unitCreator" translatesAutoresizingMaskIntoConstraints="NO" id="wer-pG-Buh">
+                            <searchBar contentMode="redraw" placeholder="Station name, Contractname,UnitCreator" translatesAutoresizingMaskIntoConstraints="NO" id="wer-pG-Buh">
                                 <rect key="frame" x="0.0" y="65" width="375" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -8114,7 +8114,7 @@
                                     <outlet property="delegate" destination="vaH-5F-vkv" id="0Ah-eQ-dlQ"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Search to name, address,contact number" translatesAutoresizingMaskIntoConstraints="NO" id="phL-1R-GAi">
+                            <searchBar contentMode="redraw" placeholder="Name, Address, Contact number" translatesAutoresizingMaskIntoConstraints="NO" id="phL-1R-GAi">
                                 <rect key="frame" x="0.0" y="65" width="375" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="eDA-8t-tWn"/>

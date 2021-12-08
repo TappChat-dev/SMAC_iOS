@@ -68,6 +68,8 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
         }else if (roleID == "EU"){ // icg Eqipment user //"R08"
             totalArrayRole = arrEquipmentUser
         }
+        let players = ["AllTickets", "InProgress", "Close"]
+        let goals = [6.0, 5.0, 1.0]
         customizeChart(dataPoints: players ?? [], values: goals.map{ $0 } as! [Double])
 
         // Do any additional setup after loading the view.
@@ -210,7 +212,7 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
                     self.goals = [Double(truncating: TICKETS_ALL!),Double(truncating: InProgress!),Double(truncating: Closed!)]
 
                 }
-                self.customizeChart(dataPoints: self.players!, values: self.goals.map{ $0 } as! [Double] )
+//                self.customizeChart(dataPoints: self.players!, values: self.goals.map{ $0 } as! [Double] )
 
             }
         })
