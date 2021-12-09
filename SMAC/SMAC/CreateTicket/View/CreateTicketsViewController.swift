@@ -63,7 +63,6 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
         super.viewDidLoad()
         addArrowBtnToTextFields()
 //        getContract()
-        API_ComboDataContract()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                //call any function
 //            self.apiCalling()
@@ -92,6 +91,18 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        API_ComboDataContract()
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        API_ComboDataContract()
+
     }
     
     fileprivate func addArrowBtnToTextFields() {
@@ -276,9 +287,14 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
                 Loader.hideLoader(self)
                     print("Create tickets Response APi")
                 print(response)
-                let mssage = response["uimsg"] as? String
+                let mssage = response["msg"] as? String
+                if mssage == "Failed" {
+                    Loader.hideLoader(self)
+                }
                 Utility().addAlertView("Alert!", mssage ?? "Getting error from server.", "OK", self)
             })
+        }else{
+            Loader.hideLoader(self)
         }
     }
     @IBAction func tapToReset(_ sender:Any){
@@ -326,7 +342,7 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     func API_ComboDataContract(){
         guard let techID =  UserDefaults.standard.string(forKey: "TechID") else { return print("unit id is not find.") }
         Loader.showLoader("Loding Contract...", target: self)
-        viewModelType.API_getViewAllTicketsWithComboCreateContract(json: RoleJsonDictionary.init(id: techID, type: "1"), data: { [weak self]
+        viewModelType.API_getViewAllTicketsWithComboCreateContract(json: RoleJsonDictionary.init(id: techID, type: "0"), data: { [weak self]
             (responseResult,resultBool) in
             if resultBool == true{
                 var firstitem: Bool = false
@@ -399,7 +415,7 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     func Api_ComboData_UNIT(com_Id:String){
         let jsons = ViewEquipmentRequestModel.init(id: com_Id, type: "CONTRACT_FOR_UNIT")
         globalContractID = com_Id
-        viewModelEquipment.API_getEquipmentList(json: jsons, dataValue: {
+        viewModelEquipment.API_getUNIT(json: jsons, dataValue: {
             responseSorces in
             print("Count",responseSorces?.result)
             Loader.hideLoader(self)
@@ -411,14 +427,14 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
                     firstitem = true
                     self.arrUnitID.append("Select")
                     self.arrUnit.append("Select")
-                    self.arrUnit.append(id.eqptType!)
-                    self.arrUnitID.append(id.eqptID)
+                    self.arrUnit.append(id.unitName)
+                    self.arrUnitID.append(id.unit)
                 }else{
-                    self.arrUnit.append(id.eqptType ?? "")
-                    self.arrUnitID.append(id.eqptID)
+                    self.arrUnit.append(id.unitName)
+                    self.arrUnitID.append(id.unit)
                 }
               let orderedNoDuplicates =  Array(NSOrderedSet(array: self.arrUnit).map({ $0 as! String }))
-                self.unitTxt.loadDropdownData(data: orderedNoDuplicates)
+                self.unitTxt.loadDropdownData(data: self.arrUnit)
             }//            self.userModelEquip = responseSorces?.result ?? []
             }
         })
@@ -454,7 +470,7 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
                 dispatchGroup.leave()
             }
         })
-        //2nd APi
+        //2nd API
         dispatchGroup.enter()
         viewModelType.getEqpt_SubType(json: jsonDictionary.init(id: "", type: "EQPT_SUBTYPE"), data: {
             response  in
@@ -656,6 +672,8 @@ extension CreateTicketsViewController:UIImagePickerControllerDelegate{
             data.write(toFile: localPath, atomically: true)
             let photoURL = URL.init(fileURLWithPath: localPath)
             print("Camera Url",photoURL)
+            self.uploadSLATxt.text = photoURL.lastPathComponent
+
             
         }
         if let imgUrl = info[UIImagePickerController.InfoKey.imageURL.rawValue] as? URL{
@@ -669,6 +687,8 @@ extension CreateTicketsViewController:UIImagePickerControllerDelegate{
             //let imageData = NSData(contentsOfFile: localPath!)!
             let photoURL = URL.init(fileURLWithPath: localPath!)//NSURL(fileURLWithPath: localPath!)
             print("Gallery Url",photoURL)
+            self.uploadSLATxt.text = photoURL.lastPathComponent
+
         }
         self.dismiss(animated: true, completion: nil)
     }
@@ -685,6 +705,7 @@ extension CreateTicketsViewController:UIDocumentPickerDelegate{
             return
         }
         print("import result : \(myURL)")
+        self.uploadSLATxt.text = myURL.lastPathComponent
         dismiss(animated: true, completion: nil)
     }
     

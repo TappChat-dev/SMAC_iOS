@@ -38,6 +38,7 @@ class SEUpdateTicketVC: UIViewController,UINavigationControllerDelegate {
     let pickerView = UIPickerView()
     var userResultUpdateModel: ResultTickets? = nil
     let radioController: RadioButtonController = RadioButtonController()
+    var nacStatus:Int = 0
 
     var arrStatusDESCR = [String]()
     var arrStatusShort = [String]()
@@ -128,13 +129,15 @@ print("Swipable")
 
      @IBAction func btnAcceptAction(_ sender: UIButton) {
          radioController.buttonArrayUpdated(buttonSelected: sender)
+          nacStatus = 1
+
      }
     
     @IBAction func tapToUpdateTicketSE(_ sender:Any){
 //        selectedNAC
-        viewModelsUpdate.API_postUpdateTicketSE(json: UpdateTicketJsonModel.init(user_ID: "", r_ID: "", nac_Status: "", ticket_ID: "", assign_By: "", ticket_Status: "", remarks: shortNotesTxtView.text, nac_HandoverDOC: self.uploadSLATxt.text!, nac_ResponseTime:self.userResultUpdateModel!.nacRequestedDt , spare_Supply: ""), data: {result in
-            print(result)
-        })
+//        viewModelsUpdate.API_postUpdateTicketSE(json: UpdateTicketJsonModel.init(user_ID: "", r_ID: "", nac_Status: nacStatus, ticket_ID: userResultUpdateModel?.ticketID, assign_By: "", ticket_Status: "", remarks: shortNotesTxtView.text, nac_HandoverDOC: self.uploadSLATxt.text!, nac_ResponseTime:7 , spare_Supply: ""), data: {result in
+//            print(result)
+//        })
     }
     
     // MARK: - Date Picker Button

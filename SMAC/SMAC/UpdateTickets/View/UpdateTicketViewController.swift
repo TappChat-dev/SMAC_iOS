@@ -41,7 +41,7 @@ class UpdateTicketViewController: UIViewController,UINavigationControllerDelegat
 
     var arrStatusDESCR = [String]()
     var arrStatusShort = [String]()
-
+    var nacStatus:Int = 0
     lazy var viewModelsUpdate = {
         UpdateTicketsJsonModel()
     }()
@@ -119,14 +119,21 @@ print("Swipable")
     
     @IBAction func btnRejectAction(_ sender: UIButton) {
          radioController.buttonArrayUpdated(buttonSelected: sender)
+        if userResultUpdateModel?.isNac == 1 {
+            nacStatus = 3
+        }
      }
 
      @IBAction func btnAcceptAction(_ sender: UIButton) {
          radioController.buttonArrayUpdated(buttonSelected: sender)
+         if userResultUpdateModel?.isNac == 1 {
+             nacStatus = 2
+         }
      }
     
     @IBAction func tapToUpdateTicket(_ sender:Any){
-        viewModelsUpdate.API_postUpdateTicketSE(json: UpdateTicketJsonModel.init(user_ID: "", r_ID: "", nac_Status: "", ticket_ID: "", assign_By: "", ticket_Status: "", remarks: shortNotesTxtView.text, nac_HandoverDOC: self.uploadSLATxt.text!, nac_ResponseTime:self.userResultUpdateModel!.nacRequestedDt , spare_Supply: ""), data: {result in
+         let techID =  UserDefaults.standard.string(forKey: "TechID") as? String
+        viewModelsUpdate.API_postUpdateTicketSE(json: UpdateTicketJsonModel.init(user_ID: techID!, r_ID: roleID, nac_Status: nacStatus, ticket_ID: userResultUpdateModel!.ticketID, assign_By: "", ticket_Status: "", remarks: shortNotesTxtView.text, nac_HandoverDOC: self.uploadSLATxt.text!, nac_ResponseTime:7 , spare_Supply: ""), data: {result in
             print(result as Any)
         })
     }

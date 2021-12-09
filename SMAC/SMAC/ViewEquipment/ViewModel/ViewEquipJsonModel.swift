@@ -25,3 +25,24 @@ struct ResultEquipment: Codable {
         case eqptType = "EQPT_TYPE"
     }
 }
+
+struct ViewUnitJsonModel: Codable{
+    let result: [UNITEquipment]
+    let status, msg: String
+
+    enum CodingKeys: String, CodingKey {
+        case result
+        case status = "STATUS"
+        case msg
+    }
+}
+
+// MARK: - Result
+struct UNITEquipment: Codable {
+    let unit, unitName: String
+
+    enum CodingKeys: String, CodingKey {
+        case unit = "UNIT"
+        case unitName = "UNIT_NAME"
+    }
+}

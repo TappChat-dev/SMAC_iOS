@@ -18,7 +18,7 @@ class ContractorSLA: UITableViewCell {
     
     
 //    var cellViewModel: UserContract? {//ResultTickets
-    var cellViewModel: RedefineResult? {
+    var cellViewModel: RedefineResult? {//ContractJsonResult
 
         didSet {
             raisedBylbl.text = cellViewModel?.contractName
@@ -28,6 +28,18 @@ class ContractorSLA: UITableViewCell {
             ticketIDlbl.text = cellViewModel?.contractID
         }
     }
+    
+//    var cellViewModel: ContractJsonResult? {
+//
+//        didSet {
+//            raisedBylbl.text = cellViewModel?.cONTRACT_NAME
+//           let date = cellViewModel?.cONTRACT_DT
+//            raisedDatelbl.text = date
+//            descriptionlbl.text = cellViewModel?.cONTRACT_DESCR
+//            ticketIDlbl.text = cellViewModel?.cONTRACT_ID
+//        }
+//    }
+
     class var identifier: String { return String(describing: self) }
     class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
     override func awakeFromNib() {

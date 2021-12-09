@@ -87,6 +87,7 @@ struct GetContractJsonModelTicket: Codable {
     }
 }
 // MARK: - Result
+/*
 struct ContractCreateTicket: Codable {
     let contractID, vendorID, vendorName, contractDt: String
     let contractNo, contractAuthName, contractName, contractDescr: String
@@ -119,5 +120,41 @@ struct ContractCreateTicket: Codable {
         case contractTypeName = "CONTRACT_TYPE_NAME"
         case pid = "PID"
         case isSlaActive = "IS_SLA_ACTIVE"
+    }
+}
+*/
+struct ContractCreateTicket: Codable{
+    let contractID, vendorID: String
+    let vendorName: JSONNull?
+    let contractDt: String
+    let contractNo: JSONNull?
+    let contractAuthName, contractName: String
+    let contractDescr, contractDocs, slaDocs: JSONNull?
+    let unitContractCreator, unitName, stationContractCreator, stationName: String
+    let duration: Int
+    let fmDt, endDt, contractType, contractTypeName: String
+    let pid: String
+
+    enum CodingKeys: String, CodingKey {
+        case contractID = "CONTRACT_ID"
+        case vendorID = "VENDOR_ID"
+        case vendorName = "VENDOR_NAME"
+        case contractDt = "CONTRACT_DT"
+        case contractNo = "CONTRACT_NO"
+        case contractAuthName = "CONTRACT_AUTH_NAME"
+        case contractName = "CONTRACT_NAME"
+        case contractDescr = "CONTRACT_DESCR"
+        case contractDocs = "CONTRACT_DOCS"
+        case slaDocs = "SLA_DOCS"
+        case unitContractCreator = "UNIT_CONTRACT_CREATOR"
+        case unitName = "UNIT_NAME"
+        case stationContractCreator = "STATION_CONTRACT_CREATOR"
+        case stationName = "STATION_NAME"
+        case duration = "DURATION"
+        case fmDt = "FM_DT"
+        case endDt = "END_DT"
+        case contractType = "CONTRACT_TYPE"
+        case contractTypeName = "CONTRACT_TYPE_NAME"
+        case pid = "PID"
     }
 }

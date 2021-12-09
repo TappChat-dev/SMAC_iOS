@@ -18,6 +18,10 @@ class ContractorSLA_VC: UIViewController,UISearchBarDelegate {
 //    var userModelContr = [ResultTickets]()
     var userModelContr = [RedefineResult]()
     var SearchResultModel = [RedefineResult]()
+    
+//    var userModelContr = [ContractJsonResult]()
+//    var userModelContr = [ContractJsonResult]()
+
 
     lazy var viewModelType = {
         ContractModel()

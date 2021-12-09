@@ -129,6 +129,7 @@
 		04BCE68426C241B000801EA5 /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE68026C241B000801EA5 /* SideMenuCell.swift */; };
 		04BCE68926C243DA00801EA5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE68826C243DA00801EA5 /* MainViewController.swift */; };
 		04BCE69226C292EA00801EA5 /* CreateTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE69126C292EA00801EA5 /* CreateTicketsViewController.swift */; };
+		04C122F52760A617007B7EA5 /* ContractResponseJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C122F42760A617007B7EA5 /* ContractResponseJson.swift */; };
 		04E2140D270ED1FD00EEE0A5 /* TicketCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2140C270ED1FD00EEE0A5 /* TicketCreateViewController.swift */; };
 		04E90EE026F46E64005E857C /* InitiatePenaltyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E90EDF26F46E64005E857C /* InitiatePenaltyVC.swift */; };
 		09F068364F230A84A4159667 /* Pods_SMAC_SMACUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A8D82D803FE490CD2DD9FA /* Pods_SMAC_SMACUITests.framework */; };
@@ -284,6 +285,7 @@
 		04BCE68026C241B000801EA5 /* SideMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
 		04BCE68826C243DA00801EA5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = SMAC/Dashboard/View/MainViewController.swift; sourceTree = SOURCE_ROOT; };
 		04BCE69126C292EA00801EA5 /* CreateTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateTicketsViewController.swift; path = SMAC/CreateTicket/View/CreateTicketsViewController.swift; sourceTree = SOURCE_ROOT; };
+		04C122F42760A617007B7EA5 /* ContractResponseJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractResponseJson.swift; sourceTree = "<group>"; };
 		04E2140C270ED1FD00EEE0A5 /* TicketCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCreateViewController.swift; sourceTree = "<group>"; };
 		04E90EDF26F46E64005E857C /* InitiatePenaltyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitiatePenaltyVC.swift; sourceTree = "<group>"; };
 		1864D2E0E5A830C2C3AAB50B /* Pods-SMAC-SMACUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMAC-SMACUITests.debug.xcconfig"; path = "Target Support Files/Pods-SMAC-SMACUITests/Pods-SMAC-SMACUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 			children = (
 				042B7FF1273B9B1100E2DD6C /* ContractResponseModel.swift */,
 				042B7FF3273B9BF300E2DD6C /* ContractModel.swift */,
+				04C122F42760A617007B7EA5 /* ContractResponseJson.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1570,6 +1573,7 @@
 				04689F7F27562B53002D6263 /* UIViewController+Container.swift in Sources */,
 				043FCC5926CB93E300120117 /* VCModel.swift in Sources */,
 				04BCE68226C241B000801EA5 /* SideMenuModel.swift in Sources */,
+				04C122F52760A617007B7EA5 /* ContractResponseJson.swift in Sources */,
 				04BCE68126C241B000801EA5 /* SideMenuViewController.swift in Sources */,
 				042A63A82704359200182358 /* TicketStatusCell.swift in Sources */,
 				04689F8B27562B53002D6263 /* SideMenuController.swift in Sources */,

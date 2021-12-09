@@ -29,7 +29,7 @@ class VenderListViewController: UIViewController,UISearchBarDelegate {
 //        fetchAPI_VenderList()
 //        self.searchBar.delegate = self
 
-        API_fetchAllvendor()
+                         
         // Do any additional setup after loading the view.
     }
     
@@ -42,6 +42,7 @@ class VenderListViewController: UIViewController,UISearchBarDelegate {
    
     override func viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(true)
+        API_fetchAllvendor()
         UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(rgb: 0x06284D)
         tableview.reloadData()
         tableview.setNeedsLayout()

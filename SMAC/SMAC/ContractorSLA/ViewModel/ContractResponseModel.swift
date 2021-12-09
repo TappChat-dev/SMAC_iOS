@@ -67,10 +67,9 @@ struct RedefineAllContract:Codable {
 }
 
 struct RedefineResult: Codable {
-    let contractID: String
-    let vendorID: VendorID
+    let contractID, vendorID: String
     let vendorName: VendorName?
-    let contractDt: Dt?
+    let contractDt: ContractDt?
     let contractNo: String?
     let contractName: String
     let contractDescr: String?
@@ -81,8 +80,8 @@ struct RedefineResult: Codable {
     let stationContractCreator: String
     let stationName: StationName
     let duration: Int?
-    let fmDt: Dt?
-    let endDt: EndDt?
+    let fmDt: FmDt?
+    let endDt: String?
     let contractType: String
     let contractTypeName: String?
     let pid: String
@@ -122,11 +121,11 @@ enum ContractDocs: String, Codable {
     case smaple = "smaple"
 }
 
-enum Dt: String, Codable {
+enum ContractDt: String, Codable {
     case the20211031T183000000Z = "2021-10-31T18:30:00.000Z"
     case the20211101T070720000Z = "2021-11-01T07:07:20.000Z"
     case the20211114T183000000Z = "2021-11-14T18:30:00.000Z"
-    case the20211115T183000000Z = "2021-11-15T18:30:00.000Z"
+    case the20211130T183000000Z = "2021-11-30T18:30:00.000Z"
     case the20211207T183000000Z = "2021-12-07T18:30:00.000Z"
     case the20211208T183000000Z = "2021-12-08T18:30:00.000Z"
 }
@@ -137,12 +136,12 @@ enum ContractStatus: String, Codable {
     case slaNotConfigured = "SLA NOT CONFIGURED"
 }
 
-enum EndDt: String, Codable {
-    case the20211229T183000000Z = "2021-12-29T18:30:00.000Z"
-    case the20211230T070748000Z = "2021-12-30T07:07:48.000Z"
-    case the20220408T183000000Z = "2022-04-08T18:30:00.000Z"
-    case the20220707T183000000Z = "2022-07-07T18:30:00.000Z"
-    case the20221114T183000000Z = "2022-11-14T18:30:00.000Z"
+enum FmDt: String, Codable {
+    case the20211031T183000000Z = "2021-10-31T18:30:00.000Z"
+    case the20211115T183000000Z = "2021-11-15T18:30:00.000Z"
+    case the20211201T183000000Z = "2021-12-01T18:30:00.000Z"
+    case the20211207T183000000Z = "2021-12-07T18:30:00.000Z"
+    case the20211208T183000000Z = "2021-12-08T18:30:00.000Z"
 }
 
 enum SlaDocs: String, Codable {
@@ -153,16 +152,8 @@ enum StationName: String, Codable {
     case delhi = "Delhi"
 }
 
-enum VendorID: String, Codable {
-    case v0004 = "V0004"
-    case v001 = "V001"
-    case v0010 = "V0010"
-    case v003 = "V003"
-    case v01 = "v01"
-    case v012 = "v012"
-}
-
 enum VendorName: String, Codable {
     case mSElcomeIntegratedServicesPvtLtdMumbai = "M/s Elcome Integrated Services Pvt. Ltd, Mumbai"
     case mSKongsbergMaritimeMumbai = "M/s Kongsberg Maritime, Mumbai"
+    case mSVACmanSanitationSolutionPvtLtdMumbai = "M/s VACman Sanitation Solution Pvt. Ltd, Mumbai"
 }

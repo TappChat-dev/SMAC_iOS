@@ -26,4 +26,19 @@ class ViewEquipmentModel:NSObject{
             
         })
     }
+    
+    func API_getUNIT(json:ViewEquipmentRequestModel, dataValue: @escaping (_ result: ViewUnitJsonModel?) -> ()){
+        let jsons =  ViewEquipmentRequestModel.encode(object: json)
+        print("json for Combo according to ID",jsons)
+        apiManager.apiPost(serviceName: serviceURL, parameters: jsons as! [String : Any], completionHandler: {
+            [weak self] (responseData,error)  in
+            if let responseData = responseData {
+                print(responseData)
+                let details = try? newJSONDecoder().decode(ViewUnitJsonModel.self, from: responseData)
+//                print(details?.result)
+                dataValue(details)
+            }
+            
+        })
+    }
 }

@@ -85,7 +85,7 @@ struct ResultTickets: Codable {
     let equipmentName: String?
     let ticketStatus, ticketStatusName: String
     let isPaneltyActive: Int
-    let nacRequestedDt: String
+    let nacRequestedDt: String?
     let isNac, responseTime: Int
     let eqptUsername: String?
     let contactNo: Int?

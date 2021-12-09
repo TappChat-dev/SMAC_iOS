@@ -25,33 +25,33 @@ struct UpdateTicketJsonModel {
     
     var userID: String
     var rID: String
-    var nacStatus: String
+    var nacStatus: Int
     var ticketID: String
     var AssignBy: String
     var ticketStatus: String
     var remark: String
     var NACHandoverDOC: String
-    var nacResponseTime:String
+    var nacResponseTime:Int
     var spareSupply:String
     
     
     init() {
         userID = ""
         rID = ""
-        nacStatus = ""
+        nacStatus = 0
         ticketID = ""
         AssignBy = ""
         ticketStatus = ""
         remark = ""
         NACHandoverDOC = ""
-        nacResponseTime = ""
+        nacResponseTime = 0
         spareSupply = ""
        
         
         
     }
     
-    init(user_ID: String, r_ID: String,nac_Status: String,ticket_ID: String,assign_By:String,ticket_Status:String, remarks:String,nac_HandoverDOC: String,nac_ResponseTime:String,spare_Supply:String) {
+    init(user_ID: String, r_ID: String,nac_Status: Int,ticket_ID: String,assign_By:String,ticket_Status:String, remarks:String,nac_HandoverDOC: String,nac_ResponseTime:Int,spare_Supply:String) {
         self.userID = user_ID
         self.rID = r_ID
         self.nacStatus = nac_Status

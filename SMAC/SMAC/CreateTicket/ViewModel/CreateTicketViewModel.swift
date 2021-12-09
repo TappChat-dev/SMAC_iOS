@@ -194,6 +194,7 @@ class CreateTicketViewModel: NSObject {
         print("View ticket url",serviceUrlCombo)
         apiManager.apiPostViewTickets(serviceName: serviceUrlCombo, parameters: jsons as! [String : Any], completionHandler: {
             (response, error) in
+            let detailsNIl:GetContractJsonModelTicket? = nil
             if let response = response {
                 print(response)
                 let details = try? newJSONDecoder().decode(GetContractJsonModelTicket.self, from: response)
@@ -201,8 +202,9 @@ class CreateTicketViewModel: NSObject {
 //                self?.fetchData(model: details!)
                 data(details, true)
             }else{
-//                data([], false)
+                data(detailsNIl, false)
             }
         })
     }
 }
+
