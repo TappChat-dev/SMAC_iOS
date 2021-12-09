@@ -44,7 +44,30 @@ class LoginViewModel: NSObject {
                 }
         })
     }
-    
+    func getLoginVendorResponse(user: LoginViewCredentialModel, data: @escaping (_ result : LoginVendorJson? , Bool) -> ()){
+//        let serviceUrl = BaseUrl.baseURLWithIP + "login"
+        let serviceUrl = BaseUrl.baseURL + "getAuth"
+
+        let jsonData:Any = LoginViewCredentialModel.encode(object:user )
+        print("Dic=",jsonData)
+        apiManager.apiPostLogin(serviceName: serviceUrl, parameters: jsonData as! [String : Any], completionHandler: {
+            [weak self] (response, error) in
+                guard let weakSelf = self else { return }
+                if let response = response {
+                    print(response)
+                    let loginDetails = try? newJSONDecoder().decode(LoginVendorJson.self, from: response)
+//                    print(loginDetails!)
+                    if loginDetails?.result.count ?? 0 > 0 {
+                        data(loginDetails, true)
+                    }else{
+                        data(loginDetails, false)
+                    }
+                    
+                }else{
+                    data(nil, false)
+                }
+        })
+    }
     func getRoles(user:RoleJsonDictionary,data:@escaping(_ result: RoleResponsiblity) ->()){
         let serviceUrl = BaseUrl.baseURL +  "getcomboData"//"getUserRoles"
         let jsonData:Any = RoleJsonDictionary.encode(object:user )

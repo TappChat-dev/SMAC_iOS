@@ -111,6 +111,11 @@ class MenuViewController: UIViewController {
                 self.storyboard?.instantiateViewController(withIdentifier: "ViewVender")
             }, with: "5")
         }
+//        totalArrayRole.append("Logout")
+        
+//        sideMenuController?.cache(viewControllerGenerator: {
+//            self.storyboard?.instantiateViewController(withIdentifier: "Logout")
+//        }, with: "Logout")
 //        sideMenuController?.cache(viewControllerGenerator: {
 //            self.storyboard?.instantiateViewController(withIdentifier: "CreateTicket")
 //        }, with: "1")
@@ -231,6 +236,16 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
 
         if let identifier = sideMenuController?.currentCacheIdentifier() {
             print("[Example] View Controller Cache Identifier: \(identifier)")
+        }
+        if totalArrayRole[row] == "Logout" {
+            let defaults = UserDefaults.standard
+            let dictionary = defaults.dictionaryRepresentation()
+
+                dictionary.keys.forEach
+                {
+                    key in   defaults.removeObject(forKey: key)
+                }
+            dismiss(animated: true, completion: nil)
         }
     }
 

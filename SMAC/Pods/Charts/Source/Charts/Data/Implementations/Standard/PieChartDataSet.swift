@@ -24,7 +24,7 @@ open class PieChartDataSet: ChartDataSet, IPieChartDataSet
     private func initialize()
     {
         self.valueTextColor = NSUIColor.white
-        self.valueFont = NSUIFont.systemFont(ofSize: 13.0)
+        self.valueFont = NSUIFont.systemFont(ofSize: 16.0)
     }
 
     public required init()

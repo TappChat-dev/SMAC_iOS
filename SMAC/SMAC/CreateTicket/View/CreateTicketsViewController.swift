@@ -273,16 +273,17 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
 
     }
     
-    //MARK: - Submit Button
+    //MARK: - Create Ticket Submit Button
     @IBAction func tapToSubmit(_ sender:Any){
         Loader.showLoader("Creating Ticket...", target: self)
         let index =  arrEquip_SubType.firstIndex(where: { $0 == self.equipmentNameTxt.text }) ?? 0
         let nameEquipID =  arrEquipID[index]
-        
+        let indexUnit =  arrUnit.firstIndex(where: { $0 == self.unitTxt.text }) ?? 0
+        let nameUnitID =  arrUnitID[indexUnit]
         guard let techID =  UserDefaults.standard.string(forKey: "TechID") else { return print("unit id is not find.") }
         Loader.showLoader("Creating ticket...", target: self)
         if globalContractId != "" {
-            viewModelType.API_createTicket(json: CreateTicketJsonModel.init(description: descriptionTxtView.text, subject: self.titleTicketIssueTxt.text!, equip_ID: nameEquipID, ticketUnit: unitTxt.text!, servicetype: self.serviceTypeTxt.text!, docpath: self.uploadSLATxt.text!, contractsID: globalContractID, response_Time: self.responseTimeTxt.text!, creator_ID: techID, equpt_Username: self.equpt_UsernameTXT.text!, contact_NO: self.contactNoTxt.text!, eqpt_SerialNo: self.serialNoTxt.text!, eqpt_Location: self.equpt_uniqueLocationTXT.text!), data: {
+            viewModelType.API_createTicket(json: CreateTicketJsonModel.init(description: descriptionTxtView.text, subject: self.titleTicketIssueTxt.text!, equip_ID: nameEquipID, ticketUnit: nameUnitID, servicetype: self.serviceTypeTxt.text!, docpath: self.uploadSLATxt.text!, contractsID: globalContractID, response_Time: self.responseTimeTxt.text!, creator_ID: techID, equpt_Username: self.equpt_UsernameTXT.text!, contact_NO: self.contactNoTxt.text!, eqpt_SerialNo: self.serialNoTxt.text!, eqpt_Location: self.equpt_uniqueLocationTXT.text!), data: {
                 response  in
                 Loader.hideLoader(self)
                     print("Create tickets Response APi")
@@ -373,6 +374,8 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
                 
                 Loader.hideLoader(self)
 
+            }else{
+                Loader.hideLoader(self)
             }
             Loader.hideLoader(self)
         })
@@ -588,9 +591,6 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
            }
     }
     
-    func apiSubmit_CreateTask(){
-        
-    }
     
     @IBAction func textFieldEditingDidChange(_ sender: Any) {
         print("change name")

@@ -563,7 +563,7 @@
                                                                     <outlet property="delegate" destination="SIq-fP-zQN" id="mh6-w1-5il"/>
                                                                 </connections>
                                                             </textField>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* Abc4567 / Contract No" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V17-VA-KzL">
+                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* Abc4567 / Contract No" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V17-VA-KzL">
                                                                 <rect key="frame" x="25" y="105" width="285" height="17"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="17" id="uJh-Ui-6kt"/>
@@ -666,7 +666,7 @@
                                                                     <outlet property="delegate" destination="SIq-fP-zQN" id="4vt-xz-hQ5"/>
                                                                 </connections>
                                                             </textField>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="* Equip678 / S.No" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fwr-Or-JMi">
+                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="* Equip678 / S.No" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fwr-Or-JMi">
                                                                 <rect key="frame" x="25" y="105" width="285" height="21"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -5572,7 +5572,7 @@
                                     <outlet property="delegate" destination="STI-iU-AQ3" id="01t-Cm-W9E"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Address,Unit name, Contract name" translatesAutoresizingMaskIntoConstraints="NO" id="fwj-pA-id2">
+                            <searchBar contentMode="redraw" placeholder="Subject,Unit name, Contract name" translatesAutoresizingMaskIntoConstraints="NO" id="fwj-pA-id2">
                                 <rect key="frame" x="0.0" y="132" width="375" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>

@@ -135,9 +135,11 @@ print("Swipable")
     
     @IBAction func tapToUpdateTicketSE(_ sender:Any){
 //        selectedNAC
-//        viewModelsUpdate.API_postUpdateTicketSE(json: UpdateTicketJsonModel.init(user_ID: "", r_ID: "", nac_Status: nacStatus, ticket_ID: userResultUpdateModel?.ticketID, assign_By: "", ticket_Status: "", remarks: shortNotesTxtView.text, nac_HandoverDOC: self.uploadSLATxt.text!, nac_ResponseTime:7 , spare_Supply: ""), data: {result in
-//            print(result)
-//        })
+        let techID =  UserDefaults.standard.string(forKey: "TechID") as? String
+
+        viewModelsUpdate.API_postUpdateTicketSE(json: UpdateTicketJsonModel.init(user_ID: techID!, r_ID: roleID, nac_Status: nacStatus, ticket_ID: userResultUpdateModel!.ticketID, assign_By: "", ticket_Status: self.statusPredefineTxt.text!, remarks: shortNotesTxtView.text, nac_HandoverDOC: self.uploadSLATxt.text!, nac_ResponseTime:7 , spare_Supply: ""), data: {result in
+            print(result)
+        })
     }
     
     // MARK: - Date Picker Button

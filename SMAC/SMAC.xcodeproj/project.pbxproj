@@ -130,6 +130,7 @@
 		04BCE68926C243DA00801EA5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE68826C243DA00801EA5 /* MainViewController.swift */; };
 		04BCE69226C292EA00801EA5 /* CreateTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE69126C292EA00801EA5 /* CreateTicketsViewController.swift */; };
 		04C122F52760A617007B7EA5 /* ContractResponseJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C122F42760A617007B7EA5 /* ContractResponseJson.swift */; };
+		04C122F72762071E007B7EA5 /* LoginVendorJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C122F62762071D007B7EA5 /* LoginVendorJson.swift */; };
 		04E2140D270ED1FD00EEE0A5 /* TicketCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2140C270ED1FD00EEE0A5 /* TicketCreateViewController.swift */; };
 		04E90EE026F46E64005E857C /* InitiatePenaltyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E90EDF26F46E64005E857C /* InitiatePenaltyVC.swift */; };
 		09F068364F230A84A4159667 /* Pods_SMAC_SMACUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A8D82D803FE490CD2DD9FA /* Pods_SMAC_SMACUITests.framework */; };
@@ -286,6 +287,7 @@
 		04BCE68826C243DA00801EA5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = SMAC/Dashboard/View/MainViewController.swift; sourceTree = SOURCE_ROOT; };
 		04BCE69126C292EA00801EA5 /* CreateTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateTicketsViewController.swift; path = SMAC/CreateTicket/View/CreateTicketsViewController.swift; sourceTree = SOURCE_ROOT; };
 		04C122F42760A617007B7EA5 /* ContractResponseJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractResponseJson.swift; sourceTree = "<group>"; };
+		04C122F62762071D007B7EA5 /* LoginVendorJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVendorJson.swift; sourceTree = "<group>"; };
 		04E2140C270ED1FD00EEE0A5 /* TicketCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCreateViewController.swift; sourceTree = "<group>"; };
 		04E90EDF26F46E64005E857C /* InitiatePenaltyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitiatePenaltyVC.swift; sourceTree = "<group>"; };
 		1864D2E0E5A830C2C3AAB50B /* Pods-SMAC-SMACUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMAC-SMACUITests.debug.xcconfig"; path = "Target Support Files/Pods-SMAC-SMACUITests/Pods-SMAC-SMACUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -901,6 +903,7 @@
 			children = (
 				045D42C526B9283F0082BCD1 /* LoginViewCredentialModel.swift */,
 				045D42D026B929060082BCD1 /* LoginViewModel.swift */,
+				04C122F62762071D007B7EA5 /* LoginVendorJson.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1534,6 +1537,7 @@
 				045D42E226B93A990082BCD1 /* Loader.swift in Sources */,
 				0421D3022718034400AD2998 /* CreateTicketViewModel.swift in Sources */,
 				04689F8A27562B53002D6263 /* BasicTransitionAnimator.swift in Sources */,
+				04C122F72762071E007B7EA5 /* LoginVendorJson.swift in Sources */,
 				04A80567272D3CCC005CDFBE /* AssignTicketViewController.swift in Sources */,
 				04689F8827562B53002D6263 /* TransitionContext.swift in Sources */,
 				045D427926B27B060082BCD1 /* AppDelegate.swift in Sources */,

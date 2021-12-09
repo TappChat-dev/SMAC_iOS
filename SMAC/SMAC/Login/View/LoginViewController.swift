@@ -40,6 +40,8 @@ class LoginViewController: UIViewController {
 //        usernameTxt.text = "ramnaresh.03591"
 //        usernameTxt.text = "deewan@intek.com"
         usernameTxt.text = "smishra.06348"
+//                usernameTxt.text = "manju@intekmicro.com"
+
 
         UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(rgb: 0x06284D)
 
@@ -89,8 +91,10 @@ class LoginViewController: UIViewController {
                 segmentSelectedOption = "ICG"
             }
             Loader.showLoader("Login...", target: self)
-       let vc1 = ContainerViewController()
-            var menuController : MenuCustomViewController!
+             if self.segmentSelectedOption == "NCG" {
+                 vendorLogin()
+             }else{
+                 
             viewModel.getLoginResponse(user: LoginViewCredentialModel(username: usernameTxt.text!, password: passwordTxt.text!, type: segmentSelectedOption!), data: {
                 response, status  in
                 print(response)
@@ -108,7 +112,10 @@ class LoginViewController: UIViewController {
                                 
                             }
                         }else{
-                            let id = item.techID as? String
+                            var id = item.techID as? String
+                            if let user_id = item.techID as? String {
+                                id = user_id
+                            }
                             if id != "" {
                                 techID = id!
                             }
@@ -147,6 +154,7 @@ class LoginViewController: UIViewController {
                     Utility().addAlertView("Alert!", "Please contact to admin.", "OK", self)
                 }
             })
+             }
 //              if status == true {
 //                  //navigate to other controller
 ////                moveToDashBord()
@@ -163,11 +171,60 @@ class LoginViewController: UIViewController {
 //            self.navigationController?.pushViewController(vc!, animated: true)
             
             return
-            
-          
         }
-     
+     }
+    
+    func vendorLogin(){
+        viewModel.getLoginVendorResponse(user: LoginViewCredentialModel(username: usernameTxt.text!, password: passwordTxt.text!, type: segmentSelectedOption!), data: {
+            response, status  in
+            print(response)
+            if status == true  && response?.result.count ?? 0 > 0{
+                //navigate to other controller
+//                moveToDashBord()
+                var techID = ""
+                for item in response!.result {
+                    if self.segmentSelectedOption == "ICG" {
+                        print(response!.result[0])
+                        let id = item.pid
+                        
+                    }else{
+                        var id = item.techID as? String
+                        if let user_id = item.techID as? String {
+                            id = user_id
+                        }
+                        if id != "" {
+                            techID = id!
+                        }
+                    }
+                }
+                
+                self.API_checkRole(TechID: techID, type: self.segmentSelectedOption!, roles: {
+                    dict in
+                    print(dict)
+                    UserDefaults.standard.set(dict["roleID"], forKey: "isLoginRoleID")
+                    UserDefaults.standard.set(dict["descr"], forKey: "isLoginRoleDesc")
+                      Loader.hideLoader(self)
+                    roleID = dict["roleID"] as! String
+                    roleDescp = dict["descr"] as! String
+                    self.configureSideMenu()
+                    self.navigationController?.navigationBar.isHidden = true
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let v1 = storyboard.instantiateViewController(withIdentifier:"SideMenu") as? SideMenuController
+                    self.navigationController?.pushViewController(v1!, animated: true)
+                })
+                UserDefaults.standard.set("Yes", forKey: "isLoginSuccess") //setObject
+                UserDefaults.standard.set(techID, forKey: "TechID")
+
+                UserDefaults.standard.set(response?.result[0].unit, forKey: "unit")
+                UserDefaults.standard.set("", forKey: "status")
+             
+            }else{
+                Loader.hideLoader(self)
+                Utility().addAlertView("Alert!", "Please contact to admin.", "OK", self)
+            }
+        })
     }
+    
     func moveToDashBord(){
         let vc1 = UIStoryboard.init(name: "SideMenuMain", bundle: Bundle.main).instantiateViewController(withIdentifier: "SideMenu") as? SideMenuController
         let vc2 = UIStoryboard.init(name: "SideMenuMain", bundle: Bundle.main).instantiateViewController(withIdentifier: "ContentNavigation") as? NavigationController
