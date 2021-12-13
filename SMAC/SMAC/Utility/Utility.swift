@@ -13,6 +13,7 @@ import SystemConfiguration
 import CoreLocation
 import CoreTelephony
 
+
  public class Utility : NSObject {
     static func setViewCornerRadius(_ view: UIView, _ radius: CGFloat) {
         view.layer.cornerRadius = radius
