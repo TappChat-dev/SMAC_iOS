@@ -68,9 +68,7 @@ struct RedefineAllContract:Codable {
 
 struct RedefineResult: Codable {
     let contractID, vendorID: String
-    let vendorName: VendorName?
-    let contractDt: ContractDt?
-    let contractNo: String?
+    let vendorName, contractDt, contractNo: String?
     let contractName: String
     let contractDescr: String?
     let contractDocs: ContractDocs?
@@ -80,8 +78,7 @@ struct RedefineResult: Codable {
     let stationContractCreator: String
     let stationName: StationName
     let duration: Int?
-    let fmDt: FmDt?
-    let endDt: String?
+    let fmDt, endDt: String?
     let contractType: String
     let contractTypeName: String?
     let pid: String
@@ -111,6 +108,7 @@ struct RedefineResult: Codable {
     }
 }
 
+
 enum ContractCreatedBy: String, Codable {
     case dteInformationTechnology = "Dte. Information Technology"
     case icgsDelhi = "ICGS Delhi"
@@ -121,27 +119,10 @@ enum ContractDocs: String, Codable {
     case smaple = "smaple"
 }
 
-enum ContractDt: String, Codable {
-    case the20211031T183000000Z = "2021-10-31T18:30:00.000Z"
-    case the20211101T070720000Z = "2021-11-01T07:07:20.000Z"
-    case the20211114T183000000Z = "2021-11-14T18:30:00.000Z"
-    case the20211130T183000000Z = "2021-11-30T18:30:00.000Z"
-    case the20211207T183000000Z = "2021-12-07T18:30:00.000Z"
-    case the20211208T183000000Z = "2021-12-08T18:30:00.000Z"
-}
-
 enum ContractStatus: String, Codable {
     case contractCreated = "CONTRACT CREATED"
     case equipmentNotMapped = "EQUIPMENT NOT MAPPED"
     case slaNotConfigured = "SLA NOT CONFIGURED"
-}
-
-enum FmDt: String, Codable {
-    case the20211031T183000000Z = "2021-10-31T18:30:00.000Z"
-    case the20211115T183000000Z = "2021-11-15T18:30:00.000Z"
-    case the20211201T183000000Z = "2021-12-01T18:30:00.000Z"
-    case the20211207T183000000Z = "2021-12-07T18:30:00.000Z"
-    case the20211208T183000000Z = "2021-12-08T18:30:00.000Z"
 }
 
 enum SlaDocs: String, Codable {
@@ -152,8 +133,3 @@ enum StationName: String, Codable {
     case delhi = "Delhi"
 }
 
-enum VendorName: String, Codable {
-    case mSElcomeIntegratedServicesPvtLtdMumbai = "M/s Elcome Integrated Services Pvt. Ltd, Mumbai"
-    case mSKongsbergMaritimeMumbai = "M/s Kongsberg Maritime, Mumbai"
-    case mSVACmanSanitationSolutionPvtLtdMumbai = "M/s VACman Sanitation Solution Pvt. Ltd, Mumbai"
-}

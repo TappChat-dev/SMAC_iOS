@@ -91,6 +91,9 @@ class ContractorSLA_VC: UIViewController,UISearchBarDelegate {
 //                }
                 if dataResult.count > 0 {
                     self?.userModelContr = dataResult
+                }else{
+                    Utility().addAlertView("Alert!", "Data is not available.", "OK", self!)
+
                 }
                 Loader.hideLoader(self)
 

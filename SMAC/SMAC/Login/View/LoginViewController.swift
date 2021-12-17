@@ -35,11 +35,11 @@ class LoginViewController: UIViewController {
 //        usernameTxt.text = "gautamsingh.12957" // ICG SDM
 //        passwordTxt.text = "18Aug2014@8851"
 //        usernameTxt.text = "jaideep.04627" // ICG Equip USer
-        passwordTxt.text = "123"//"06Aug2001@6676"
+//        passwordTxt.text = "123"//"06Aug2001@6676"
 //        usernameTxt.text = "gautamsingh.12954"
 //        usernameTxt.text = "ramnaresh.03591"
 //        usernameTxt.text = "deewan@intek.com"
-        usernameTxt.text = "smishra.06348"
+//        usernameTxt.text = "smishra.06348"
 //                usernameTxt.text = "manju@intekmicro.com"
 
 
@@ -132,6 +132,12 @@ class LoginViewController: UIViewController {
                           Loader.hideLoader(self)
                         roleID = dict["roleID"] as! String
                         roleDescp = dict["descr"] as! String
+                        let nameF = response?.result[0].firstname
+        //                let nameL = response?.result[0].lastname.fastestEncoding.rawValue
+                        if  nameF != nil  {
+                            let name = String(nameF ?? "")
+                            UserDefaults.standard.set(name, forKey: "Username")
+                        }
 //                        self.navigationController?.pushViewController(vc!, animated: true)
                         self.configureSideMenu()
 //                        self.navigationController?.hidesBarsOnTap = false
@@ -206,14 +212,21 @@ class LoginViewController: UIViewController {
                       Loader.hideLoader(self)
                     roleID = dict["roleID"] as! String
                     roleDescp = dict["descr"] as! String
+                    UserDefaults.standard.set("Yes", forKey: "isLoginSuccess") //setObject
+                    UserDefaults.standard.set(techID, forKey: "TechID")
+                    let nameF = response?.result[0].firstname
+    //                let nameL = response?.result[0].lastname.fastestEncoding.rawValue
+                    if  nameF != nil  {
+                        let name = String(nameF ?? "")
+                        UserDefaults.standard.set(name, forKey: "Username")
+                    }
                     self.configureSideMenu()
                     self.navigationController?.navigationBar.isHidden = true
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let v1 = storyboard.instantiateViewController(withIdentifier:"SideMenu") as? SideMenuController
                     self.navigationController?.pushViewController(v1!, animated: true)
                 })
-                UserDefaults.standard.set("Yes", forKey: "isLoginSuccess") //setObject
-                UserDefaults.standard.set(techID, forKey: "TechID")
+              
 
                 UserDefaults.standard.set(response?.result[0].unit, forKey: "unit")
                 UserDefaults.standard.set("", forKey: "status")

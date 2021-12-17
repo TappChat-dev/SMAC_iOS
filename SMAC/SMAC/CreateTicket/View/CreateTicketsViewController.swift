@@ -369,7 +369,7 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
                     self?.contractNameTxt.loadDropdownData(data: self!.arrEquip_ContractorName)
                 }else{
                                     Loader.hideLoader(self)
-                    Utility().addAlertView("Alert!", "Getting error from server.", "OK", self!)
+                    Utility().addAlertView("Alert!", "Getting error from server. Currently Contract is not available", "OK", self!)
                 }
                 
                 Loader.hideLoader(self)

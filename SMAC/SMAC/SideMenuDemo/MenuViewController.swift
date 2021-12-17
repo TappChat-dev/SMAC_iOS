@@ -28,10 +28,10 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var selectionMenuTrailingConstraint: NSLayoutConstraint!
     private var themeColor = UIColor.white
 
-    let totalSDMICG = ["DashBoard","Create Ticket", "View Ticket","View Contract","View Vender","View Equipment"]
-    let arrSDMVender = ["DashBoard","Create Ticket","Assign Ticket","View Ticket","View Contract","View Equipment"]
-    let arrEquipmentUser = ["DashBoard","Create Ticket","View Ticket","View Contract","View Equipment","View Vender"]
-    let arrServiceEng = ["DashBoard","View Ticket","View Contract","View Equipment"]
+    let totalSDMICG = ["DashBoard","Create Ticket","Initiate Penalty", "View Ticket","View Contract","View Vender","View Equipment","Logout"]
+    let arrSDMVender = ["DashBoard","Assign Ticket","View Ticket","View Contract","View Equipment","Logout"]
+    let arrEquipmentUser = ["DashBoard","Create Ticket","View Ticket","View Contract","View Equipment","View Vender","Logout"]
+    let arrServiceEng = ["DashBoard","View Ticket","View Contract","View Equipment","Logout"]
     var totalArrayRole = [String]()
 
     
@@ -47,24 +47,26 @@ class MenuViewController: UIViewController {
         }else if (roleID == "EU"){ // icg Eqipment user //"R08"
             totalArrayRole = arrEquipmentUser
         }
+      
         isDarkModeEnabled = SideMenuController.preferences.basic.position == .under
         configureView()
 
         if roleID == "DM" {
-            sideMenuController?.cache(viewControllerGenerator: {
-                self.storyboard?.instantiateViewController(withIdentifier: "CreateTicket")
-            }, with: "1")
+            
             sideMenuController?.cache(viewControllerGenerator: {
                 self.storyboard?.instantiateViewController(withIdentifier: "AssignTicket")
-            }, with: "2")
+            }, with: "1")
             sideMenuController?.cache(viewControllerGenerator: {
                 self.storyboard?.instantiateViewController(withIdentifier: "ViewTicket")
-            }, with: "3")
+            }, with: "2")
             sideMenuController?.cache(viewControllerGenerator: {
                 self.storyboard?.instantiateViewController(withIdentifier: "ViewContract")
-            }, with: "4")
+            }, with: "3")
             sideMenuController?.cache(viewControllerGenerator: {
                 self.storyboard?.instantiateViewController(withIdentifier: "ViewEquipment")
+            }, with: "4")
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "logout")
             }, with: "5")
         }else if (roleID == "SD"){// icg service desk manager //"R04"
             sideMenuController?.cache(viewControllerGenerator: {
@@ -72,17 +74,23 @@ class MenuViewController: UIViewController {
             }, with: "1")
 
             sideMenuController?.cache(viewControllerGenerator: {
-                self.storyboard?.instantiateViewController(withIdentifier: "ViewTicket")
+                self.storyboard?.instantiateViewController(withIdentifier: "Penalty")
             }, with: "2")
             sideMenuController?.cache(viewControllerGenerator: {
-                self.storyboard?.instantiateViewController(withIdentifier: "ViewContract")
+                self.storyboard?.instantiateViewController(withIdentifier: "ViewTicket")
             }, with: "3")
             sideMenuController?.cache(viewControllerGenerator: {
-                self.storyboard?.instantiateViewController(withIdentifier: "ViewVender")
+                self.storyboard?.instantiateViewController(withIdentifier: "ViewContract")
             }, with: "4")
             sideMenuController?.cache(viewControllerGenerator: {
-                self.storyboard?.instantiateViewController(withIdentifier: "ViewEquipment")
+                self.storyboard?.instantiateViewController(withIdentifier: "ViewVender")
             }, with: "5")
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "ViewEquipment")
+            }, with: "6")
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "logout")
+            }, with: "7")
         }else if (roleID == "SE"){ // non-icg service engineer //"R05"
             sideMenuController?.cache(viewControllerGenerator: {
                 self.storyboard?.instantiateViewController(withIdentifier: "ViewTicket")
@@ -93,6 +101,9 @@ class MenuViewController: UIViewController {
             sideMenuController?.cache(viewControllerGenerator: {
                 self.storyboard?.instantiateViewController(withIdentifier: "ViewEquipment")
             }, with: "3")
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "logout")
+            }, with: "4")
         }else if (roleID == "EU"){ // icg Eqipment user //"R08"
             sideMenuController?.cache(viewControllerGenerator: {
                 self.storyboard?.instantiateViewController(withIdentifier: "CreateTicket")
@@ -110,6 +121,9 @@ class MenuViewController: UIViewController {
             sideMenuController?.cache(viewControllerGenerator: {
                 self.storyboard?.instantiateViewController(withIdentifier: "ViewVender")
             }, with: "5")
+            sideMenuController?.cache(viewControllerGenerator: {
+                self.storyboard?.instantiateViewController(withIdentifier: "logout")
+            }, with: "6")
         }
 //        totalArrayRole.append("Logout")
         
@@ -130,6 +144,8 @@ class MenuViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("[Example] Menu did appear")
+        let  Username =  UserDefaults.standard.string(forKey: "Username")
+         self.selectionTableViewHeader.text = Username
     }
 
     override func viewWillDisappear(_ animated: Bool) {

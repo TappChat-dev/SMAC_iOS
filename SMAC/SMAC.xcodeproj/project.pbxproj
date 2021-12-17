@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0401EE4B26E0B16600185A09 /* AddEquipmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0401EE4A26E0B16600185A09 /* AddEquipmentViewController.swift */; };
 		0402E74227228F27004D866A /* ViewTicketJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0402E74127228F27004D866A /* ViewTicketJsonModel.swift */; };
+		0408A508276C5B1D003C8131 /* PenaltyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408A507276C5B1D003C8131 /* PenaltyResponse.swift */; };
+		0408A50B276C6E26003C8131 /* LogoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408A50A276C6E26003C8131 /* LogoutVC.swift */; };
 		040944812735113F008E04B7 /* ViewEquipmentRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040944802735113F008E04B7 /* ViewEquipmentRequestModel.swift */; };
 		04149A3526F9B68C00B9E7AD /* ContractorSLA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04149A3326F9B68C00B9E7AD /* ContractorSLA.swift */; };
 		04149A3626F9B68C00B9E7AD /* ContractorSLA.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04149A3426F9B68C00B9E7AD /* ContractorSLA.xib */; };
@@ -117,6 +119,12 @@
 		046D9D24274F9E3F0057074A /* UpdateTicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D9D23274F9E3F0057074A /* UpdateTicketViewModel.swift */; };
 		046D9D26274F9E540057074A /* UpdateTicketsJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D9D25274F9E540057074A /* UpdateTicketsJsonModel.swift */; };
 		046D9D28274F9E6C0057074A /* UpdateTicketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046D9D27274F9E6C0057074A /* UpdateTicketModel.swift */; };
+		046FABEA2767639900565FA6 /* PenaltyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FABE92767639800565FA6 /* PenaltyService.swift */; };
+		046FABEC276763AE00565FA6 /* PenaltyService.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046FABEB276763AD00565FA6 /* PenaltyService.xib */; };
+		046FABF027687D8C00565FA6 /* ServiceProrata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FABEF27687D8C00565FA6 /* ServiceProrata.swift */; };
+		046FABF227687DA100565FA6 /* ServiceProrata.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046FABF127687DA100565FA6 /* ServiceProrata.xib */; };
+		046FABF427687FE400565FA6 /* SpareLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046FABF327687FE400565FA6 /* SpareLD.swift */; };
+		046FABF627687FF600565FA6 /* SpareLD.xib in Resources */ = {isa = PBXBuildFile; fileRef = 046FABF527687FF600565FA6 /* SpareLD.xib */; };
 		047A4A3926F85B37004D514F /* PenaltyDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A4A3826F85B37004D514F /* PenaltyDetailsVC.swift */; };
 		047A4A4526F86609004D514F /* ApproveContractVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A4A4426F86609004D514F /* ApproveContractVC.swift */; };
 		04A80567272D3CCC005CDFBE /* AssignTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A80566272D3CCC005CDFBE /* AssignTicketViewController.swift */; };
@@ -131,6 +139,7 @@
 		04BCE69226C292EA00801EA5 /* CreateTicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE69126C292EA00801EA5 /* CreateTicketsViewController.swift */; };
 		04C122F52760A617007B7EA5 /* ContractResponseJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C122F42760A617007B7EA5 /* ContractResponseJson.swift */; };
 		04C122F72762071E007B7EA5 /* LoginVendorJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C122F62762071D007B7EA5 /* LoginVendorJson.swift */; };
+		04D0D7B52769C2FE00BCC278 /* PenaltyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D0D7B42769C2FE00BCC278 /* PenaltyViewModel.swift */; };
 		04E2140D270ED1FD00EEE0A5 /* TicketCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E2140C270ED1FD00EEE0A5 /* TicketCreateViewController.swift */; };
 		04E90EE026F46E64005E857C /* InitiatePenaltyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E90EDF26F46E64005E857C /* InitiatePenaltyVC.swift */; };
 		09F068364F230A84A4159667 /* Pods_SMAC_SMACUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A8D82D803FE490CD2DD9FA /* Pods_SMAC_SMACUITests.framework */; };
@@ -158,6 +167,8 @@
 /* Begin PBXFileReference section */
 		0401EE4A26E0B16600185A09 /* AddEquipmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEquipmentViewController.swift; sourceTree = "<group>"; };
 		0402E74127228F27004D866A /* ViewTicketJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTicketJsonModel.swift; sourceTree = "<group>"; };
+		0408A507276C5B1D003C8131 /* PenaltyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenaltyResponse.swift; sourceTree = "<group>"; };
+		0408A50A276C6E26003C8131 /* LogoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutVC.swift; sourceTree = "<group>"; };
 		040944802735113F008E04B7 /* ViewEquipmentRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEquipmentRequestModel.swift; sourceTree = "<group>"; };
 		04149A3326F9B68C00B9E7AD /* ContractorSLA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractorSLA.swift; sourceTree = "<group>"; };
 		04149A3426F9B68C00B9E7AD /* ContractorSLA.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContractorSLA.xib; sourceTree = "<group>"; };
@@ -274,6 +285,12 @@
 		046D9D23274F9E3F0057074A /* UpdateTicketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTicketViewModel.swift; sourceTree = "<group>"; };
 		046D9D25274F9E540057074A /* UpdateTicketsJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTicketsJsonModel.swift; sourceTree = "<group>"; };
 		046D9D27274F9E6C0057074A /* UpdateTicketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTicketModel.swift; sourceTree = "<group>"; };
+		046FABE92767639800565FA6 /* PenaltyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenaltyService.swift; sourceTree = "<group>"; };
+		046FABEB276763AD00565FA6 /* PenaltyService.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PenaltyService.xib; sourceTree = "<group>"; };
+		046FABEF27687D8C00565FA6 /* ServiceProrata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProrata.swift; sourceTree = "<group>"; };
+		046FABF127687DA100565FA6 /* ServiceProrata.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceProrata.xib; sourceTree = "<group>"; };
+		046FABF327687FE400565FA6 /* SpareLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpareLD.swift; sourceTree = "<group>"; };
+		046FABF527687FF600565FA6 /* SpareLD.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpareLD.xib; sourceTree = "<group>"; };
 		047A4A3826F85B37004D514F /* PenaltyDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenaltyDetailsVC.swift; sourceTree = "<group>"; };
 		047A4A4426F86609004D514F /* ApproveContractVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveContractVC.swift; sourceTree = "<group>"; };
 		04A80566272D3CCC005CDFBE /* AssignTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignTicketViewController.swift; sourceTree = "<group>"; };
@@ -288,6 +305,7 @@
 		04BCE69126C292EA00801EA5 /* CreateTicketsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateTicketsViewController.swift; path = SMAC/CreateTicket/View/CreateTicketsViewController.swift; sourceTree = SOURCE_ROOT; };
 		04C122F42760A617007B7EA5 /* ContractResponseJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractResponseJson.swift; sourceTree = "<group>"; };
 		04C122F62762071D007B7EA5 /* LoginVendorJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVendorJson.swift; sourceTree = "<group>"; };
+		04D0D7B42769C2FE00BCC278 /* PenaltyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenaltyViewModel.swift; sourceTree = "<group>"; };
 		04E2140C270ED1FD00EEE0A5 /* TicketCreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketCreateViewController.swift; sourceTree = "<group>"; };
 		04E90EDF26F46E64005E857C /* InitiatePenaltyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitiatePenaltyVC.swift; sourceTree = "<group>"; };
 		1864D2E0E5A830C2C3AAB50B /* Pods-SMAC-SMACUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SMAC-SMACUITests.debug.xcconfig"; path = "Target Support Files/Pods-SMAC-SMACUITests/Pods-SMAC-SMACUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -359,6 +377,14 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0408A509276C6E05003C8131 /* Logout */ = {
+			isa = PBXGroup;
+			children = (
+				0408A50A276C6E26003C8131 /* LogoutVC.swift */,
+			);
+			path = Logout;
 			sourceTree = "<group>";
 		};
 		04149A2B26F9B60900B9E7AD /* ContractorSLA */ = {
@@ -801,6 +827,7 @@
 		045D427726B27B060082BCD1 /* SMAC */ = {
 			isa = PBXGroup;
 			children = (
+				0408A509276C6E05003C8131 /* Logout */,
 				04689F6F27562B28002D6263 /* SideMenuDemo */,
 				04A80568272D6260005CDFBE /* View Document */,
 				04A80562272D3C6E005CDFBE /* AssignTicket */,
@@ -1204,6 +1231,7 @@
 		04E90ED926F45D95005E857C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0408A507276C5B1D003C8131 /* PenaltyResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1212,6 +1240,12 @@
 			isa = PBXGroup;
 			children = (
 				04E90EDF26F46E64005E857C /* InitiatePenaltyVC.swift */,
+				046FABF327687FE400565FA6 /* SpareLD.swift */,
+				046FABF527687FF600565FA6 /* SpareLD.xib */,
+				046FABEF27687D8C00565FA6 /* ServiceProrata.swift */,
+				046FABF127687DA100565FA6 /* ServiceProrata.xib */,
+				046FABE92767639800565FA6 /* PenaltyService.swift */,
+				046FABEB276763AD00565FA6 /* PenaltyService.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1219,6 +1253,7 @@
 		04E90EDB26F45DA2005E857C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				04D0D7B42769C2FE00BCC278 /* PenaltyViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1355,6 +1390,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				045A2D5626CE690C00B2AAF8 /* CloseTicketTableCell.xib in Resources */,
+				046FABEC276763AE00565FA6 /* PenaltyService.xib in Resources */,
+				046FABF227687DA100565FA6 /* ServiceProrata.xib in Resources */,
 				045D428826B27B080082BCD1 /* LaunchScreen.storyboard in Resources */,
 				04149A3626F9B68C00B9E7AD /* ContractorSLA.xib in Resources */,
 				04149A5D26F9E0D700B9E7AD /* ImageHeaderView.xib in Resources */,
@@ -1365,6 +1402,7 @@
 				045D439726BD334B0082BCD1 /* DashboardCVCell.xib in Resources */,
 				045D438B26BD11C40082BCD1 /* DashboardTVCell.xib in Resources */,
 				045D428026B27B060082BCD1 /* Main.storyboard in Resources */,
+				046FABF627687FF600565FA6 /* SpareLD.xib in Resources */,
 				0453513926F0755E00429987 /* SLAViewCell.xib in Resources */,
 				042A63A92704359200182358 /* TicketStatusCell.xib in Resources */,
 				04149A6426F9E17F00B9E7AD /* menuCell.xib in Resources */,
@@ -1500,6 +1538,7 @@
 				04426594273E371300EB5933 /* VenderRequestModel.swift in Sources */,
 				045D439626BD334B0082BCD1 /* DashboardCVCell.swift in Sources */,
 				045D427D26B27B060082BCD1 /* ViewController.swift in Sources */,
+				0408A50B276C6E26003C8131 /* LogoutVC.swift in Sources */,
 				0453515526F1F9A400429987 /* VenderListCell.swift in Sources */,
 				04149A5026F9E01C00B9E7AD /* ImageHeaderView.swift in Sources */,
 				04689F8227562B53002D6263 /* UIViewController+SideMenu.swift in Sources */,
@@ -1511,15 +1550,18 @@
 				0402E74227228F27004D866A /* ViewTicketJsonModel.swift in Sources */,
 				04689F8927562B53002D6263 /* Segue.swift in Sources */,
 				04149A3B26F9B6C700B9E7AD /* ContractorSLA_VC.swift in Sources */,
+				046FABF027687D8C00565FA6 /* ServiceProrata.swift in Sources */,
 				047A4A4526F86609004D514F /* ApproveContractVC.swift in Sources */,
 				0453513826F0755E00429987 /* SLAViewCell.swift in Sources */,
 				045A2D5526CE690C00B2AAF8 /* CloseTicketTableCell.swift in Sources */,
+				046FABF427687FE400565FA6 /* SpareLD.swift in Sources */,
 				045D428326B27B060082BCD1 /* SMAC.xcdatamodeld in Sources */,
 				0458037E26C524D6007B0796 /* ViewTicketsViewController.swift in Sources */,
 				045D42DD26B93A940082BCD1 /* Utility.swift in Sources */,
 				04689F8327562B53002D6263 /* WorkWithOtherViewController.swift in Sources */,
 				045D42C626B9283F0082BCD1 /* LoginViewCredentialModel.swift in Sources */,
 				045D439C26BD414C0082BCD1 /* CustomFlowLayout.swift in Sources */,
+				04D0D7B52769C2FE00BCC278 /* PenaltyViewModel.swift in Sources */,
 				045D430326B93AC40082BCD1 /* UINib+Loader.swift in Sources */,
 				046D9D28274F9E6C0057074A /* UpdateTicketModel.swift in Sources */,
 				04149A4A26F9DFE100B9E7AD /* protocols.swift in Sources */,
@@ -1537,6 +1579,7 @@
 				045D42E226B93A990082BCD1 /* Loader.swift in Sources */,
 				0421D3022718034400AD2998 /* CreateTicketViewModel.swift in Sources */,
 				04689F8A27562B53002D6263 /* BasicTransitionAnimator.swift in Sources */,
+				0408A508276C5B1D003C8131 /* PenaltyResponse.swift in Sources */,
 				04C122F72762071E007B7EA5 /* LoginVendorJson.swift in Sources */,
 				04A80567272D3CCC005CDFBE /* AssignTicketViewController.swift in Sources */,
 				04689F8827562B53002D6263 /* TransitionContext.swift in Sources */,
@@ -1579,6 +1622,7 @@
 				04BCE68226C241B000801EA5 /* SideMenuModel.swift in Sources */,
 				04C122F52760A617007B7EA5 /* ContractResponseJson.swift in Sources */,
 				04BCE68126C241B000801EA5 /* SideMenuViewController.swift in Sources */,
+				046FABEA2767639900565FA6 /* PenaltyService.swift in Sources */,
 				042A63A82704359200182358 /* TicketStatusCell.swift in Sources */,
 				04689F8B27562B53002D6263 /* SideMenuController.swift in Sources */,
 				04689F8127562B53002D6263 /* Delegate.swift in Sources */,

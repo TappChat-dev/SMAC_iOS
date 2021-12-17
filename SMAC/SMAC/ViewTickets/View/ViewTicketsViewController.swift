@@ -112,6 +112,12 @@ class ViewTicketsViewController: UIViewController,ViewTicketCellDelegate,UISearc
 
 //                print(self?.userResultModel)
                 self?.tableView.reloadData()
+                if (self?.userResultModel.count)! > 0 {
+                    
+                }else{
+                    Utility().addAlertView("Alert!", "Data is available.", "OK", self!)
+
+                }
             }
             Loader.hideLoader(self)
         })

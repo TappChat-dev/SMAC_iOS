@@ -1,23 +1,23 @@
 //
-//  PenaltyService.swift
+//  ServiceProrata.swift
 //  SMAC
 //
-//  Created by MAC on 13/12/21.
+//  Created by MAC on 14/12/21.
 //
 
+import Foundation
 import UIKit
 
-class PenaltyService: UIView {
-    @IBOutlet weak var basicUnittxt:UITextField!
+class ServiceProrata: UIView{
+    @IBOutlet weak var qualityUnitTtxt:UITextField!
+    @IBOutlet weak var dayQuarterTxt:UITextField!
+    @IBOutlet weak var unitCostTxt:UITextField!
     @IBOutlet weak var totalDelayTxt:UITextField!
-    @IBOutlet weak var ldRateTxt:UITextField!
-    @IBOutlet weak var maximumLDTxt:UITextField!
     @IBOutlet weak var payablePaynltyTxt:UITextField!
 
     @IBOutlet weak var viewOtps:UIView!
     @IBOutlet weak var btnVariefy:UIButton!
     @IBOutlet weak var btnApproved:UIButton!
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -27,7 +27,6 @@ class PenaltyService: UIView {
         super.init(coder: aDecoder)
         
     }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         commonInit()
@@ -42,12 +41,11 @@ class PenaltyService: UIView {
 //    }
 }
 
-extension PenaltyService:UITextFieldDelegate{
+extension ServiceProrata:UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
         print("TextField did begin editing method called")
-        if textField.tag == 1006 {
-//            let cost = 0.10 * Double(spareCostTtxt.text!)!
-//            maximumLDTxt.text = String(cost)
+        if textField.tag == 1011 {
+
         }
     }
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -60,12 +58,9 @@ extension PenaltyService:UITextFieldDelegate{
     }
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         print("spare textField Should EndEditing")
-        if textField.tag == 1006 {
-            if textField.text != nil && textField.text != "" {
-                let cost = 0.10 * (self.basicUnittxt.text?.toDouble())!
-                maximumLDTxt.text = String(cost)
-            }
-            
+        if textField.tag == 1011 {
+            let cost =  Int((self.qualityUnitTtxt.text?.toDouble())!) / Int((self.dayQuarterTxt.text?.toDouble())!)
+            unitCostTxt.text = String(cost)
         }
         return true;
     }
