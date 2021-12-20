@@ -19,9 +19,24 @@ class LogoutVC: UIViewController {
         UserDefaults.standard.set("No", forKey: "isLoginSuccess") //setObject
         UserDefaults.standard.set("", forKey: "TechID")
         UserDefaults.standard.set("", forKey: "unit")
+//        var window: UIWindow?
 
-        self.navigationController?.dismiss(animated: true)
-        self.navigationController?.popToRootViewController(animated: true)
+//        self.navigationController?.dismiss(animated: true)
+//        self.navigationController?.popToRootViewController(animated: true)
+        let vc = (UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController)!
+        self.navigationController?.pushViewController(vc, animated: true)
+//        let navigationController = UINavigationController(rootViewController: vc)
+//        navigationController.isNavigationBarHidden = false
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//
+//        appDelegate.window?.rootViewController = navigationController
+        
+        
+//        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+//        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        appDelegate.window?.rootViewController = nextViewController
+//        appDelegate.window?.makeKeyAndVisible()
     }
 
     /*
