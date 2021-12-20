@@ -253,16 +253,16 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
         if let identifier = sideMenuController?.currentCacheIdentifier() {
             print("[Example] View Controller Cache Identifier: \(identifier)")
         }
-        if totalArrayRole[row] == "Logout" {
-            let defaults = UserDefaults.standard
-            let dictionary = defaults.dictionaryRepresentation()
-
-                dictionary.keys.forEach
-                {
-                    key in   defaults.removeObject(forKey: key)
-                }
-            dismiss(animated: true, completion: nil)
-        }
+//        if totalArrayRole[row] == "Logout" {
+//            let defaults = UserDefaults.standard
+//            let dictionary = defaults.dictionaryRepresentation()
+//
+//                dictionary.keys.forEach
+//                {
+//                    key in   defaults.removeObject(forKey: key)
+//                }
+//            dismiss(animated: true, completion: nil)
+//        }
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

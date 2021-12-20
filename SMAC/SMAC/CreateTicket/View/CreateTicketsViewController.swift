@@ -275,6 +275,11 @@ class CreateTicketsViewController: UIViewController, UINavigationControllerDeleg
     
     //MARK: - Create Ticket Submit Button
     @IBAction func tapToSubmit(_ sender:Any){
+        if self.equipmentNameTxt.text == "" || self.equipmentNameTxt.text == nil {
+            Utility().addAlertView("Alert!", "Please complete your form.", "OK", self)
+
+            return
+        }
         Loader.showLoader("Creating Ticket...", target: self)
         let index =  arrEquip_SubType.firstIndex(where: { $0 == self.equipmentNameTxt.text }) ?? 0
         let nameEquipID =  arrEquipID[index]

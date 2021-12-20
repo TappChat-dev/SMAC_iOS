@@ -12,6 +12,7 @@ class PenaltyViewModel:NSObject {
     private let apiManager = NetworkManager()
 //    let serviceUrlCombo = BaseUrl.baseURL + "getcomboData"
     let serviceUrlCombo =  "https://icg.net.in/smacapi/getcomboData"
+    let serviceUrlInitiate = "https://icg.net.in/smacapi/initiatePenalty" // BaseUrl.baseURL + "initiatePenalty"
     func API_Get_PenaltyWithCombo(json:RoleJsonDictionary, data:@escaping (_ result:PenaltyResponse?,_ resultBool: Bool) -> ()){
         let jsons =  RoleJsonDictionary.encode(object: json)
         print("View ticket request",jsons)
@@ -45,6 +46,14 @@ class PenaltyViewModel:NSObject {
             }else{
 //                data([], false)
             }
+        })
+    }
+    
+    func API_Post_InitiatePenalty(json:PenaltyRequestJson,data: @escaping(_ result:Data?) -> ()){
+        let jsons =  PenaltyRequestJson.encode(object: json)
+
+        apiManager.apiPost(serviceName: serviceUrlInitiate, parameters: jsons as! [String : Any], completionHandler: {result,error in
+            print(result)
         })
     }
 }

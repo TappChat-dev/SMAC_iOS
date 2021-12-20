@@ -130,6 +130,7 @@
 		04A80567272D3CCC005CDFBE /* AssignTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A80566272D3CCC005CDFBE /* AssignTicketViewController.swift */; };
 		04A8056A272FAF5F005CDFBE /* VendorListJsonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A80569272FAF5E005CDFBE /* VendorListJsonModel.swift */; };
 		04A8056C272FAFCC005CDFBE /* VendorListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A8056B272FAFCC005CDFBE /* VendorListModel.swift */; };
+		04B7C8052770863800680B36 /* PenaltyRequestJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B7C8042770863800680B36 /* PenaltyRequestJson.swift */; };
 		04BCE67426C1786100801EA5 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE67326C1786100801EA5 /* UIViewController+Extensions.swift */; };
 		04BCE68126C241B000801EA5 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE67C26C241B000801EA5 /* SideMenuViewController.swift */; };
 		04BCE68226C241B000801EA5 /* SideMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCE67D26C241B000801EA5 /* SideMenuModel.swift */; };
@@ -296,6 +297,7 @@
 		04A80566272D3CCC005CDFBE /* AssignTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignTicketViewController.swift; sourceTree = "<group>"; };
 		04A80569272FAF5E005CDFBE /* VendorListJsonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorListJsonModel.swift; sourceTree = "<group>"; };
 		04A8056B272FAFCC005CDFBE /* VendorListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendorListModel.swift; sourceTree = "<group>"; };
+		04B7C8042770863800680B36 /* PenaltyRequestJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PenaltyRequestJson.swift; sourceTree = "<group>"; };
 		04BCE67326C1786100801EA5 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		04BCE67C26C241B000801EA5 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		04BCE67D26C241B000801EA5 /* SideMenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuModel.swift; sourceTree = "<group>"; };
@@ -1254,6 +1256,7 @@
 			isa = PBXGroup;
 			children = (
 				04D0D7B42769C2FE00BCC278 /* PenaltyViewModel.swift */,
+				04B7C8042770863800680B36 /* PenaltyRequestJson.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1617,6 +1620,7 @@
 				045D42FF26B93AC40082BCD1 /* RoundedCorner.swift in Sources */,
 				042B7FF4273B9BF300E2DD6C /* ContractModel.swift in Sources */,
 				042DB0C9275E1FA200452905 /* SEUpdateTicketVC.swift in Sources */,
+				04B7C8052770863800680B36 /* PenaltyRequestJson.swift in Sources */,
 				04689F7F27562B53002D6263 /* UIViewController+Container.swift in Sources */,
 				043FCC5926CB93E300120117 /* VCModel.swift in Sources */,
 				04BCE68226C241B000801EA5 /* SideMenuModel.swift in Sources */,

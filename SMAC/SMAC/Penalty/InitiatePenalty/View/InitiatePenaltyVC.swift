@@ -262,12 +262,13 @@ class InitiatePenaltyVC: UIViewController {
             if type == 1 {
                 spareLD.transform = CGAffineTransform(translationX: 0, y: 645)
                 self.spareLD.btnCalculate.addTarget(self, action: #selector(self.calculate), for: .touchUpInside)
-
+                self.spareLD.btnSave.addTarget(self, action: #selector(self.SpareLD_SaveButton), for: .touchUpInside)
                 
                 animateViewUp_spareLD()
             }else if type == 2{
                 serviceProrata.transform = CGAffineTransform(translationX: 0, y: 645)
                 self.serviceProrata.btnVariefy.addTarget(self, action: #selector(self.calculateServiceProrata), for: .touchUpInside)
+                self.serviceProrata.btnApproved.addTarget(self, action: #selector(self.ServiceProrata_SaveButton), for: .touchUpInside)
                 let dataQuarter = ["89","90","91","92"]
                 self.serviceProrata.dayQuarterTxt.loadDropdownData(data: dataQuarter)
 
@@ -276,7 +277,7 @@ class InitiatePenaltyVC: UIViewController {
             }else if type == 3{
                 penaltyService.transform = CGAffineTransform(translationX: 0, y: 645)
                 self.penaltyService.btnVariefy.addTarget(self, action: #selector(self.calculateServicePenalty), for: .touchUpInside)
-
+                self.penaltyService.btnApproved.addTarget(self, action: #selector(self.PenaltyService_SaveButton), for: .touchUpInside)
                 
                 animateViewUp_penaltyService()
             }
@@ -320,6 +321,25 @@ class InitiatePenaltyVC: UIViewController {
             serviceProrata.payablePaynltyTxt.text = String(Int(unitCost!) * Int(totaldelay!))
         }
     }
+    
+    @objc func SpareLD_SaveButton(){
+        
+    }
+    
+    @objc func ServiceProrata_SaveButton(){
+        
+    }
+    
+    @objc func PenaltyService_SaveButton(){
+        
+    }
+    
+    func API_InitiatePenalty(){
+        viewModels.API_Post_InitiatePenalty(json: PenaltyRequestJson.init(ticket_ID: "", service_Type: "", service_SubType: "", quaterly_Unit_Cost: 0, basic_UnitCost: "", spare_Cost: "", total_Delay: "", max_LD: "", ld_Rate: 0, payble_Penalty: "", dayIn_Quarter: "", unit_Cost: ""), data: {(result) in
+            print(result as Any)
+        })
+    }
+    
     func textFieldEditingDidChange(id: String){
         let index =  arrayTicketID.firstIndex(where: { $0 == id }) ?? 0
         if index > 0 {
@@ -379,9 +399,9 @@ extension InitiatePenaltyVC:UITextFieldDelegate{
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         print("TextField should end editing method called == ", textField.text as Any)
         if textField.tag == 1016 {
-        if textField.text != nil || textField.text != "Select" {
-            textFieldEditingDidChange(id: textField.text!)
-        }
+            if textField.text != nil || textField.text != "Select" {
+                textFieldEditingDidChange(id: textField.text!)
+            }
         }
         return true;
     }

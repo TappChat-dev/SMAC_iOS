@@ -37,6 +37,7 @@ class UpdateTicketsJsonModel: NSObject {
 
         apiManager.apiPost(serviceName: serviceUrlUPDATE, parameters: jsons as! [String : Any], completionHandler: {result,error in
             print(result)
+            data(result)
         })
     }
     

@@ -80,6 +80,11 @@ class LoginViewController: UIViewController {
         SideMenuController.preferences.basic.menuWidth = 240
         SideMenuController.preferences.basic.defaultCacheKey = "0"
     }
+    //MARK: - Password IBActions
+    @IBAction func tapEyeButton(_ sender: UIButton) {
+        passwordTxt.isSecureTextEntry = sender.isSelected
+        sender.isSelected = !sender.isSelected
+    }
     
     // MARK: - Login Button
     @IBAction func tapToLogin(_ sender:UIButton){
