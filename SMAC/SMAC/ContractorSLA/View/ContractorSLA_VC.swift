@@ -139,7 +139,7 @@ class ContractorSLA_VC: UIViewController,UISearchBarDelegate {
                 searchActive = true
                 SearchResultModel = userModelContr.filter({ (products) -> Bool in
                     return products.contractName.range(of: searchText, options: [ .caseInsensitive, .diacriticInsensitive ]) != nil ||
-                    products.stationName.rawValue.range(of: searchText, options: [ .caseInsensitive, .diacriticInsensitive ]) != nil ||
+                    products.stationName.range(of: searchText, options: [ .caseInsensitive, .diacriticInsensitive ]) != nil ||
                            products.unitContractCreator.range(of: searchText, options: [ .caseInsensitive, .diacriticInsensitive ]) != nil
                     // Add the rest as needed.
                  })

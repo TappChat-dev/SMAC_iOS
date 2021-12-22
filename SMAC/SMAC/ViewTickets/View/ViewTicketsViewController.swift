@@ -29,7 +29,11 @@ class ViewTicketsViewController: UIViewController,ViewTicketCellDelegate,UISearc
 //        tableView.delegate = self
         UIApplication.shared.statusBarUIView?.backgroundColor = UIColor.init(rgb: 0x06284D)
         self.setNeedsStatusBarAppearanceUpdate()
-
+        if roleID == "" {
+            
+        }else if roleID == ""{
+          
+        }
 //        let attr = NSDictionary(object: UIFont(name: "HelveticaNeue", size: 20.0)!, forKey: NSAttributedString.Key.font as NSCopying)
 //        self.segmentOption.setTitleTextAttributes(attr as? [NSAttributedString.Key : Any], for: .normal)
         
@@ -142,12 +146,23 @@ class ViewTicketsViewController: UIViewController,ViewTicketCellDelegate,UISearc
         }
 //        let data = userResultModel[tag]
         roleID =  UserDefaults.standard.string(forKey: "isLoginRoleID")!
+        let  roleIDs =  UserDefaults.standard.string(forKey: "isLoginRoleID")!
 
+//         if roleIDs == "DM" {
+//             self.btnEdit.setTitle("Assign", for: .normal)
+//         }else if roleIDs == "SD"{
+//             self.btnEdit.setTitle("Edit", for: .normal)
+//         }
         if roleID == "SE" {
             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                 let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SEUpdateTicketVC") as! SEUpdateTicketVC
             nextViewController.userResultUpdateModel = data
                 navigationController?.pushViewController(nextViewController, animated: true)
+        }else if roleID == "DM"{
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AssignTicketViewController") as! AssignTicketViewController
+            nextViewController.userResultUpdateModel = data
+            navigationController?.pushViewController(nextViewController, animated: true)
         }else{
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "UpdateTicketViewController") as! UpdateTicketViewController

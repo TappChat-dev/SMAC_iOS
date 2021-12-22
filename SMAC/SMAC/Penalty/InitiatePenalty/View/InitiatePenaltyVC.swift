@@ -335,7 +335,11 @@ class InitiatePenaltyVC: UIViewController {
     }
     
     func API_InitiatePenalty(){
-        viewModels.API_Post_InitiatePenalty(json: PenaltyRequestJson.init(ticket_ID: "", service_Type: "", service_SubType: "", quaterly_Unit_Cost: 0, basic_UnitCost: "", spare_Cost: "", total_Delay: "", max_LD: "", ld_Rate: 0, payble_Penalty: "", dayIn_Quarter: "", unit_Cost: ""), data: {(result) in
+        if self.ticketNoTxt.text == "" || self.ticketNoTxt.text == nil{
+            
+            return
+        }
+        viewModels.API_Post_InitiatePenalty(json: PenaltyRequestJson.init(ticket_ID: self.ticketNoTxt.text! , service_Type: self.serviceTypeTxt.text!, service_SubType: self.typeTxt.text!, quaterly_Unit_Cost: "", basic_UnitCost: "", spare_Cost: "", total_Delay: "", max_LD: "", ld_Rate: "", payble_Penalty: "", dayIn_Quarter: "", unit_Cost: ""), data: {(result) in
             print(result as Any)
         })
     }

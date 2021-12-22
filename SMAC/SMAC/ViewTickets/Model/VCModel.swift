@@ -115,6 +115,32 @@ struct ResultTickets: Codable {
         case eqptLocation = "EQPT_LOCATION"
     }
 }
+
+enum TicketContractID: String, Codable {
+    case ct0001 = "CT0001"
+}
+
+enum TicketContractName: String, Codable {
+    case abc = "ABC"
+}
+
+enum TicketEquipmentName: String, Codable {
+    case cctvCamera = "CCTV Camera"
+    case heater = "Heater"
+    case sensor2 = "SENSOR2"
+}
+
+enum TicketServiceType: String, Codable {
+    case onsite = "onsite"
+    case remote = "REMOTE"
+    case serviceTYPERemote = "Remote"
+}
+
+enum TicketUnitName: String, Codable {
+    case dteInformationTechnology = "Dte. Information Technology"
+    case icgsDelhi = "ICGS Delhi"
+}
+
 typealias viewAllTickets = ViewAllTicket
 /*
              "CONTRACT_ID": "CT0007",

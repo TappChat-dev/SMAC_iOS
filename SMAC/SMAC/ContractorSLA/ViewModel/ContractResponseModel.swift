@@ -68,21 +68,15 @@ struct RedefineAllContract:Codable {
 
 struct RedefineResult: Codable {
     let contractID, vendorID: String
-    let vendorName, contractDt, contractNo: String?
-    let contractName: String
-    let contractDescr: String?
-    let contractDocs: ContractDocs?
-    let slaDocs: SlaDocs?
-    let unitContractCreator: String
-    let contractCreatedBy: ContractCreatedBy
-    let stationContractCreator: String
-    let stationName: StationName
-    let duration: Int?
-    let fmDt, endDt: String?
-    let contractType: String
+    let vendorName: String?
+    let contractDt, contractNo, contractName, contractDescr: String
+    let contractDocs: String?
+    let slaDocs, unitContractCreator, contractCreatedBy, stationContractCreator: String
+    let stationName: String
+    let duration: Int
+    let fmDt, endDt, contractType: String
     let contractTypeName: String?
-    let pid: String
-    let contractStatus: ContractStatus
+    let pid, contractStatus: String
 
     enum CodingKeys: String, CodingKey {
         case contractID = "CONTRACT_ID"
@@ -125,11 +119,12 @@ enum ContractStatus: String, Codable {
     case slaNotConfigured = "SLA NOT CONFIGURED"
 }
 
-enum SlaDocs: String, Codable {
-    case sla00215112021 = "SLA-00215112021"
+enum ContractTypeName: String, Codable {
+    case allInclusiveAnnualMaintenanceContractAIAMC = "All Inclusive Annual Maintenance Contract (AIAMC)"
+    case annualMaintenanceContractAMC = "Annual Maintenance Contract (AMC)"
+    case spareRCServiceRC = "Spare RC + Service RC"
 }
 
 enum StationName: String, Codable {
     case delhi = "Delhi"
 }
-

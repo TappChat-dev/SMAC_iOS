@@ -82,6 +82,13 @@ class ViewTicketCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         initView()
+       let  roleIDs =  UserDefaults.standard.string(forKey: "isLoginRoleID")!
+
+        if roleIDs == "DM" {
+            self.btnEdit.setTitle("Assign", for: .normal)
+        }else if roleIDs == "SD"{
+            self.btnEdit.setTitle("Edit", for: .normal)
+        }
     }
 
     func initView() {

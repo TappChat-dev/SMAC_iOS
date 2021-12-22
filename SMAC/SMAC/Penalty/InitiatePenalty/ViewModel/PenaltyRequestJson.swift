@@ -32,7 +32,7 @@ struct PenaltyRequestJson{
     var spareCost: String
     var totalDelay: String
     var maxLD: String
-    var ldRate:Int
+    var ldRate:String
     var payblePenalty:String
     var dayInQuarter:String
     var unitCost:String
@@ -43,12 +43,12 @@ struct PenaltyRequestJson{
 
         serviceType = ""
         serviceSubType = ""
-        quaterlyUnitCost = 0
+        quaterlyUnitCost = ""
         basicUnitCost = ""
         spareCost = ""
         totalDelay = ""
         maxLD = ""
-        ldRate = 0
+        ldRate = ""
         payblePenalty = ""
         dayInQuarter = ""
         unitCost = ""
@@ -57,7 +57,7 @@ struct PenaltyRequestJson{
         
     }
     
-    init(ticket_ID: String,service_Type: String, service_SubType: String,quaterly_Unit_Cost: Int,basic_UnitCost:String,spare_Cost:String, total_Delay:String,max_LD: String,ld_Rate:Int,payble_Penalty:String,dayIn_Quarter:String,unit_Cost:String) {
+    init(ticket_ID: String,service_Type: String, service_SubType: String,quaterly_Unit_Cost: String,basic_UnitCost:String,spare_Cost:String, total_Delay:String,max_LD: String,ld_Rate:String,payble_Penalty:String,dayIn_Quarter:String,unit_Cost:String) {
         
         self.ticketID = ticket_ID
         self.serviceType = service_Type

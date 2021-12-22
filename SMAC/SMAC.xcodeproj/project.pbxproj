@@ -36,6 +36,7 @@
 		042B7FF2273B9B1100E2DD6C /* ContractResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B7FF1273B9B1100E2DD6C /* ContractResponseModel.swift */; };
 		042B7FF4273B9BF300E2DD6C /* ContractModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B7FF3273B9BF300E2DD6C /* ContractModel.swift */; };
 		042DB0C9275E1FA200452905 /* SEUpdateTicketVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042DB0C8275E1FA100452905 /* SEUpdateTicketVC.swift */; };
+		043A72DC2772FD9800A292E3 /* AssignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043A72DB2772FD9800A292E3 /* AssignViewModel.swift */; };
 		043FCC5426CB935400120117 /* VCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FCC5326CB935400120117 /* VCViewModel.swift */; };
 		043FCC5926CB93E300120117 /* VCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FCC5826CB93E300120117 /* VCModel.swift */; };
 		043FCC6226CCC7B200120117 /* UpdateTicketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043FCC6126CCC7B200120117 /* UpdateTicketViewController.swift */; };
@@ -195,6 +196,7 @@
 		042B7FF1273B9B1100E2DD6C /* ContractResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractResponseModel.swift; sourceTree = "<group>"; };
 		042B7FF3273B9BF300E2DD6C /* ContractModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractModel.swift; sourceTree = "<group>"; };
 		042DB0C8275E1FA100452905 /* SEUpdateTicketVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SEUpdateTicketVC.swift; sourceTree = "<group>"; };
+		043A72DB2772FD9800A292E3 /* AssignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignViewModel.swift; sourceTree = "<group>"; };
 		043FCC5326CB935400120117 /* VCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCViewModel.swift; sourceTree = "<group>"; };
 		043FCC5826CB93E300120117 /* VCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCModel.swift; sourceTree = "<group>"; };
 		043FCC6126CCC7B200120117 /* UpdateTicketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTicketViewController.swift; sourceTree = "<group>"; };
@@ -1131,6 +1133,7 @@
 		04A80565272D3C8D005CDFBE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				043A72DB2772FD9800A292E3 /* AssignViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1584,6 +1587,7 @@
 				04689F8A27562B53002D6263 /* BasicTransitionAnimator.swift in Sources */,
 				0408A508276C5B1D003C8131 /* PenaltyResponse.swift in Sources */,
 				04C122F72762071E007B7EA5 /* LoginVendorJson.swift in Sources */,
+				043A72DC2772FD9800A292E3 /* AssignViewModel.swift in Sources */,
 				04A80567272D3CCC005CDFBE /* AssignTicketViewController.swift in Sources */,
 				04689F8827562B53002D6263 /* TransitionContext.swift in Sources */,
 				045D427926B27B060082BCD1 /* AppDelegate.swift in Sources */,
