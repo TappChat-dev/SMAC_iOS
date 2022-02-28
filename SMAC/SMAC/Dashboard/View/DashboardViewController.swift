@@ -68,6 +68,7 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
         }else if (roleID == "EU"){ // icg Eqipment user //"R08"
             totalArrayRole = arrEquipmentUser
         }
+        
         let players = ["AllTickets", "InProgress", "Close"]
         let goals = [6.0, 5.0, 1.0]
         customizeChart(dataPoints: players ?? [], values: goals.map{ $0 } as! [Double])
@@ -82,8 +83,6 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
         
         if isDarkModeEnabled {
            
-         
-         
             navigationController?.navigationBar.isTranslucent = false
           
             navigationController?.navigationBar.titleTextAttributes = [
@@ -196,7 +195,7 @@ class DashboardViewController: UIViewController, SideMenuControllerDelegate {
     //MARK: API Dashboard Count
     func API_Dashboard(){
         guard let techID =  UserDefaults.standard.string(forKey: "TechID") else { return print("unit id is not find.") }
-        
+        //"P_ID","P_ROLE_TYPE","P_CONT_NO"
         viewModelType.getDashboard_Count(json: DashboardJsonDictionary.init(id: techID), data: {result in
             print(result)
             let status = result["STATUS"] as? String
